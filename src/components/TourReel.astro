@@ -1,0 +1,77 @@
+---
+import Icon from './Icon.astro';
+import { u } from '../lib/url';
+
+const clips = [
+  { label: 'Full Showcase', file: 'hosted-havens-showcase' },
+  { label: 'Living Room', file: 'tour-scene-1' },
+  { label: 'Arched Entry', file: 'tour-scene-2' },
+  { label: 'Studio Kitchen', file: 'tour-scene-3' },
+  { label: 'Accent Wall', file: 'tour-scene-4' },
+  { label: 'Chef’s Kitchen', file: 'tour-scene-5' },
+  { label: 'Bedroom Suite', file: 'tour-scene-6' },
+  { label: 'Dining Room', file: 'tour-scene-7' },
+  { label: 'Outdoors', file: 'tour-scene-8' },
+].map((c) => ({ ...c, src: u(`/videos/${c.file}.mp4`), poster: u(`/videos/${c.file}-poster.webp`) }));
+const first = clips[0];
+---
+<section class="section bg-cream" aria-labelledby="tour-title">
+  <div class="container reel">
+    <div class="reel-player reveal">
+      <video
+        data-reel-video
+        src={first.src}
+        poster={first.poster}
+        muted
+        playsinline
+        loop
+        controls
+        preload="none"
+        aria-label="Hosted Havens video tour"
+      ></video>
+    </div>
+    <div class="reveal reveal-d2">
+      <span class="eyebrow">Take the tour</span>
+      <h2 id="tour-title">See a Haven <em>before you arrive.</em></h2>
+      <p class="lead">Walk through the spaces guests love — the living rooms, kitchens, bedrooms and outdoor spots that make a Hosted Havens stay feel like home.</p>
+      <div class="reel-chips" role="group" aria-label="Choose a tour clip">
+        {clips.map((c, i) => (
+          <button type="button" aria-pressed={i === 0 ? 'true' : 'false'} data-src={c.src} data-poster={c.poster}>{c.label}</button>
+        ))}
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href={u('/stays/')} data-track="stays_view">Explore Hosted Havens <Icon name="arrow" /></a>
+        <a class="btn btn-glass" href={u('/why-book-direct/')}>Why Book Direct</a>
+      </div>
+      <ul class="reel-perks" aria-label="Direct booking benefits">
+        <li><Icon name="check" />Book direct</li>
+        <li><Icon name="pin" />Local support</li>
+        <li><Icon name="shield" />Professionally managed</li>
+        <li><Icon name="calendar" />Flexible stays</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.reel').forEach((reel) => {
+    const video = reel.querySelector<HTMLVideoElement>('[data-reel-video]');
+    const chips = [...reel.querySelectorAll<HTMLButtonElement>('.reel-chips button')];
+    if (!video) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce && 'IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        entries.forEach((en) => {
+          if (en.isIntersecting) video.play().catch(() => {});
+          else video.pause();
+        });
+      }, { threshold: 0.45 }).observe(video);
+    }
+    chips.forEach((chip) => chip.addEventListener('click', () => {
+      chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+      video.poster = chip.dataset.poster || '';
+      video.src = chip.dataset.src || '';
+      video.play().catch(() => {});
+    }));
+  });
+</script>

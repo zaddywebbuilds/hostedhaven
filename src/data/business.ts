@@ -80,10 +80,10 @@ export const ownerTestimonials = [
 ];
 
 export const guestReviews = [
-  { quote: 'This was in a convenient location for our visit. Easy access to Loop 1604. Megan is very friendly and helpful… and quick… in her interactions. Would definitely stay here again if needed.', name: 'Melanie', from: 'Atlanta, GA' },
-  { quote: 'Had a fantastic stay at Megan’s Airbnb! The place was clean, cozy, and pet-friendly, which was a huge plus. Megan was a great host — responsive and thoughtful. Highly recommend!', name: 'Chance', from: 'Wichita, KS' },
-  { quote: 'The casita was in a convenient location, comfortable with modern updates inside and outside. We enjoyed our stay over the Labor Day weekend!', name: 'Abel', from: 'Lubbock, TX' },
-  { quote: 'Ideal stop at Megan’s house. Easy to access and far from the hustle and bustle of San Antonio, we very much enjoyed the calm to sleep. Bedding, bathroom and kitchen — everything was spotless!', name: 'Stéphanie', from: 'Orléans, France' },
+  { quote: 'This was in a convenient location for our visit. Easy access to Loop 1604. Megan is very friendly and helpful… and quick… in her interactions. Would definitely stay here again if needed.', name: 'Melanie', from: 'Atlanta, GA', avatar: 'reviews/guest-melanie' },
+  { quote: 'Had a fantastic stay at Megan’s Airbnb! The place was clean, cozy, and pet-friendly, which was a huge plus. Megan was a great host — responsive and thoughtful. Highly recommend!', name: 'Chance', from: 'Wichita, KS', avatar: 'reviews/guest-chance' },
+  { quote: 'The casita was in a convenient location, comfortable with modern updates inside and outside. We enjoyed our stay over the Labor Day weekend!', name: 'Abel', from: 'Lubbock, TX', avatar: 'reviews/guest-abel' },
+  { quote: 'Ideal stop at Megan’s house. Easy to access and far from the hustle and bustle of San Antonio, we very much enjoyed the calm to sleep. Bedding, bathroom and kitchen — everything was spotless!', name: 'Stéphanie', from: 'Orléans, France', avatar: 'reviews/guest-stephanie' },
 ];
 
 export const team = [

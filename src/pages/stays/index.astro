@@ -78,6 +78,27 @@ const schema = [{
     </div>
   </section>
 
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">Every Hosted Havens stay</span><h2>Comfort you can <em>count on</em></h2></div>
+      <div class="amenity-grid">
+        {[
+          { icon: 'shield', title: 'Outdoor security, private interiors', text: 'Exterior cameras monitor the premises while interior privacy is guaranteed.' },
+          { icon: 'sparkle', title: 'Thoughtfully designed spaces', text: 'Modern furnishings, tasteful décor and a cohesive look throughout.' },
+          { icon: 'heart', title: 'Premium comfort amenities', text: 'Quality linens, plush towels and essential toiletries provided.' },
+          { icon: 'home', title: 'Fully equipped kitchens', text: 'Contemporary appliances, essential cookware and complete tableware.' },
+          { icon: 'wifi', title: 'Fast Wi-Fi & a place to work', text: 'Reliable home internet and workspaces for those important calls.' },
+          { icon: 'key', title: 'Complimentary parking', text: 'Free parking on or near the property for your stay.' },
+        ].map((a, i) => (
+          <div class={`amenity reveal reveal-d${(i % 3) + 1}`}>
+            <span class={`icon-box ${i % 3 === 1 ? 'sage' : i % 3 === 2 ? 'gold' : ''}`}><Icon name={a.icon} /></span>
+            <div><h3>{a.title}</h3><p>{a.text}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="section bg-warm">
     <div class="container split" style="align-items:start">
       <div class="reveal">

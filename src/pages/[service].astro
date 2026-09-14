@@ -8,7 +8,7 @@ import OwnerCTA from '../components/OwnerCTA.astro';
 import PropertyCard from '../components/PropertyCard.astro';
 import { services, serviceLabel, type Service } from '../data/services';
 import { properties } from '../data/properties';
-import { propertyImages } from '../lib/images';
+import { propertyImages, brandImage } from '../lib/images';
 import { u, fixLinks, SITE } from '../lib/url';
 import { business, ownerTestimonials, pricing } from '../data/business';
 
@@ -19,6 +19,9 @@ interface Props { s: Service }
 const { s } = Astro.props;
 const path = `/${s.slug}/`;
 const imgs = propertyImages(s.heroProperty);
+const isMain = s.slug === 'airbnb-management-san-antonio';
+// The live co-hosting page used the house tour video and these two owner photos.
+const introImgs = isMain ? [brandImage('happy-homeowners-outside-house'), brandImage('san-antonio-rental-home-exterior')] : [imgs[1], imgs[2]];
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'Owners', path: '/airbnb-management-san-antonio/' }, { name: s.navLabel, path }];
 if (s.slug === 'airbnb-management-san-antonio') crumbs.splice(1, 1);
 const showcase = s.slug === 'mid-term-rental-management-san-antonio'
@@ -45,7 +48,8 @@ const schema = [
     lead={s.lead}
     crumbs={crumbs}
     image={imgs[0]}
-    imageAlt={`Interior of a Hosted Havens managed rental`}
+    video={isMain ? { src: '/videos/house-tour.mp4', poster: '/videos/house-tour-poster.webp' } : undefined}
+    imageAlt={isMain ? 'Video tour of a Hosted Havens rental bedroom' : 'Interior of a Hosted Havens managed rental'}
     primary={{ label: 'Get My Property Analysis', href: '/property-analysis/', track: 'owner_analysis_start' }}
     secondary={{ label: 'Schedule a Property Tour', href: '/contact/#owners', track: 'property_tour_click' }}
     note="2-minute property form · No long-term contract required"
@@ -104,8 +108,8 @@ const schema = [
         <a class="text-link" href={u('/property-analysis/')} data-track="owner_analysis_start">See what we’d change about your property <Icon name="arrow" /></a>
       </div>
       <div class="img-stack reveal reveal-d2">
-        <div class="big"><Img src={imgs[1]} alt="" sizes="(max-width: 1024px) 90vw, 45vw" /></div>
-        <div class="small"><Img src={imgs[2]} alt="" sizes="(max-width: 1024px) 45vw, 22vw" /></div>
+        <div class="big"><Img src={introImgs[0]} alt={isMain ? 'Happy homeowners standing outside their house' : ''} sizes="(max-width: 1024px) 90vw, 45vw" /></div>
+        <div class="small"><Img src={introImgs[1]} alt={isMain ? 'Exterior of a San Antonio rental home' : ''} sizes="(max-width: 1024px) 45vw, 22vw" /></div>
       </div>
     </div>
   </section>

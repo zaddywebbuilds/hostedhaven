@@ -12,7 +12,7 @@ const SITE_IMAGES = process.env.SITE_IMAGES || path.join(CLIENT, 'site-images');
 const BRAND = process.env.BRAND_ASSETS || path.join(CLIENT, 'brand-assets');
 const OUT = path.join(root, 'public', 'images');
 const DATA = path.join(root, 'src', 'data', 'images.json');
-const PER_PROPERTY = 14;
+const PER_PROPERTY = Infinity;
 const WIDTHS = [640, 1280];
 
 const citySlug = {
@@ -48,9 +48,8 @@ const manifest = { properties: {}, brand: {} };
 for (const slug of Object.keys(citySlug)) {
   const dir = path.join(SITE_IMAGES, slug);
   if (!(await exists(dir))) { console.warn(`missing ${slug}`); continue; }
-  // Legislation's first 43 gallery photos are MLS listing images carrying a Board of Realtors watermark.
-  const startAt = { 'legislation-4br': 44 }[slug] ?? 1;
-  const files = (await fs.readdir(dir)).filter((f) => /\.(jpe?g|png|webp|avif)$/i.test(f) && parseInt(f, 10) >= startAt).sort();
+  // Full gallery in live-site order. Files are named NNN-original.ext by gallery position.
+  const files = (await fs.readdir(dir)).filter((f) => /\.(jpe?g|png|webp|avif)$/i.test(f)).sort();
   const seen = new Set();
   const picked = [];
   for (const f of files) {
@@ -64,8 +63,7 @@ for (const slug of Object.keys(citySlug)) {
   let n = 0;
   for (const f of picked) {
     n++;
-    const kind = slug === 'legislation-4br' ? 'home' : 'rental';
-    const base = `properties/${slug}/${slug}-${citySlug[slug]}-tx-${kind}-${String(n).padStart(2, '0')}`;
+    const base = `properties/${slug}/${slug}-${citySlug[slug]}-tx-rental-${String(n).padStart(2, '0')}`;
     try { manifest.properties[slug].push(await emit(path.join(dir, f), base)); }
     catch (e) { console.warn(`skip ${slug}/${f}: ${e.message}`); }
   }
@@ -81,8 +79,16 @@ const brandJobs = [
   ['VERTICAL-COLOR-GUESTS.png', 'brand/hosted-havens-logo-stacked', [320, 640]],
   ['VERTICAL-COLOR-OWNERS.png', 'brand/hosted-havens-logo-stacked-owners', [320, 640]],
 ];
+// Images that sat on specific live pages (homepage review avatars, owner page photo).
+brandJobs.push(
+  [path.join(SITE_IMAGES, '_owners-cohosting-page', '005-happy-smiling-mature-older-family-couple-new-home-owners-standing-outside-house-.jpg'), 'brand/happy-homeowners-outside-house', [640, 1280]],
+  [path.join(SITE_IMAGES, '_homepage', '011-05267295-9b85-451c-b6e1-744cb9f0936c.avif'), 'reviews/guest-stephanie', [96, 192]],
+  [path.join(SITE_IMAGES, '_homepage', '012-00af2627-cef4-45e7-9022-54dba5755da7.avif'), 'reviews/guest-melanie', [96, 192]],
+  [path.join(SITE_IMAGES, '_homepage', '013-f8107259-8dff-4181-bfe0-5bb969f398d9-1.avif'), 'reviews/guest-chance', [96, 192]],
+  [path.join(SITE_IMAGES, '_homepage', '014-0276c772-ee39-4402-bdad-b9dfeffbe3b6.avif'), 'reviews/guest-abel', [96, 192]],
+);
 for (const [file, base, widths] of brandJobs) {
-  const p = path.join(BRAND, file);
+  const p = path.isAbsolute(file) ? file : path.join(BRAND, file);
   if (await exists(p)) manifest.brand[base.split('/')[1]] = await emit(p, base, widths, { quality: 85 });
 }
 for (const [file, out] of [['Ks.svg', 'team/ks.svg'], ['CR.png', 'team/cr.png'], ['PN.png', 'team/pn.png'], ['2.png', 'team/mm.png'], ['Cs-Outsourcing.png', 'team/cs-outsourcing.png'], ['HH-HORIZONTAL-LOGO-WITH-TAG.png', 'brand/hosted-havens-logo-horizontal-white.png'], ['HOSTED-HAVENS-SQUARE-LOGO-ICON-WHITE-TRANSPARENT.png', 'brand/hosted-havens-icon-white.png']]) {

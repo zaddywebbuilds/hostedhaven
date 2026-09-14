@@ -50,6 +50,14 @@ Everything below needs confirmation from Hosted Havens (Megan) before launch. No
 - [ ] **Legislation** photos (live-site gallery) carry a "Copyright 2024 San Antonio Board of Realtors" MLS watermark. They are shown unaltered on its stay page only, and are kept out of heroes and featured spots. Replace them with owner-owned photography before launch. Do not crop out watermarks.
 - [ ] Spot-check the other galleries for MLS watermarks before launch.
 
+## Videos
+- [ ] `house-tour.mp4` came from the live site (homepage + co-hosting page). It's now used in the homepage hero and the Airbnb Management hero.
+- [ ] The tour reel (homepage) uses `hosted-havens-showcase.mp4` and `scene1–8.mp4` from `SHORT VIDEO CONTENTS/Hosted Havens LLC/VIDEOS`. These clips aren't on the live site. Confirm Hosted Havens approves them for the website, and that the presenter has signed a talent/likeness release.
+- [ ] Clip labels (Living Room, Arched Entry, Studio Kitchen, Accent Wall, Chef’s Kitchen, Bedroom Suite, Dining Room, Outdoors) were inferred from the footage. Rename them to the actual properties if preferred.
+
+## Review photos
+- [ ] The guest review avatars (Melanie, Chance, Abel, Stéphanie) are the photos shown beside those reviews on the live homepage. The avatar-to-name matching was inferred from the live slider order, so please confirm.
+
 ## Booking & links
 - [ ] All 22 Hospitable widget URLs work (taken from live property pages)
 - [ ] Calendly: property-analysis-tour, property-review-meeting, co-hosting-intake

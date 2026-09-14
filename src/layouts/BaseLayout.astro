@@ -111,9 +111,10 @@ const toastImg = coverImage(guestPage ? 'coastal-run' : 'de-soto-lighthouse');
 
   {!quietPage && (
     <>
-      <aside class="toast left" data-toast-reviews data-reviews={JSON.stringify(guestReviews)} aria-label="Guest review" aria-live="polite">
+      <aside class="toast left" data-toast-reviews data-reviews={JSON.stringify(guestReviews.map((r) => ({ ...r, avatar: r.avatar ? u(`/images/${r.avatar}-192.webp`) : '' })))} aria-label="Guest review" aria-live="polite">
         <button type="button" class="toast-close" data-toast-close aria-label="Dismiss guest reviews"><Icon name="close" /></button>
         <div class="toast-head">
+          <img class="toast-avatar" data-r-avatar alt="" width="40" height="40" hidden />
           <span class="avatar-initial" data-r-initial></span>
           <div><strong data-r-name></strong><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> <span class="meta" data-r-from></span></div>
         </div>
@@ -210,13 +211,18 @@ const toastImg = coverImage(guestPage ? 'coastal-run' : 'de-soto-lighthouse');
 
     const reviewToast = document.querySelector<HTMLElement>('[data-toast-reviews]');
     if (reviewToast && !seen('hh-reviews-closed')) {
-      type Review = { quote: string; name: string; from: string };
+      type Review = { quote: string; name: string; from: string; avatar?: string };
       const reviews: Review[] = JSON.parse(reviewToast.dataset.reviews || '[]');
       let i = 0;
       let paused = false;
       let timer = 0;
       const fill = (r: Review) => {
-        reviewToast.querySelector('[data-r-initial]')!.textContent = r.name.charAt(0);
+        const avatar = reviewToast.querySelector<HTMLImageElement>('[data-r-avatar]')!;
+        const initial = reviewToast.querySelector<HTMLElement>('[data-r-initial]')!;
+        avatar.hidden = !r.avatar;
+        initial.hidden = Boolean(r.avatar);
+        if (r.avatar) avatar.src = r.avatar;
+        initial.textContent = r.name.charAt(0);
         reviewToast.querySelector('[data-r-name]')!.textContent = r.name;
         reviewToast.querySelector('[data-r-from]')!.textContent = r.from;
         reviewToast.querySelector('[data-r-quote]')!.textContent = `“${r.quote}”`;

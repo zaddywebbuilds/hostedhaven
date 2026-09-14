@@ -7,5 +7,3 @@ dist/
 npm-debug.log*
 .DS_Store
 Thumbs.db
-# Superseded watermarked MLS images (replaced by *-tx-home-* files)
-public/images/properties/legislation-4br/*-tx-rental-*

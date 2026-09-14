@@ -4,13 +4,14 @@ import Img from '../components/Img.astro';
 import Icon from '../components/Icon.astro';
 import FAQ from '../components/FAQ.astro';
 import PropertyCard from '../components/PropertyCard.astro';
+import TourReel from '../components/TourReel.astro';
 import { u, SITE } from '../lib/url';
 import { propertyImages, brandImage } from '../lib/images';
 import { business, pricing, ownerTestimonials, links } from '../data/business';
 import { properties, featuredProperties } from '../data/properties';
 
 const heroImg = propertyImages('de-soto-lighthouse')[0];
-const stack = [propertyImages('la-maison-blount')[0], propertyImages('coastal-run')[0]];
+const stack = [brandImage('san-antonio-vacation-rental-bedroom'), propertyImages('la-maison-blount')[0]];
 const megan = brandImage('megan-blount-hosted-havens-founder');
 const map = brandImage('san-antonio-map');
 const bridgeImg = propertyImages('the-harding-place')[1];
@@ -88,8 +89,8 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
         <div class="scene" data-tilt>
           <div class="product-aura" aria-hidden="true"></div>
           <div class="product" data-tilt-target>
-            <Img src={heroImg} alt="Vaulted living room at De Soto, a renovated Hosted Havens smart home in Universal City, TX" eager sizes="(max-width: 760px) 64vw, 400px" />
-            <div class="product-tag"><strong>De Soto</strong><span>Universal City, TX</span></div>
+            <video src={u('/videos/house-tour.mp4')} poster={u('/videos/house-tour-poster.webp')} autoplay muted loop playsinline preload="metadata" aria-label="Video tour of a Hosted Havens bedroom"></video>
+            <div class="product-tag"><strong>Hosted Havens</strong><span>San Antonio, TX</span></div>
           </div>
         </div>
       </div>
@@ -120,7 +121,7 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
         </div>
       </div>
       <div class="img-stack reveal reveal-d2">
-        <div class="big"><Img src={stack[0]} alt="Renovated living room at La Maison Blount, a Hosted Havens home in San Antonio" sizes="(max-width: 1024px) 90vw, 45vw" /></div>
+        <div class="big"><Img src={stack[0]} alt="Green and orange bedroom in a Hosted Havens San Antonio vacation rental" sizes="(max-width: 1024px) 90vw, 45vw" /></div>
         <div class="small"><Img src={stack[1]} alt="" sizes="(max-width: 1024px) 45vw, 22vw" /></div>
       </div>
     </div>
@@ -266,31 +267,8 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
     </div>
   </section>
 
-  <!-- 8 · GUEST BRIDGE -->
-  <section class="section-tight">
-    <div class="container">
-      <div class="bridge reveal">
-        <Img src={bridgeImg} alt="The Harding Place, a Craftsman-style Hosted Havens home near downtown San Antonio" sizes="(max-width: 1320px) 100vw, 1240px" />
-        <div class="bridge-inner">
-          <div>
-            <span class="eyebrow">For guests</span>
-            <h2>Looking for Somewhere to Stay?</h2>
-            <p class="lead">Professionally managed short and mid-term rentals across San Antonio and surrounding communities.</p>
-            <div class="btn-row">
-              <a class="btn btn-primary" href={u('/stays/')} data-track="stays_view">Explore Hosted Havens <Icon name="arrow" /></a>
-              <a class="btn btn-glass" href={u('/why-book-direct/')}>Why Book Direct</a>
-            </div>
-          </div>
-          <ul class="perk-card" aria-label="Direct booking benefits">
-            <li><Icon name="check" />Book direct</li>
-            <li><Icon name="pin" />Local support</li>
-            <li><Icon name="shield" />Professionally managed</li>
-            <li><Icon name="calendar" />Flexible stay options</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- 8 · VIDEO TOUR (guests) -->
+  <TourReel />
 
   <!-- 9 · FAQ + FINAL CTA -->
   <section class="section">
