@@ -24,7 +24,25 @@ const isMain = s.slug === 'airbnb-management-san-antonio';
 const introImgs = isMain ? [brandImage('happy-homeowners-outside-house'), brandImage('san-antonio-rental-home-exterior')] : [imgs[1], imgs[2]];
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'Owners', path: '/airbnb-management-san-antonio/' }, { name: s.navLabel, path }];
 if (s.slug === 'airbnb-management-san-antonio') crumbs.splice(1, 1);
-const showcase = s.slug === 'mid-term-rental-management-san-antonio'
+// Real photos for each "What's handled" pillar: licensed stock where the scene is an activity,
+// otherwise a real Hosted Havens interior (rotated across homes so no photo repeats on a page).
+const stockFor: Record<string, string> = {
+  message: 'owner-checking-phone', trending: 'revenue-analytics-laptop', chart: 'revenue-analytics-laptop', camera: 'listing-photography-tripod',
+  broom: 'property-care-making-bed', eye: 'owner-checking-phone', calendar: 'extended-stay-suitcase', plane: 'extended-stay-suitcase',
+};
+const homeSlugs = ['de-soto-lighthouse', 'the-harding-place', 'la-maison-blount', 'coastal-run', 'halliday-fig-trees', 'grass-hollow'];
+const usedStock = new Set<string>();
+let homeTurn = 0;
+const pillarImages = s.pillars.map((p) => {
+  const stock = stockFor[p.icon];
+  if (stock && !usedStock.has(stock)) { usedStock.add(stock); return { src: brandImage(stock), alt: `${p.title} for a San Antonio rental` }; }
+  const slug = homeSlugs[(homeTurn + s.slug.length) % homeSlugs.length];
+  const gallery = propertyImages(slug);
+  const src = gallery[(2 + homeTurn * 3) % gallery.length];
+  homeTurn++;
+  return { src, alt: `Hosted Havens managed home in San Antonio — ${p.title.toLowerCase()}` };
+});
+const showcase = s.slug ==='mid-term-rental-management-san-antonio'
   ? properties.filter((p) => p.extendedStay).slice(0, 3)
   : null;
 
@@ -120,12 +138,15 @@ const schema = [
         <span class="eyebrow">What’s handled</span>
         <h2>Built around <em>your</em> property</h2>
       </div>
-      <div class={`grid ${s.pillars.length === 4 ? 'grid-4' : s.pillars.length === 3 ? 'grid-3' : 'grid-3'}`}>
+      <div class={`grid ${s.pillars.length === 4 ? 'grid-4' : 'grid-3'}`}>
         {s.pillars.map((p, i) => (
-          <article class={`card3d reveal reveal-d${(i % 3) + 1}`}>
-            <span class={`icon-box ${i % 3 === 1 ? 'sage' : i % 3 === 2 ? 'gold' : ''}`}><Icon name={p.icon} /></span>
+          <article class={`card3d svc-card handled-card reveal reveal-d${(i % 3) + 1}`}>
+            <div class="svc-media">
+              {pillarImages[i].src && <Img src={pillarImages[i].src} alt={pillarImages[i].alt} sizes="(max-width: 760px) 90vw, (max-width: 1024px) 45vw, 30vw" />}
+              <span class="svc-shade"></span>
+              <span class="handled-chip"><Icon name={p.icon} />{p.hook}</span>
+            </div>
             <h3>{p.title}</h3>
-            <p class="hook">{p.hook}</p>
             <p>{p.text}</p>
           </article>
         ))}
