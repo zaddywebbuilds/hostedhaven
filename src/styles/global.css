@@ -788,7 +788,14 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
   .toast { bottom: 5.4rem; }
   .toast.left { display: none; }
   .car-track { grid-auto-columns: 84%; gap: 1rem; }
-  .prop-grid.four { grid-template-columns: 1fr; }
+  .prop-grid.four { grid-template-columns: 1fr; gap: .8rem; }
+  .prop-grid.four .prop-card { flex-direction: row; }
+  .prop-grid.four .prop-media { width: 38%; flex: none; aspect-ratio: auto; min-height: 150px; }
+  .prop-grid.four .prop-type { display: none; }
+  .prop-grid.four .prop-body { padding: .8rem .9rem; gap: .3rem; }
+  .prop-grid.four .prop-title { font-size: 1.15rem; }
+  .prop-grid.four .prop-body > p, .prop-grid.four .prop-pills { display: none; }
+  .prop-grid.four .prop-meta { font-size: .78rem; gap: .1rem .6rem; }
   .stat-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stat, .stat:nth-child(3) { border-right: 1px solid rgba(92, 74, 63, .1); }
   .stat:nth-child(2n) { border-right: 0; }
