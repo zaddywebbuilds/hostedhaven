@@ -264,16 +264,81 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
           </div>
         </div>
       </div>
-      <div class="demand-map reveal reveal-d2" aria-label="San Antonio demand drivers">
-        <Img src={map} alt="Road map of San Antonio" sizes="(max-width: 1024px) 90vw, 45vw" />
-        <span class="demand-chip" style="top:12%;left:9%"><i></i>Randolph AFB</span>
-        <span class="demand-chip" style="top:28%;right:7%;animation-delay:-2s"><i></i>Downtown &amp; River Walk</span>
-        <span class="demand-chip" style="top:47%;left:14%;animation-delay:-4s"><i></i>Medical Center</span>
-        <span class="demand-chip" style="bottom:26%;right:12%;animation-delay:-1s"><i></i>Lackland AFB</span>
-        <span class="demand-chip" style="bottom:10%;left:8%;animation-delay:-3s"><i></i>Six Flags</span>
-      </div>
+      <figure class="live-map reveal reveal-d2">
+        <div class="live-map-canvas" data-live-map role="region" aria-label="Interactive map of San Antonio demand drivers and Hosted Havens communities">
+          <Img src={map} alt="Road map of San Antonio" sizes="(max-width: 1024px) 90vw, 45vw" class="map-fallback" />
+        </div>
+        <figcaption class="map-legend">
+          <span><i class="lg-demand"></i>Demand drivers</span>
+          <span><i class="lg-stay"></i>Hosted Havens communities</span>
+          <span class="map-hint">Drag to explore</span>
+        </figcaption>
+      </figure>
     </div>
   </section>
+
+  <script>
+    type Pin = { name: string; lat: number; lng: number; kind: 'demand' | 'stay'; note: string };
+    const pins: Pin[] = [
+      { name: 'Downtown & River Walk', lat: 29.4232, lng: -98.4891, kind: 'demand', note: 'Tourism, conventions & events' },
+      { name: 'South Texas Medical Center', lat: 29.5078, lng: -98.5776, kind: 'demand', note: 'Medical & traveling-nurse stays' },
+      { name: 'Randolph AFB', lat: 29.5329, lng: -98.2789, kind: 'demand', note: 'Military travel & PCS moves' },
+      { name: 'Lackland AFB', lat: 29.3842, lng: -98.6178, kind: 'demand', note: 'Weekly Air Force graduations' },
+      { name: 'Six Flags Fiesta Texas', lat: 29.6002, lng: -98.6096, kind: 'demand', note: 'Family travel' },
+      { name: 'SeaWorld San Antonio', lat: 29.4580, lng: -98.6997, kind: 'demand', note: 'Family travel' },
+      { name: 'San Antonio International Airport', lat: 29.5337, lng: -98.4698, kind: 'demand', note: 'Business & short-notice trips' },
+      { name: 'Converse', lat: 29.5180, lng: -98.3161, kind: 'stay', note: 'Hosted Havens stays' },
+      { name: 'Universal City', lat: 29.5480, lng: -98.2911, kind: 'stay', note: 'Hosted Havens stays' },
+      { name: 'Live Oak', lat: 29.5652, lng: -98.3364, kind: 'stay', note: 'Hosted Havens stays' },
+      { name: 'Central San Antonio', lat: 29.4001, lng: -98.5220, kind: 'stay', note: 'Hosted Havens stays' },
+    ];
+
+    const loadCss = (href: string) => new Promise<void>((res) => {
+      const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = href; l.onload = () => res(); l.onerror = () => res(); document.head.appendChild(l);
+    });
+    const loadJs = (src: string) => new Promise<void>((res, rej) => {
+      const s = document.createElement('script'); s.src = src; s.onload = () => res(); s.onerror = () => rej(); document.head.appendChild(s);
+    });
+
+    const el = document.querySelector<HTMLElement>('[data-live-map]');
+    const init = async () => {
+      if (!el || el.dataset.ready) return;
+      el.dataset.ready = '1';
+      try {
+        await Promise.all([
+          loadCss('https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css'),
+          loadJs('https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js'),
+        ]);
+        const L = (window as unknown as { L: any }).L;
+        const map = L.map(el, { zoomControl: false, scrollWheelZoom: false, attributionControl: true, zoomSnap: 0.25 });
+        L.control.zoom({ position: 'bottomright' }).addTo(map);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 17, minZoom: 9,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors',
+        }).addTo(map);
+        const bounds = L.latLngBounds([]);
+        pins.forEach((p) => {
+          const icon = L.divIcon({ className: '', html: `<span class="pin pin-${p.kind}"><span class="pin-dot"></span></span>`, iconSize: [26, 26], iconAnchor: [13, 13] });
+          L.marker([p.lat, p.lng], { icon, title: p.name, keyboard: true })
+            .addTo(map)
+            .bindTooltip(`<strong>${p.name}</strong><span>${p.note}</span>`, { direction: 'top', offset: [0, -12], className: `map-tip tip-${p.kind}`, permanent: p.kind === 'demand' && window.innerWidth > 760 });
+          bounds.extend([p.lat, p.lng]);
+        });
+        map.fitBounds(bounds, { padding: [34, 34] });
+        el.classList.add('is-live');
+      } catch {
+        el.dataset.ready = '';
+      }
+    };
+    if (el) {
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          if (entries.some((e) => e.isIntersecting)) { io.disconnect(); init(); }
+        }, { rootMargin: '300px 0px' });
+        io.observe(el);
+      } else init();
+    }
+  </script>
 
   <!-- 7 · FOUNDER + OWNER VOICE -->
   <section class="section">
