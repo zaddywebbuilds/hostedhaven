@@ -271,7 +271,7 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
         <figcaption class="map-legend">
           <span><i class="lg-demand"></i>Demand drivers</span>
           <span><i class="lg-stay"></i>Hosted Havens communities</span>
-          <span class="map-hint">Drag to explore</span>
+          <span class="map-hint">Tap a pin to open it in Google Maps</span>
         </figcaption>
       </figure>
     </div>
@@ -319,12 +319,34 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
         const bounds = L.latLngBounds([]);
         pins.forEach((p) => {
           const icon = L.divIcon({ className: '', html: `<span class="pin pin-${p.kind}"><span class="pin-dot"></span></span>`, iconSize: [26, 26], iconAnchor: [13, 13] });
-          L.marker([p.lat, p.lng], { icon, title: p.name, keyboard: true })
+          const gmaps = p.kind === 'demand'
+            ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${p.name}, San Antonio, TX`)}`
+            : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${p.name.replace('Central ', '')}, TX`)}`;
+          const openMaps = () => {
+            (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.('event', 'map_pin_click', { place: p.name });
+            window.open(gmaps, '_blank', 'noopener,noreferrer');
+          };
+          const marker = L.marker([p.lat, p.lng], { icon, title: `${p.name} — open in Google Maps`, keyboard: true, riseOnHover: true })
             .addTo(map)
-            .bindTooltip(`<strong>${p.name}</strong><span>${p.note}</span>`, { direction: 'top', offset: [0, -12], className: `map-tip tip-${p.kind}`, permanent: ['Downtown & River Walk', 'South Texas Medical Center', 'Randolph AFB', 'Lackland AFB'].includes(p.name) && window.innerWidth > 760 });
+            .bindTooltip(`<strong>${p.name}</strong><span>${p.note}</span><em>Open in Google Maps ↗</em>`, { direction: 'top', offset: [0, -12], className: `map-tip tip-${p.kind}`, interactive: true, permanent: ['Downtown & River Walk', 'South Texas Medical Center', 'Randolph AFB', 'Lackland AFB'].includes(p.name) && window.innerWidth > 760 });
+          marker.on('click', openMaps);
+          marker.on('keypress', (e: { originalEvent: KeyboardEvent }) => { if (e.originalEvent.key === 'Enter') openMaps(); });
+          marker.getTooltip()?.on('click', openMaps);
           bounds.extend([p.lat, p.lng]);
         });
         map.fitBounds(bounds, { paddingTopLeft: [70, 70], paddingBottomRight: [110, 40] });
+        const OpenAll = L.Control.extend({
+          onAdd() {
+            const a = L.DomUtil.create('a', 'map-open-all');
+            a.href = 'https://www.google.com/maps/place/San+Antonio,+TX';
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.innerHTML = 'View larger map ↗';
+            L.DomEvent.disableClickPropagation(a);
+            return a;
+          },
+        });
+        new OpenAll({ position: 'topright' }).addTo(map);
         el.classList.add('is-live');
       } catch {
         el.dataset.ready = '';
@@ -341,20 +363,43 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
   </script>
 
   <!-- 7 · FOUNDER + OWNER VOICE -->
-  <section class="section">
-    <div class="container founder-grid">
-      <div class="portrait-stack reveal">
-        <div class="portrait"><Img src={megan} alt="Megan Blount, founder of Hosted Havens" sizes="(max-width: 1024px) 80vw, 36vw" /></div>
-      </div>
-      <div class="reveal reveal-d2">
+  <section class="section founder">
+    <div class="container founder-feature">
+      <figure class="founder-photo reveal">
+        <Img src={megan} alt="Megan Blount, founder of Hosted Havens, in downtown San Antonio" sizes="(max-width: 1024px) 90vw, 40vw" />
+        <figcaption class="founder-plate">
+          <strong>Megan Blount</strong>
+          <span>Founder · Hosted Havens</span>
+          <span class="founder-loc"><Icon name="pin" />San Antonio, Texas</span>
+        </figcaption>
+      </figure>
+
+      <div class="founder-copy reveal reveal-d2">
         <span class="eyebrow">Meet the founder</span>
-        <h2>A hospitality operator who <em>started as a host.</em></h2>
-        <p class="lead">Megan began hosting in 2021 with her own San Antonio home and built Hosted Havens around one standard: manage every property as if it were her own.</p>
+        <h2>Built by a host who manages every home <em>like it’s her own.</em></h2>
+        <p class="lead">Megan listed her own San Antonio home in 2021 to cover the mortgage during a planned move to Panama. The move fell through. The love of hosting didn’t.</p>
+        <p>That first summer brought an AC failure in 105-degree heat and an arbitrage rental across town — two listings, managed on her own. By late 2023 other hosts were asking for her help, and when Airbnb expanded its Co-Host Network to San Antonio, Hosted Havens was born.</p>
+
+        <dl class="founder-facts">
+          <div><dt>2016</dt><dd>Called San Antonio home</dd></div>
+          <div><dt>2021</dt><dd>Started hosting</dd></div>
+          <div><dt>2023</dt><dd>Hosts came asking for help</dd></div>
+        </dl>
+
+        <div class="founder-sign">
+          <span class="signature" aria-hidden="true">Megan Blount</span>
+          <span class="muted small">Founder, Hosted Havens LLC</span>
+        </div>
+
         <blockquote class="mini-quote">
           <p>“{ownerTestimonials[0].quote}”</p>
           <cite>— {ownerTestimonials[0].name}, {ownerTestimonials[0].role}</cite>
         </blockquote>
-        <div class="btn-row" style="margin-top:1.4rem"><a class="btn btn-dark" href={u('/about/')}>Meet the Team <Icon name="arrow" /></a></div>
+
+        <div class="btn-row" style="margin-top:1.4rem">
+          <a class="btn btn-dark" href={u('/resources/from-one-house-to-hosted-havens-how-a-missed-move-abroad-sparked-my-dream-business/')}>Read Megan’s Story <Icon name="arrow" /></a>
+          <a class="btn btn-glass" href="https://www.linkedin.com/in/meganblount-hostedhavensco/" target="_blank" rel="noopener noreferrer"><Icon name="linkedin" /> LinkedIn</a>
+        </div>
       </div>
     </div>
   </section>

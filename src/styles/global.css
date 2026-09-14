@@ -833,6 +833,34 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .map-legend .lg-stay { background: #5E6E50; border-radius: 3px; transform: rotate(45deg); }
 .map-hint { margin-left: auto; color: var(--ink-mute); font-weight: 500; }
 
+/* ---------- Map → Google Maps ---------- */
+.leaflet-marker-icon { cursor: pointer; }
+.leaflet-tooltip.map-tip { cursor: pointer; pointer-events: auto; transition: transform .25s var(--ease), box-shadow .25s; }
+.leaflet-tooltip.map-tip:hover { box-shadow: 0 14px 30px rgba(20, 14, 10, .3); }
+.leaflet-tooltip.map-tip em { display: block; margin-top: .15rem; font-style: normal; font-weight: 700; font-size: .66rem; color: var(--coral-ink); }
+.map-open-all { display: inline-block; padding: .45rem .75rem; border-radius: 999px; background: rgba(253, 244, 232, .96); border: 1px solid #fff; box-shadow: var(--shadow-glass); font: 700 .74rem/1 var(--sans); color: var(--ink) !important; text-decoration: none; }
+.map-open-all:hover { background: var(--ink); color: var(--cream) !important; }
+
+/* ---------- Founder feature ---------- */
+.founder-feature { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(1.8rem, 5vw, 4.5rem); align-items: center; }
+.founder-photo { position: relative; margin: 0; }
+.founder-photo img { width: 100%; aspect-ratio: 4 / 4.6; object-fit: cover; object-position: 50% 20%; border-radius: 28px; box-shadow: 0 2px 0 rgba(255, 255, 255, .7) inset, 0 30px 70px rgba(80, 50, 35, .28), 0 8px 18px rgba(80, 50, 35, .12); }
+.founder-photo::after { content: ''; position: absolute; inset: 14px -14px -14px 14px; border-radius: 30px; border: 1px solid rgba(201, 169, 97, .55); z-index: -1; }
+.founder-plate { position: absolute; left: 1.1rem; bottom: 1.1rem; display: grid; gap: .1rem; padding: .8rem 1rem; border-radius: 16px; background: rgba(253, 244, 232, .92); border: 1px solid #fff; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 12px 30px rgba(20, 14, 10, .22); font-size: .8rem; color: var(--ink-soft); }
+.founder-plate strong { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--ink); line-height: 1.05; }
+.founder-loc { display: inline-flex; align-items: center; gap: .3rem; color: var(--ink-mute); }
+.founder-loc svg { width: 13px; height: 13px; color: var(--coral-deep); }
+.founder-copy h2 { font-size: clamp(1.9rem, 3.2vw, 2.9rem); line-height: 1.1; }
+.founder-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 1.4rem 0; border-top: 1px solid rgba(92, 74, 63, .14); border-bottom: 1px solid rgba(92, 74, 63, .14); }
+.founder-facts div { padding: .9rem .6rem; border-right: 1px solid rgba(92, 74, 63, .1); }
+.founder-facts div:last-child { border-right: 0; }
+.founder-facts dt { font-family: var(--serif); font-size: clamp(1.6rem, 2.4vw, 2.1rem); font-weight: 600; color: var(--coral-deep); line-height: 1; }
+.founder-facts dd { margin: .3rem 0 0; font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mute); }
+.founder-sign { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: .6rem; }
+.signature { font-family: 'Allura', 'Brush Script MT', cursive; font-size: clamp(2.4rem, 3.6vw, 3.1rem); color: var(--ink); line-height: 1; transform: rotate(-3deg); display: inline-block; }
+@media (max-width: 1024px) { .founder-feature { grid-template-columns: 1fr; } .founder-photo { max-width: 520px; } }
+@media (max-width: 760px) { .founder-facts { grid-template-columns: 1fr 1fr 1fr; } .founder-facts dd { font-size: .62rem; } .founder-photo::after { display: none; } }
+
 /* ---------- Video ---------- */
 .product video, .ihero-photo video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .reel { display: grid; grid-template-columns: auto 1fr; gap: clamp(1.5rem, 4.5vw, 4rem); align-items: center; }
