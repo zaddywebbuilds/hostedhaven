@@ -5,8 +5,8 @@ import Icon from '../components/Icon.astro';
 import FAQ from '../components/FAQ.astro';
 import PropertyCard from '../components/PropertyCard.astro';
 import { u, SITE } from '../lib/url';
-import { propertyImages, brandImage, coverImage } from '../lib/images';
-import { business, pricing, ownerTestimonials, guestReviews, links } from '../data/business';
+import { propertyImages, brandImage } from '../lib/images';
+import { business, pricing, ownerTestimonials, links } from '../data/business';
 import { properties, featuredProperties } from '../data/properties';
 
 const heroImg = propertyImages('de-soto-lighthouse')[0];
@@ -14,59 +14,48 @@ const stack = [propertyImages('la-maison-blount')[0], propertyImages('coastal-ru
 const megan = brandImage('megan-blount-hosted-havens-founder');
 const map = brandImage('san-antonio-map');
 const bridgeImg = propertyImages('the-harding-place')[1];
-const featured = featuredProperties.slice(0, 3);
+const cities = new Set(properties.map((p) => p.city)).size;
 
-const pains = ['11 PM guest messages', 'Pricing every weekend', 'Cleaner coordination', 'Maintenance emergencies', 'Restocking supplies', 'Review management', 'Calendar gaps', 'Listing updates', 'Check-in issues', 'Tax & compliance admin'];
+const pains = ['11 PM guest messages', 'Pricing every weekend', 'Cleaner coordination', 'Maintenance calls', 'Restocking', 'Reviews', 'Calendar gaps', 'Check-in issues', 'Tax & compliance admin'];
 
 const services = [
-  { icon: 'message', title: 'Guest Management', hook: 'Five-star stays start with fast answers.', text: 'Guest communication, check-in support, issue resolution and follow-up that protects your reviews.', href: '/airbnb-co-host-san-antonio/', link: 'Explore Co-Hosting' },
-  { icon: 'trending', title: 'Revenue Strategy', hook: 'Don’t leave your nightly rate on autopilot.', text: 'Pricing adjusts with demand, booking patterns, seasonality and calendar opportunities.', href: '/airbnb-revenue-management-san-antonio/', link: 'Explore Revenue Management' },
-  { icon: 'camera', title: 'Listing Optimization', hook: 'Win the scroll before the stay.', text: 'Complimentary professional photography, listing creation, titles, descriptions and amenity positioning.', href: '/airbnb-listing-optimization-san-antonio/', link: 'Explore Listing Optimization' },
-  { icon: 'broom', title: 'Property Care', hook: 'Guest-ready after every turnover.', text: 'Professional cleaning, routine inspections, proactive maintenance and restocking.', href: '/str-property-care-san-antonio/', link: 'Explore Property Care' },
-  { icon: 'eye', title: 'Owner Support', hook: 'Hands-off, never in the dark.', text: 'Calendar visibility, access to professional hosting tools and support 7 days a week.', href: '/airbnb-management-san-antonio/', link: 'Explore Airbnb Management' },
-  { icon: 'calendar', title: 'Short + Mid-Term Strategy', hook: 'More than one way to fill a calendar.', text: 'Nightly stays, 30+ day furnished stays and blended strategies for steadier occupancy.', href: '/mid-term-rental-management-san-antonio/', link: 'Explore Mid-Term Management' },
+  { icon: 'message', title: 'Guest Management', hook: 'Five-star stays start with fast answers.', text: 'Communication, check-in support, issue resolution and follow-up that protects your reviews.', href: '/airbnb-co-host-san-antonio/', link: 'Co-Hosting' },
+  { icon: 'trending', title: 'Revenue Strategy', hook: 'Don’t leave your rate on autopilot.', text: 'Pricing that adjusts with demand, booking patterns, seasonality and calendar gaps.', href: '/airbnb-revenue-management-san-antonio/', link: 'Revenue Management' },
+  { icon: 'camera', title: 'Listing Optimization', hook: 'Win the scroll before the stay.', text: 'Complimentary professional photography, listing creation and amenity positioning.', href: '/airbnb-listing-optimization-san-antonio/', link: 'Listing Optimization' },
+  { icon: 'broom', title: 'Property Care', hook: 'Guest-ready after every turnover.', text: 'Professional cleaning, routine inspections, proactive maintenance and restocking.', href: '/str-property-care-san-antonio/', link: 'Property Care' },
+  { icon: 'eye', title: 'Owner Support', hook: 'Hands-off, never in the dark.', text: 'Calendar visibility, access to professional hosting tools and support 7 days a week.', href: '/airbnb-management-san-antonio/', link: 'Airbnb Management' },
+  { icon: 'calendar', title: 'Short + Mid-Term', hook: 'More than one way to fill a calendar.', text: 'Nightly stays, 30+ day furnished stays and blended strategies for steadier occupancy.', href: '/mid-term-rental-management-san-antonio/', link: 'Mid-Term Management' },
 ];
 
 const steps = [
-  { title: 'Property Analysis', text: 'Review location, condition, guest appeal and your goals.' },
-  { title: 'Strategy', text: 'Recommend positioning, upgrades and the right rental strategy.' },
-  { title: 'Launch or Optimize', text: 'Photography, listing, pricing, systems and guest preparation.' },
-  { title: 'Operate', text: 'Guests, cleaning, maintenance, calendar and issues — coordinated.' },
-  { title: 'Improve', text: 'Keep refining pricing, reviews and property performance.' },
+  { title: 'Property Analysis', text: 'Location, condition, guest appeal and your goals.' },
+  { title: 'Strategy', text: 'Positioning, upgrades and the right rental mix.' },
+  { title: 'Launch or Optimize', text: 'Photos, listing, pricing and guest systems go live.' },
+  { title: 'Operate', text: 'Guests, cleaning, maintenance and the calendar — handled.' },
+  { title: 'Improve', text: 'Pricing, presentation and reviews keep getting refined.' },
 ];
 
 const compare = [
-  ['Local San Antonio team', 'yes', 'Varies', '—'],
-  ['Guest support', 'yes', 'yes', 'Owner'],
-  ['Dynamic pricing', 'yes', 'Varies', 'Owner'],
-  ['Listing optimization', 'yes', 'Varies', 'Owner'],
-  ['Professional photography', 'yes', 'Usually extra', 'Owner'],
-  ['Cleaning coordination', 'yes', 'Varies', 'Owner'],
-  ['Routine inspections', 'yes', 'Rare', 'Owner'],
-  ['Maintenance coordination', 'yes', 'Varies', 'Owner'],
-  ['Calendar visibility', 'yes', 'Varies', 'yes'],
-  ['Short + mid-term strategy', 'yes', 'Varies', 'Owner'],
+  ['Local San Antonio team', 'Varies', '—'],
+  ['Guest support', 'yes', 'Owner'],
+  ['Dynamic pricing', 'Varies', 'Owner'],
+  ['Listing optimization & photography', 'Usually extra', 'Owner'],
+  ['Cleaning & maintenance coordination', 'Varies', 'Owner'],
+  ['Routine inspections', 'Rare', 'Owner'],
+  ['Calendar visibility', 'Varies', 'yes'],
+  ['Short + mid-term strategy', 'Varies', 'Owner'],
 ];
 
 const faqs = [
   { q: 'What does Hosted Havens manage?', a: 'The day-to-day operation of your short or mid-term rental: guest communication, pricing, listing creation and optimization, cleaning, inspections, maintenance coordination, restocking and owner support.' },
-  { q: 'Is Hosted Havens an Airbnb co-host or a property manager?', a: 'Hosted Havens is a full-service short-term rental co-host. We are not a traditional long-term property manager, but we perform the operational work that makes a short-term rental succeed.' },
+  { q: 'Is Hosted Havens a co-host or a property manager?', a: 'Hosted Havens is a full-service short-term rental co-host. We are not a traditional long-term property manager, but we perform the operational work that makes a short-term rental succeed.' },
   { q: 'How much does Hosted Havens charge?', a: `Typically ${pricing.managementFee} ${pricing.managementFeeUnit}, with a one-time ${pricing.setupFee} listing setup fee. ${pricing.note}` },
   { q: 'Can I still use my property personally?', a: 'Yes. You can block dates on the calendar and use your home whenever you like.' },
   { q: 'Do I sign a long-term contract?', a: 'No. Service is flexible, with no long-term contract.' },
   { q: 'How much can my property earn?', a: 'It depends on the home, location, amenities and season, so we don’t quote a number without looking. The <a href="/property-analysis/">free property analysis</a> reviews your property, local demand and comparable rentals.' },
 ];
 
-const schema = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    '@id': `${SITE}/#website`,
-    url: `${SITE}/`,
-    name: business.shortName,
-    publisher: { '@id': `${SITE}/#organization` },
-  },
-];
+const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}/#website`, url: `${SITE}/`, name: business.shortName, publisher: { '@id': `${SITE}/#organization` } }];
 ---
 <BaseLayout
   title="San Antonio Airbnb Management & Vacation Rentals | Hosted Havens"
@@ -74,7 +63,7 @@ const schema = [
   path="/"
   schema={schema}
 >
-  <!-- HERO -->
+  <!-- 1 · HERO + KEY FACTS -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="stage">
       <div class="stage-arch" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
@@ -88,7 +77,7 @@ const schema = [
           </div>
           <span class="eyebrow">San Antonio · Short &amp; Mid-Term Rental Co-Hosting</span>
           <h1 id="hero-title">Your Rental Should Earn More — <em>Without Owning Your Time.</em></h1>
-          <p class="lead">Hosted Havens provides full-service Airbnb and short-term rental co-hosting in San Antonio — combining smart pricing, guest care, listing optimization, cleaning coordination and hands-on property support.</p>
+          <p class="lead">Full-service Airbnb and short-term rental co-hosting in San Antonio — smart pricing, guest care, listing optimization, cleaning coordination and hands-on property support.</p>
           <div class="btn-row">
             <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Get My Free Property Analysis <Icon name="arrow" /></a>
             <a class="btn btn-glass" href={u('/stays/')} data-track="stays_view">Explore Our Stays</a>
@@ -102,7 +91,6 @@ const schema = [
             <Img src={heroImg} alt="Vaulted living room at De Soto, a renovated Hosted Havens smart home in Universal City, TX" eager sizes="(max-width: 760px) 64vw, 400px" />
             <div class="product-tag"><strong>De Soto</strong><span>Universal City, TX</span></div>
           </div>
-
           <div class="float-card left" aria-hidden="true">
             <div class="fc-head"><span class="fc-title">Your Rental, Optimized</span></div>
             <div class="fc-row">Pricing <b class="fc-up">↑</b></div>
@@ -110,10 +98,8 @@ const schema = [
             <div class="fc-row">Guest experience <b class="fc-up">↑</b></div>
             <div class="fc-row">Owner workload <b class="fc-down">↓</b></div>
           </div>
-
           <div class="float-card right" aria-hidden="true">
             <div class="fc-head"><span class="fc-title">Owner Peace of Mind</span></div>
-            <div class="fc-row"><span class="fc-time">Guest</span><span>“Everything was perfect. Thank you!”</span></div>
             <div class="fc-row"><span class="fc-time">8:42 PM</span>Issue resolved <b class="fc-ok">✓</b></div>
             <div class="fc-row"><span class="fc-time">Cleaning</span>Confirmed <b class="fc-ok">✓</b></div>
             <div class="fc-row"><span class="fc-time">Next guest</span>Ready <b class="fc-ok">✓</b></div>
@@ -121,238 +107,179 @@ const schema = [
         </div>
       </div>
 
-      <ul class="trust-strip" aria-label="Why owners choose Hosted Havens">
-        <li class="trust-item"><Icon name="pin" />Local San Antonio Team</li>
-        <li class="trust-item"><Icon name="clock" />7-Day Owner Support</li>
-        <li class="trust-item"><Icon name="key" />No Long-Term Contracts</li>
-        <li class="trust-item"><Icon name="calendar" />Short + Mid-Term Expertise</li>
-        <li class="trust-item"><Icon name="tag" />Published Pricing</li>
+      <ul class="stat-row" aria-label="Hosted Havens at a glance">
+        <li class="stat"><Icon name="home" /><strong>{properties.length}</strong><span>Stays listed</span></li>
+        <li class="stat"><Icon name="tag" /><strong>{pricing.managementFee}</strong><span>Published fee</span></li>
+        <li class="stat"><Icon name="clock" /><strong>7 days</strong><span>Owner support</span></li>
+        <li class="stat"><Icon name="pin" /><strong>{cities}</strong><span>Communities</span></li>
+        <li class="stat"><Icon name="key" /><strong>None</strong><span>Long-term contracts</span></li>
       </ul>
     </div>
   </section>
 
-  <!-- OWNER PROBLEM -->
+  <!-- 2 · THE OWNER PROBLEM + ANALYSIS OFFER -->
   <section class="section" id="owners">
-    <div class="container">
-      <div class="section-head center reveal">
+    <div class="container split">
+      <div class="reveal">
         <span class="eyebrow">For property owners</span>
         <h2>Your Rental Shouldn’t Become Your <em>Second Full-Time Job.</em></h2>
+        <ul class="pain-cloud" aria-label="The work behind a short-term rental">
+          {pains.map((p) => <li class="chip"><Icon name="clock" />{p}</li>)}
+        </ul>
+        <p class="lead">We manage the moving pieces so you stay the owner — not the receptionist, pricing analyst, cleaner coordinator and on-call maintenance desk.</p>
+        <div class="btn-row" style="margin-top:1.4rem">
+          <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">See What Your Property Could Earn <Icon name="arrow" /></a>
+          <a class="btn btn-glass" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Book a Property Tour</a>
+        </div>
       </div>
-      <ul class="pain-cloud reveal" aria-label="The work behind a short-term rental">
-        {pains.map((p) => <li class="chip"><Icon name="clock" />{p}</li>)}
-      </ul>
-      <p class="lead center reveal" style="margin:0 auto;text-align:center">We manage the moving pieces so you can remain the owner — not the receptionist, pricing analyst, cleaner coordinator and on-call maintenance desk.</p>
+      <div class="img-stack reveal reveal-d2">
+        <div class="big"><Img src={stack[0]} alt="Renovated living room at La Maison Blount, a Hosted Havens home in San Antonio" sizes="(max-width: 1024px) 90vw, 45vw" /></div>
+        <div class="small"><Img src={stack[1]} alt="" sizes="(max-width: 1024px) 45vw, 22vw" /></div>
+      </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- 3 · SERVICES -->
   <section class="section bg-warm">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Full-service co-hosting</span>
-        <h2>Everything Behind a 5-Star Stay — <em>Handled.</em></h2>
-        <p class="lead">One local team covering guests, pricing, presentation and property care, so every part of your rental works from the same plan.</p>
+      <div class="head-row reveal">
+        <div class="section-head">
+          <span class="eyebrow">Full-service co-hosting</span>
+          <h2>Everything Behind a 5-Star Stay — <em>Handled.</em></h2>
+        </div>
+        <a class="btn btn-glass" href={u('/pricing/')}>See pricing <Icon name="arrow" /></a>
       </div>
       <div class="grid grid-3">
         {services.map((s, i) => (
-          <article class={`card3d reveal reveal-d${(i % 3) + 1}`}>
+          <a class={`card3d reveal reveal-d${(i % 3) + 1}`} href={u(s.href)}>
             <span class={`icon-box ${i % 3 === 1 ? 'sage' : i % 3 === 2 ? 'gold' : ''}`}><Icon name={s.icon} /></span>
             <h3>{s.title}</h3>
             <p class="hook">{s.hook}</p>
             <p>{s.text}</p>
-            <a class="text-link" href={u(s.href)}>{s.link} <Icon name="arrow" /></a>
-          </article>
+            <span class="text-link">{s.link} <Icon name="arrow" /></span>
+          </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- REVENUE ANALYSIS CTA -->
-  <section class="section">
-    <div class="container split">
-      <div class="img-stack reveal">
-        <div class="big"><Img src={stack[0]} alt="Renovated living room at La Maison Blount, a Hosted Havens home in San Antonio" sizes="(max-width: 1024px) 90vw, 45vw" /></div>
-        <div class="small"><Img src={stack[1]} alt="" sizes="(max-width: 1024px) 45vw, 22vw" /></div>
+  <!-- 4 · HOW IT WORKS / COMPARE (tabs) -->
+  <section class="section bg-dark">
+    <div class="container" data-tabs>
+      <div class="head-row reveal">
+        <div class="section-head">
+          <span class="eyebrow">Built for better performance</span>
+          <h2>A clear process. <em>A clearer choice.</em></h2>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Process and comparison">
+          <button type="button" role="tab" id="tab-process" aria-controls="panel-process" aria-selected="true">How it works</button>
+          <button type="button" role="tab" id="tab-compare" aria-controls="panel-compare" aria-selected="false" tabindex="-1">Compare options</button>
+        </div>
       </div>
-      <div class="reveal reveal-d2">
-        <span class="eyebrow">Free, no obligation</span>
-        <h2>What Could Your <em>Property</em> Earn?</h2>
-        <p class="lead">Tell us about your home. We’ll review the property, local demand and comparable San Antonio rentals to identify its revenue potential — and what’s holding it back.</p>
-        <ul class="ticks" style="margin:1.4rem 0 2rem">
-          <li>A human review of your home — not a generic calculator</li>
-          <li>Positioning, pricing and presentation opportunities</li>
-          <li>Short-term, mid-term or blended strategy fit</li>
-          <li>A tailored proposal if it’s a good match</li>
-        </ul>
-        <div class="btn-row">
-          <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Get My Free Rental Analysis <Icon name="arrow" /></a>
-          <a class="btn btn-glass" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Schedule a Property Tour</a>
+
+      <div class="tab-panel" id="panel-process" role="tabpanel" aria-labelledby="tab-process">
+        <ol class="timeline" style="list-style:none">
+          {steps.map((st, i) => (
+            <li class="t-step">
+              <span class="t-dot">{String(i + 1).padStart(2, '0')}</span>
+              <div><h3>{st.title}</h3><p>{st.text}</p></div>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      <div class="tab-panel" id="panel-compare" role="tabpanel" aria-labelledby="tab-compare" hidden>
+        <div class="compare-wrap">
+          <table class="compare">
+            <caption class="sr-only">Hosted Havens compared with a typical remote co-host and self-managing</caption>
+            <thead><tr><th scope="col">Capability</th><th scope="col" class="us">Hosted Havens</th><th scope="col">Remote Co-Host</th><th scope="col">Self-Managed</th></tr></thead>
+            <tbody>
+              {compare.map((row) => (
+                <tr>
+                  <th scope="row" style="text-align:left;font-weight:550">{row[0]}</th>
+                  <td class="us"><span class="yes" aria-label="Included"><Icon name="check" /></span></td>
+                  {[row[1], row[2]].map((v) => <td class="mute">{v === 'yes' ? <span class="yes" style="background:var(--sage)" aria-label="Yes"><Icon name="check" /></span> : v}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DARK PERFORMANCE -->
-  <section class="section bg-dark">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Built for better performance</span>
-        <h2>Hospitality, pricing and property care — <em>working together.</em></h2>
-        <p class="lead">Strong rentals aren’t built on one tactic. They come from consistent operations, honest listings and decisions made with the market in view.</p>
-      </div>
-      <div class="grid grid-4">
-        <div class="dark-card reveal reveal-d1"><div class="dark-num">{pricing.managementFee}</div><h3>Published fee</h3><p>{pricing.managementFeeUnit}. No surprises, no long-term lock-in.</p></div>
-        <div class="dark-card reveal reveal-d2"><div class="dark-num">7 days</div><h3>Owner support</h3><p>A support team you can reach every day of the week.</p></div>
-        <div class="dark-card reveal reveal-d3"><div class="dark-num">{properties.length}</div><h3>Stays listed</h3><p>Homes, studios and rooms currently bookable direct on our site.</p></div>
-        <div class="dark-card reveal reveal-d4"><div class="dark-num">Local</div><h3>San Antonio team</h3><p>Guest services, maintenance coordination and photography close to home.</p></div>
-      </div>
-      <div class="float-card" style="position:relative;width:auto;max-width:520px;margin:3rem 0 0;background:rgba(255,244,232,.06);border-color:rgba(255,244,232,.14);color:var(--cream)">
-        <div class="fc-head"><span class="fc-title" style="color:var(--cream)">Today at Hosted Havens</span></div>
-        <div class="fc-row" style="color:rgba(253,244,232,.8);border-color:rgba(255,244,232,.1)"><span class="fc-time">10:00 AM</span>Turnover confirmed <b class="fc-ok" style="color:var(--gold-soft)">✓</b></div>
-        <div class="fc-row" style="color:rgba(253,244,232,.8);border-color:rgba(255,244,232,.1)"><span class="fc-time">12:15 PM</span>Inspection complete <b class="fc-ok" style="color:var(--gold-soft)">✓</b></div>
-        <div class="fc-row" style="color:rgba(253,244,232,.8);border-color:rgba(255,244,232,.1)"><span class="fc-time">3:00 PM</span>Guest arrival <b class="fc-ok" style="color:var(--gold-soft)">✓</b></div>
-        <div class="fc-row" style="color:rgba(253,244,232,.8);border-color:rgba(255,244,232,.1)"><span class="fc-time">7:42 PM</span>Guest question resolved <b class="fc-ok" style="color:var(--gold-soft)">✓</b></div>
-        <p class="fc-note" style="color:rgba(253,244,232,.55)">A look at the work owners don’t have to do.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
+  <!-- 5 · PORTFOLIO CAROUSEL -->
   <section class="section">
-    <div class="container">
-      <div class="section-head center reveal">
-        <span class="eyebrow">How it works</span>
-        <h2>From Property to <em>High-Performing Haven</em></h2>
-      </div>
-      <ol class="timeline" style="list-style:none">
-        {steps.map((st, i) => (
-          <li class={`t-step reveal reveal-d${(i % 4) + 1}`}>
-            <span class="t-dot">{String(i + 1).padStart(2, '0')}</span>
-            <div><h3>{st.title}</h3><p>{st.text}</p></div>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
-
-  <!-- COMPARISON -->
-  <section class="section bg-cream">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">A clearer choice</span>
-        <h2>Hands-Off Doesn’t Have to Mean <em>Out of the Loop.</em></h2>
-      </div>
-      <div class="compare-wrap reveal">
-        <table class="compare">
-          <caption class="sr-only">Hosted Havens compared with a typical remote co-host and self-managing</caption>
-          <thead><tr><th scope="col">Capability</th><th scope="col" class="us">Hosted Havens</th><th scope="col">Remote Co-Host</th><th scope="col">Self-Managed</th></tr></thead>
-          <tbody>
-            {compare.map((row) => (
-              <tr>
-                <th scope="row" style="text-align:left;font-weight:550">{row[0]}</th>
-                <td class="us"><span class="yes" aria-label="Included"><Icon name="check" /></span></td>
-                <td class="mute">{row[2] === 'yes' ? <span class="yes" style="background:var(--sage)" aria-label="Yes"><Icon name="check" /></span> : row[2]}</td>
-                <td class="mute">{row[3] === 'yes' ? <span class="yes" style="background:var(--sage)" aria-label="Yes"><Icon name="check" /></span> : row[3]}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head reveal" style="display:flex;justify-content:space-between;align-items:end;gap:1.5rem;flex-wrap:wrap;max-width:none">
-        <div style="max-width:680px">
+    <div class="container" data-carousel>
+      <div class="head-row reveal">
+        <div class="section-head">
           <span class="eyebrow">The portfolio</span>
           <h2>Homes Guests <em>Choose</em></h2>
-          <p class="lead" style="margin:0">Real Hosted Havens properties across San Antonio, Live Oak, Universal City and Converse.</p>
         </div>
-        <a class="btn btn-glass" href={u('/stays/')} data-track="stays_view">View all {properties.length} stays <Icon name="arrow" /></a>
+        <div class="car-nav">
+          <button type="button" class="car-btn prev" aria-label="Previous stays" data-car-prev><Icon name="arrow" /></button>
+          <button type="button" class="car-btn" aria-label="Next stays" data-car-next><Icon name="arrow" /></button>
+          <a class="btn btn-glass btn-sm" href={u('/stays/')} data-track="stays_view" style="margin-left:.4rem">All {properties.length} stays</a>
+        </div>
       </div>
-      <div class="prop-grid">{featuredProperties.map((p) => <PropertyCard p={p} />)}</div>
+      <div class="car-track" role="region" aria-label="Featured stays" tabindex="0">
+        {featuredProperties.map((p) => <PropertyCard p={p} />)}
+      </div>
     </div>
   </section>
 
-  <!-- LOCAL EXPERTISE -->
+  <!-- 6 · LOCAL EXPERTISE + COMPLIANCE -->
   <section class="section bg-warm">
     <div class="container split">
       <div class="reveal">
         <span class="eyebrow">Local knowledge</span>
         <h2>Managed Locally. <em>Optimized for San Antonio.</em></h2>
-        <p class="lead">Rental performance here is shaped by things a spreadsheet in another state won’t see.</p>
-        <ul class="ticks" style="margin-top:1.2rem">
+        <ul class="ticks" style="margin:1rem 0 1.4rem">
           <li>Military travel and PCS moves around Joint Base San Antonio</li>
           <li>Medical stays near the South Texas Medical Center</li>
           <li>Conventions, events and weekly Air Force graduations</li>
           <li>Family travel to Six Flags Fiesta Texas and SeaWorld</li>
-          <li>Seasonality — from spring festivals to summer family trips</li>
-          <li>Neighborhood fit, parking and proximity to downtown</li>
         </ul>
-      </div>
-      <div class="demand-map reveal reveal-d2" aria-label="San Antonio demand drivers">
-        <Img src={map} alt="Road map of San Antonio" sizes="(max-width: 1024px) 90vw, 45vw" />
-        <span class="demand-chip" style="top:14%;left:10%"><i></i>Randolph AFB</span>
-        <span class="demand-chip" style="top:30%;right:8%;animation-delay:-2s"><i></i>Downtown &amp; River Walk</span>
-        <span class="demand-chip" style="top:48%;left:16%;animation-delay:-4s"><i></i>Medical Center</span>
-        <span class="demand-chip" style="bottom:28%;right:14%;animation-delay:-1s"><i></i>Lackland AFB</span>
-        <span class="demand-chip" style="bottom:12%;left:8%;animation-delay:-3s"><i></i>Six Flags</span>
-        <span class="demand-chip" style="top:64%;right:4%;animation-delay:-5s"><i></i>Airport</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMPLIANCE -->
-  <section class="section">
-    <div class="container">
-      <div class="card3d reveal" style="padding:clamp(2rem,5vw,3.5rem)">
-        <div class="split" style="align-items:start">
+        <div class="card3d" style="display:flex;gap:1rem;align-items:flex-start">
+          <span class="icon-box gold"><Icon name="shield" /></span>
           <div>
-            <span class="icon-box gold"><Icon name="shield" /></span>
-            <h2 style="margin-top:1.2rem">Staying Bookable Matters as Much as <em>Getting Booked.</em></h2>
-          </div>
-          <div>
-            <p class="lead">San Antonio short-term rentals operate within local rules that include permits and Hotel Occupancy Tax reporting. Hosted Havens supports tax collection and remittance and keeps operations aware of the requirements that affect your listing.</p>
-            <a class="text-link" href={u('/resources/san-antonio-str-rules/')}>Read the San Antonio STR rules guide <Icon name="arrow" /></a>
-            <p class="footnote">Regulations can change. Information is provided for general educational purposes; property owners should confirm current requirements with the City of San Antonio and appropriate tax or legal professionals.</p>
+            <h3 style="margin:.1rem 0 .3rem">Staying bookable matters too</h3>
+            <p style="margin:0 0 .5rem">San Antonio STRs involve permits and monthly Hotel Occupancy Tax reporting. We support tax collection and remittance and keep operations aware of local requirements.</p>
+            <a class="text-link" href={u('/resources/san-antonio-str-rules/')}>San Antonio STR rules guide <Icon name="arrow" /></a>
           </div>
         </div>
       </div>
+      <div class="demand-map reveal reveal-d2" aria-label="San Antonio demand drivers">
+        <Img src={map} alt="Road map of San Antonio" sizes="(max-width: 1024px) 90vw, 45vw" />
+        <span class="demand-chip" style="top:12%;left:9%"><i></i>Randolph AFB</span>
+        <span class="demand-chip" style="top:28%;right:7%;animation-delay:-2s"><i></i>Downtown &amp; River Walk</span>
+        <span class="demand-chip" style="top:47%;left:14%;animation-delay:-4s"><i></i>Medical Center</span>
+        <span class="demand-chip" style="bottom:26%;right:12%;animation-delay:-1s"><i></i>Lackland AFB</span>
+        <span class="demand-chip" style="bottom:10%;left:8%;animation-delay:-3s"><i></i>Six Flags</span>
+      </div>
     </div>
   </section>
 
-  <!-- FOUNDER -->
-  <section class="section bg-cream">
-    <div class="container split">
+  <!-- 7 · FOUNDER + OWNER VOICE -->
+  <section class="section">
+    <div class="container founder-grid">
       <div class="portrait-stack reveal">
-        <div class="portrait"><Img src={megan} alt="Megan Blount, founder of Hosted Havens" sizes="(max-width: 1024px) 80vw, 40vw" /></div>
+        <div class="portrait"><Img src={megan} alt="Megan Blount, founder of Hosted Havens" sizes="(max-width: 1024px) 80vw, 36vw" /></div>
       </div>
       <div class="reveal reveal-d2">
         <span class="eyebrow">Meet the founder</span>
         <h2>A hospitality operator who <em>started as a host.</em></h2>
-        <p class="lead">Megan began hosting in 2021 with her own San Antonio home, then an arbitrage rental — and discovered a genuine love for creating welcoming spaces and exceptional guest experiences.</p>
-        <p>With more than two decades of customer service and operational training experience, she expanded into co-hosting in 2024 and built Hosted Havens around one standard: manage every home as if it were her own.</p>
-        <div class="btn-row" style="margin-top:1.6rem">
-          <a class="btn btn-dark" href={u('/about/')}>Meet the Team <Icon name="arrow" /></a>
-        </div>
+        <p class="lead">Megan began hosting in 2021 with her own San Antonio home and built Hosted Havens around one standard: manage every property as if it were her own.</p>
+        <blockquote class="mini-quote">
+          <p>“{ownerTestimonials[0].quote}”</p>
+          <cite>— {ownerTestimonials[0].name}, {ownerTestimonials[0].role}</cite>
+        </blockquote>
+        <div class="btn-row" style="margin-top:1.4rem"><a class="btn btn-dark" href={u('/about/')}>Meet the Team <Icon name="arrow" /></a></div>
       </div>
     </div>
   </section>
 
-  <!-- OWNER TESTIMONIAL -->
-  <section class="section">
-    <div class="container">
-      <div class="quote-card reveal" style="max-width:920px;margin:0 auto">
-        <span class="eyebrow">What property owners say</span>
-        <blockquote>{ownerTestimonials[0].quote}</blockquote>
-        <div class="quote-by"><span class="avatar-initial">{ownerTestimonials[0].name[0]}</span><div><strong>{ownerTestimonials[0].name}</strong><small>{ownerTestimonials[0].role}</small></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GUEST BRIDGE -->
+  <!-- 8 · GUEST BRIDGE -->
   <section class="section-tight">
     <div class="container">
       <div class="bridge reveal">
@@ -361,7 +288,7 @@ const schema = [
           <div>
             <span class="eyebrow">For guests</span>
             <h2>Looking for Somewhere to Stay?</h2>
-            <p class="lead">Explore professionally managed short and mid-term rentals across San Antonio and surrounding communities.</p>
+            <p class="lead">Professionally managed short and mid-term rentals across San Antonio and surrounding communities.</p>
             <div class="btn-row">
               <a class="btn btn-primary" href={u('/stays/')} data-track="stays_view">Explore Hosted Havens <Icon name="arrow" /></a>
               <a class="btn btn-glass" href={u('/why-book-direct/')}>Why Book Direct</a>
@@ -375,46 +302,29 @@ const schema = [
           </ul>
         </div>
       </div>
-      <div class="grid grid-4" style="margin-top:2rem">
-        {guestReviews.map((r, i) => (
-          <figure class={`review-card reveal reveal-d${i + 1}`} style="margin:0">
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote style="margin:0"><p>“{r.quote}”</p></blockquote>
-            <figcaption class="review-by"><span class="avatar-initial">{r.name[0]}</span><span><strong>{r.name}</strong><small>{r.from} · Guest review</small></span></figcaption>
-          </figure>
-        ))}
-      </div>
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- 9 · FAQ + FINAL CTA -->
   <section class="section">
-    <div class="container split" style="align-items:start">
+    <div class="container faq-cta">
       <div class="reveal">
         <span class="eyebrow">Owner FAQ</span>
-        <h2>Straight answers <em>before you call.</em></h2>
-        <p class="lead">Questions we hear from San Antonio owners every week.</p>
-        <a class="text-link" href={u('/pricing/')}>See transparent pricing <Icon name="arrow" /></a>
+        <h2 style="margin-bottom:1.2rem">Straight answers <em>before you call.</em></h2>
+        <FAQ items={faqs} />
       </div>
-      <div class="reveal reveal-d2"><FAQ items={faqs} /></div>
-    </div>
-  </section>
-
-  <!-- DARK CONVERSION -->
-  <section class="section-tight">
-    <div class="container">
-      <div class="cta-band bg-dark reveal">
+      <aside class="cta-card bg-dark reveal reveal-d2">
         <div class="ghost-panels" aria-hidden="true"><span></span><span></span><span></span></div>
         <div style="position:relative">
           <span class="eyebrow">Free property analysis</span>
-          <h2>Your Property Can Work Hard <em>Without You Working Around the Clock.</em></h2>
-          <p class="lead">Tell us about your San Antonio rental and we’ll help you identify where stronger pricing, presentation and operations could improve its performance.</p>
-          <div class="btn-row">
+          <h2 style="font-size:clamp(1.9rem,3vw,2.6rem)">Own the Property. <em>Let Us Handle the Hosting.</em></h2>
+          <p>Tell us about your San Antonio rental and we’ll show you where pricing, presentation and operations could improve its performance.</p>
+          <div style="display:grid;gap:.6rem;margin-top:1.2rem">
             <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Get My Free Property Analysis <Icon name="arrow" /></a>
-            <a class="btn btn-glass" href={`tel:${business.phone}`} data-track="phone_click"><Icon name="phone" /> Call {business.displayPhone}</a>
+            <a class="btn btn-glass" href={`tel:${business.phone}`} data-track="phone_click"><Icon name="phone" /> {business.displayPhone}</a>
           </div>
         </div>
-      </div>
+      </aside>
     </div>
   </section>
 </BaseLayout>

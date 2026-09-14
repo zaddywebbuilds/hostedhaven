@@ -69,7 +69,7 @@ const schema = [{
         <span class="filter-count" aria-live="polite" data-count>{properties.length} stays</span>
       </form>
 
-      <div class="prop-grid" data-grid>{properties.map((p) => <PropertyCard p={p} />)}</div>
+      <div class="prop-grid four" data-grid>{properties.map((p) => <PropertyCard p={p} />)}</div>
       <div class="empty-state" data-empty hidden>
         <h2 style="font-size:2rem">No stays match those filters yet.</h2>
         <p class="muted">Try removing a filter to see more homes.</p>
@@ -79,21 +79,6 @@ const schema = [{
   </section>
 
   <section class="section bg-warm">
-    <div class="container">
-      <div class="section-head center reveal"><span class="eyebrow">What guests say</span><h2>Stays guests <em>come back to</em></h2></div>
-      <div class="grid grid-4">
-        {guestReviews.map((r, i) => (
-          <figure class={`review-card reveal reveal-d${i + 1}`} style="margin:0">
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote style="margin:0"><p>“{r.quote}”</p></blockquote>
-            <figcaption class="review-by"><span class="avatar-initial">{r.name[0]}</span><span><strong>{r.name}</strong><small>{r.from}</small></span></figcaption>
-          </figure>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
     <div class="container split" style="align-items:start">
       <div class="reveal">
         <span class="eyebrow">Guest FAQ</span>

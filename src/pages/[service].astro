@@ -181,23 +181,17 @@ const schema = [
     </section>
   )}
 
-  <section class="section">
-    <div class="container">
-      <div class="quote-card reveal" style="max-width:900px;margin:0 auto">
-        <span class="eyebrow">What property owners say</span>
-        <blockquote>{ownerTestimonials[0].quote}</blockquote>
-        <div class="quote-by"><span class="avatar-initial">{ownerTestimonials[0].name[0]}</span><div><strong>{ownerTestimonials[0].name}</strong><small>{ownerTestimonials[0].role}</small></div></div>
-      </div>
-    </div>
-  </section>
-
   <section class="section bg-warm">
     <div class="container split" style="align-items:start">
       <div class="reveal">
         <span class="eyebrow">Owner FAQ</span>
         <h2>Questions owners ask</h2>
         <p class="lead">Still deciding? A property analysis is free and there’s no obligation.</p>
-        <div class="card3d" style="margin-top:1.5rem">
+        <blockquote class="mini-quote">
+          <p>“{ownerTestimonials[0].quote}”</p>
+          <cite>— {ownerTestimonials[0].name}, {ownerTestimonials[0].role}</cite>
+        </blockquote>
+        <div class="card3d" style="margin-top:1.2rem">
           <h3 style="margin-top:0">Related services</h3>
           <ul class="ticks">
             {s.related.map((r) => serviceLabel[r] && <li><a class="text-link" href={u(serviceLabel[r].href)}>{serviceLabel[r].label}</a></li>)}

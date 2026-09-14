@@ -2,8 +2,10 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
 import { canonical, u, SITE } from '../lib/url';
-import { business, analytics, socials } from '../data/business';
+import { coverImage } from '../lib/images';
+import { business, analytics, socials, guestReviews } from '../data/business';
 
 interface Crumb { name: string; path: string }
 interface Props {
@@ -41,6 +43,10 @@ const crumbSchema = breadcrumbs?.length
     }]
   : [];
 const allSchema = [org, ...crumbSchema, ...schema];
+
+const guestPage = /^\/(stays|why-book-direct|monthly-rentals|pet-friendly|furnished-rentals)/.test(path);
+const quietPage = /^\/(property-analysis|privacy|terms|404)/.test(path);
+const toastImg = coverImage(guestPage ? 'coastal-run' : 'de-soto-lighthouse');
 ---
 <!doctype html>
 <html lang="en-US">
@@ -91,11 +97,44 @@ const allSchema = [org, ...crumbSchema, ...schema];
   <slot name="head" />
 </head>
 <body>
+  <div class="announce">
+    <span class="pulse" aria-hidden="true"></span>
+    {guestPage
+      ? <>Book direct with Hosted Havens — local support, no third-party platform fees.<a href={u('/why-book-direct/')}>Why book direct →</a></>
+      : <>Now welcoming new San Antonio property owners.<a href={u('/property-analysis/')} data-track="owner_analysis_start">Get a free property analysis →</a></>}
+  </div>
   <Header />
   <main id="main">
     <slot />
   </main>
   <Footer />
+
+  {!quietPage && (
+    <>
+      <aside class="toast left" data-toast-reviews data-reviews={JSON.stringify(guestReviews)} aria-label="Guest review" aria-live="polite">
+        <button type="button" class="toast-close" data-toast-close aria-label="Dismiss guest reviews"><Icon name="close" /></button>
+        <div class="toast-head">
+          <span class="avatar-initial" data-r-initial></span>
+          <div><strong data-r-name></strong><span class="stars" aria-label="5 out of 5 stars">★★★★★</span> <span class="meta" data-r-from></span></div>
+        </div>
+        <p data-r-quote></p>
+        <span class="toast-source"><span class="live"></span>Verified guest review</span>
+      </aside>
+      <aside class="toast right" data-toast-cta aria-label={guestPage ? 'Book direct' : 'Free property analysis'}>
+        <button type="button" class="toast-close" data-toast-close aria-label="Dismiss"><Icon name="close" /></button>
+        <div class="toast-head">
+          {toastImg && <img class="toast-img" src={u(`/images/${toastImg.base}-640.webp`)} alt="" width="54" height="54" loading="lazy" />}
+          <div>
+            <strong>{guestPage ? 'Planning a San Antonio stay?' : 'Own a San Antonio rental?'}</strong>
+            <span class="meta">{guestPage ? 'Book direct for local support and no platform fees.' : 'See what pricing, presentation and hands-off hosting could change.'}</span>
+          </div>
+        </div>
+        {guestPage
+          ? <a class="toast-cta" href={u('/stays/')} data-track="stays_view">Browse stays <Icon name="arrow" /></a>
+          : <a class="toast-cta" href={u('/property-analysis/')} data-track="owner_analysis_start">Get my free analysis <Icon name="arrow" /></a>}
+      </aside>
+    </>
+  )}
 
   <script>
     const header = document.getElementById('hh-header');
@@ -165,6 +204,75 @@ const allSchema = [org, ...crumbSchema, ...schema];
         scene.addEventListener('pointerleave', () => { target.style.removeProperty('--tx'); target.style.removeProperty('--ty'); });
       });
     }
+
+    const seen = (k: string) => { try { return sessionStorage.getItem(k) === '1'; } catch { return false; } };
+    const remember = (k: string) => { try { sessionStorage.setItem(k, '1'); } catch { /* storage unavailable */ } };
+
+    const reviewToast = document.querySelector<HTMLElement>('[data-toast-reviews]');
+    if (reviewToast && !seen('hh-reviews-closed')) {
+      type Review = { quote: string; name: string; from: string };
+      const reviews: Review[] = JSON.parse(reviewToast.dataset.reviews || '[]');
+      let i = 0;
+      let paused = false;
+      let timer = 0;
+      const fill = (r: Review) => {
+        reviewToast.querySelector('[data-r-initial]')!.textContent = r.name.charAt(0);
+        reviewToast.querySelector('[data-r-name]')!.textContent = r.name;
+        reviewToast.querySelector('[data-r-from]')!.textContent = r.from;
+        reviewToast.querySelector('[data-r-quote]')!.textContent = `“${r.quote}”`;
+      };
+      const next = () => {
+        if (paused || !reviews.length) return;
+        reviewToast.classList.remove('show');
+        window.setTimeout(() => { fill(reviews[i++ % reviews.length]); reviewToast.classList.add('show'); }, 550);
+      };
+      window.setTimeout(() => {
+        if (!reviews.length) return;
+        fill(reviews[i++]);
+        reviewToast.classList.add('show');
+        timer = window.setInterval(next, 9000);
+      }, 4000);
+      reviewToast.addEventListener('mouseenter', () => { paused = true; });
+      reviewToast.addEventListener('mouseleave', () => { paused = false; });
+      reviewToast.querySelector('[data-toast-close]')?.addEventListener('click', () => {
+        window.clearInterval(timer);
+        reviewToast.classList.remove('show');
+        remember('hh-reviews-closed');
+      });
+    }
+
+    const ctaToast = document.querySelector<HTMLElement>('[data-toast-cta]');
+    if (ctaToast && !seen('hh-cta-closed')) {
+      let shown = false;
+      const reveal = () => { if (shown) return; shown = true; ctaToast.classList.add('show'); window.removeEventListener('scroll', onDepth); };
+      const onDepth = () => { if (window.scrollY > window.innerHeight * 1.4) reveal(); };
+      window.addEventListener('scroll', onDepth, { passive: true });
+      window.setTimeout(reveal, 15000);
+      ctaToast.querySelector('[data-toast-close]')?.addEventListener('click', () => {
+        ctaToast.classList.remove('show');
+        remember('hh-cta-closed');
+      });
+    }
+
+    document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((car) => {
+      const track = car.querySelector<HTMLElement>('.car-track');
+      const step = () => (track?.firstElementChild as HTMLElement | null)?.getBoundingClientRect().width ?? 320;
+      car.querySelector('[data-car-prev]')?.addEventListener('click', () => track?.scrollBy({ left: -(step() + 24) }));
+      car.querySelector('[data-car-next]')?.addEventListener('click', () => track?.scrollBy({ left: step() + 24 }));
+    });
+
+    document.querySelectorAll<HTMLElement>('[data-tabs]').forEach((wrap) => {
+      const buttons = [...wrap.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+      buttons.forEach((b) => b.addEventListener('click', () => {
+        buttons.forEach((x) => {
+          const on = x === b;
+          x.setAttribute('aria-selected', String(on));
+          x.tabIndex = on ? 0 : -1;
+          const panel = document.getElementById(x.getAttribute('aria-controls') || '');
+          if (panel) panel.hidden = !on;
+        });
+      }));
+    });
 
     document.addEventListener('click', (e) => {
       const el = (e.target as HTMLElement).closest<HTMLElement>('[data-track]');
