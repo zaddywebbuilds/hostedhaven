@@ -55,6 +55,14 @@ Everything below needs confirmation from Hosted Havens (Megan) before launch. No
 - [ ] The tour reel (homepage) uses `hosted-havens-showcase.mp4` and `scene1–8.mp4` from `SHORT VIDEO CONTENTS/Hosted Havens LLC/VIDEOS`. These clips aren't on the live site. Confirm Hosted Havens approves them for the website, and that the presenter has signed a talent/likeness release.
 - [ ] Clip labels (Living Room, Arched Entry, Studio Kitchen, Accent Wall, Chef’s Kitchen, Bedroom Suite, Dining Room, Outdoors) were inferred from the footage. Rename them to the actual properties if preferred.
 
+## Stock photography (homepage service cards)
+Five service cards use free Unsplash photos (Unsplash License: free for commercial use, no attribution required). Swap them for Hosted Havens' own photos anytime by replacing the files in `brand-assets/stock/` and running `npm run images`.
+- [ ] Property Care: unsplash.com/photos/2yXg3furR8g
+- [ ] Listing Optimization: unsplash.com/photos/E76lz0Lv9Aw
+- [ ] Revenue Strategy: unsplash.com/photos/pypeCEaJeZY
+- [ ] Owner Support: unsplash.com/photos/rsbgKRJF8jk
+- [ ] Short + Mid-Term: unsplash.com/photos/cDTKjvIJ-Ic
+
 ## Review photos
 - [ ] The guest review avatars (Melanie, Chance, Abel, Stéphanie) are the photos shown beside those reviews on the live homepage. The avatar-to-name matching was inferred from the live slider order, so please confirm.
 

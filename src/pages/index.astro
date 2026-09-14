@@ -21,11 +21,11 @@ const pains = ['11 PM guest messages', 'Pricing every weekend', 'Cleaner coordin
 
 const svcPhotos: Record<string, ReturnType<typeof brandImage>> = {
   guest: propertyImages('de-soto-lighthouse')[0],
-  revenue: propertyImages('coastal-run')[0],
-  listing: propertyImages('the-harding-place')[1],
-  care: propertyImages('ccp-3')[0],
-  owner: propertyImages('grass-hollow')[4],
-  term: propertyImages('s-park-1a')[0],
+  revenue: brandImage('revenue-analytics-laptop'),
+  listing: brandImage('listing-photography-tripod'),
+  care: brandImage('property-care-making-bed'),
+  owner: brandImage('owner-checking-phone'),
+  term: brandImage('extended-stay-suitcase'),
 };
 const bars = [38, 44, 41, 52, 80, 94, 66];
 const cal = ['b', 'b', 'b', 'o', 'o', 'b', 'b', '', '', 'b', 'b', 'b', 'o', 'b'];
@@ -163,41 +163,6 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
                       <div class="bub in">Hi! Could we check in a little early?</div>
                       <div class="bub out">Welcome! Your home is ready at 1 PM.</div>
                       <div class="typing"><i></i><i></i><i></i></div>
-                    </div>
-                  )}
-                  {key === 'revenue' && (
-                    <div class="mock mock-rate">
-                      <div class="mock-top">Nightly rate <em>Demand-based</em></div>
-                      <div class="rate-bars">{bars.map((h, n) => <i style={`--h:${h}%;--d:${n * 70}ms`} class={n >= 4 && n <= 5 ? 'hot' : ''}></i>)}</div>
-                      <div class="rate-days"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
-                    </div>
-                  )}
-                  {key === 'listing' && (
-                    <>
-                      <div class="focus-frame"><i></i><i></i><i></i><i></i></div>
-                      <div class="mock mock-shot"><span class="rec"></span>Photo shoot <em>ISO 200 · f/8</em></div>
-                    </>
-                  )}
-                  {key === 'care' && (
-                    <div class="mock mock-check">
-                      <div class="mock-top">Turnover checklist <em>Room 3</em></div>
-                      {['Fresh linens & towels', 'Kitchen reset', 'Supplies restocked', 'Inspection passed'].map((t, n) => (
-                        <div class="chk" style={`--d:${n * 180}ms`}><span class="box"><Icon name="check" /></span>{t}</div>
-                      ))}
-                    </div>
-                  )}
-                  {key === 'owner' && (
-                    <div class="mock mock-cal">
-                      <div class="mock-top">Your calendar <em>Live view</em></div>
-                      <div class="cal-grid">{cal.map((c) => <i class={c}></i>)}</div>
-                      <div class="cal-key"><span><i class="b"></i>Booked</span><span><i class="o"></i>Owner stay</span><span><i></i>Open</span></div>
-                    </div>
-                  )}
-                  {key === 'term' && (
-                    <div class="mock mock-term">
-                      <div class="term-row"><span>Weekend trip</span><div class="term-bar"><i style="--w:18%"></i></div><b>2 nights</b></div>
-                      <div class="term-row"><span>Work contract</span><div class="term-bar"><i style="--w:48%"></i></div><b>14 nights</b></div>
-                      <div class="term-row"><span>Relocation</span><div class="term-bar"><i style="--w:100%"></i></div><b>30+ nights</b></div>
                     </div>
                   )}
                 </div>

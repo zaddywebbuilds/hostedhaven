@@ -10125,6 +10125,46 @@
     96,
     192
    ]
+  },
+  "property-care-making-bed": {
+   "base": "stock/property-care-making-bed",
+   "ratio": 1.3331,
+   "widths": [
+    640,
+    1280
+   ]
+  },
+  "listing-photography-tripod": {
+   "base": "stock/listing-photography-tripod",
+   "ratio": 1.5,
+   "widths": [
+    640,
+    1280
+   ]
+  },
+  "revenue-analytics-laptop": {
+   "base": "stock/revenue-analytics-laptop",
+   "ratio": 0.7238,
+   "widths": [
+    640,
+    1280
+   ]
+  },
+  "owner-checking-phone": {
+   "base": "stock/owner-checking-phone",
+   "ratio": 0.5625,
+   "widths": [
+    640,
+    1280
+   ]
+  },
+  "extended-stay-suitcase": {
+   "base": "stock/extended-stay-suitcase",
+   "ratio": 1.335,
+   "widths": [
+    640,
+    1280
+   ]
   }
  }
 }

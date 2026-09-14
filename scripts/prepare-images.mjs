@@ -87,6 +87,10 @@ brandJobs.push(
   [path.join(SITE_IMAGES, '_homepage', '013-f8107259-8dff-4181-bfe0-5bb969f398d9-1.avif'), 'reviews/guest-chance', [96, 192]],
   [path.join(SITE_IMAGES, '_homepage', '014-0276c772-ee39-4402-bdad-b9dfeffbe3b6.avif'), 'reviews/guest-abel', [96, 192]],
 );
+// Licensed stock (Unsplash License) illustrating services the client photos don't show.
+for (const name of ['property-care-making-bed', 'listing-photography-tripod', 'revenue-analytics-laptop', 'owner-checking-phone', 'extended-stay-suitcase']) {
+  brandJobs.push([path.join(BRAND, 'stock', `${name}.jpg`), `stock/${name}`, [640, 1280]]);
+}
 for (const [file, base, widths] of brandJobs) {
   const p = path.isAbsolute(file) ? file : path.join(BRAND, file);
   if (await exists(p)) manifest.brand[base.split('/')[1]] = await emit(p, base, widths, { quality: 85 });
