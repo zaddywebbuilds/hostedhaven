@@ -16,6 +16,14 @@ export function coverImage(slug: string): ImgEntry | undefined {
   return imgs[coverIndex[slug] ?? 0] ?? imgs[0];
 }
 
+/** Gallery order for a stay page: cover first, any collage cover moved to the end. */
+export function galleryImages(slug: string): ImgEntry[] {
+  const imgs = propertyImages(slug);
+  const idx = coverIndex[slug];
+  if (!idx) return imgs;
+  return [imgs[idx], ...imgs.filter((_, i) => i !== idx && i !== 0), imgs[0]].filter(Boolean);
+}
+
 export function brandImage(key: string): ImgEntry | undefined {
   return m.brand?.[key];
 }

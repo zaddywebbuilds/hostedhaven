@@ -4,7 +4,7 @@ import Img from '../../components/Img.astro';
 import Icon from '../../components/Icon.astro';
 import PropertyCard from '../../components/PropertyCard.astro';
 import { properties, type Property } from '../../data/properties';
-import { propertyImages } from '../../lib/images';
+import { galleryImages } from '../../lib/images';
 import { u, SITE } from '../../lib/url';
 import { business } from '../../data/business';
 
@@ -13,7 +13,7 @@ export function getStaticPaths() {
 }
 interface Props { p: Property }
 const { p } = Astro.props;
-const imgs = propertyImages(p.slug);
+const imgs = galleryImages(p.slug);
 const path = `/stays/${p.slug}/`;
 const loc = p.area ? `${p.area}, ${p.city}, TX` : `${p.city}, TX`;
 const similar = properties
@@ -58,7 +58,7 @@ const schema = [{
       <div class="gallery" data-gallery>
         {imgs.slice(0, 5).map((im, i) => (
           <a href={u(`/images/${im.base}-1280.webp`)} data-index={i} aria-label={`Open photo ${i + 1} of ${imgs.length}`}>
-            <Img src={im} alt={i === 0 ? `${p.name} in ${p.city}, TX` : ''} eager={i === 0} sizes={i === 0 ? '(max-width: 760px) 100vw, 50vw' : '(max-width: 760px) 50vw, 25vw'} />
+            <Img src={im} alt={i === 0 ? `${p.name} in ${p.city}, TX` : ''} eager={i === 0} lazy={false} sizes={i === 0 ? '(max-width: 760px) 100vw, 50vw' : '(max-width: 760px) 50vw, 25vw'} />
             {i === 4 && imgs.length > 5 && <span class="btn btn-glass btn-sm more">+{imgs.length - 5} photos</span>}
           </a>
         ))}
