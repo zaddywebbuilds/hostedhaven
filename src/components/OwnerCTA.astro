@@ -1,0 +1,26 @@
+---
+import Icon from './Icon.astro';
+import { u } from '../lib/url';
+import { business } from '../data/business';
+interface Props { title?: string; text?: string; }
+const {
+  title = 'Own the Property. <em>Let Us Handle the Hosting.</em>',
+  text = 'Tell us about your San Antonio rental and we’ll help you see where stronger pricing, presentation and operations could improve its performance.',
+} = Astro.props;
+---
+<section class="section-tight">
+  <div class="container">
+    <div class="cta-band bg-dark reveal">
+      <div class="ghost-panels" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div style="position:relative">
+        <span class="eyebrow">Free property analysis</span>
+        <h2 set:html={title} />
+        <p class="lead">{text}</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Get My Free Property Analysis <Icon name="arrow" /></a>
+          <a class="btn btn-glass" href={`tel:${business.phone}`} data-track="phone_click"><Icon name="phone" /> Call {business.displayPhone}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

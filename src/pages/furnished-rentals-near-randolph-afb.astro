@@ -1,0 +1,32 @@
+---
+import GuestLanding from '../components/GuestLanding.astro';
+import { properties } from '../data/properties';
+const items = properties.filter((p) => p.nearBase === 'Randolph AFB');
+---
+<GuestLanding
+  path="/furnished-rentals-near-randolph-afb/"
+  metaTitle="Furnished Rentals Near Randolph AFB | Converse, TX | Hosted Havens"
+  metaDescription="Furnished rentals and private rooms near Randolph AFB in Converse, TX — minutes from the base, with workspaces, fast internet and extended-stay setups."
+  crumb="Near Randolph AFB"
+  eyebrow="Guests · Military & PCS"
+  h1="Furnished Rentals Near <em>Randolph AFB</em>"
+  lead="Private rooms and full homes in Converse, about four minutes from Randolph Air Force Base — set up for PCS moves, TDY assignments, remote workers and visiting family."
+  heroSlug="ccp-3"
+  heroAlt="A private room with a workspace at The Crashpad in Converse, near Randolph AFB"
+  items={items}
+  introH2="Close to base, <em>comfortable at home</em>"
+  intro={[
+    'Moving in or out of Joint Base San Antonio–Randolph is stressful enough. These Converse stays keep your commute short and your downtime comfortable.',
+    'Choose a private room at The Crashpad with shared game and living rooms, or book a full home for your family or group. See <a href="/monthly-rentals-san-antonio/">monthly rentals</a> for longer options across the city.',
+  ]}
+  points={[
+    { icon: 'plane', title: 'Minutes from the gate', text: 'Properties about four minutes from Randolph AFB.' },
+    { icon: 'wifi', title: '1,000 Mbps internet', text: 'Fast internet and private workspaces at The Crashpad.' },
+    { icon: 'calendar', title: 'Extended-stay ready', text: 'Mid-stay housekeeping, laundry and fully equipped kitchens.' },
+  ]}
+  faqs={[
+    { q: 'How close are these rentals to Randolph AFB?', a: 'The Crashpad rooms and Legislation are about four minutes from Randolph AFB, per their listings.' },
+    { q: 'Can I book a private room instead of a whole house?', a: 'Yes. The Crashpad offers private rooms with pin-code locks, some with en suite or partially shared bathrooms, plus shared living spaces.' },
+    { q: 'Are these available for PCS and TDY stays?', a: 'Yes. They are set up for extended stays, and longer bookings may include automatic discounts.' },
+  ]}
+/>

@@ -1,0 +1,177 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { canonical, u, SITE } from '../lib/url';
+import { business, analytics, socials } from '../data/business';
+
+interface Crumb { name: string; path: string }
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  ogImage?: string;
+  schema?: object[];
+  noindex?: boolean;
+  breadcrumbs?: Crumb[];
+}
+const { title, description, path, ogImage = '/images/og/hosted-havens-og.jpg', schema = [], noindex = false, breadcrumbs } = Astro.props;
+const canon = canonical(path);
+const ogAbs = `${SITE}${ogImage}`;
+
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${SITE}/#organization`,
+  name: business.name,
+  alternateName: business.shortName,
+  url: `${SITE}/`,
+  logo: `${SITE}/images/brand/hosted-havens-logo-stacked-640.webp`,
+  email: business.ownerEmail,
+  telephone: business.phone,
+  founder: { '@type': 'Person', name: business.founder },
+  areaServed: business.serviceArea.map((c) => ({ '@type': 'City', name: `${c}, TX` })),
+  sameAs: socials.map((s) => s.href),
+};
+const crumbSchema = breadcrumbs?.length
+  ? [{
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: canonical(c.path) })),
+    }]
+  : [];
+const allSchema = [org, ...crumbSchema, ...schema];
+---
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canon} />
+  {noindex && <meta name="robots" content="noindex, follow" />}
+  <meta name="theme-color" content="#E5664A" />
+  <meta name="geo.region" content="US-TX" />
+  <meta name="geo.placename" content="San Antonio" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={business.shortName} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canon} />
+  <meta property="og:image" content={ogAbs} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogAbs} />
+  {analytics.googleSiteVerification && <meta name="google-site-verification" content={analytics.googleSiteVerification} />}
+  {analytics.bingSiteVerification && <meta name="msvalidate.01" content={analytics.bingSiteVerification} />}
+
+  <link rel="icon" href={u('/favicon.svg')} type="image/svg+xml" />
+  <link rel="icon" href={u('/favicon-32.png')} sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href={u('/apple-touch-icon.png')} />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" />
+
+  {allSchema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+
+  <script is:inline>document.documentElement.classList.add('js');</script>
+  {analytics.ga4Id && (
+    <>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${analytics.ga4Id}`}></script>
+      <script is:inline define:vars={{ id: analytics.ga4Id }}>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config',id);</script>
+    </>
+  )}
+  <slot name="head" />
+</head>
+<body>
+  <Header />
+  <main id="main">
+    <slot />
+  </main>
+  <Footer />
+
+  <script>
+    const header = document.getElementById('hh-header');
+    const bar = document.querySelector('[data-mobile-bar]');
+    const onScroll = () => {
+      const y = window.scrollY;
+      header?.classList.toggle('is-scrolled', y > 24);
+      bar?.classList.toggle('show', y > 420);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    document.querySelectorAll<HTMLElement>('[data-drop]').forEach((drop) => {
+      const btn = drop.querySelector('button');
+      btn?.addEventListener('click', () => {
+        const open = drop.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+      document.addEventListener('click', (e) => {
+        if (!drop.contains(e.target as Node)) { drop.classList.remove('open'); btn?.setAttribute('aria-expanded', 'false'); }
+      });
+    });
+
+    const drawer = document.querySelector<HTMLElement>('[data-drawer]');
+    const opener = document.querySelector<HTMLElement>('[data-drawer-open]');
+    const setDrawer = (open: boolean) => {
+      drawer?.classList.toggle('open', open);
+      drawer?.setAttribute('aria-hidden', String(!open));
+      opener?.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+      if (open) drawer?.querySelector<HTMLElement>('[data-drawer-close]')?.focus(); else opener?.focus();
+    };
+    opener?.addEventListener('click', () => setDrawer(true));
+    drawer?.querySelector('[data-drawer-close]')?.addEventListener('click', () => setDrawer(false));
+    drawer?.addEventListener('click', (e) => { if (e.target === drawer) setDrawer(false); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (drawer?.classList.contains('open')) setDrawer(false);
+        document.querySelectorAll('[data-drop].open').forEach((d) => d.classList.remove('open'));
+      }
+    });
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reveals = document.querySelectorAll('.reveal');
+    if (!reduce && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, { rootMargin: '0px 0px -5% 0px', threshold: 0 });
+      reveals.forEach((el) => io.observe(el));
+      // Safety net: never leave content hidden if an observer callback is missed.
+      window.setTimeout(() => document.documentElement.classList.add('reveal-ready'), 2500);
+    } else {
+      reveals.forEach((el) => el.classList.add('in'));
+    }
+
+    if (!reduce && window.matchMedia('(pointer: fine)').matches) {
+      document.querySelectorAll<HTMLElement>('[data-tilt]').forEach((scene) => {
+        const target = scene.querySelector<HTMLElement>('[data-tilt-target]');
+        if (!target) return;
+        scene.addEventListener('pointermove', (e) => {
+          const r = scene.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - 0.5;
+          const y = (e.clientY - r.top) / r.height - 0.5;
+          target.style.setProperty('--tx', `${x * 10}deg`);
+          target.style.setProperty('--ty', `${-y * 8}deg`);
+        });
+        scene.addEventListener('pointerleave', () => { target.style.removeProperty('--tx'); target.style.removeProperty('--ty'); });
+      });
+    }
+
+    document.addEventListener('click', (e) => {
+      const el = (e.target as HTMLElement).closest<HTMLElement>('[data-track]');
+      if (!el) return;
+      const w = window as unknown as { gtag?: (...a: unknown[]) => void };
+      w.gtag?.('event', el.dataset.track, { link_url: (el as HTMLAnchorElement).href || undefined, page_path: location.pathname });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InteriorHero from './InteriorHero.astro';
+import PropertyCard from './PropertyCard.astro';
+import FAQ from './FAQ.astro';
+import Icon from './Icon.astro';
+import { coverImage } from '../lib/images';
+import { u, fixLinks, SITE } from '../lib/url';
+import type { Property } from '../data/properties';
+
+interface Props {
+  path: string;
+  metaTitle: string;
+  metaDescription: string;
+  crumb: string;
+  eyebrow: string;
+  h1: string;
+  lead: string;
+  heroSlug: string;
+  heroAlt: string;
+  items: Property[];
+  introH2: string;
+  intro: string[];
+  points: { icon: string; title: string; text: string }[];
+  faqs: { q: string; a: string }[];
+}
+const p = Astro.props;
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Stays', path: '/stays/' }, { name: p.crumb, path: p.path }];
+const schema = [{
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: p.crumb,
+  itemListElement: p.items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}/stays/${it.slug}/`, name: it.name })),
+}];
+---
+<BaseLayout title={p.metaTitle} description={p.metaDescription} path={p.path} breadcrumbs={crumbs} schema={schema}>
+  <InteriorHero
+    eyebrow={p.eyebrow}
+    title={p.h1}
+    lead={p.lead}
+    crumbs={crumbs}
+    image={coverImage(p.heroSlug)}
+    imageAlt={p.heroAlt}
+    primary={{ label: 'See Matching Stays', href: `${p.path}#stays`, track: 'availability_search' }}
+    secondary={{ label: 'Why Book Direct', href: '/why-book-direct/' }}
+  />
+
+  <section class="section">
+    <div class="container split" style="align-items:start">
+      <div class="reveal">
+        <span class="eyebrow">Good to know</span>
+        <h2 set:html={p.introH2} />
+        {p.intro.map((t) => <p class="lead" set:html={fixLinks(t)} />)}
+      </div>
+      <div class="grid reveal reveal-d2">
+        {p.points.map((pt, i) => (
+          <div class="card3d" style="display:flex;gap:1rem;align-items:flex-start">
+            <span class={`icon-box ${i % 3 === 1 ? 'sage' : i % 3 === 2 ? 'gold' : ''}`}><Icon name={pt.icon} /></span>
+            <div><h3 style="margin:.2rem 0 .3rem">{pt.title}</h3><p style="margin:0">{pt.text}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-warm" id="stays">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">{p.items.length} matching stays</span><h2>Available <em>homes &amp; rooms</em></h2></div>
+      <div class="prop-grid">{p.items.map((it) => <PropertyCard p={it} />)}</div>
+      <div class="center" style="margin-top:2rem"><a class="btn btn-glass" href={u('/stays/')} data-track="stays_view">View all stays <Icon name="arrow" /></a></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head center reveal"><span class="eyebrow">FAQ</span><h2>Before you <em>book</em></h2></div>
+      <FAQ items={p.faqs} />
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="cta-band bg-dark reveal">
+        <div class="ghost-panels" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div style="position:relative">
+          <h2>Your San Antonio Stay <em>Starts Here.</em></h2>
+          <div class="btn-row"><a class="btn btn-primary" href={u('/stays/')} data-track="stays_view">Check Available Stays <Icon name="arrow" /></a><a class="btn btn-glass" href={u('/why-book-direct/')}>Why Book Direct</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Img from '../../components/Img.astro';
+import Icon from '../../components/Icon.astro';
+import PropertyCard from '../../components/PropertyCard.astro';
+import { properties, type Property } from '../../data/properties';
+import { propertyImages } from '../../lib/images';
+import { u, SITE } from '../../lib/url';
+import { business } from '../../data/business';
+
+export function getStaticPaths() {
+  return properties.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+interface Props { p: Property }
+const { p } = Astro.props;
+const imgs = propertyImages(p.slug);
+const path = `/stays/${p.slug}/`;
+const loc = p.area ? `${p.area}, ${p.city}, TX` : `${p.city}, TX`;
+const similar = properties
+  .filter((o) => o.slug !== p.slug)
+  .map((o) => ({ o, score: (o.city === p.city ? 2 : 0) + (o.type === p.type ? 2 : 0) + (o.group && o.group === p.group ? 1 : 0) + (o.petFriendly === p.petFriendly ? 1 : 0) }))
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 3)
+  .map((x) => x.o);
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Stays', path: '/stays/' }, { name: p.city, path: '/stays/' }, { name: p.name, path }];
+const metaTitle = `${p.name} · ${p.type === 'House' ? `${p.bedrooms}BR Home` : p.type} in ${p.city}, TX | Hosted Havens`;
+const desc = `${p.summary.slice(0, 150).replace(/\s+\S*$/, '')}… Sleeps ${p.guests}. Book direct with Hosted Havens.`;
+const cover = imgs[0];
+
+const schema = [{
+  '@context': 'https://schema.org',
+  '@type': 'VacationRental',
+  name: p.name,
+  description: p.summary,
+  url: `${SITE}${path}`,
+  image: imgs.slice(0, 6).map((i) => `${SITE}/images/${i.base}-1280.webp`),
+  containsPlace: {
+    '@type': 'Accommodation',
+    additionalType: p.type === 'House' ? 'EntireHouse' : p.type === 'Studio' ? 'EntireApartment' : 'PrivateRoom',
+    occupancy: { '@type': 'QuantitativeValue', value: p.guests },
+    numberOfBedrooms: p.bedrooms,
+    numberOfBathroomsTotal: Number(p.baths),
+    amenityFeature: [...p.highlights, ...p.amenities].slice(0, 12).map((a) => ({ '@type': 'LocationFeatureSpecification', name: a, value: true })),
+  },
+  address: { '@type': 'PostalAddress', addressLocality: p.city, addressRegion: 'TX', addressCountry: 'US' },
+  petsAllowed: p.petFriendly,
+  brand: { '@id': `${SITE}/#organization` },
+}];
+---
+<BaseLayout title={metaTitle} description={desc} path={path} breadcrumbs={crumbs} schema={schema} ogImage={cover ? `/images/${cover.base}-1280.webp` : undefined}>
+  <section class="section-tight" style="padding-top:2rem">
+    <div class="container">
+      <nav aria-label="Breadcrumb"><ol class="breadcrumbs">{crumbs.map((c, i) => <li>{i < crumbs.length - 1 ? <a href={u(c.path)}>{c.name}</a> : <span aria-current="page">{c.name}</span>}</li>)}</ol></nav>
+      <span class="eyebrow">{loc} · {p.type}</span>
+      <h1 class="h1-interior" style="margin-bottom:.4rem">{p.name}</h1>
+      <p class="lead" style="margin-bottom:1.6rem">{p.title}</p>
+
+      <div class="gallery" data-gallery>
+        {imgs.slice(0, 5).map((im, i) => (
+          <a href={u(`/images/${im.base}-1280.webp`)} data-index={i} aria-label={`Open photo ${i + 1} of ${imgs.length}`}>
+            <Img src={im} alt={i === 0 ? `${p.name} in ${p.city}, TX` : ''} eager={i === 0} sizes={i === 0 ? '(max-width: 760px) 100vw, 50vw' : '(max-width: 760px) 50vw, 25vw'} />
+            {i === 4 && imgs.length > 5 && <span class="btn btn-glass btn-sm more">+{imgs.length - 5} photos</span>}
+          </a>
+        ))}
+      </div>
+      <div class="facts" style="margin-top:1.4rem">
+        <span class="fact"><Icon name="users" />{p.guests} guests</span>
+        <span class="fact"><Icon name="bed" />{p.bedrooms} {p.bedrooms === 1 ? 'bedroom' : 'bedrooms'} · {p.beds} {p.beds === 1 ? 'bed' : 'beds'}</span>
+        <span class="fact"><Icon name="bath" />{p.baths} {p.baths === '1' ? 'bath' : 'baths'}</span>
+        {p.petFriendly && <span class="fact"><Icon name="paw" />Pet friendly</span>}
+        {p.workspace && <span class="fact"><Icon name="briefcase" />Workspace</span>}
+        {p.extendedStay && <span class="fact"><Icon name="calendar" />Extended stays</span>}
+        {p.nearBase && <span class="fact"><Icon name="plane" />Near {p.nearBase}</span>}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container prop-layout">
+      <div class="prose">
+        <h2 style="margin-top:0">About this stay</h2>
+        <p class="lead">{p.summary}</p>
+
+        <h2>Top reasons to stay</h2>
+        <ul class="ticks" style="padding:0">{p.highlights.map((h) => <li>{h}</li>)}</ul>
+
+        <h2>Sleeping arrangements</h2>
+        <ul class="ticks" style="padding:0">{p.sleeping.map((h) => <li>{h}</li>)}</ul>
+
+        <h2>Amenities</h2>
+        <ul class="ticks" style="padding:0;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">{p.amenities.map((h) => <li>{h}</li>)}</ul>
+
+        {p.distances && (<>
+          <h2>Location</h2>
+          <p>{loc}. Exact address and arrival instructions are shared after booking.</p>
+          <ul class="ticks" style="padding:0">{p.distances.map((h) => <li>{h}</li>)}</ul>
+        </>)}
+
+        <h2>Good to know</h2>
+        <ul>
+          <li>Check-in and check-out times are listed on your booking confirmation (check-in is typically from 3:00 PM and checkout by 11:00 AM).</li>
+          <li>Most listings use a Moderate cancellation policy — cancel up to 5 days before check-in for a full refund. Confirm this stay’s policy when you book.</li>
+          <li>Check-in typically includes an online rental agreement, ID verification and a security hold.</li>
+          <li>No smoking indoors and no parties. {p.petFriendly ? 'Pets are welcome — see pet rules at booking.' : 'Please check pet rules before booking.'}</li>
+          <li>Longer stays may include automatic discounts.</li>
+        </ul>
+
+        <h2 id="availability">Check availability</h2>
+        <iframe class="booking-frame" src={p.bookingUrl} title={`Availability and booking for ${p.name}`} loading="lazy"></iframe>
+        <p class="small muted">Booking powered by Hospitable. Having trouble? <a href={p.bookingUrl} target="_blank" rel="noopener noreferrer" data-track="book_now_click">Open booking in a new tab</a> or email <a href={`mailto:${business.guestEmail}`} data-track="guest_email_click">{business.guestEmail}</a>.</p>
+      </div>
+
+      <aside class="book-card" aria-label="Book this stay">
+        <span class="eyebrow">Book direct</span>
+        <h2>{p.name}</h2>
+        <p class="muted small">{p.guests} guests · {p.bedrooms} BR · {p.baths} BA · {p.city}, TX</p>
+        <ul class="ticks" style="margin:1rem 0 1.4rem">
+          <li>Local San Antonio support</li>
+          <li>No third-party platform service fees</li>
+          <li>Professionally managed & cleaned</li>
+        </ul>
+        <div style="display:grid;gap:.6rem">
+          <a class="btn btn-primary" href="#availability" data-track="availability_search">Check Availability <Icon name="arrow" /></a>
+          <a class="btn btn-glass" href={p.bookingUrl} target="_blank" rel="noopener noreferrer" data-track="direct_booking_click">Book Direct</a>
+        </div>
+        <p class="small muted" style="margin:1rem 0 0">Questions? <a class="text-link" href={`tel:${business.phone}`} data-track="phone_click">{business.displayPhone}</a></p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">Similar stays</span><h2>You might also <em>like</em></h2></div>
+      <div class="prop-grid">{similar.map((o) => <PropertyCard p={o} />)}</div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="cta-band bg-warm reveal" style="border:1px solid #fff;box-shadow:var(--shadow-glass)">
+        <span class="eyebrow">Book direct</span>
+        <h2>Your San Antonio Stay <em>Starts Here.</em></h2>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#availability" data-track="availability_search">Check Available Dates <Icon name="arrow" /></a>
+          <a class="btn btn-glass" href={u('/why-book-direct/')}>Why Book Direct</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" data-lightbox role="dialog" aria-modal="true" aria-label={`${p.name} photos`}>
+    <button type="button" class="lb-close" aria-label="Close" data-lb-close><Icon name="close" /></button>
+    <button type="button" class="lb-prev" aria-label="Previous photo" data-lb-prev><Icon name="arrow" class="flip" /></button>
+    <img alt="" data-lb-img />
+    <button type="button" class="lb-next" aria-label="Next photo" data-lb-next><Icon name="arrow" /></button>
+    <span class="lb-count" data-lb-count></span>
+  </div>
+  <script define:vars={{ photos: imgs.map((i) => u(`/images/${i.base}-1280.webp`)) }} is:inline>
+    (function () {
+      var lb = document.querySelector('[data-lightbox]');
+      var img = lb.querySelector('[data-lb-img]');
+      var count = lb.querySelector('[data-lb-count]');
+      var i = 0, last = null;
+      function show(n) { i = (n + photos.length) % photos.length; img.src = photos[i]; count.textContent = (i + 1) + ' / ' + photos.length; }
+      function open(n) { last = document.activeElement; show(n); lb.classList.add('open'); document.body.style.overflow = 'hidden'; lb.querySelector('[data-lb-close]').focus(); }
+      function close() { lb.classList.remove('open'); document.body.style.overflow = ''; if (last) last.focus(); }
+      document.querySelectorAll('[data-gallery] a').forEach(function (a) {
+        a.addEventListener('click', function (e) { e.preventDefault(); open(Number(a.dataset.index)); });
+      });
+      lb.querySelector('[data-lb-close]').addEventListener('click', close);
+      lb.querySelector('[data-lb-prev]').addEventListener('click', function () { show(i - 1); });
+      lb.querySelector('[data-lb-next]').addEventListener('click', function () { show(i + 1); });
+      lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') show(i - 1);
+        if (e.key === 'ArrowRight') show(i + 1);
+      });
+    })();
+  </script>
+  <style>.lb-prev :global(svg) { transform: rotate(180deg); }</style>
+</BaseLayout>

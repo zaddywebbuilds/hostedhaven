@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import InteriorHero from '../../components/InteriorHero.astro';
+import PropertyCard from '../../components/PropertyCard.astro';
+import Icon from '../../components/Icon.astro';
+import FAQ from '../../components/FAQ.astro';
+import { properties, cities } from '../../data/properties';
+import { coverImage } from '../../lib/images';
+import { u, SITE } from '../../lib/url';
+import { guestReviews } from '../../data/business';
+
+const guestFaqs = [
+  { q: 'Why book direct?', a: 'Major travel platforms add service fees you can avoid by booking directly on our site. You get the same local support without the extra platform layer. <a href="/why-book-direct/">Learn more</a>.' },
+  { q: 'What is the cancellation policy?', a: 'Most listings use a Moderate policy, allowing cancellation up to 5 days before check-in for a full refund. Check each property for exceptions.' },
+  { q: 'How does check-in work?', a: 'Most stays use an online check-in process covering the rental agreement, ID verification and a security hold. Once complete, you receive your arrival instructions.' },
+  { q: 'Are monthly stays available?', a: 'Yes. Many homes are set up for extended stays, and some discounts are built in automatically for longer bookings.' },
+  { q: 'Are pets allowed?', a: 'Several homes and studios are pet friendly. Use the Pet Friendly filter above, and check each listing’s pet rules.' },
+  { q: 'Do you offer booking discounts?', a: 'Longer stays often include automatic discounts. Promo codes are shared in the <a href="https://www.facebook.com/groups/hostedhavensguestlounge" target="_blank" rel="noopener noreferrer">Hosted Havens Guest Lounge</a>.' },
+];
+
+const schema = [{
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Hosted Havens stays in San Antonio',
+  itemListElement: properties.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE}/stays/${p.slug}/`, name: p.name })),
+}];
+---
+<BaseLayout
+  title="San Antonio Vacation Rentals & Furnished Stays | Hosted Havens"
+  description="Browse professionally managed vacation rentals, studios and furnished stays across San Antonio, Live Oak, Universal City and Converse. Book direct with local support."
+  path="/stays/"
+  breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Stays', path: '/stays/' }]}
+  schema={schema}
+>
+  <InteriorHero
+    eyebrow="Book direct · Local support"
+    title="Vacation Rentals &amp; Furnished Stays in <em>San Antonio</em>"
+    lead="Browse professionally managed short-term and mid-term rentals for family trips, business travel, military stays, relocations and extended visits."
+    crumbs={[{ name: 'Home', path: '/' }, { name: 'Stays', path: '/stays/' }]}
+    image={coverImage('grass-hollow')}
+    imageAlt="Grass Hollow, a family-friendly Hosted Havens home in Live Oak, TX"
+    primary={{ label: 'Browse Stays', href: '/stays/#all-stays', track: 'availability_search' }}
+    secondary={{ label: 'Why Book Direct', href: '/why-book-direct/' }}
+  >
+    <Fragment slot="widget">
+      <div class="fc-head"><span class="fc-title">Book Direct</span></div>
+      <div class="fc-row">Local support <b class="fc-ok">✓</b></div>
+      <div class="fc-row">Professionally managed <b class="fc-ok">✓</b></div>
+      <div class="fc-row">Flexible stay options <b class="fc-ok">✓</b></div>
+    </Fragment>
+  </InteriorHero>
+
+  <section class="section" id="all-stays">
+    <div class="container">
+      <form class="filters" aria-label="Filter stays" onsubmit="return false">
+        <label>Location
+          <select name="city" data-filter="city"><option value="">All locations</option>{cities.map((c) => <option value={c}>{c}, TX</option>)}</select>
+        </label>
+        <label>Guests
+          <select name="guests" data-filter="guests"><option value="">Any</option><option value="2">2+</option><option value="4">4+</option><option value="6">6+</option><option value="8">8+</option></select>
+        </label>
+        <label>Bedrooms
+          <select name="bedrooms" data-filter="bedrooms"><option value="">Any</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select>
+        </label>
+        <button type="button" class="filter-toggle" aria-pressed="false" data-toggle="pet"><Icon name="paw" />Pet friendly</button>
+        <button type="button" class="filter-toggle" aria-pressed="false" data-toggle="extended"><Icon name="calendar" />Monthly stay</button>
+        <button type="button" class="filter-toggle" aria-pressed="false" data-toggle="workspace"><Icon name="briefcase" />Workspace</button>
+        <button type="button" class="filter-toggle" aria-pressed="false" data-toggle="family"><Icon name="users" />Family friendly</button>
+        <span class="filter-count" aria-live="polite" data-count>{properties.length} stays</span>
+      </form>
+
+      <div class="prop-grid" data-grid>{properties.map((p) => <PropertyCard p={p} />)}</div>
+      <div class="empty-state" data-empty hidden>
+        <h2 style="font-size:2rem">No stays match those filters yet.</h2>
+        <p class="muted">Try removing a filter to see more homes.</p>
+        <button type="button" class="btn btn-dark" data-reset>View All Stays</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-warm">
+    <div class="container">
+      <div class="section-head center reveal"><span class="eyebrow">What guests say</span><h2>Stays guests <em>come back to</em></h2></div>
+      <div class="grid grid-4">
+        {guestReviews.map((r, i) => (
+          <figure class={`review-card reveal reveal-d${i + 1}`} style="margin:0">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote style="margin:0"><p>“{r.quote}”</p></blockquote>
+            <figcaption class="review-by"><span class="avatar-initial">{r.name[0]}</span><span><strong>{r.name}</strong><small>{r.from}</small></span></figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split" style="align-items:start">
+      <div class="reveal">
+        <span class="eyebrow">Guest FAQ</span>
+        <h2>Before you <em>book</em></h2>
+        <p class="lead">Property-specific rules, check-in times and pet policies are on each stay’s page.</p>
+        <div class="btn-row" style="margin-top:1rem">
+          <a class="btn btn-glass" href={u('/monthly-rentals-san-antonio/')}>Monthly stays</a>
+          <a class="btn btn-glass" href={u('/pet-friendly-vacation-rentals-san-antonio/')}>Pet-friendly stays</a>
+          <a class="btn btn-glass" href={u('/furnished-rentals-near-randolph-afb/')}>Near Randolph AFB</a>
+        </div>
+      </div>
+      <div class="reveal reveal-d2"><FAQ items={guestFaqs} /></div>
+    </div>
+  </section>
+
+  <script>
+    const grid = document.querySelector('[data-grid]');
+    const cards = [...document.querySelectorAll<HTMLElement>('[data-prop]')];
+    const count = document.querySelector('[data-count]');
+    const empty = document.querySelector<HTMLElement>('[data-empty]');
+    const selects = [...document.querySelectorAll<HTMLSelectElement>('[data-filter]')];
+    const toggles = [...document.querySelectorAll<HTMLButtonElement>('[data-toggle]')];
+    const apply = () => {
+      const city = selects.find((s) => s.dataset.filter === 'city')?.value;
+      const guests = Number(selects.find((s) => s.dataset.filter === 'guests')?.value || 0);
+      const beds = Number(selects.find((s) => s.dataset.filter === 'bedrooms')?.value || 0);
+      const on = toggles.filter((t) => t.getAttribute('aria-pressed') === 'true').map((t) => t.dataset.toggle as string);
+      let shown = 0;
+      cards.forEach((c) => {
+        const d = c.dataset;
+        const ok = (!city || d.city === city) && Number(d.guests) >= guests && Number(d.bedrooms) >= beds && on.every((k) => d[k] === '1');
+        c.hidden = !ok;
+        if (ok) { shown++; c.classList.add('in'); }
+      });
+      if (count) count.textContent = `${shown} ${shown === 1 ? 'stay' : 'stays'}`;
+      if (empty) empty.hidden = shown > 0;
+      if (grid) (grid as HTMLElement).hidden = shown === 0;
+    };
+    selects.forEach((s) => s.addEventListener('change', apply));
+    toggles.forEach((t) => t.addEventListener('click', () => { t.setAttribute('aria-pressed', String(t.getAttribute('aria-pressed') !== 'true')); apply(); }));
+    document.querySelector('[data-reset]')?.addEventListener('click', () => {
+      selects.forEach((s) => (s.value = ''));
+      toggles.forEach((t) => t.setAttribute('aria-pressed', 'false'));
+      apply();
+    });
+  </script>
+</BaseLayout>

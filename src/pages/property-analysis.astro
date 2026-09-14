@@ -1,0 +1,213 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { u } from '../lib/url';
+import { business, links, formEndpoint } from '../data/business';
+
+const goals = ['Increase revenue', 'Become hands-off', 'Improve occupancy', 'Launch a new STR', 'Move into mid-term rentals', 'Improve reviews', 'Other'];
+const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Revenue isn’t where it should be', 'I need better reviews', 'I’m launching a new property', 'Cleaning is difficult', 'Maintenance keeps interrupting me', 'I need a mid-term strategy', 'I want to scale'];
+---
+<BaseLayout
+  title="Free Property Analysis for San Antonio Rentals | Hosted Havens"
+  description="Tell Hosted Havens about your San Antonio property and goals. We’ll review the home, location and rental setup to identify short-term rental opportunities."
+  path="/property-analysis/"
+  breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Property Analysis', path: '/property-analysis/' }]}
+>
+  <section class="ihero">
+    <div class="stage">
+      <div class="stage-arch" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="stage-glow a" aria-hidden="true"></div>
+      <div class="stage-glow b" aria-hidden="true"></div>
+      <div class="ihero-grid" style="grid-template-columns:.85fr 1.15fr;align-items:start">
+        <div class="ihero-copy">
+          <nav aria-label="Breadcrumb"><ol class="breadcrumbs"><li><a href={u('/')}>Home</a></li><li><span aria-current="page">Property Analysis</span></li></ol></nav>
+          <span class="eyebrow">Free · No obligation</span>
+          <h1 class="h1-interior">Let’s See What Your <em>Property</em> Could Do.</h1>
+          <p class="lead">Tell us a little about your home and your goals. We’ll review the property, its location and your current rental setup to identify opportunities.</p>
+          <ul class="ticks" style="margin:1.4rem 0">
+            <li>Takes about 2–3 minutes</li>
+            <li>Reviewed by a person on the Hosted Havens team</li>
+            <li>No long-term contract required if you move forward</li>
+          </ul>
+          <p class="small muted">Prefer to talk? Call <a class="text-link" href={`tel:${business.phone}`} data-track="phone_click">{business.displayPhone}</a> or email <a class="text-link" href={`mailto:${business.ownerEmail}`} data-track="owner_email_click">{business.ownerEmail}</a>.</p>
+        </div>
+
+        <div class="form-shell" id="analysis">
+          <form id="analysis-form" novalidate data-endpoint={formEndpoint} data-fallback={links.intakeForm} data-owner-email={business.ownerEmail}>
+            <ol class="steps" aria-label="Form progress">
+              <li class="on" data-n="1">1 — Property</li>
+              <li data-n="2">2 — Current Setup</li>
+              <li data-n="3">3 — Goals</li>
+              <li data-n="4">4 — Contact</li>
+            </ol>
+
+            <div class="form-step active" data-step="1">
+              <h2>Your property</h2>
+              <div class="fields">
+                <div class="field full"><label for="address">Property address</label><input id="address" name="address" autocomplete="street-address" required /><span class="field-error" aria-live="polite"></span></div>
+                <div class="field"><label for="zip">ZIP code</label><input id="zip" name="zip" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}" required /><span class="field-error" aria-live="polite"></span></div>
+                <div class="field"><label for="type">Property type</label>
+                  <select id="type" name="property_type" required><option value="">Select…</option><option>Single-family home</option><option>Townhome / duplex</option><option>Condo / apartment</option><option>Casita / guest house</option><option>Multi-unit building</option><option>Other</option></select><span class="field-error" aria-live="polite"></span></div>
+                <div class="field"><label for="beds">Bedrooms</label><select id="beds" name="bedrooms" required><option value="">Select…</option><option>Studio</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select><span class="field-error" aria-live="polite"></span></div>
+                <div class="field"><label for="baths">Bathrooms</label><select id="baths" name="bathrooms" required><option value="">Select…</option><option>1</option><option>1.5</option><option>2</option><option>2.5</option><option>3+</option></select><span class="field-error" aria-live="polite"></span></div>
+              </div>
+              <div class="form-nav"><span></span><button type="button" class="btn btn-primary" data-next>Continue <Icon name="arrow" /></button></div>
+            </div>
+
+            <div class="form-step" data-step="2">
+              <h2>Current setup</h2>
+              <div class="fields">
+                <fieldset class="field full"><legend>Is the property currently listed?</legend>
+                  <div class="choice-chips">
+                    {['Yes, on Airbnb/Vrbo', 'Yes, long-term tenant', 'Not yet', 'Not sure'].map((o) => <label><input type="radio" name="currently_listed" value={o} required /><span>{o}</span></label>)}
+                  </div><span class="field-error" aria-live="polite"></span></fieldset>
+                <div class="field full"><label for="listing">Existing listing link <span class="opt">(optional)</span></label><input id="listing" name="listing_url" type="url" inputmode="url" placeholder="https://www.airbnb.com/rooms/…" /><span class="field-error" aria-live="polite"></span></div>
+                <div class="field"><label for="strategy">Current strategy</label><select id="strategy" name="current_strategy"><option value="">Select…</option><option>Short-term (nightly)</option><option>Mid-term (30+ days)</option><option>Long-term lease</option><option>Owner-occupied / vacant</option></select></div>
+                <div class="field"><label for="revenue">Average monthly revenue <span class="opt">(optional)</span></label><input id="revenue" name="monthly_revenue" inputmode="decimal" placeholder="$" /></div>
+              </div>
+              <div class="form-nav"><button type="button" class="btn btn-glass" data-prev>Back</button><button type="button" class="btn btn-primary" data-next>Continue <Icon name="arrow" /></button></div>
+            </div>
+
+            <div class="form-step" data-step="3">
+              <h2>Your goals</h2>
+              <div class="fields">
+                <fieldset class="field full"><legend>Main goal</legend>
+                  <div class="choice-chips">{goals.map((g) => <label><input type="radio" name="main_goal" value={g} required /><span>{g}</span></label>)}</div>
+                  <span class="field-error" aria-live="polite"></span></fieldset>
+                <fieldset class="field full"><legend>What’s getting in the way? <span class="opt">(choose any)</span></legend>
+                  <div class="choice-chips">{pains.map((p) => <label><input type="checkbox" name="pain_points" value={p} /><span>{p}</span></label>)}</div></fieldset>
+                <div class="field full"><label for="timeframe">When would you like to start?</label><select id="timeframe" name="timeframe"><option value="">Select…</option><option>As soon as possible</option><option>Within 1–3 months</option><option>3–6 months</option><option>Just exploring</option></select></div>
+              </div>
+              <div class="form-nav"><button type="button" class="btn btn-glass" data-prev>Back</button><button type="button" class="btn btn-primary" data-next>Continue <Icon name="arrow" /></button></div>
+            </div>
+
+            <div class="form-step" data-step="4">
+              <h2>How can we reach you?</h2>
+              <div class="fields">
+                <div class="field"><label for="first">First name</label><input id="first" name="first_name" autocomplete="given-name" required /><span class="field-error" aria-live="polite"></span></div>
+                <div class="field"><label for="last">Last name</label><input id="last" name="last_name" autocomplete="family-name" required /><span class="field-error" aria-live="polite"></span></div>
+                <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /><span class="field-error" aria-live="polite"></span></div>
+                <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" required /><span class="field-error" aria-live="polite"></span></div>
+                <div class="hp" aria-hidden="true"><label for="company">Company</label><input id="company" name="company" tabindex="-1" autocomplete="off" /></div>
+              </div>
+              <p class="small muted">By submitting, you agree to be contacted about your property. See our <a class="text-link" href={u('/privacy/')}>privacy policy</a>.</p>
+              <div class="form-nav"><button type="button" class="btn btn-glass" data-prev>Back</button><button type="submit" class="btn btn-primary" data-submit>Get My Free Rental Analysis <Icon name="arrow" /></button></div>
+              <p class="form-status" role="alert"></p>
+            </div>
+          </form>
+
+          <div class="form-success" id="analysis-success" tabindex="-1">
+            <div class="success-mark"><Icon name="check" /></div>
+            <h2>Property received.</h2>
+            <p class="lead" style="margin:0 auto 1.6rem">Thanks — the Hosted Havens team will review your property, local demand and comparable rentals to help identify its revenue potential.</p>
+            <p data-success-note class="small muted"></p>
+            <div class="btn-row" style="justify-content:center">
+              <a class="btn btn-primary" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Schedule Your Property Review <Icon name="arrow" /></a>
+              <a class="btn btn-glass" href={u('/')}>Back to Home</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-3">
+      <div class="card3d reveal reveal-d1"><span class="icon-box"><Icon name="eye" /></span><h3>We review</h3><p>Your location, layout, condition, guest appeal and any current listing performance.</p></div>
+      <div class="card3d reveal reveal-d2"><span class="icon-box sage"><Icon name="compass" /></span><h3>We recommend</h3><p>Positioning, upgrades and whether short, mid-term or blended stays fit best.</p></div>
+      <div class="card3d reveal reveal-d3"><span class="icon-box gold"><Icon name="file" /></span><h3>You decide</h3><p>A tailored proposal with published pricing and no long-term contract.</p></div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('analysis-form') as HTMLFormElement | null;
+    const success = document.getElementById('analysis-success');
+    if (form && success) {
+      const steps = [...form.querySelectorAll<HTMLElement>('.form-step')];
+      const markers = [...form.querySelectorAll<HTMLElement>('.steps li')];
+      let current = 0;
+      let started = false;
+      const gtag = (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag;
+
+      const show = (i: number) => {
+        steps.forEach((s, n) => s.classList.toggle('active', n === i));
+        markers.forEach((m, n) => { m.classList.toggle('on', n === i); m.classList.toggle('done', n < i); });
+        current = i;
+        steps[i].querySelector<HTMLElement>('input, select, button')?.focus({ preventScroll: true });
+        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+
+      const setError = (el: HTMLInputElement | HTMLSelectElement, msg: string) => {
+        const wrap = el.closest('.field');
+        const out = wrap?.querySelector('.field-error');
+        if (out) out.textContent = msg;
+        if (el.type !== 'radio') el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+      };
+
+      const validate = (i: number) => {
+        let ok = true;
+        const fields = steps[i].querySelectorAll<HTMLInputElement | HTMLSelectElement>('input, select');
+        const radiosDone = new Set<string>();
+        fields.forEach((el) => {
+          if (el.closest('.hp')) return;
+          if (el instanceof HTMLInputElement && el.type === 'radio') {
+            if (radiosDone.has(el.name) || !el.required) return;
+            radiosDone.add(el.name);
+            const checked = steps[i].querySelector(`input[name="${el.name}"]:checked`);
+            setError(el, checked ? '' : 'Please choose an option.');
+            if (!checked) ok = false;
+            return;
+          }
+          if (el instanceof HTMLInputElement && el.type === 'checkbox') return;
+          let msg = '';
+          if (el.required && !el.value.trim()) msg = 'This field is required.';
+          else if (el instanceof HTMLInputElement && el.type === 'email' && el.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)) msg = 'Enter a valid email address.';
+          else if (el instanceof HTMLInputElement && el.type === 'tel' && el.value && el.value.replace(/\D/g, '').length < 10) msg = 'Enter a 10-digit phone number.';
+          else if (el instanceof HTMLInputElement && el.name === 'zip' && el.value && !/^\d{5}$/.test(el.value)) msg = 'Enter a 5-digit ZIP code.';
+          else if (el instanceof HTMLInputElement && el.type === 'url' && el.value && !/^https?:\/\//.test(el.value)) msg = 'Links should start with https://';
+          setError(el, msg);
+          if (msg) ok = false;
+        });
+        if (!ok) steps[i].querySelector<HTMLElement>('[aria-invalid="true"], .field-error:not(:empty)')?.closest('.field')?.querySelector<HTMLElement>('input, select')?.focus();
+        return ok;
+      };
+
+      form.addEventListener('input', () => {
+        if (!started) { started = true; gtag?.('event', 'owner_analysis_start', { form: 'property_analysis' }); }
+      }, { once: false });
+      form.querySelectorAll('[data-next]').forEach((b) => b.addEventListener('click', () => { if (validate(current)) show(current + 1); }));
+      form.querySelectorAll('[data-prev]').forEach((b) => b.addEventListener('click', () => show(current - 1)));
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!validate(current)) return;
+        const data = new FormData(form);
+        if (data.get('company')) return;
+        const btn = form.querySelector<HTMLButtonElement>('[data-submit]');
+        const status = form.querySelector('.form-status');
+        if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+        const entries: Record<string, string> = {};
+        data.forEach((v, k) => { if (k !== 'company') entries[k] = entries[k] ? `${entries[k]}, ${v}` : String(v); });
+        const endpoint = form.dataset.endpoint;
+        let sent = false;
+        if (endpoint) {
+          try {
+            const res = await fetch(endpoint, { method: 'POST', headers: { Accept: 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify(entries) });
+            sent = res.ok;
+          } catch { sent = false; }
+        }
+        gtag?.('event', 'owner_analysis_submit', { form: 'property_analysis', delivered: sent });
+        const note = success.querySelector('[data-success-note]');
+        if (!sent) {
+          const body = Object.entries(entries).map(([k, v]) => `${k.replace(/_/g, ' ')}: ${v}`).join('\n');
+          const mailto = `mailto:${form.dataset.ownerEmail}?subject=${encodeURIComponent('Property analysis request — ' + (entries.address || ''))}&body=${encodeURIComponent(body)}`;
+          if (note) note.innerHTML = `To make sure your details reach us, <a class="text-link" href="${mailto}">send them by email</a> or complete our <a class="text-link" href="${form.dataset.fallback}" target="_blank" rel="noopener noreferrer">2-minute intake form</a>.`;
+          if (status && endpoint) status.textContent = 'We couldn’t send the form automatically.';
+        }
+        form.hidden = true;
+        success.classList.add('show');
+        success.focus();
+      });
+    }
+  </script>
+</BaseLayout>

@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Img from '../../components/Img.astro';
+import Icon from '../../components/Icon.astro';
+import OwnerCTA from '../../components/OwnerCTA.astro';
+import { articles, type Article } from '../../data/articles';
+import { coverImage } from '../../lib/images';
+import { u, fixLinks, SITE } from '../../lib/url';
+import { business } from '../../data/business';
+
+export function getStaticPaths() {
+  return articles.map((a) => ({ params: { slug: a.slug }, props: { a } }));
+}
+interface Props { a: Article }
+const { a } = Astro.props;
+const path = `/resources/${a.slug}/`;
+const cover = coverImage(a.heroProperty);
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Resources', path: '/resources/' }, { name: a.cluster, path: '/resources/' }, { name: a.title, path }];
+const more = articles.filter((x) => x.slug !== a.slug).slice(0, 3);
+const date = new Date(`${a.published}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+const schema = [{
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: a.title,
+  description: a.description,
+  datePublished: a.published,
+  mainEntityOfPage: `${SITE}${path}`,
+  image: cover ? `${SITE}/images/${cover.base}-1280.webp` : undefined,
+  author: { '@type': 'Person', name: business.founder },
+  publisher: { '@id': `${SITE}/#organization` },
+}];
+---
+<BaseLayout title={a.metaTitle} description={a.description} path={path} breadcrumbs={crumbs} schema={schema} ogImage={cover ? `/images/${cover.base}-1280.webp` : undefined}>
+  <article>
+    <section class="section-tight" style="padding-top:2.5rem">
+      <div class="narrow">
+        <nav aria-label="Breadcrumb"><ol class="breadcrumbs"><li><a href={u('/')}>Home</a></li><li><a href={u('/resources/')}>Resources</a></li><li><span aria-current="page">{a.cluster}</span></li></ol></nav>
+        <span class="eyebrow">{a.cluster}</span>
+        <h1 class="h1-interior">{a.title}</h1>
+        <p class="lead">{a.description}</p>
+        <p class="small muted">By {business.founder} · <time datetime={a.published}>{date}</time></p>
+      </div>
+      <div class="container" style="margin-top:2rem">
+        <div style="border-radius:var(--r-xl);overflow:hidden;aspect-ratio:21/9;box-shadow:var(--shadow-deep)">
+          <Img src={cover} alt="" eager sizes="(max-width: 1320px) 100vw, 1240px" class="cover-fill" />
+        </div>
+      </div>
+    </section>
+    <section class="section-tight">
+      <div class="narrow prose" set:html={fixLinks(a.body)} />
+      <div class="narrow" style="margin-top:2rem">
+        <div class="card3d" style="display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap">
+          <div><span class="eyebrow" style="margin:0">Next step</span><h2 style="font-size:1.7rem;margin:.3rem 0 0">Put this into practice</h2></div>
+          <div class="btn-row">
+            <a class="btn btn-primary" href={u(a.cta.href)} data-track="owner_analysis_start">{a.cta.label} <Icon name="arrow" /></a>
+            <a class="btn btn-glass" href={u('/property-analysis/')}>Free Property Analysis</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">Keep reading</span><h2>More owner <em>resources</em></h2></div>
+      <div class="grid grid-3">
+        {more.map((m, i) => (
+          <a class={`post-card reveal reveal-d${i + 1}`} href={u(`/resources/${m.slug}/`)}>
+            <div class="post-media"><Img src={coverImage(m.heroProperty)} alt="" sizes="(max-width: 760px) 100vw, 33vw" /></div>
+            <div class="post-body"><span class="pill">{m.cluster}</span><h3>{m.title}</h3></div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <OwnerCTA />
+  <style>.cover-fill { width: 100%; height: 100%; object-fit: cover; }</style>
+</BaseLayout>

@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InteriorHero from '../components/InteriorHero.astro';
+import Icon from '../components/Icon.astro';
+import PropertyCard from '../components/PropertyCard.astro';
+import { coverImage } from '../lib/images';
+import { u } from '../lib/url';
+import { featuredProperties } from '../data/properties';
+import { links } from '../data/business';
+
+const reasons = [
+  { icon: 'tag', title: 'No platform service fees', text: 'Booking platforms often add service fees on top of your stay. Those fees go to the platform, not your stay. Booking direct avoids that layer with transparent, upfront pricing.' },
+  { icon: 'pin', title: 'Personal, local service', text: 'Our team is based in San Antonio and personally manages every property — so you get local insight, recommendations and quick support.' },
+  { icon: 'sparkle', title: 'Direct-booking perks', text: 'Direct guests often get priority access to promotions, early check-in or late checkout options when available, and custom amenity requests.' },
+  { icon: 'calendar', title: 'Easier changes', text: 'Need to adjust a reservation? Working with us directly makes it simpler to find a solution that fits your plans.' },
+  { icon: 'file', title: 'Complete, accurate details', text: 'Full amenities, sleeping arrangements, neighborhood details and availability — without a platform reformatting what you need to know.' },
+  { icon: 'heart', title: 'Support a local business', text: 'Every direct booking supports a local, family-run San Antonio company committed to quality, community and hospitality.' },
+];
+---
+<BaseLayout
+  title="Why Book Direct | San Antonio Vacation Rentals | Hosted Havens"
+  description="Book San Antonio vacation rentals directly with Hosted Havens: no third-party platform service fees, local support, direct-booking perks and accurate listings."
+  path="/why-book-direct/"
+  breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Stays', path: '/stays/' }, { name: 'Why Book Direct', path: '/why-book-direct/' }]}
+>
+  <InteriorHero
+    eyebrow="Guests · Book direct"
+    title="More Direct. More Personal. <em>Fewer Platform Layers.</em>"
+    lead="Booking directly with Hosted Havens gives you more of what matters on a trip: transparent pricing, personal local service and peace of mind."
+    crumbs={[{ name: 'Home', path: '/' }, { name: 'Stays', path: '/stays/' }, { name: 'Why Book Direct', path: '/why-book-direct/' }]}
+    image={coverImage('coastal-run')}
+    imageAlt="Coastal Run, a pet-friendly Hosted Havens townhome in San Antonio"
+    primary={{ label: 'Check Available Stays', href: '/stays/', track: 'stays_view' }}
+  />
+
+  <section class="section">
+    <div class="container grid grid-3">
+      {reasons.map((r, i) => (
+        <article class={`card3d reveal reveal-d${(i % 3) + 1}`}>
+          <span class={`icon-box ${i % 3 === 1 ? 'sage' : i % 3 === 2 ? 'gold' : ''}`}><Icon name={r.icon} /></span>
+          <h3>{r.title}</h3>
+          <p>{r.text}</p>
+        </article>
+      ))}
+    </div>
+    <div class="narrow"><p class="notice center" style="margin-top:2rem">Perks and flexibility vary by property and availability. Discounts for longer stays are often built in automatically, and promo codes are shared in the <a class="text-link" href={links.guestLounge} target="_blank" rel="noopener noreferrer">Hosted Havens Guest Lounge</a>.</p></div>
+  </section>
+
+  <section class="section bg-warm">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">Featured stays</span><h2>Start with a <em>favorite</em></h2></div>
+      <div class="prop-grid">{featuredProperties.slice(0, 3).map((p) => <PropertyCard p={p} />)}</div>
+      <div class="center" style="margin-top:2rem"><a class="btn btn-primary" href={u('/stays/')} data-track="stays_view">Check Available Stays <Icon name="arrow" /></a></div>
+    </div>
+  </section>
+</BaseLayout>

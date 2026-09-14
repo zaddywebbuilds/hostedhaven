@@ -1,0 +1,15 @@
+---
+import Icon from './Icon.astro';
+import { fixLinks } from '../lib/url';
+interface Item { q: string; a: string }
+interface Props { items: Item[]; }
+const { items } = Astro.props;
+---
+<div class="faq-list">
+  {items.map((it, i) => (
+    <details class="faq-item" open={i === 0}>
+      <summary>{it.q}<span class="plus"><Icon name="plus" /></span></summary>
+      <div class="faq-answer" set:html={fixLinks(`<p>${it.a}</p>`)} />
+    </details>
+  ))}
+</div>

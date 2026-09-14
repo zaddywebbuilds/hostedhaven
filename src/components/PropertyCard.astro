@@ -1,0 +1,44 @@
+---
+import Img from './Img.astro';
+import Icon from './Icon.astro';
+import { u } from '../lib/url';
+import { coverImage } from '../lib/images';
+import type { Property } from '../data/properties';
+
+interface Props { p: Property; }
+const { p } = Astro.props;
+const loc = p.area ? `${p.area} · ${p.city}, TX` : `${p.city}, TX`;
+---
+<article
+  class="prop-card reveal"
+  data-prop
+  data-city={p.city}
+  data-guests={p.guests}
+  data-bedrooms={p.bedrooms}
+  data-pet={p.petFriendly ? '1' : '0'}
+  data-extended={p.extendedStay ? '1' : '0'}
+  data-workspace={p.workspace ? '1' : '0'}
+  data-family={p.familyFriendly ? '1' : '0'}
+>
+  <a class="prop-media" href={u(`/stays/${p.slug}/`)} tabindex="-1" aria-hidden="true">
+    <Img src={coverImage(p.slug)} alt="" sizes="(max-width: 760px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+    <span class="prop-type">{p.type}</span>
+  </a>
+  <div class="prop-body">
+    <span class="prop-loc">{loc}</span>
+    <h3 class="prop-title"><a href={u(`/stays/${p.slug}/`)}>{p.name}</a></h3>
+    <p class="small muted" style="margin:0">{p.title}</p>
+    <div class="prop-meta">
+      <span>{p.guests} guests</span><span>{p.bedrooms} {p.bedrooms === 1 ? 'bedroom' : 'bedrooms'}</span><span>{p.beds} {p.beds === 1 ? 'bed' : 'beds'}</span><span>{p.baths} {p.baths === '1' ? 'bath' : 'baths'}</span>
+    </div>
+    <div class="prop-pills">
+      {p.petFriendly && <span class="pill">Pet Friendly</span>}
+      {p.extendedStay && <span class="pill sage">Extended Stays</span>}
+      {p.workspace && <span class="pill gold">Workspace</span>}
+      {p.nearBase && <span class="pill sage">Near {p.nearBase}</span>}
+    </div>
+    <div class="prop-foot">
+      <a class="text-link" href={u(`/stays/${p.slug}/`)} data-track="property_view">View Stay <Icon name="arrow" /></a>
+    </div>
+  </div>
+</article>

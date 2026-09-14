@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { u } from '../lib/url';
+interface Props { title: string; description: string; path: string; heading: string; effective: string; }
+const { title, description, path, heading, effective } = Astro.props;
+---
+<BaseLayout title={title} description={description} path={path} breadcrumbs={[{ name: 'Home', path: '/' }, { name: heading, path }]}>
+  <section class="section-tight" style="padding-top:3rem">
+    <div class="narrow">
+      <nav aria-label="Breadcrumb"><ol class="breadcrumbs"><li><a href={u('/')}>Home</a></li><li><span aria-current="page">{heading}</span></li></ol></nav>
+      <span class="eyebrow">Legal</span>
+      <h1 class="h1-interior">{heading}</h1>
+      <p class="muted">{effective}</p>
+    </div>
+  </section>
+  <section class="section-tight" style="padding-bottom:6rem">
+    <div class="narrow prose card3d" style="max-width:820px"><slot /></div>
+  </section>
+</BaseLayout>

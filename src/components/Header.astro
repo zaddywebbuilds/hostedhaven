@@ -1,0 +1,77 @@
+---
+import Icon from './Icon.astro';
+import { u } from '../lib/url';
+import { business } from '../data/business';
+const path = Astro.url.pathname;
+const ownerLinks = [
+  { href: '/airbnb-management-san-antonio/', label: 'Airbnb Management', sub: 'Full-service STR management support' },
+  { href: '/airbnb-co-host-san-antonio/', label: 'STR Co-Hosting', sub: 'Hands-off Airbnb co-hosting' },
+  { href: '/mid-term-rental-management-san-antonio/', label: 'Mid-Term Rentals', sub: '30+ day furnished stays' },
+  { href: '/airbnb-listing-optimization-san-antonio/', label: 'Listing Optimization', sub: 'Photos, copy & positioning' },
+  { href: '/airbnb-revenue-management-san-antonio/', label: 'Revenue Management', sub: 'Dynamic pricing & calendar strategy' },
+  { href: '/str-property-care-san-antonio/', label: 'Property Care', sub: 'Cleaning, inspections & maintenance' },
+  { href: '/airbnb-setup-san-antonio/', label: 'New Host Setup', sub: 'Launch a new short-term rental' },
+  { href: '/pricing/', label: 'Pricing', sub: 'Transparent, published fees' },
+];
+const isOn = (p: string) => (path.endsWith(p) ? 'page' : undefined);
+---
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="hh-header" id="hh-header">
+  <div class="hh-header-inner">
+    <a class="hh-logo" href={u('/')} aria-label={`${business.shortName} home`}>
+      <img src={u('/images/brand/hosted-havens-logo-stacked-320.webp')} alt="Hosted Havens" width="77" height="46" />
+    </a>
+    <nav class="hh-nav" aria-label="Main">
+      <div class="nav-drop" data-drop>
+        <button type="button" aria-expanded="false" aria-controls="owners-menu">Owners <Icon name="chevron" /></button>
+        <div class="nav-menu" id="owners-menu">
+          {ownerLinks.map((l) => (
+            <a href={u(l.href)} aria-current={isOn(l.href)}>{l.label}<small>{l.sub}</small></a>
+          ))}
+        </div>
+      </div>
+      <a href={u('/results/')} aria-current={isOn('/results/')}>Results</a>
+      <a href={u('/stays/')} aria-current={isOn('/stays/')}>Stays</a>
+      <a href={u('/about/')} aria-current={isOn('/about/')}>About</a>
+      <a href={u('/resources/')} aria-current={isOn('/resources/')} class="hide-lg">Resources</a>
+      <a href={u('/contact/')} aria-current={isOn('/contact/')} class="hide-lg">Contact</a>
+    </nav>
+    <div class="hh-actions">
+      <a class="hh-guest-link" href={u('/stays/')} data-track="stays_view">Book a Stay</a>
+      <a class="btn btn-primary btn-sm" href={u('/property-analysis/')} data-track="owner_analysis_start">Free Property Analysis</a>
+      <button class="hh-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer" data-drawer-open>
+        <Icon name="menu" />
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-drawer" id="mobile-drawer" aria-hidden="true" data-drawer>
+  <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-top">
+      <img src={u('/images/brand/hosted-havens-logo-stacked-320.webp')} alt="Hosted Havens" width="74" height="44" />
+      <button class="drawer-close" type="button" aria-label="Close menu" data-drawer-close><Icon name="close" /></button>
+    </div>
+    <div class="drawer-group">
+      <h2>Own a property?</h2>
+      {ownerLinks.map((l) => (<a href={u(l.href)}>{l.label}<Icon name="arrow" class="small" /></a>))}
+    </div>
+    <div class="drawer-group">
+      <h2>Need a stay?</h2>
+      <a href={u('/stays/')}>Browse Stays <Icon name="arrow" /></a>
+      <a href={u('/why-book-direct/')}>Why Book Direct <Icon name="arrow" /></a>
+      <a href={u('/monthly-rentals-san-antonio/')}>Monthly Stays <Icon name="arrow" /></a>
+    </div>
+    <div class="drawer-group">
+      <h2>Company</h2>
+      <a href={u('/results/')}>Results <Icon name="arrow" /></a>
+      <a href={u('/about/')}>About <Icon name="arrow" /></a>
+      <a href={u('/resources/')}>Owner Resources <Icon name="arrow" /></a>
+      <a href={u('/contact/')}>Contact <Icon name="arrow" /></a>
+    </div>
+    <div class="drawer-cta">
+      <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Get My Free Property Analysis</a>
+      <a class="btn btn-glass" href={`tel:${business.phone}`} data-track="phone_click">Call {business.displayPhone}</a>
+    </div>
+  </div>
+</div>

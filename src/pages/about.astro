@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Img from '../components/Img.astro';
+import Icon from '../components/Icon.astro';
+import OwnerCTA from '../components/OwnerCTA.astro';
+import { brandImage, propertyImages } from '../lib/images';
+import { u } from '../lib/url';
+import { team, values, business } from '../data/business';
+
+const megan = brandImage('megan-blount-hosted-havens-founder');
+const strip = [propertyImages('la-maison-blount')[0], propertyImages('the-harding-place')[1], propertyImages('grass-hollow')[2]];
+---
+<BaseLayout
+  title="About Hosted Havens | San Antonio STR Co-Hosting Team"
+  description="Meet Megan and the Hosted Havens team — a boutique San Antonio short-term rental co-hosting company built on hospitality, quality and clear communication."
+  path="/about/"
+  breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }]}
+  schema={[{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 'About Hosted Havens', about: { '@id': 'https://hostedhavens.co/#organization' } }]}
+>
+  <section class="ihero">
+    <div class="stage">
+      <div class="stage-arch" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="stage-glow a" aria-hidden="true"></div>
+      <div class="stage-glow b" aria-hidden="true"></div>
+      <div class="ihero-grid">
+        <div class="ihero-copy">
+          <nav aria-label="Breadcrumb"><ol class="breadcrumbs"><li><a href={u('/')}>Home</a></li><li><span aria-current="page">About</span></li></ol></nav>
+          <span class="eyebrow">About Hosted Havens</span>
+          <h1 class="h1-interior">A Boutique Team That Hosts Like <em>It’s Our Own Home.</em></h1>
+          <p class="lead">Hosted Havens is a San Antonio short-term rental co-hosting company combining hospitality, revenue strategy and hands-on property care. More bookings, less stress, total peace of mind.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Get My Free Property Analysis <Icon name="arrow" /></a>
+            <a class="btn btn-glass" href={u('/stays/')}>Explore Our Stays</a>
+          </div>
+        </div>
+        <div class="portrait-stack">
+          <div class="portrait" style="max-width:420px;margin-left:auto"><Img src={megan} alt="Megan Blount, founder of Hosted Havens, in San Antonio" eager sizes="(max-width: 1024px) 80vw, 420px" /></div>
+          <div class="float-card right" style="bottom:4%;right:0">
+            <div class="fc-head"><span class="fc-title">Megan Blount</span></div>
+            <div class="fc-row">Founder <b>Hosted Havens</b></div>
+            <div class="fc-row">Hosting since <b>2021</b></div>
+            <div class="fc-row">In San Antonio since <b>2016</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <span class="eyebrow">Our story</span>
+      <h2>From one house to <em>Hosted Havens</em></h2>
+      <div class="prose">
+        <p class="lead">Originally from Virginia, Megan has called San Antonio home since 2016. She started hosting in 2021 — first with her own home, then with an arbitrage rental across town.</p>
+        <p>Those early months were a crash course: a failed air conditioner in a 105-degree heatwave, two listings managed single-handedly and every lesson learned the hard way. Something clicked anyway. Megan discovered a real passion for creating welcoming spaces and exceptional guest experiences — and years of customer service and operations experience finally had a natural home in hospitality.</p>
+        <p>She invested in the right tools, studied operations and refined everything from guest rules and communication to cleaning protocols. By late 2023, other hosts were asking for her advice. When Airbnb expanded its Co-Host Network to San Antonio, she saw the opportunity to partner with owners directly, and in early 2024 Hosted Havens was born.</p>
+        <p>With more than two decades of customer service and operational training experience and a lifelong love of residential real estate, Megan built the business on a simple standard: manage every property as if it were her own, keep guests at the center and never compromise on quality.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container img-strip">
+      {strip.map((im, i) => <figure class="reveal"><Img src={im} alt="" sizes="(max-width: 760px) 100vw, 33vw" /></figure>)}
+    </div>
+  </section>
+
+  <section class="section bg-warm">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Powered by our people</span>
+        <h2>The team behind <em>every stay</em></h2>
+        <p class="lead">Behind every great brand is a team of makers and doers.</p>
+      </div>
+      <div class="team-grid">
+        {team.map((t, i) => (
+          <article class={`team-card reveal reveal-d${(i % 3) + 1}`}>
+            <div class="team-mark">
+              {t.photo ? <Img src={megan} alt={`${t.name}, ${t.role}`} sizes="84px" /> : <img src={u(`/images/${t.image}`)} alt="" width="84" height="84" loading="lazy" />}
+            </div>
+            <div>
+              <span class="role">{t.role}</span>
+              <h3>{t.name}</h3>
+              <p>{t.blurb}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">Our values</span><h2>How we <em>work</em></h2></div>
+      <div class="grid grid-3">
+        {values.map((v, i) => (
+          <article class={`card3d reveal reveal-d${(i % 3) + 1}`}>
+            <span class="t-dot" style="width:52px;height:52px;font-size:1.2rem;margin:0">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{v.title}</h3>
+            <p>{v.text}</p>
+          </article>
+        ))}
+        <article class="card3d bg-dark reveal" style="color:var(--cream)">
+          <span class="eyebrow">Join the team</span>
+          <h3 style="color:var(--cream);margin-top:0">Driven, resilient and quality-focused?</h3>
+          <p style="color:rgba(253,244,232,.75)">Hosted Havens (formerly Expat Property Tours) is growing. Send your resume and qualifications.</p>
+          <a class="btn btn-gold btn-sm" href={`mailto:${business.guestEmail}?subject=Joining%20the%20Hosted%20Havens%20team`}>Email Your Resume</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <OwnerCTA />
+</BaseLayout>

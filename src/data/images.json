@@ -1,0 +1,2562 @@
+{
+ "properties": {
+  "halliday-fig-trees": [
+   {
+    "base": "properties/halliday-fig-trees/halliday-fig-trees-san-antonio-tx-rental-01",
+    "ratio": 0.5631,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/halliday-fig-trees/halliday-fig-trees-san-antonio-tx-rental-02",
+    "ratio": 0.5631,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/halliday-fig-trees/halliday-fig-trees-san-antonio-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/halliday-fig-trees/halliday-fig-trees-san-antonio-tx-rental-04",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/halliday-fig-trees/halliday-fig-trees-san-antonio-tx-rental-05",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/halliday-fig-trees/halliday-fig-trees-san-antonio-tx-rental-06",
+    "ratio": 0.5631,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/halliday-fig-trees/halliday-fig-trees-san-antonio-tx-rental-07",
+    "ratio": 0.5631,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/halliday-fig-trees/halliday-fig-trees-san-antonio-tx-rental-08",
+    "ratio": 0.5631,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/halliday-fig-trees/halliday-fig-trees-san-antonio-tx-rental-09",
+    "ratio": 0.5631,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/halliday-fig-trees/halliday-fig-trees-san-antonio-tx-rental-10",
+    "ratio": 0.5631,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/halliday-fig-trees/halliday-fig-trees-san-antonio-tx-rental-11",
+    "ratio": 0.5631,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/halliday-fig-trees/halliday-fig-trees-san-antonio-tx-rental-12",
+    "ratio": 0.5631,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/halliday-fig-trees/halliday-fig-trees-san-antonio-tx-rental-13",
+    "ratio": 0.7465,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/halliday-fig-trees/halliday-fig-trees-san-antonio-tx-rental-14",
+    "ratio": 0.7465,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "liberty-bell": [
+   {
+    "base": "properties/liberty-bell/liberty-bell-san-antonio-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/liberty-bell/liberty-bell-san-antonio-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/liberty-bell/liberty-bell-san-antonio-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/liberty-bell/liberty-bell-san-antonio-tx-rental-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/liberty-bell/liberty-bell-san-antonio-tx-rental-05",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/liberty-bell/liberty-bell-san-antonio-tx-rental-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/liberty-bell/liberty-bell-san-antonio-tx-rental-07",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/liberty-bell/liberty-bell-san-antonio-tx-rental-08",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/liberty-bell/liberty-bell-san-antonio-tx-rental-09",
+    "ratio": 0.75,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/liberty-bell/liberty-bell-san-antonio-tx-rental-10",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/liberty-bell/liberty-bell-san-antonio-tx-rental-11",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/liberty-bell/liberty-bell-san-antonio-tx-rental-12",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/liberty-bell/liberty-bell-san-antonio-tx-rental-13",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/liberty-bell/liberty-bell-san-antonio-tx-rental-14",
+    "ratio": 1.3333,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "de-soto-lighthouse": [
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-05",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-07",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-08",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-10",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-11",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-12",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-13",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-14",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "coastal-run": [
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-01",
+    "ratio": 0.75,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-02",
+    "ratio": 1.5,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-04",
+    "ratio": 0.7396,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-05",
+    "ratio": 0.5631,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-06",
+    "ratio": 1.5214,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-07",
+    "ratio": 1.3333,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-08",
+    "ratio": 0.6951,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-09",
+    "ratio": 0.75,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-10",
+    "ratio": 0.75,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-11",
+    "ratio": 0.75,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-12",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-13",
+    "ratio": 1.3333,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-14",
+    "ratio": 1.3333,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "the-harding-place": [
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-02",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-04",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-05",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-06",
+    "ratio": 0.6671,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-07",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-08",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-10",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-11",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-12",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-13",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-14",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "grass-hollow": [
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-05",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-07",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-08",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-10",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-11",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-12",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-13",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-14",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "la-maison-blount": [
+   {
+    "base": "properties/la-maison-blount/la-maison-blount-san-antonio-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/la-maison-blount/la-maison-blount-san-antonio-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/la-maison-blount/la-maison-blount-san-antonio-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/la-maison-blount/la-maison-blount-san-antonio-tx-rental-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/la-maison-blount/la-maison-blount-san-antonio-tx-rental-05",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/la-maison-blount/la-maison-blount-san-antonio-tx-rental-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/la-maison-blount/la-maison-blount-san-antonio-tx-rental-07",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/la-maison-blount/la-maison-blount-san-antonio-tx-rental-08",
+    "ratio": 0.75,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/la-maison-blount/la-maison-blount-san-antonio-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/la-maison-blount/la-maison-blount-san-antonio-tx-rental-10",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/la-maison-blount/la-maison-blount-san-antonio-tx-rental-11",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/la-maison-blount/la-maison-blount-san-antonio-tx-rental-12",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/la-maison-blount/la-maison-blount-san-antonio-tx-rental-13",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/la-maison-blount/la-maison-blount-san-antonio-tx-rental-14",
+    "ratio": 0.75,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "legislation-4br": [
+   {
+    "base": "properties/legislation-4br/legislation-4br-converse-tx-home-01",
+    "ratio": 0.6675,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/legislation-4br/legislation-4br-converse-tx-home-02",
+    "ratio": 0.6694,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/legislation-4br/legislation-4br-converse-tx-home-03",
+    "ratio": 0.6708,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/legislation-4br/legislation-4br-converse-tx-home-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/legislation-4br/legislation-4br-converse-tx-home-05",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/legislation-4br/legislation-4br-converse-tx-home-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/legislation-4br/legislation-4br-converse-tx-home-07",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/legislation-4br/legislation-4br-converse-tx-home-08",
+    "ratio": 0.6722,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/legislation-4br/legislation-4br-converse-tx-home-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/legislation-4br/legislation-4br-converse-tx-home-10",
+    "ratio": 0.6736,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/legislation-4br/legislation-4br-converse-tx-home-11",
+    "ratio": 0.75,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/legislation-4br/legislation-4br-converse-tx-home-12",
+    "ratio": 0.6708,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/legislation-4br/legislation-4br-converse-tx-home-13",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/legislation-4br/legislation-4br-converse-tx-home-14",
+    "ratio": 0.6675,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "discovery-mill-crash-pad": [
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-05",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-07",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-08",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-10",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-11",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-12",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-13",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-14",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "ccp-1": [
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-05",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-07",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-08",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-10",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-11",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-12",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-13",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-14",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "ccp-2": [
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-05",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-07",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-08",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-10",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-11",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-12",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-13",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-14",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "ccp-3": [
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-05",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-07",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-08",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-10",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-11",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-12",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-13",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-14",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "ccp-4": [
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-05",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-07",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-08",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-10",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-11",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-12",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-13",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-14",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "ccp-5": [
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-05",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-07",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-08",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-10",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-11",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-12",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-13",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-14",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "s-park-1a": [
+   {
+    "base": "properties/s-park-1a/s-park-1a-san-antonio-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1a/s-park-1a-san-antonio-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1a/s-park-1a-san-antonio-tx-rental-03",
+    "ratio": 1.4138,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1a/s-park-1a-san-antonio-tx-rental-04",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1a/s-park-1a-san-antonio-tx-rental-05",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1a/s-park-1a-san-antonio-tx-rental-06",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1a/s-park-1a-san-antonio-tx-rental-07",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1a/s-park-1a-san-antonio-tx-rental-08",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1a/s-park-1a-san-antonio-tx-rental-09",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1a/s-park-1a-san-antonio-tx-rental-10",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1a/s-park-1a-san-antonio-tx-rental-11",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1a/s-park-1a-san-antonio-tx-rental-12",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1a/s-park-1a-san-antonio-tx-rental-13",
+    "ratio": 0.75,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1a/s-park-1a-san-antonio-tx-rental-14",
+    "ratio": 0.96,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "s-park-1b": [
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-05",
+    "ratio": 1.4138,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-07",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-08",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-10",
+    "ratio": 0.75,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-11",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-12",
+    "ratio": 1.3151,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-13",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-14",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "s-park-1c": [
+   {
+    "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-04",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-05",
+    "ratio": 1.4138,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-07",
+    "ratio": 1.3333,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-08",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-10",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-11",
+    "ratio": 0.75,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-12",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-13",
+    "ratio": 1.3151,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-14",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "s-park-1d": [
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-05",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-06",
+    "ratio": 1.4138,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-07",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-08",
+    "ratio": 0.75,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-10",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-11",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-12",
+    "ratio": 1.3333,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-13",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-14",
+    "ratio": 0.96,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "s-park-2a": [
+   {
+    "base": "properties/s-park-2a/s-park-2a-san-antonio-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2a/s-park-2a-san-antonio-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2a/s-park-2a-san-antonio-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2a/s-park-2a-san-antonio-tx-rental-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2a/s-park-2a-san-antonio-tx-rental-05",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2a/s-park-2a-san-antonio-tx-rental-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2a/s-park-2a-san-antonio-tx-rental-07",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2a/s-park-2a-san-antonio-tx-rental-08",
+    "ratio": 1.3333,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2a/s-park-2a-san-antonio-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2a/s-park-2a-san-antonio-tx-rental-10",
+    "ratio": 1.4138,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2a/s-park-2a-san-antonio-tx-rental-11",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2a/s-park-2a-san-antonio-tx-rental-12",
+    "ratio": 0.75,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2a/s-park-2a-san-antonio-tx-rental-13",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2a/s-park-2a-san-antonio-tx-rental-14",
+    "ratio": 1.3151,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "s-park-2b": [
+   {
+    "base": "properties/s-park-2b/s-park-2b-san-antonio-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2b/s-park-2b-san-antonio-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2b/s-park-2b-san-antonio-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2b/s-park-2b-san-antonio-tx-rental-04",
+    "ratio": 0.75,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2b/s-park-2b-san-antonio-tx-rental-05",
+    "ratio": 1.4138,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2b/s-park-2b-san-antonio-tx-rental-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2b/s-park-2b-san-antonio-tx-rental-07",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2b/s-park-2b-san-antonio-tx-rental-08",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2b/s-park-2b-san-antonio-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2b/s-park-2b-san-antonio-tx-rental-10",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2b/s-park-2b-san-antonio-tx-rental-11",
+    "ratio": 0.75,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2b/s-park-2b-san-antonio-tx-rental-12",
+    "ratio": 0.96,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2b/s-park-2b-san-antonio-tx-rental-13",
+    "ratio": 1.3151,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2b/s-park-2b-san-antonio-tx-rental-14",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "s-park-2c": [
+   {
+    "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-01",
+    "ratio": 0.667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-02",
+    "ratio": 0.667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-03",
+    "ratio": 0.7489,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-04",
+    "ratio": 0.667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-05",
+    "ratio": 0.667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-06",
+    "ratio": 0.667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-07",
+    "ratio": 0.667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-08",
+    "ratio": 0.667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-09",
+    "ratio": 1.3135,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-10",
+    "ratio": 0.7489,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-11",
+    "ratio": 0.7489,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-12",
+    "ratio": 0.7489,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-13",
+    "ratio": 0.7489,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-14",
+    "ratio": 0.7489,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "s-park-2d": [
+   {
+    "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-05",
+    "ratio": 0.7488,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-07",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-08",
+    "ratio": 1.3333,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-10",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-11",
+    "ratio": 1.4138,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-12",
+    "ratio": 0.75,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-13",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-14",
+    "ratio": 1.3151,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ]
+ },
+ "brand": {
+  "megan-blount-hosted-havens-founder": {
+   "base": "team/megan-blount-hosted-havens-founder",
+   "ratio": 1,
+   "widths": [
+    480,
+    960
+   ]
+  },
+  "san-antonio-map": {
+   "base": "brand/san-antonio-map",
+   "ratio": 1,
+   "widths": [
+    960,
+    1600
+   ]
+  },
+  "san-antonio-rental-home-exterior": {
+   "base": "brand/san-antonio-rental-home-exterior",
+   "ratio": 1.25,
+   "widths": [
+    640,
+    1280
+   ]
+  },
+  "san-antonio-vacation-rental-bedroom": {
+   "base": "brand/san-antonio-vacation-rental-bedroom",
+   "ratio": 0.5625,
+   "widths": [
+    640,
+    1280
+   ]
+  },
+  "hosted-havens-logo-stacked": {
+   "base": "brand/hosted-havens-logo-stacked",
+   "ratio": 0.6,
+   "widths": [
+    320,
+    640
+   ]
+  },
+  "hosted-havens-logo-stacked-owners": {
+   "base": "brand/hosted-havens-logo-stacked-owners",
+   "ratio": 0.6,
+   "widths": [
+    320,
+    640
+   ]
+  }
+ }
+}

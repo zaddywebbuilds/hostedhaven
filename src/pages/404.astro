@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { u } from '../lib/url';
+---
+<BaseLayout title="Page Not Found | Hosted Havens" description="This page doesn’t exist. Find Hosted Havens owner services or browse San Antonio stays." path="/404/" noindex>
+  <section class="hero">
+    <div class="stage">
+      <div class="stage-arch" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="stage-glow a" aria-hidden="true"></div>
+      <div class="stage-glow b" aria-hidden="true"></div>
+      <div class="ihero-grid solo" style="margin:0 auto;text-align:center;padding:clamp(4rem,10vw,8rem) 1.5rem">
+        <div>
+          <span class="eyebrow">404</span>
+          <h1>This Haven <em>Doesn’t Exist.</em></h1>
+          <p class="lead" style="margin:0 auto 2rem">Let’s get you back to the property, service or stay you were looking for.</p>
+          <div class="btn-row" style="justify-content:center">
+            <a class="btn btn-primary" href={u('/airbnb-management-san-antonio/')}>For Property Owners <Icon name="arrow" /></a>
+            <a class="btn btn-glass" href={u('/stays/')}>Browse Stays</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

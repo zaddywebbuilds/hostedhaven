@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InteriorHero from '../components/InteriorHero.astro';
+import Img from '../components/Img.astro';
+import Icon from '../components/Icon.astro';
+import OwnerCTA from '../components/OwnerCTA.astro';
+import { propertyImages, coverImage } from '../lib/images';
+import { u } from '../lib/url';
+import { ownerTestimonials, guestReviews, businessStats, resultsDisclaimer } from '../data/business';
+import { properties } from '../data/properties';
+
+const verifiedStats = Object.values(businessStats).filter((s) => s.verified && s.value);
+
+const showcases = [
+  {
+    slug: 'the-harding-place',
+    title: 'The Harding Place',
+    place: 'Craftsman home near Downtown San Antonio',
+    challenge: 'A large, character-rich home needed to appeal to families and extended-stay guests without losing its vintage charm.',
+    changes: ['Positioned around family travel and extended stays', 'Kids’ playroom and sleeping nook highlighted', 'Kitchen stocked for longer visits', 'Pet-friendly setup near the park'],
+  },
+  {
+    slug: 's-park-1a',
+    title: 'Collins Garden Studios',
+    place: 'Eight-unit apartment building near downtown',
+    challenge: 'Bland, sterile studios needed to become comfortable homes for guests staying 30 days or more.',
+    changes: ['Design overhaul into bright, homey retreats', 'Fully equipped kitchenettes and remote-work Wi-Fi', 'Mix of pet-friendly and pet-free units', 'Set up for 30+ day stays near Lackland AFB'],
+  },
+  {
+    slug: 'ccp-3',
+    title: 'The Crashpad',
+    place: 'Room-by-room rentals near Randolph AFB',
+    challenge: 'A spacious house needed to work for military personnel, remote workers and traveling professionals booking individual rooms.',
+    changes: ['Private rooms with workspaces and pin-code locks', 'Shared game room, coffee bar and two living rooms', '1,000 Mbps internet and mid-stay housekeeping', 'Positioned for PCS moves and extended stays'],
+  },
+];
+---
+<BaseLayout
+  title="Results & Property Showcases | Hosted Havens San Antonio"
+  description="See how Hosted Havens positions and operates real San Antonio rentals — from Craftsman family homes to 30+ day studios near Lackland and rooms near Randolph AFB."
+  path="/results/"
+  breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Results', path: '/results/' }]}
+>
+  <InteriorHero
+    eyebrow="Results"
+    title="Real Properties. <em>Real Operations.</em>"
+    lead="A look at how Hosted Havens positions, prepares and operates homes across San Antonio — and what we’d look at in yours."
+    crumbs={[{ name: 'Home', path: '/' }, { name: 'Results', path: '/results/' }]}
+    image={coverImage('de-soto-lighthouse')}
+    imageAlt="De Soto, a renovated Hosted Havens smart home in Universal City"
+    primary={{ label: 'See What We’d Change About Your Property', href: '/property-analysis/', track: 'owner_analysis_start' }}
+  />
+
+  {verifiedStats.length > 0 && (
+    <section class="section-tight">
+      <div class="container">
+        <div class="orbs">{verifiedStats.map((s) => <div class="orb reveal"><strong>{s.value}</strong><span>{s.label}</span></div>)}</div>
+        <p class="footnote center">{resultsDisclaimer}</p>
+      </div>
+    </section>
+  )}
+
+  {showcases.map((sc, idx) => {
+    const imgs = propertyImages(sc.slug);
+    return (
+      <section class={`section ${idx % 2 ? 'bg-warm' : ''}`}>
+        <div class={`container split ${idx % 2 ? 'reverse' : ''}`}>
+          <div class="img-stack reveal">
+            <div class="big"><Img src={imgs[0]} alt={`${sc.title} — ${sc.place}`} sizes="(max-width: 1024px) 90vw, 45vw" /></div>
+            <div class="small"><Img src={imgs[2]} alt="" sizes="(max-width: 1024px) 45vw, 22vw" /></div>
+          </div>
+          <div class="reveal reveal-d2">
+            <span class="eyebrow">Property showcase</span>
+            <h2>{sc.title}</h2>
+            <p class="muted" style="margin-top:-.6rem">{sc.place}</p>
+            <h3>The challenge</h3>
+            <p>{sc.challenge}</p>
+            <h3>What Hosted Havens focused on</h3>
+            <ul class="ticks">{sc.changes.map((c) => <li>{c}</li>)}</ul>
+            <a class="text-link" style="margin-top:1rem" href={u(`/stays/${sc.slug}/`)}>View the stay <Icon name="arrow" /></a>
+          </div>
+        </div>
+      </section>
+    );
+  })}
+
+  <section class="section">
+    <div class="container grid grid-2" style="align-items:stretch">
+      <div class="quote-card reveal">
+        <span class="eyebrow">What property owners say</span>
+        <blockquote>{ownerTestimonials[0].quote}</blockquote>
+        <div class="quote-by"><span class="avatar-initial">{ownerTestimonials[0].name[0]}</span><div><strong>{ownerTestimonials[0].name}</strong><small>{ownerTestimonials[0].role}</small></div></div>
+      </div>
+      <div class="dark-card bg-dark reveal reveal-d2" style="border-radius:var(--r-xl);padding:clamp(1.8rem,4vw,3rem)">
+        <span class="eyebrow">The portfolio today</span>
+        <div class="dark-num" style="font-size:4.5rem">{properties.length}</div>
+        <h3>Stays listed for direct booking</h3>
+        <p>Homes, studios and private rooms across San Antonio, Live Oak, Universal City and Converse.</p>
+        <a class="btn btn-gold" href={u('/stays/')} data-track="stays_view">Browse the portfolio <Icon name="arrow" /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="section-head center reveal"><span class="eyebrow">What guests say</span><h2>Reviews from <em>real stays</em></h2></div>
+      <div class="grid grid-4">
+        {guestReviews.map((r, i) => (
+          <figure class={`review-card reveal reveal-d${i + 1}`} style="margin:0">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote style="margin:0"><p>“{r.quote}”</p></blockquote>
+            <figcaption class="review-by"><span class="avatar-initial">{r.name[0]}</span><span><strong>{r.name}</strong><small>{r.from}</small></span></figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <OwnerCTA title="See What We’d Change <em>About Your Property.</em>" />
+</BaseLayout>

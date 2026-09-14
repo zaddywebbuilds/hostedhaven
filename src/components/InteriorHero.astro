@@ -1,0 +1,59 @@
+---
+import Img from './Img.astro';
+import Icon from './Icon.astro';
+import { u } from '../lib/url';
+import type { ImgEntry } from '../lib/images';
+
+interface Crumb { name: string; path: string }
+interface Props {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  crumbs?: Crumb[];
+  image?: ImgEntry;
+  imageAlt?: string;
+  primary?: { label: string; href: string; track?: string };
+  secondary?: { label: string; href: string; track?: string };
+  note?: string;
+}
+const { eyebrow, title, lead, crumbs, image, imageAlt = '', primary, secondary, note } = Astro.props;
+const hasWidget = Astro.slots.has('widget');
+---
+<section class="ihero">
+  <div class="stage">
+    <div class="stage-arch" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="stage-glow a" aria-hidden="true"></div>
+    <div class="stage-glow b" aria-hidden="true"></div>
+    <div class={`ihero-grid ${image ? '' : 'solo'}`}>
+      <div class="ihero-copy">
+        {crumbs && (
+          <nav aria-label="Breadcrumb">
+            <ol class="breadcrumbs">
+              {crumbs.map((c, i) => (
+                <li>{i < crumbs.length - 1 ? <a href={u(c.path)}>{c.name}</a> : <span aria-current="page">{c.name}</span>}</li>
+              ))}
+            </ol>
+          </nav>
+        )}
+        <span class="eyebrow">{eyebrow}</span>
+        <h1 class="h1-interior" set:html={title} />
+        <p class="lead">{lead}</p>
+        {(primary || secondary) && (
+          <div class="btn-row">
+            {primary && <a class="btn btn-primary" href={u(primary.href)} data-track={primary.track}>{primary.label} <Icon name="arrow" /></a>}
+            {secondary && <a class="btn btn-glass" href={u(secondary.href)} data-track={secondary.track}>{secondary.label}</a>}
+          </div>
+        )}
+        {note && <p class="btn-note">{note}</p>}
+        <slot />
+      </div>
+      {image && (
+        <div class="ihero-visual" aria-hidden={imageAlt ? undefined : 'true'}>
+          <div class="product-aura"></div>
+          <div class="ihero-photo"><Img src={image} alt={imageAlt} eager sizes="(max-width: 1024px) 90vw, 40vw" /></div>
+          {hasWidget && <div class="float-card right"><slot name="widget" /></div>}
+        </div>
+      )}
+    </div>
+  </div>
+</section>

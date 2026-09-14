@@ -1,0 +1,70 @@
+---
+import Icon from './Icon.astro';
+import { u } from '../lib/url';
+import { business, socials } from '../data/business';
+const year = new Date().getFullYear();
+---
+<footer class="hh-footer">
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src={u('/images/brand/hosted-havens-logo-horizontal-white.png')} alt="Hosted Havens" width="180" height="60" loading="lazy" />
+        <p>Full-service short-term rental co-hosting and professionally managed stays across San Antonio, Texas.</p>
+        <div class="socials">
+          {socials.map((s) => (
+            <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={`Hosted Havens on ${s.name}`}><Icon name={s.icon} /></a>
+          ))}
+        </div>
+      </div>
+      <div>
+        <h2>Owners</h2>
+        <ul>
+          <li><a href={u('/airbnb-management-san-antonio/')}>Airbnb Management</a></li>
+          <li><a href={u('/airbnb-co-host-san-antonio/')}>Co-Hosting</a></li>
+          <li><a href={u('/mid-term-rental-management-san-antonio/')}>Mid-Term Management</a></li>
+          <li><a href={u('/airbnb-revenue-management-san-antonio/')}>Revenue Management</a></li>
+          <li><a href={u('/pricing/')}>Pricing</a></li>
+          <li><a href={u('/property-analysis/')}>Property Analysis</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Guests</h2>
+        <ul>
+          <li><a href={u('/stays/')}>Browse Stays</a></li>
+          <li><a href={u('/why-book-direct/')}>Book Direct</a></li>
+          <li><a href={u('/monthly-rentals-san-antonio/')}>Monthly Stays</a></li>
+          <li><a href={u('/pet-friendly-vacation-rentals-san-antonio/')}>Pet-Friendly Stays</a></li>
+          <li><a href={u('/furnished-rentals-near-randolph-afb/')}>Near Randolph AFB</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href={u('/about/')}>About</a></li>
+          <li><a href={u('/results/')}>Results</a></li>
+          <li><a href={u('/resources/')}>Resources</a></li>
+          <li><a href={u('/contact/')}>Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href={`tel:${business.phone}`} data-track="phone_click">{business.displayPhone}</a></li>
+          <li><a href={`mailto:${business.guestEmail}`} data-track="guest_email_click">Guests: {business.guestEmail}</a></li>
+          <li><a href={`mailto:${business.ownerEmail}`} data-track="owner_email_click">Owners: {business.ownerEmail}</a></li>
+          <li>San Antonio, Texas service area</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© {year} {business.name}. All rights reserved.</span>
+      <nav aria-label="Legal"><a href={u('/privacy/')}>Privacy</a><a href={u('/terms/')}>Terms</a></nav>
+    </div>
+  </div>
+</footer>
+
+<nav class="mobile-bar" aria-label="Quick actions" data-mobile-bar>
+  <a href={`tel:${business.phone}`} data-track="phone_click"><Icon name="phone" />Call</a>
+  <a class="primary" href={u('/property-analysis/')} data-track="owner_analysis_start"><Icon name="home" />Analyze My Property</a>
+  <a href={u('/stays/')} data-track="stays_view"><Icon name="calendar" />Book a Stay</a>
+</nav>

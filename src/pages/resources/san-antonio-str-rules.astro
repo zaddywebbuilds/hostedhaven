@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import InteriorHero from '../../components/InteriorHero.astro';
+import Icon from '../../components/Icon.astro';
+import FAQ from '../../components/FAQ.astro';
+import OwnerCTA from '../../components/OwnerCTA.astro';
+import { u, SITE } from '../../lib/url';
+
+const reviewed = '2026-09-14';
+const sources = [
+  { label: 'City of San Antonio — Short Term Rentals (Hotel Occupancy Tax)', href: 'https://www.sa.gov/Directory/Departments/Finance/Taxes-Fees/HOT/STR' },
+  { label: 'City of San Antonio Development Services — STR Permits', href: 'https://www.sa.gov/Directory/Departments/DSD/STR/Permits' },
+  { label: 'City of San Antonio — Hotel Occupancy Tax', href: 'https://www.sa.gov/Directory/Departments/Finance/Taxes-Fees/HOT' },
+  { label: 'Hotel Occupancy Tax online portal', href: 'https://www.hoteltaxonline.com' },
+];
+const faqs = [
+  { q: 'Do I need a permit to operate a short-term rental in San Antonio?', a: 'According to the City of San Antonio, short-term rentals within city limits must obtain a permit through the Development Services Department. Confirm the current application process and fees directly with the City.' },
+  { q: 'What is the difference between a Type 1 and Type 2 STR?', a: 'The City describes a Type 1 STR as the primary residence of the owner or operator, and a Type 2 STR as a property that is not occupied by the owner or operator. Type 2 rentals have been subject to density limits under the City’s ordinance.' },
+  { q: 'Do I have to report Hotel Occupancy Tax every month?', a: 'The City states that anyone owning, operating, managing or controlling an STR must collect the tax and report Hotel Occupancy Tax monthly, even when there are no taxable room receipts.' },
+  { q: 'Does Airbnb collect hotel occupancy tax for me?', a: 'Platforms may collect and remit some taxes, but owners can still have filing obligations. The City’s STR page describes reporting requirements for operators whose bookings come through platforms. Review the official guidance and consult a tax professional.' },
+  { q: 'Can Hosted Havens handle compliance for me?', a: 'Hosted Havens provides operational support, including tax collection and remittance support, and keeps operations aware of local requirements. We do not provide legal or tax advice.' },
+];
+const schema = [{
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'San Antonio Short-Term Rental Rules & Permits',
+  dateModified: reviewed,
+  mainEntityOfPage: `${SITE}/resources/san-antonio-str-rules/`,
+  publisher: { '@id': `${SITE}/#organization` },
+}];
+---
+<BaseLayout
+  title="San Antonio Short-Term Rental Rules & Permits (STR Guide) | Hosted Havens"
+  description="An owner’s guide to San Antonio short-term rental rules: STR permits, Type 1 vs. Type 2 rentals and monthly Hotel Occupancy Tax reporting, with official City links."
+  path="/resources/san-antonio-str-rules/"
+  breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Resources', path: '/resources/' }, { name: 'San Antonio STR Rules', path: '/resources/san-antonio-str-rules/' }]}
+  schema={schema}
+>
+  <InteriorHero
+    eyebrow="Owner resource · San Antonio"
+    title="San Antonio Short-Term Rental <em>Rules &amp; Permits</em>"
+    lead="A plain-English overview of what San Antonio STR owners should know about permits, rental types and Hotel Occupancy Tax — with links to the official City sources."
+    crumbs={[{ name: 'Home', path: '/' }, { name: 'Resources', path: '/resources/' }, { name: 'San Antonio STR Rules', path: '/resources/san-antonio-str-rules/' }]}
+  >
+    <p class="small muted"><Icon name="clock" class="inline-ico" /> Last reviewed: <time datetime={reviewed}>September 14, 2026</time></p>
+  </InteriorHero>
+
+  <section class="section-tight">
+    <div class="narrow">
+      <p class="notice"><strong>Not legal or tax advice.</strong> Hosted Havens provides operational support, not legal or tax advice. Regulations can change. Information here is for general educational purposes — confirm current requirements with the City of San Antonio and appropriate tax or legal professionals.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="narrow prose">
+      <h2>What counts as a short-term rental?</h2>
+      <p>The City of San Antonio defines a short-term rental as a residential dwelling unit, apartment, condominium or accessory dwelling where sleeping areas are rented overnight to guests for <strong>less than 30 consecutive days</strong>. Stays of 30 days or longer fall outside that definition — one reason many owners consider <a href={u('/mid-term-rental-management-san-antonio/')}>mid-term rentals</a>.</p>
+
+      <h2>Permits: Type 1 and Type 2</h2>
+      <p>STRs within city limits need a permit through the City’s <strong>Development Services Department</strong>. The City recognizes two types:</p>
+      <ul>
+        <li><strong>Type 1:</strong> the primary residence of the owner or operator.</li>
+        <li><strong>Type 2:</strong> a property that is not occupied by the owner or operator. City ordinance documents have applied density limits to Type 2 permits.</li>
+      </ul>
+      <p>Permit fees, terms, renewal rules and application requirements are set by the City and have been updated over time. Check the <a href="https://www.sa.gov/Directory/Departments/DSD/STR/Permits" target="_blank" rel="noopener noreferrer">Development Services STR permit page</a> for current details before applying.</p>
+
+      <h2>Hotel Occupancy Tax (HOT)</h2>
+      <p>The City states that every person owning, operating, managing or controlling an STR must collect the tax imposed and <strong>report Hotel Occupancy Tax monthly — even if there are no taxable room receipts</strong>.</p>
+      <ul>
+        <li>Registration and reporting are handled through the City’s online portal at <a href="https://www.hoteltaxonline.com" target="_blank" rel="noopener noreferrer">hoteltaxonline.com</a>.</li>
+        <li>Per the City, the first online report is due the last day of the month in which you receive your account number.</li>
+        <li>City materials have described proof of HOT registration as part of obtaining an STR permit.</li>
+      </ul>
+
+      <h2>Booking platforms and taxes</h2>
+      <p>Platforms such as Airbnb and Vrbo may collect and remit some occupancy taxes on your behalf, but that doesn’t necessarily remove your reporting obligations. The City’s STR page outlines how operators should file reports and pay any taxes not collected by platforms, including changes effective March 10, 2025. Review that guidance carefully.</p>
+
+      <h2>Staying bookable</h2>
+      <p>Compliance protects more than your permit — it protects your ability to keep accepting guests. Good practice for San Antonio owners includes:</p>
+      <ul>
+        <li>Keeping your permit current and records organized</li>
+        <li>Filing HOT reports every month, including zero-receipt months</li>
+        <li>Setting clear house rules on occupancy, noise and parking</li>
+        <li>Reviewing City updates, since STR rules and fees have changed over time</li>
+      </ul>
+
+      <h2>Official sources</h2>
+      <ul>
+        {sources.map((s) => <li><a href={s.href} target="_blank" rel="noopener noreferrer">{s.label}</a></li>)}
+      </ul>
+      <p>Development Services Department: <a href="tel:+12102071111">210-207-1111</a></p>
+    </div>
+  </section>
+
+  <section class="section bg-warm">
+    <div class="container narrow">
+      <div class="section-head center reveal"><span class="eyebrow">FAQ</span><h2>San Antonio STR <em>questions</em></h2></div>
+      <FAQ items={faqs} />
+    </div>
+  </section>
+
+  <OwnerCTA title="Need Help Operating Your <em>San Antonio STR?</em>" text="Hosted Havens handles the day-to-day operation of short and mid-term rentals, including tax collection and remittance support, so you can focus on ownership." />
+  <style>.inline-ico { display: inline; width: 14px; height: 14px; vertical-align: -2px; }</style>
+</BaseLayout>

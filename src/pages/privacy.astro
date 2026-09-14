@@ -1,0 +1,80 @@
+---
+import LegalPage from '../components/LegalPage.astro';
+import { u } from '../lib/url';
+---
+<LegalPage title="Privacy Policy | Hosted Havens LLC" description="How Hosted Havens LLC collects, uses and protects personal information for guests, owners and website visitors." path="/privacy/" heading="Privacy Policy" effective="Effective date: April 8, 2025 · Last updated: April 8, 2025">
+  <p>Hosted Havens LLC (“we,” “our,” “us”) respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, disclose and safeguard your information when you visit our website, interact with our services or book a stay through Hosted Havens.</p>
+  <p>By using our services or providing your personal information, you agree to the practices described in this policy. If you do not agree, please do not use our services.</p>
+
+  <h2>1. About us</h2>
+  <p>Hosted Havens LLC is a hospitality company based in San Antonio, Texas, offering co-hosting and vacation rental services. We provide booking capabilities, guest communication and rental operations support through both direct and third-party channels.</p>
+
+  <h2>2. Information we collect</h2>
+  <h3>a. Information you provide</h3>
+  <ul>
+    <li>Full name</li><li>Email address</li><li>Phone number</li><li>Billing and mailing addresses</li>
+    <li>Government-issued ID (if required for booking verification)</li>
+    <li>Number of guests, check-in/check-out dates and booking preferences</li>
+    <li>Property details you share with us, such as through our property analysis form</li>
+    <li>Communication content (messages, inquiries, feedback)</li>
+  </ul>
+  <h3>b. Payment information</h3>
+  <p>Payments are processed by Stripe, a third-party payment processor. We may receive confirmation that a payment was made, but we do not store or directly handle full credit card details.</p>
+  <h3>c. Information collected automatically</h3>
+  <p>We may collect technical data through cookies, pixels or analytics tools, including IP address, browser type and version, device type and operating system, referring URLs, and pages viewed and actions taken on our site. Cookies help us personalize your experience, measure website performance and improve functionality.</p>
+
+  <h2>3. How we use your information</h2>
+  <ul>
+    <li>To facilitate bookings and communicate with you about your stay</li>
+    <li>To process payments securely through Stripe</li>
+    <li>To manage guest communications and inquiries (via Hospitable)</li>
+    <li>To send booking confirmations, reminders and updates (via Hospitable)</li>
+    <li>To respond to property owner inquiries and property analysis requests</li>
+    <li>To offer customer support and troubleshoot issues</li>
+    <li>To send marketing communications with your consent (via Mailchimp)</li>
+    <li>To collect and display guest reviews (via Trustindex and Airbnb)</li>
+    <li>To improve and personalize your website experience</li>
+    <li>To comply with legal obligations</li>
+  </ul>
+
+  <h2>4. Third-party services and data sharing</h2>
+  <p>We do not sell, rent or trade your personal information. We may share data with trusted service providers who support our services:</p>
+  <ul>
+    <li><strong>Stripe</strong> — payment processing</li>
+    <li><strong>Hospitable</strong> — guest booking, messaging and automation</li>
+    <li><strong>Mailchimp</strong> — marketing email delivery</li>
+    <li><strong>Trustindex</strong> — displaying and verifying customer reviews</li>
+    <li><strong>Airbnb</strong> — booking management and reviews for Airbnb-hosted properties</li>
+    <li><strong>Website and technical service providers</strong> — hosting, development and technical support</li>
+  </ul>
+  <p>These providers may use your information only to the extent necessary to perform their services.</p>
+
+  <h2>5. Data security</h2>
+  <p>We take appropriate technical and organizational measures to protect your data from unauthorized access, disclosure, alteration or destruction, including SSL encryption, access controls, secure hosting environments and regular software updates. Payment data handled by Stripe is encrypted and processed in accordance with PCI-DSS standards.</p>
+
+  <h2>6. Your rights and choices</h2>
+  <ul>
+    <li><strong>Access:</strong> request a copy of your personal data.</li>
+    <li><strong>Correction:</strong> request updates to inaccurate or incomplete information.</li>
+    <li><strong>Deletion:</strong> request that we delete your data, subject to legal or contractual obligations.</li>
+    <li><strong>Marketing preferences:</strong> opt out of marketing emails at any time using the unsubscribe link or by contacting us.</li>
+    <li><strong>Cookies:</strong> disable cookies in your browser settings, though this may affect your experience.</li>
+  </ul>
+  <p>To exercise these rights, contact <a href="mailto:hello@hostedhavens.co">hello@hostedhavens.co</a>.</p>
+
+  <h2>7. Children’s privacy</h2>
+  <p>Our services are not intended for individuals under 18. We do not knowingly collect personal information from children without verified parental consent. If we learn we have collected such information, we will delete it promptly.</p>
+
+  <h2>8. Data retention</h2>
+  <p>We retain personal information as long as necessary for the purposes in this policy, including legal, accounting or reporting obligations. Afterward, data is securely deleted or anonymized.</p>
+
+  <h2>9. Legal basis for processing (EEA visitors)</h2>
+  <p>If you are in the European Economic Area, we process personal information based on your consent, the necessity to perform a contract (such as a booking), compliance with legal obligations and our legitimate business interests.</p>
+
+  <h2>10. Changes to this policy</h2>
+  <p>We may update this Privacy Policy at any time. Changes will be posted on this page with a new effective date. Continued use of our services after updates indicates acceptance of the revised policy.</p>
+
+  <h2>11. Contact us</h2>
+  <p>Hosted Havens LLC · San Antonio, Texas<br />Email: <a href="mailto:hello@hostedhavens.co">hello@hostedhavens.co</a> · Phone: <a href="tel:+12102398773">+1 (210) 239-8773</a></p>
+  <p>See also our <a href={u('/terms/')}>Terms &amp; Conditions</a>.</p>
+</LegalPage>

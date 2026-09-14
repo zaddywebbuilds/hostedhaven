@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import InteriorHero from '../../components/InteriorHero.astro';
+import Img from '../../components/Img.astro';
+import Icon from '../../components/Icon.astro';
+import OwnerCTA from '../../components/OwnerCTA.astro';
+import { articles } from '../../data/articles';
+import { coverImage } from '../../lib/images';
+import { u } from '../../lib/url';
+
+const fmt = (d: string) => new Date(`${d}T12:00:00`).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+const sorted = [...articles].sort((a, b) => b.published.localeCompare(a.published));
+---
+<BaseLayout
+  title="Owner Resources for San Antonio STR Owners | Hosted Havens"
+  description="Guides for San Antonio short-term rental owners: STR rules and permits, self-managing vs. co-hosting, listing optimization, pricing and market trends."
+  path="/resources/"
+  breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Resources', path: '/resources/' }]}
+>
+  <InteriorHero
+    eyebrow="Owner resources"
+    title="Guides for <em>Smarter</em> Short-Term Rental Ownership"
+    lead="Practical, local insight for San Antonio owners — from permits and pricing to guest experience and property setup."
+    crumbs={[{ name: 'Home', path: '/' }, { name: 'Resources', path: '/resources/' }]}
+  />
+
+  <section class="section-tight">
+    <div class="container">
+      <a class="card3d reveal" href={u('/resources/san-antonio-str-rules/')} style="display:grid;grid-template-columns:auto 1fr auto;gap:1.4rem;align-items:center">
+        <span class="icon-box gold"><Icon name="shield" /></span>
+        <div>
+          <span class="eyebrow" style="margin:0">San Antonio · Featured guide</span>
+          <h2 style="font-size:clamp(1.6rem,3vw,2.3rem);margin:.3rem 0">San Antonio Short-Term Rental Rules &amp; Permits</h2>
+          <p style="margin:0">What owners should know about STR permits, Type 1 and Type 2 rentals and Hotel Occupancy Tax reporting.</p>
+        </div>
+        <Icon name="arrow" class="text-link" />
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3">
+        {sorted.map((a, i) => (
+          <a class={`post-card reveal reveal-d${(i % 3) + 1}`} href={u(`/resources/${a.slug}/`)}>
+            <div class="post-media"><Img src={coverImage(a.heroProperty)} alt="" sizes="(max-width: 760px) 100vw, 33vw" /></div>
+            <div class="post-body">
+              <span class="pill">{a.cluster}</span>
+              <h3>{a.title}</h3>
+              <p>{a.description}</p>
+              <span class="small muted" style="margin-top:auto">{fmt(a.published)}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <OwnerCTA />
+</BaseLayout>
