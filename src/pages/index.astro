@@ -321,10 +321,10 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
           const icon = L.divIcon({ className: '', html: `<span class="pin pin-${p.kind}"><span class="pin-dot"></span></span>`, iconSize: [26, 26], iconAnchor: [13, 13] });
           L.marker([p.lat, p.lng], { icon, title: p.name, keyboard: true })
             .addTo(map)
-            .bindTooltip(`<strong>${p.name}</strong><span>${p.note}</span>`, { direction: 'top', offset: [0, -12], className: `map-tip tip-${p.kind}`, permanent: p.kind === 'demand' && window.innerWidth > 760 });
+            .bindTooltip(`<strong>${p.name}</strong><span>${p.note}</span>`, { direction: 'top', offset: [0, -12], className: `map-tip tip-${p.kind}`, permanent: ['Downtown & River Walk', 'South Texas Medical Center', 'Randolph AFB', 'Lackland AFB'].includes(p.name) && window.innerWidth > 760 });
           bounds.extend([p.lat, p.lng]);
         });
-        map.fitBounds(bounds, { padding: [34, 34] });
+        map.fitBounds(bounds, { paddingTopLeft: [70, 70], paddingBottomRight: [110, 40] });
         el.classList.add('is-live');
       } catch {
         el.dataset.ready = '';
