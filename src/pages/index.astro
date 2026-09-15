@@ -142,11 +142,13 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
       <div class="grid grid-3">
         {services.map((s, i) => (
           <a class={`card3d svc-card reveal reveal-d${(i % 3) + 1}`} href={u(s.href)}>
-            <ServiceScene kind={s.icon} />
-            <h3>{s.title}</h3>
-            <p class="hook">{s.hook}</p>
-            <p>{s.text}</p>
-            <span class="text-link">{s.link} <Icon name="arrow" /></span>
+            <div class="svc-inner">
+              <ServiceScene kind={s.icon} />
+              <h3>{s.title}</h3>
+              <p class="hook">{s.hook}</p>
+              <p>{s.text}</p>
+              <span class="text-link">{s.link} <Icon name="arrow" /></span>
+            </div>
           </a>
         ))}
       </div>

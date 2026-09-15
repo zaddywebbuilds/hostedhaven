@@ -44,13 +44,12 @@ const idx = (n: number) => String(n).padStart(2, '0');
             <p>{values[0].text}</p>
           </div>
           <div class="vs-scene s-arrival" aria-hidden="true">
-            <div class="vs-photo">{arrivalImg && <Img src={arrivalImg} alt="" sizes="(max-width: 760px) 92vw, 46vw" />}
+            <div class="vs-photo">{arrivalImg && <Img src={arrivalImg} alt="" sizes="(max-width: 760px) 92vw, 46vw" />}</div>
               <div class="ui-chip ui-lock">
                 <span class="swap ico"><span class="a"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg></span><span class="b ok"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4L19 7" /></svg></span></span>
                 <span class="swap txt"><span class="a">Locked</span><span class="b">Welcome</span></span>
                 <em>3:02 PM · Guest checked in</em>
               </div>
-            </div>
             <div class="vs-front ui-panel ui-thread">
                 <div class="ui-top"><span class="dot"></span>A typical arrival</div>
                 <div class="bub in step" style="--d:900ms">We’re in — the place is beautiful. Thank you!</div>
@@ -263,8 +262,8 @@ const idx = (n: number) => String(n).padStart(2, '0');
   /* 01 arrival */
   /* Photo stays clear: status chip sits in its top corner, the thread overlaps only the lower edge */
   .s-arrival { flex-direction: column; }
-  .s-arrival .ui-chip { position: absolute; top: .8rem; left: .8rem; }
-  .s-arrival .vs-front { margin: -3.4rem .8rem 0 auto; }
+  .s-arrival .ui-chip { align-self: flex-start; margin-top: .75rem; box-shadow: 0 6px 16px rgba(60, 36, 24, .12); }
+  .s-arrival .vs-front { margin: .6rem 0 0; }
   .ui-chip { display: inline-flex; align-items: center; gap: .45rem; padding: .4rem .7rem .4rem .4rem; border-radius: 999px; background: rgba(255, 251, 246, .92); box-shadow: 0 10px 24px rgba(60, 36, 24, .2); font-size: .72rem; font-weight: 700; color: var(--ink); }
   .ui-chip em { font-style: normal; font-weight: 600; color: var(--ink-mute); padding-left: .45rem; border-left: 1px solid rgba(92, 74, 63, .15); }
   .ui-lock .ico > span { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--ink); color: #fff; }
@@ -278,7 +277,7 @@ const idx = (n: number) => String(n).padStart(2, '0');
   /* 02 quality · 03 pricing — photo back plane grows to fill the row, panel overlaps its lower edge */
   .c2 .vs-scene, .c3 .vs-scene { flex: 1; display: flex; flex-direction: column; }
   .c2 .vs-photo.short, .c3 .vs-photo.short { flex: 1; aspect-ratio: auto; min-height: 130px; }
-  .s-quality .vs-front, .s-pricing .vs-front { margin: -3.2rem .6rem 0; }
+  .s-quality .vs-front, .s-pricing .vs-front { margin: .75rem 0 0; }
   .ring { width: 22px; height: 22px; transform: rotate(-90deg); flex: none; }
   .ring circle { fill: none; stroke-width: 4; }
   .ring .track { stroke: #EFE7DE; }
@@ -306,7 +305,7 @@ const idx = (n: number) => String(n).padStart(2, '0');
 
   /* 04 care */
   .s-care .vs-photo { aspect-ratio: 16 / 8; }
-  .s-care .vs-front { margin: -3rem .6rem 0; }
+  .s-care .vs-front { margin: .75rem 0 0; }
   .ui-checks.compact li { padding: .22rem 0; }
   .resolved { display: inline-flex; margin-top: .5rem; padding: .25rem .6rem; border-radius: 999px; font-size: .68rem; font-weight: 700; background: #4E7A45; color: #fff; transition: background-color .7s ease, color .7s ease; }
 
@@ -329,7 +328,7 @@ const idx = (n: number) => String(n).padStart(2, '0');
   .wide .vs-copy { align-self: center; }
   .wide .vs-scene { margin-top: 0; }
   .c1 .vs-scene { flex: 1; display: flex; }
-  .c1 .vs-photo { flex: 1; aspect-ratio: auto; min-height: 290px; }
+  .c1 .vs-photo { flex: 1; aspect-ratio: auto; min-height: 210px; }
 
   /* Pre-play states (only with JS + motion allowed); final states are the defaults above */
   @media (prefers-reduced-motion: no-preference) {

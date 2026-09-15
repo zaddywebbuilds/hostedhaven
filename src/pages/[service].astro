@@ -124,10 +124,12 @@ const schema = [
       <div class={`grid ${s.pillars.length === 4 ? 'grid-4' : 'grid-3'}`}>
         {s.pillars.map((p, i) => (
           <article class={`card3d svc-card handled-card reveal reveal-d${(i % 3) + 1}`}>
-            <ServiceScene kind={p.icon} />
-            <h3>{p.title}</h3>
-            <p class="hook">{p.hook}</p>
-            <p>{p.text}</p>
+            <div class="svc-inner">
+              <ServiceScene kind={p.icon} />
+              <h3>{p.title}</h3>
+              <p class="hook">{p.hook}</p>
+              <p>{p.text}</p>
+            </div>
           </article>
         ))}
       </div>

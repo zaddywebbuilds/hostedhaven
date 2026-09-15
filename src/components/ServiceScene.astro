@@ -1,6 +1,6 @@
 ---
-// A real Hosted Havens home photo, with a small product-style overlay that shows the service happening in that space.
-// Overlays illustrate the workflow only — no performance numbers are claimed.
+// A real Hosted Havens home photo, with a small product-style panel beneath it showing the service in action.
+// The panel never overlaps the photo. It illustrates the workflow only — no performance numbers are claimed.
 import Img from './Img.astro';
 import Icon from './Icon.astro';
 import { propertyImages } from '../lib/images';
@@ -37,10 +37,9 @@ const src = gallery[Math.min(idx, gallery.length - 1)];
 const bars = [38, 44, 41, 52, 80, 94, 66];
 const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 ---
-<div class={`svc-media scene-${kind}`} aria-hidden="true">
-  {src && <Img src={src} alt="" sizes={sizes} />}
-  <div class="svc-shade"></div>
+<div class={`svc-media scene-${kind}`} aria-hidden="true">{src && <Img src={src} alt="" sizes={sizes} />}</div>
 
+<div class="svc-panel" aria-hidden="true">
   {kind === 'message' && (
     <div class="mock mock-chat">
       <div class="mock-top"><span class="mock-dot"></span>Guest message <em>now</em></div>
@@ -51,16 +50,15 @@ const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
   {(kind === 'trending' || kind === 'chart') && (
     <div class="mock mock-rate">
-      <div class="mock-top"><Icon name="trending" />Nightly rate <em>Smart pricing on</em></div>
+      <div class="mock-top"><Icon name="trending" />Nightly rate <em>Smart pricing</em></div>
       <div class="rate-bars">{bars.map((h, i) => <i class={i === 4 || i === 5 ? 'hot' : ''} style={`--h:${h}%;--d:${i * 70}ms`}></i>)}</div>
       <div class="rate-days">{days.map((d) => <span>{d}</span>)}</div>
     </div>
   )}
 
-  {kind === 'camera' && (<>
-    <div class="focus-frame"><i></i><i></i><i></i><i></i></div>
+  {kind === 'camera' && (
     <div class="mock mock-shot"><span class="rec"></span>Cover photo selected <em>· listing shoot</em></div>
-  </>)}
+  )}
 
   {(kind === 'broom' || kind === 'shield' || kind === 'sparkle') && (
     <div class="mock mock-check">
@@ -81,7 +79,7 @@ const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
   {(kind === 'key' || kind === 'layers' || kind === 'wrench') && (
     <div class="mock mock-rows">
-      <div class="mock-top"><span class="mock-dot"></span>{kind === 'key' ? 'Owner access' : kind === 'layers' ? 'One plan' : 'Maintenance request'} <em>{kind === 'wrench' ? 'in progress' : 'synced'}</em></div>
+      <div class="mock-top"><span class="mock-dot"></span>{kind === 'key' ? 'Owner access' : kind === 'layers' ? 'One plan' : 'Maintenance'} <em>{kind === 'wrench' ? 'in progress' : 'synced'}</em></div>
       {(kind === 'key' ? [['Calendar', 'Visible'], ['Hosting tools', 'Shared'], ['Your listing', 'Yours']] : kind === 'layers' ? [['Messaging', 'Linked'], ['Pricing', 'Linked'], ['Cleaning', 'Linked']] : [['Reported', 'Dishwasher'], ['Vendor', 'Scheduled'], ['Guest', 'Notified']]).map(([a, b]) => (
         <div class="row-line"><span>{a}</span><b>{b}</b></div>
       ))}
@@ -98,7 +96,7 @@ const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
   {(kind === 'plane' || kind === 'home' || kind === 'briefcase') && (
     <div class="mock mock-arrival">
       <Icon name={kind === 'plane' ? 'plane' : kind === 'home' ? 'key' : 'briefcase'} />
-      <div><strong>{kind === 'plane' ? 'PCS family arriving' : kind === 'home' ? 'Keys ready for move-in' : 'Workspace ready'}</strong><span>{kind === 'plane' ? 'Home stocked · check-in instructions sent' : kind === 'home' ? 'Fully furnished · kitchen stocked' : 'Desk set up · Wi-Fi details shared'}</span></div>
+      <div><strong>{kind === 'plane' ? 'PCS family arriving' : kind === 'home' ? 'Keys ready for move-in' : 'Workspace ready'}</strong><span>{kind === 'plane' ? 'Home stocked · check-in sent' : kind === 'home' ? 'Furnished · kitchen stocked' : 'Desk set up · Wi-Fi shared'}</span></div>
     </div>
   )}
 
