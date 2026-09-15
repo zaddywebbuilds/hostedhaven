@@ -44,9 +44,8 @@ const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
   {kind === 'message' && (
     <div class="mock mock-chat">
       <div class="mock-top"><span class="mock-dot"></span>Guest message <em>now</em></div>
-      <div class="bub in">Hi! Could we check in a little early?</div>
-      <div class="bub out">Welcome! Your home is ready at 1 PM.</div>
-      <div class="typing"><i></i><i></i><i></i></div>
+      <div class="bub in">Could we check in early?</div>
+      <div class="bub out">Yes! Ready at 1 PM.</div>
     </div>
   )}
 
@@ -66,7 +65,7 @@ const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
   {(kind === 'broom' || kind === 'shield' || kind === 'sparkle') && (
     <div class="mock mock-check">
       <div class="mock-top"><span class="mock-dot"></span>{kind === 'broom' ? 'Turnover checklist' : kind === 'shield' ? 'Inspection' : 'Restock'} <em>today</em></div>
-      {(kind === 'broom' ? ['Fresh linens & towels', 'Kitchen reset', 'Photo check sent'] : kind === 'shield' ? ['Appliances tested', 'Smoke alarms checked', 'Ready for arrival'] : ['Coffee & pantry basics', 'Paper goods', 'Toiletries']).map((t, i) => (
+      {(kind === 'broom' ? ['Fresh linens', 'Kitchen reset', 'Photo check'] : kind === 'shield' ? ['Appliances tested', 'Smoke alarms', 'Arrival-ready'] : ['Coffee & pantry basics', 'Paper goods', 'Toiletries']).map((t, i) => (
         <div class="chk"><span class="box" style={`--d:${200 + i * 180}ms`}><Icon name="check" /></span>{t}</div>
       ))}
     </div>
@@ -106,7 +105,7 @@ const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
   {kind === 'file' && (
     <div class="mock mock-listing">
       <div class="mock-top"><span class="mock-dot"></span>Listing draft <em>editing</em></div>
-      <strong>Bright, open living space with patio and workspace</strong>
+      <strong>Bright living space · patio · workspace</strong>
       <div class="line-skel"><i style="width:92%"></i><i style="width:74%"></i></div>
     </div>
   )}

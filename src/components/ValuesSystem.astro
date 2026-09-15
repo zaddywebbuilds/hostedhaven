@@ -44,19 +44,18 @@ const idx = (n: number) => String(n).padStart(2, '0');
             <p>{values[0].text}</p>
           </div>
           <div class="vs-scene s-arrival" aria-hidden="true">
-            <div class="vs-photo">{arrivalImg && <Img src={arrivalImg} alt="" sizes="(max-width: 760px) 92vw, 46vw" />}</div>
-            <div class="vs-front">
+            <div class="vs-photo">{arrivalImg && <Img src={arrivalImg} alt="" sizes="(max-width: 760px) 92vw, 46vw" />}
               <div class="ui-chip ui-lock">
                 <span class="swap ico"><span class="a"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></svg></span><span class="b ok"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4L19 7" /></svg></span></span>
                 <span class="swap txt"><span class="a">Locked</span><span class="b">Welcome</span></span>
                 <em>3:02 PM · Guest checked in</em>
               </div>
-              <div class="ui-panel ui-thread">
+            </div>
+            <div class="vs-front ui-panel ui-thread">
                 <div class="ui-top"><span class="dot"></span>A typical arrival</div>
                 <div class="bub in step" style="--d:900ms">We’re in — the place is beautiful. Thank you!</div>
                 <div class="bub out step" style="--d:1550ms">Welcome! Enjoy your stay. We’re here if you need anything.</div>
                 <div class="ui-stars step" style="--d:2150ms"><span>Guest experience</span><b>{[0, 1, 2, 3, 4].map((s) => <i style={`--s:${2200 + s * 90}ms`}>★</i>)}</b></div>
-              </div>
             </div>
           </div>
         </article>
@@ -262,7 +261,10 @@ const idx = (n: number) => String(n).padStart(2, '0');
   .step { transition: opacity .55s ease, transform .65s cubic-bezier(.22, 1, .36, 1); }
 
   /* 01 arrival */
-  .s-arrival .vs-front { position: absolute; left: .9rem; right: .9rem; bottom: .9rem; display: grid; gap: .5rem; justify-items: start; }
+  /* Photo stays clear: status chip sits in its top corner, the thread overlaps only the lower edge */
+  .s-arrival { flex-direction: column; }
+  .s-arrival .ui-chip { position: absolute; top: .8rem; left: .8rem; }
+  .s-arrival .vs-front { margin: -3.4rem .8rem 0 auto; }
   .ui-chip { display: inline-flex; align-items: center; gap: .45rem; padding: .4rem .7rem .4rem .4rem; border-radius: 999px; background: rgba(255, 251, 246, .92); box-shadow: 0 10px 24px rgba(60, 36, 24, .2); font-size: .72rem; font-weight: 700; color: var(--ink); }
   .ui-chip em { font-style: normal; font-weight: 600; color: var(--ink-mute); padding-left: .45rem; border-left: 1px solid rgba(92, 74, 63, .15); }
   .ui-lock .ico > span { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--ink); color: #fff; }
@@ -303,10 +305,8 @@ const idx = (n: number) => String(n).padStart(2, '0');
   .done { font-size: .68rem; color: #4E7A45; }
 
   /* 04 care */
-  .s-care { display: grid; }
-  .s-care .vs-photo { grid-area: 1 / 1; aspect-ratio: auto; min-height: 100%; }
-  .s-care .vs-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42, 31, 26, .05), rgba(42, 31, 26, .35)); }
-  .s-care .vs-front { grid-area: 1 / 1; margin: 1rem; align-self: end; }
+  .s-care .vs-photo { aspect-ratio: 16 / 8; }
+  .s-care .vs-front { margin: -3rem .6rem 0; }
   .ui-checks.compact li { padding: .22rem 0; }
   .resolved { display: inline-flex; margin-top: .5rem; padding: .25rem .6rem; border-radius: 999px; font-size: .68rem; font-weight: 700; background: #4E7A45; color: #fff; transition: background-color .7s ease, color .7s ease; }
 
@@ -376,7 +376,6 @@ const idx = (n: number) => String(n).padStart(2, '0');
     .c1, .c2, .c3, .wide { grid-column: auto; }
     .c1 .vs-card, .wide .vs-card { display: flex; flex-direction: column; }
     .c1 .vs-photo { min-height: 0; aspect-ratio: 4 / 5; }
-    .s-care .vs-photo { min-height: 380px; }
     .vs-card { border-radius: 28px; transform: none !important; }
     .vs-copy p { font-size: .95rem; }
     .vs-join { flex-direction: column; align-items: flex-start; padding-right: clamp(1.4rem, 3vw, 2.4rem); }
