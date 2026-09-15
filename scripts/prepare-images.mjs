@@ -26,6 +26,15 @@ const citySlug = {
 
 async function exists(p) { try { await fs.access(p); return true; } catch { return false; } }
 
+// 64-bit difference hash: visually identical photos (resized/re-encoded copies) land within a few bits.
+async function dhash(file) {
+  const px = await sharp(file, { failOn: 'none' }).rotate().greyscale().resize(9, 8, { fit: 'fill' }).raw().toBuffer();
+  let bits = '';
+  for (let y = 0; y < 8; y++) for (let x = 0; x < 8; x++) bits += px[y * 9 + x] > px[y * 9 + x + 1] ? '1' : '0';
+  return bits;
+}
+const hamming = (a, b) => { let d = 0; for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) d++; return d; };
+
 async function emit(input, outBase, widths = WIDTHS, opts = {}) {
   const meta = await sharp(input, { failOn: 'none' }).rotate().metadata();
   const ratio = (meta.height || 1) / (meta.width || 1);
@@ -61,13 +70,35 @@ for (const slug of Object.keys(citySlug)) {
   }
   manifest.properties[slug] = [];
   let n = 0;
+  const pickedHashes = [];
   for (const f of picked) {
     n++;
     const base = `properties/${slug}/${slug}-${citySlug[slug]}-tx-rental-${String(n).padStart(2, '0')}`;
-    try { manifest.properties[slug].push(await emit(path.join(dir, f), base)); }
-    catch (e) { console.warn(`skip ${slug}/${f}: ${e.message}`); }
+    try {
+      manifest.properties[slug].push(await emit(path.join(dir, f), base));
+      pickedHashes.push(await dhash(path.join(dir, f)));
+    } catch (e) { console.warn(`skip ${slug}/${f}: ${e.message}`); }
   }
-  console.log(`${slug}: ${manifest.properties[slug].length} images`);
+  // Second pass: small-but-real photos (AVIF squeezes a full 720px photo under 20 KB).
+  // Keep any that are photo-sized and visually different from everything already picked.
+  // Appended after the existing sequence so current photo numbers never shift.
+  let added = 0;
+  for (const f of files) {
+    if (picked.includes(f)) continue;
+    const abs = path.join(dir, f);
+    try {
+      const meta = await sharp(abs, { failOn: 'none' }).metadata();
+      if ((meta.width || 0) < 600) continue;
+      const h = await dhash(abs);
+      if (pickedHashes.some((p) => hamming(p, h) <= 10)) continue;
+      n++;
+      const base = `properties/${slug}/${slug}-${citySlug[slug]}-tx-rental-${String(n).padStart(2, '0')}`;
+      manifest.properties[slug].push(await emit(abs, base));
+      pickedHashes.push(h);
+      added++;
+    } catch (e) { console.warn(`skip ${slug}/${f}: ${e.message}`); }
+  }
+  console.log(`${slug}: ${manifest.properties[slug].length} images (${added} small AVIF photos added)`);
 }
 
 // Brand + people

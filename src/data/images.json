@@ -1388,6 +1388,134 @@
      640,
      1280
     ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-72",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-73",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-74",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-75",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-76",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-77",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-78",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-79",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-80",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-81",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-82",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-83",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-84",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-85",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-86",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/de-soto-lighthouse/de-soto-lighthouse-universal-city-tx-rental-87",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
    }
   ],
   "coastal-run": [
@@ -2366,6 +2494,38 @@
      640,
      1280
     ]
+   },
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-123",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-124",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-125",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/coastal-run/coastal-run-san-antonio-tx-rental-126",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
    }
   ],
   "the-harding-place": [
@@ -2976,6 +3136,70 @@
      640,
      1280
     ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-77",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-78",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-79",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-80",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-81",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-82",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-83",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/the-harding-place/the-harding-place-san-antonio-tx-rental-84",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
    }
   ],
   "grass-hollow": [
@@ -3493,6 +3717,158 @@
    },
    {
     "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-65",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-66",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-67",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-68",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-69",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-70",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-71",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-72",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-73",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-74",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-75",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-76",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-77",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-78",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-79",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-80",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-81",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-82",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-83",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/grass-hollow/grass-hollow-live-oak-tx-rental-84",
     "ratio": 0.5625,
     "widths": [
      640,
@@ -5336,6 +5712,182 @@
      640,
      1280
     ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-102",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-103",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-104",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-105",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-106",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-107",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-108",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-109",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-110",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-111",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-112",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-113",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-114",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-115",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-116",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-117",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-118",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-119",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-120",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-121",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-122",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-123",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
    }
   ],
   "ccp-1": [
@@ -5850,6 +6402,54 @@
      640,
      1280
     ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-65",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-66",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-67",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-68",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-69",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-1/ccp-1-converse-tx-rental-70",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
    }
   ],
   "ccp-2": [
@@ -6340,6 +6940,38 @@
      640,
      1280
     ]
+   },
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-62",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-63",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-64",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-2/ccp-2-converse-tx-rental-65",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
    }
   ],
   "ccp-3": [
@@ -6777,6 +7409,38 @@
    },
    {
     "base": "properties/ccp-3/ccp-3-converse-tx-rental-55",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-56",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-57",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-58",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-3/ccp-3-converse-tx-rental-59",
     "ratio": 0.5625,
     "widths": [
      640,
@@ -7227,6 +7891,38 @@
    },
    {
     "base": "properties/ccp-4/ccp-4-converse-tx-rental-56",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-57",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-58",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-59",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-4/ccp-4-converse-tx-rental-60",
     "ratio": 0.5625,
     "widths": [
      640,
@@ -7717,6 +8413,46 @@
    },
    {
     "base": "properties/ccp-5/ccp-5-converse-tx-rental-61",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-62",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-63",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-64",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-65",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/ccp-5/ccp-5-converse-tx-rental-66",
     "ratio": 0.5625,
     "widths": [
      640,
@@ -8302,6 +9038,46 @@
      640,
      1280
     ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-36",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-37",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-38",
+    "ratio": 1.3333,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-39",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1b/s-park-1b-san-antonio-tx-rental-40",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
    }
   ],
   "s-park-1c": [
@@ -8580,6 +9356,30 @@
    {
     "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-35",
     "ratio": 0.7486,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-36",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-37",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1c/s-park-1c-san-antonio-tx-rental-38",
+    "ratio": 0.5625,
     "widths": [
      640,
      1280
@@ -8882,6 +9682,38 @@
      640,
      1280
     ]
+   },
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-38",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-39",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-40",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-1d/s-park-1d-san-antonio-tx-rental-41",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
    }
   ],
   "s-park-2a": [
@@ -9180,6 +10012,22 @@
      640,
      1280
     ]
+   },
+   {
+    "base": "properties/s-park-2a/s-park-2a-san-antonio-tx-rental-38",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2a/s-park-2a-san-antonio-tx-rental-39",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
    }
   ],
   "s-park-2b": [
@@ -9470,6 +10318,14 @@
      640,
      1280
     ]
+   },
+   {
+    "base": "properties/s-park-2b/s-park-2b-san-antonio-tx-rental-37",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
    }
   ],
   "s-park-2c": [
@@ -9740,6 +10596,30 @@
    {
     "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-34",
     "ratio": 0.7486,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-35",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-36",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2c/s-park-2c-san-antonio-tx-rental-37",
+    "ratio": 1.3333,
     "widths": [
      640,
      1280
@@ -10030,6 +10910,30 @@
    {
     "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-36",
     "ratio": 0.7486,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-37",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-38",
+    "ratio": 0.5625,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/s-park-2d/s-park-2d-san-antonio-tx-rental-39",
+    "ratio": 0.5625,
     "widths": [
      640,
      1280
