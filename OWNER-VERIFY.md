@@ -55,6 +55,12 @@ Everything below needs confirmation from Hosted Havens (Megan) before launch. No
 - [ ] The tour reel (homepage) uses `hosted-havens-showcase.mp4` and `scene1–8.mp4` from `SHORT VIDEO CONTENTS/Hosted Havens LLC/VIDEOS`. These clips aren't on the live site. Confirm Hosted Havens approves them for the website, and that the presenter has signed a talent/likeness release.
 - [ ] Clip labels (Living Room, Arched Entry, Studio Kitchen, Accent Wall, Chef’s Kitchen, Bedroom Suite, Dining Room, Outdoors) were inferred from the footage. Rename them to the actual properties if preferred.
 
+## About page · "How we work" scenes
+Each value card shows an illustrative operations scene over a real listing photo (`src/components/ValuesSystem.astro`). The scenes are labelled as examples ("A typical arrival", "Illustrative pricing"). They use no guest or owner names and make no revenue claims.
+- [ ] Confirm the example wording reads true to how Hosted Havens works: check-in message, the turnover checklist items, the warm-house maintenance example, and the owner update timeline
+- [ ] Illustrative nightly rates ($142–$229) are not Hosted Havens pricing data. Keep or change them
+- [ ] The Join the Team strip now reads "If hospitality, attention to detail and solving problems sound like you…". Confirm the wording and that `hello@` is the right inbox for resumes
+
 ## Service card scenes (homepage + every service page)
 Service cards now use Hosted Havens' own listing photos, set in `src/components/ServiceScene.astro`. Each has an illustrative app-style overlay: guest chat, rate bars, checklist, calendar and so on. The overlays show the workflow only. They contain no real guest data and make no performance claims.
 - [ ] Confirm the overlay wording (e.g. "Your home is ready at 1 PM", "Owner calendar", team roles) reads accurately

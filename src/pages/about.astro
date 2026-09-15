@@ -3,9 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Img from '../components/Img.astro';
 import Icon from '../components/Icon.astro';
 import OwnerCTA from '../components/OwnerCTA.astro';
+import ValuesSystem from '../components/ValuesSystem.astro';
 import { brandImage, propertyImages } from '../lib/images';
 import { u } from '../lib/url';
-import { team, values, business } from '../data/business';
+import { team } from '../data/business';
 
 const megan = brandImage('megan-blount-hosted-havens-founder');
 const strip = [propertyImages('la-maison-blount')[0], propertyImages('the-harding-place')[1], propertyImages('grass-hollow')[2]];
@@ -83,26 +84,7 @@ const strip = [propertyImages('la-maison-blount')[0], propertyImages('the-hardin
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-head reveal"><span class="eyebrow">Our values</span><h2>How we <em>work</em></h2></div>
-      <div class="grid grid-3">
-        {values.map((v, i) => (
-          <article class={`card3d reveal reveal-d${(i % 3) + 1}`}>
-            <span class="t-dot" style="width:52px;height:52px;font-size:1.2rem;margin:0">{String(i + 1).padStart(2, '0')}</span>
-            <h3>{v.title}</h3>
-            <p>{v.text}</p>
-          </article>
-        ))}
-        <article class="card3d bg-dark reveal" style="color:var(--cream)">
-          <span class="eyebrow">Join the team</span>
-          <h3 style="color:var(--cream);margin-top:0">Driven, resilient and quality-focused?</h3>
-          <p style="color:rgba(253,244,232,.75)">Hosted Havens (formerly Expat Property Tours) is growing. Send your resume and qualifications.</p>
-          <a class="btn btn-gold btn-sm" href={`mailto:${business.guestEmail}?subject=Joining%20the%20Hosted%20Havens%20team`}>Email Your Resume</a>
-        </article>
-      </div>
-    </div>
-  </section>
+  <ValuesSystem />
 
   <OwnerCTA />
 </BaseLayout>

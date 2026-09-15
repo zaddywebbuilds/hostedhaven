@@ -260,6 +260,17 @@ const toastImg = coverImage(guestPage ? 'coastal-run' : 'de-soto-lighthouse');
       });
     }
 
+    // Tuck the floating widgets while a dense content section fills the middle of the screen.
+    const safeZones = document.querySelectorAll('[data-toast-safe]');
+    if (safeZones.length && 'IntersectionObserver' in window) {
+      const active = new Set<Element>();
+      const tuck = new IntersectionObserver((entries) => {
+        entries.forEach((en) => (en.isIntersecting ? active.add(en.target) : active.delete(en.target)));
+        document.documentElement.classList.toggle('toasts-tucked', active.size > 0);
+      }, { rootMargin: '-35% 0px -35% 0px' });
+      safeZones.forEach((z) => tuck.observe(z));
+    }
+
     document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((car) => {
       const track = car.querySelector<HTMLElement>('.car-track');
       const step = () => (track?.firstElementChild as HTMLElement | null)?.getBoundingClientRect().width ?? 320;

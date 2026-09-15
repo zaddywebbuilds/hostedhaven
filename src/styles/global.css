@@ -715,6 +715,7 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 /* ---------- Toast pop-ups ---------- */
 .toast { position: fixed; z-index: 95; bottom: 1.2rem; width: min(330px, calc(100vw - 2rem)); padding: .95rem 1.05rem; border-radius: 20px; background: rgba(253, 244, 232, .95); border: 1px solid #fff; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: 0 18px 50px rgba(80, 50, 35, .24); font-size: .82rem; color: var(--ink-soft); opacity: 0; visibility: hidden; transform: translateY(22px) scale(.94); transition: opacity .5s var(--ease), transform .6s cubic-bezier(.34, 1.56, .64, 1), visibility .5s; }
 .toast.show { opacity: 1; visibility: visible; transform: none; }
+.toasts-tucked .toast.show { opacity: 0; visibility: hidden; transform: translateY(14px) scale(.96); pointer-events: none; }
 .toast.left { left: 1.2rem; }
 .toast.right { right: 1.2rem; }
 .toast-head { display: flex; align-items: center; gap: .65rem; margin-bottom: .45rem; padding-right: 1.4rem; }
