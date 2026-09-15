@@ -1,0 +1,127 @@
+---
+// A real Hosted Havens home photo, with a small product-style overlay that shows the service happening in that space.
+// Overlays illustrate the workflow only — no performance numbers are claimed.
+import Img from './Img.astro';
+import Icon from './Icon.astro';
+import { propertyImages } from '../lib/images';
+
+type Kind = 'message' | 'trending' | 'chart' | 'camera' | 'broom' | 'eye' | 'calendar' | 'key' | 'users' | 'layers' | 'plane' | 'briefcase' | 'home' | 'file' | 'star' | 'compass' | 'shield' | 'wrench' | 'sparkle';
+interface Props { kind: string; sizes?: string }
+const { kind, sizes = '(max-width: 760px) 92vw, (max-width: 1024px) 46vw, 31vw' } = Astro.props as { kind: Kind; sizes?: string };
+
+// Each scene uses the real listing photo that best matches the job.
+const photo: Record<Kind, [string, number]> = {
+  message: ['coastal-run', 6],           // smart-lock front door — guest check-in
+  trending: ['halliday-fig-trees', 9],   // living room
+  chart: ['coastal-run', 10],            // living room
+  camera: ['de-soto-lighthouse', 1],     // bright arched living room
+  broom: ['de-soto-lighthouse', 26],     // freshly made bed
+  eye: ['the-harding-place', 5],         // home exterior at sunset
+  calendar: ['grass-hollow', 13],        // desk nook for longer stays
+  key: ['la-maison-blount', 20],         // front door exterior
+  users: ['halliday-fig-trees', 3],      // home exterior
+  layers: ['la-maison-blount', 2],       // kitchen
+  plane: ['coastal-run', 4],             // two-story home exterior
+  briefcase: ['de-soto-lighthouse', 9],  // workspace
+  home: ['halliday-fig-trees', 7],       // living room by the door
+  file: ['grass-hollow', 4],             // living room
+  star: ['halliday-fig-trees', 2],       // fire table outdoors
+  compass: ['halliday-fig-trees', 11],   // books and games set out for guests
+  shield: ['de-soto-lighthouse', 21],    // kitchen
+  wrench: ['de-soto-lighthouse', 23],    // laundry room
+  sparkle: ['halliday-fig-trees', 22],   // stocked cupboard
+};
+const [slug, idx] = photo[kind] ?? photo.home;
+const gallery = propertyImages(slug);
+const src = gallery[Math.min(idx, gallery.length - 1)];
+const bars = [38, 44, 41, 52, 80, 94, 66];
+const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+---
+<div class={`svc-media scene-${kind}`} aria-hidden="true">
+  {src && <Img src={src} alt="" sizes={sizes} />}
+  <div class="svc-shade"></div>
+
+  {kind === 'message' && (
+    <div class="mock mock-chat">
+      <div class="mock-top"><span class="mock-dot"></span>Guest message <em>now</em></div>
+      <div class="bub in">Hi! Could we check in a little early?</div>
+      <div class="bub out">Welcome! Your home is ready at 1 PM.</div>
+      <div class="typing"><i></i><i></i><i></i></div>
+    </div>
+  )}
+
+  {(kind === 'trending' || kind === 'chart') && (
+    <div class="mock mock-rate">
+      <div class="mock-top"><Icon name="trending" />Nightly rate <em>Smart pricing on</em></div>
+      <div class="rate-bars">{bars.map((h, i) => <i class={i === 4 || i === 5 ? 'hot' : ''} style={`--h:${h}%;--d:${i * 70}ms`}></i>)}</div>
+      <div class="rate-days">{days.map((d) => <span>{d}</span>)}</div>
+    </div>
+  )}
+
+  {kind === 'camera' && (<>
+    <div class="focus-frame"><i></i><i></i><i></i><i></i></div>
+    <div class="mock mock-shot"><span class="rec"></span>Cover photo selected <em>· listing shoot</em></div>
+  </>)}
+
+  {(kind === 'broom' || kind === 'shield' || kind === 'sparkle') && (
+    <div class="mock mock-check">
+      <div class="mock-top"><span class="mock-dot"></span>{kind === 'broom' ? 'Turnover checklist' : kind === 'shield' ? 'Inspection' : 'Restock'} <em>today</em></div>
+      {(kind === 'broom' ? ['Fresh linens & towels', 'Kitchen reset', 'Photo check sent'] : kind === 'shield' ? ['Appliances tested', 'Smoke alarms checked', 'Ready for arrival'] : ['Coffee & pantry basics', 'Paper goods', 'Toiletries']).map((t, i) => (
+        <div class="chk"><span class="box" style={`--d:${200 + i * 180}ms`}><Icon name="check" /></span>{t}</div>
+      ))}
+    </div>
+  )}
+
+  {(kind === 'eye' || kind === 'calendar') && (
+    <div class="mock mock-cal">
+      <div class="mock-top"><Icon name="calendar" />{kind === 'eye' ? 'Owner calendar' : '30+ night stay'} <em>{kind === 'eye' ? 'live' : 'booked'}</em></div>
+      <div class="cal-grid">{(kind === 'eye' ? ['b', 'b', 'b', 'o', 'o', 'b', 'b', '', '', 'b', 'b', 'b', 'o', 'b'] : ['', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b']).map((c) => <i class={c}></i>)}</div>
+      <div class="cal-key"><span><i class="b"></i>Booked</span>{kind === 'eye' && <span><i class="o"></i>Owner stay</span>}<span><i></i>Open</span></div>
+    </div>
+  )}
+
+  {(kind === 'key' || kind === 'layers' || kind === 'wrench') && (
+    <div class="mock mock-rows">
+      <div class="mock-top"><span class="mock-dot"></span>{kind === 'key' ? 'Owner access' : kind === 'layers' ? 'One plan' : 'Maintenance request'} <em>{kind === 'wrench' ? 'in progress' : 'synced'}</em></div>
+      {(kind === 'key' ? [['Calendar', 'Visible'], ['Hosting tools', 'Shared'], ['Your listing', 'Yours']] : kind === 'layers' ? [['Messaging', 'Linked'], ['Pricing', 'Linked'], ['Cleaning', 'Linked']] : [['Reported', 'Dishwasher'], ['Vendor', 'Scheduled'], ['Guest', 'Notified']]).map(([a, b]) => (
+        <div class="row-line"><span>{a}</span><b>{b}</b></div>
+      ))}
+    </div>
+  )}
+
+  {kind === 'users' && (
+    <div class="mock mock-team">
+      <div class="mock-top"><span class="mock-dot"></span>Your local team <em>San Antonio</em></div>
+      <div class="team-row">{['Guest Services', 'Maintenance', 'Photography', 'Revenue'].map((t) => <span>{t}</span>)}</div>
+    </div>
+  )}
+
+  {(kind === 'plane' || kind === 'home' || kind === 'briefcase') && (
+    <div class="mock mock-arrival">
+      <Icon name={kind === 'plane' ? 'plane' : kind === 'home' ? 'key' : 'briefcase'} />
+      <div><strong>{kind === 'plane' ? 'PCS family arriving' : kind === 'home' ? 'Keys ready for move-in' : 'Workspace ready'}</strong><span>{kind === 'plane' ? 'Home stocked · check-in instructions sent' : kind === 'home' ? 'Fully furnished · kitchen stocked' : 'Desk set up · Wi-Fi details shared'}</span></div>
+    </div>
+  )}
+
+  {kind === 'file' && (
+    <div class="mock mock-listing">
+      <div class="mock-top"><span class="mock-dot"></span>Listing draft <em>editing</em></div>
+      <strong>Bright, open living space with patio and workspace</strong>
+      <div class="line-skel"><i style="width:92%"></i><i style="width:74%"></i></div>
+    </div>
+  )}
+
+  {kind === 'star' && (
+    <div class="mock mock-chips">
+      <div class="mock-top"><Icon name="star" />Featured amenities</div>
+      <div class="team-row">{['Outdoor fire table', 'Patio seating', 'Family games', 'Full kitchen'].map((t) => <span>{t}</span>)}</div>
+    </div>
+  )}
+
+  {kind === 'compass' && (
+    <div class="mock mock-arrival">
+      <Icon name="compass" />
+      <div><strong>Home guidebook sent</strong><span>Wi-Fi · parking · local favorites</span></div>
+    </div>
+  )}
+</div>

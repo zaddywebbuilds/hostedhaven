@@ -5,6 +5,7 @@ import Icon from '../components/Icon.astro';
 import FAQ from '../components/FAQ.astro';
 import PropertyCard from '../components/PropertyCard.astro';
 import TourReel from '../components/TourReel.astro';
+import ServiceScene from '../components/ServiceScene.astro';
 import { u, SITE } from '../lib/url';
 import { propertyImages, brandImage } from '../lib/images';
 import { business, pricing, ownerTestimonials, links } from '../data/business';
@@ -19,16 +20,6 @@ const cities = new Set(properties.map((p) => p.city)).size;
 
 const pains = ['11 PM guest messages', 'Pricing every weekend', 'Cleaner coordination', 'Maintenance calls', 'Restocking', 'Reviews', 'Calendar gaps', 'Check-in issues', 'Tax & compliance admin'];
 
-const svcPhotos: Record<string, ReturnType<typeof brandImage>> = {
-  guest: propertyImages('de-soto-lighthouse')[0],
-  revenue: brandImage('revenue-analytics-laptop'),
-  listing: brandImage('listing-photography-tripod'),
-  care: brandImage('property-care-making-bed'),
-  owner: brandImage('owner-checking-phone'),
-  term: brandImage('extended-stay-suitcase'),
-};
-const bars = [38, 44, 41, 52, 80, 94, 66];
-const cal = ['b', 'b', 'b', 'o', 'o', 'b', 'b', '', '', 'b', 'b', 'b', 'o', 'b'];
 
 const services = [
   { icon: 'message', title: 'Guest Management', hook: 'Five-star stays start with fast answers.', text: 'Communication, check-in support, issue resolution and follow-up that protects your reviews.', href: '/airbnb-co-host-san-antonio/', link: 'Co-Hosting' },
@@ -151,23 +142,7 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
       <div class="grid grid-3">
         {services.map((s, i) => (
           <a class={`card3d svc-card reveal reveal-d${(i % 3) + 1}`} href={u(s.href)}>
-            {(() => {
-              const key = ['guest', 'revenue', 'listing', 'care', 'owner', 'term'][i];
-              return (
-                <div class={`svc-media svc-${key}`} aria-hidden="true">
-                  <Img src={svcPhotos[key]} alt="" sizes="(max-width: 760px) 100vw, (max-width: 1024px) 50vw, 33vw" />
-                  <div class="svc-shade"></div>
-                  {key === 'guest' && (
-                    <div class="mock mock-chat">
-                      <div class="mock-top"><span class="mock-dot"></span>Guest message <em>now</em></div>
-                      <div class="bub in">Hi! Could we check in a little early?</div>
-                      <div class="bub out">Welcome! Your home is ready at 1 PM.</div>
-                      <div class="typing"><i></i><i></i><i></i></div>
-                    </div>
-                  )}
-                </div>
-              );
-            })()}
+            <ServiceScene kind={s.icon} />
             <h3>{s.title}</h3>
             <p class="hook">{s.hook}</p>
             <p>{s.text}</p>
