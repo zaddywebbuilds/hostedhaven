@@ -1,6 +1,6 @@
 ---
 // A real Hosted Havens home photo, with a small product-style panel beneath it showing the service in action.
-// The panel never overlaps the photo. It illustrates the workflow only — no performance numbers are claimed.
+// The panel never overlaps the photo. It illustrates the workflow only, no performance numbers are claimed.
 import Img from './Img.astro';
 import Icon from './Icon.astro';
 import { propertyImages } from '../lib/images';
@@ -11,7 +11,7 @@ const { kind, sizes = '(max-width: 760px) 92vw, (max-width: 1024px) 46vw, 31vw' 
 
 // Each scene uses the real listing photo that best matches the job.
 const photo: Record<Kind, [string, number]> = {
-  message: ['coastal-run', 6],           // smart-lock front door — guest check-in
+  message: ['coastal-run', 6],           // smart-lock front door, guest check-in
   trending: ['halliday-fig-trees', 9],   // living room
   chart: ['coastal-run', 10],            // living room
   camera: ['de-soto-lighthouse', 1],     // bright arched living room

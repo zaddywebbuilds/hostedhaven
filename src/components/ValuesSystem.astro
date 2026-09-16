@@ -1,5 +1,5 @@
 ---
-// About page · "How we work" — each value is shown as a small operational scene.
+// About page · "How we work", each value is shown as a small operational scene.
 // All scene UI is illustrative (no real guests, owners, reviews or revenue) and is aria-hidden;
 // the value titles and descriptions stay as real, readable HTML.
 import Img from './Img.astro';
@@ -52,7 +52,7 @@ const idx = (n: number) => String(n).padStart(2, '0');
               </div>
             <div class="vs-front ui-panel ui-thread">
                 <div class="ui-top"><span class="dot"></span>A typical arrival</div>
-                <div class="bub in step" style="--d:900ms">We’re in — the place is beautiful. Thank you!</div>
+                <div class="bub in step" style="--d:900ms">We’re in, the place is beautiful. Thank you!</div>
                 <div class="bub out step" style="--d:1550ms">Welcome! Enjoy your stay. We’re here if you need anything.</div>
                 <div class="ui-stars step" style="--d:2150ms"><span>Guest experience</span><b>{[0, 1, 2, 3, 4].map((s) => <i style={`--s:${2200 + s * 90}ms`}>★</i>)}</b></div>
             </div>
@@ -137,7 +137,7 @@ const idx = (n: number) => String(n).padStart(2, '0');
             <div class="vs-front ui-panel">
               <div class="ui-top"><span class="dot warm"></span>Guest message <em>during a stay</em></div>
               <div class="bub in step" style="--d:200ms">Hi! The house feels a little warm. Could someone take a look?</div>
-              <div class="bub out step" style="--d:850ms">Absolutely — thanks for letting us know. We’re checking it now.</div>
+              <div class="bub out step" style="--d:850ms">Absolutely, thanks for letting us know. We’re checking it now.</div>
               <ul class="ui-checks compact">
                 {['Maintenance contacted', 'Owner updated', 'Guest follow-up'].map((t, i) => <li class="step" style={`--d:${1500 + i * 340}ms`}><span>{t}</span><i><svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4L19 7" /></svg></i></li>)}
               </ul>
@@ -199,7 +199,7 @@ const idx = (n: number) => String(n).padStart(2, '0');
   .c1 { grid-column: span 6; } .c2, .c3 { grid-column: span 4; } .wide { grid-column: span 7; }
   .c2 .vs-card, .c3 .vs-card { padding: 1.5rem; }
 
-  /* Entrance (outer cell) — card tilt lives on the inner card so the transforms never fight */
+  /* Entrance (outer cell), card tilt lives on the inner card so the transforms never fight */
   .vs-cell { display: flex; }
   :global(.js) .vs-cell { opacity: 0; transform: translate3d(0, 24px, 0) scale(.985); transition: opacity .8s cubic-bezier(.22, 1, .36, 1), transform .85s cubic-bezier(.22, 1, .36, 1); transition-delay: calc(var(--i) * 80ms); }
   :global(.js) .vs-cell.is-in, :global(.js.reveal-ready) .vs-cell { opacity: 1; transform: none; }
@@ -274,7 +274,7 @@ const idx = (n: number) => String(n).padStart(2, '0');
   .ui-stars b { display: inline-flex; gap: 1px; font-size: .8rem; color: var(--gold); }
   .ui-stars i { font-style: normal; display: inline-block; transition: opacity .4s ease var(--s), transform .5s cubic-bezier(.22, 1, .36, 1) var(--s); }
 
-  /* 02 quality · 03 pricing — photo back plane grows to fill the row, panel overlaps its lower edge */
+  /* 02 quality · 03 pricing, photo back plane grows to fill the row, panel overlaps its lower edge */
   .c2 .vs-scene, .c3 .vs-scene { flex: 1; display: flex; flex-direction: column; }
   .c2 .vs-photo.short, .c3 .vs-photo.short { flex: 1; aspect-ratio: auto; min-height: 130px; }
   .s-quality .vs-front, .s-pricing .vs-front { margin: .75rem 0 0; }

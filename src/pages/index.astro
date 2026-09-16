@@ -36,12 +36,12 @@ const steps = [
   { title: `Property Tour · ${pricing.tourFee}`, text: 'A paid on-site tour with extensive prep and a detailed analysis report.' },
   { title: 'Strategy', text: 'Positioning, upgrades and the right rental mix.' },
   { title: 'Launch or Optimize', text: 'Photos, listing, pricing and guest systems go live.' },
-  { title: 'Operate', text: 'Guests, cleaning, maintenance and the calendar — handled.' },
+  { title: 'Operate', text: 'Guests, cleaning, maintenance and the calendar, handled.' },
   { title: 'Improve', text: 'Pricing, presentation and reviews keep getting refined.' },
 ];
 
 const compare = [
-  ['Local San Antonio team', 'Varies', '—'],
+  ['Local San Antonio team', 'Varies', 'No'],
   ['Guest support', 'yes', 'Owner'],
   ['Dynamic pricing', 'Varies', 'Owner'],
   ['Listing optimization & photography', 'Usually extra', 'Owner'],
@@ -81,8 +81,8 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
             <a href={u('/stays/')} data-track="stays_view">I’m a Guest</a>
           </div>
           <span class="eyebrow">San Antonio · Short &amp; Mid-Term Rental Co-Hosting</span>
-          <h1 id="hero-title">Your Rental Should Earn More — <em>Without Owning Your Time.</em></h1>
-          <p class="lead">Full-service Airbnb and short-term rental co-hosting in San Antonio — smart pricing, guest care, listing optimization, cleaning coordination and hands-on property support.</p>
+          <h1 id="hero-title">Your Rental Should Earn More, <em>Without Owning Your Time.</em></h1>
+          <p class="lead">Full-service Airbnb and short-term rental co-hosting in San Antonio, smart pricing, guest care, listing optimization, cleaning coordination and hands-on property support.</p>
           <div class="btn-row">
             <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Start the Property Form <Icon name="arrow" /></a>
             <a class="btn btn-glass" href={u('/stays/')} data-track="stays_view">Explore Our Stays</a>
@@ -118,7 +118,7 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
         <ul class="pain-cloud" aria-label="The work behind a short-term rental">
           {pains.map((p) => <li class="chip"><Icon name="clock" />{p}</li>)}
         </ul>
-        <p class="lead">We manage the moving pieces so you stay the owner — not the receptionist, pricing analyst, cleaner coordinator and on-call maintenance desk.</p>
+        <p class="lead">We manage the moving pieces so you stay the owner, not the receptionist, pricing analyst, cleaner coordinator and on-call maintenance desk.</p>
         <div class="btn-row" style="margin-top:1.4rem">
           <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">See What Your Property Could Earn <Icon name="arrow" /></a>
           <a class="btn btn-glass" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Book a Property Tour</a>
@@ -137,7 +137,7 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
       <div class="head-row reveal">
         <div class="section-head">
           <span class="eyebrow">Full-service co-hosting</span>
-          <h2>Everything Behind a 5-Star Stay — <em>Handled.</em></h2>
+          <h2>Everything Behind a 5-Star Stay, <em>Handled.</em></h2>
         </div>
         <a class="btn btn-glass" href={u('/pricing/')}>See pricing <Icon name="arrow" /></a>
       </div>
@@ -305,7 +305,7 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
             (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.('event', 'map_pin_click', { place: p.name });
             window.open(gmaps, '_blank', 'noopener,noreferrer');
           };
-          const marker = L.marker([p.lat, p.lng], { icon, title: `${p.name} — open in Google Maps`, keyboard: true, riseOnHover: true })
+          const marker = L.marker([p.lat, p.lng], { icon, title: `${p.name}: open in Google Maps`, keyboard: true, riseOnHover: true })
             .addTo(map)
             .bindTooltip(`<strong>${p.name}</strong><span>${p.note}</span><em>Open in Google Maps ↗</em>`, { direction: 'top', offset: [0, -12], className: `map-tip tip-${p.kind}`, interactive: true, permanent: ['Downtown & River Walk', 'South Texas Medical Center', 'Randolph AFB', 'Lackland AFB'].includes(p.name) && window.innerWidth > 760 });
           marker.on('click', openMaps);
@@ -357,7 +357,7 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
         <span class="eyebrow">Meet the founder</span>
         <h2>Built by a host who manages every home <em>like it’s her own.</em></h2>
         <p class="lead">Megan listed her own San Antonio home in 2021 to cover the mortgage during a planned move to Panama. The move fell through. The love of hosting didn’t.</p>
-        <p>That first summer brought an AC failure in 105-degree heat and an arbitrage rental across town — two listings, managed on her own. By late 2023 other hosts were asking for her help, and when Airbnb expanded its Co-Host Network to San Antonio, Hosted Havens was born.</p>
+        <p>That first summer brought an AC failure in 105-degree heat and an arbitrage rental across town: two listings, managed on her own. By late 2023 other hosts were asking for her help, and when Airbnb expanded its Co-Host Network to San Antonio, Hosted Havens was born.</p>
 
         <dl class="founder-facts">
           <div><dt>2016</dt><dd>Called San Antonio home</dd></div>
@@ -372,7 +372,7 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
 
         <blockquote class="mini-quote">
           <p>“{ownerTestimonials[0].quote}”</p>
-          <cite>— {ownerTestimonials[0].name}, {ownerTestimonials[0].role}</cite>
+          <cite>{ownerTestimonials[0].name}, {ownerTestimonials[0].role}</cite>
         </blockquote>
 
         <div class="btn-row" style="margin-top:1.4rem">

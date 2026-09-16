@@ -89,7 +89,7 @@ export const credentials = [
   { label: 'Member, Short Term Rental Association of San Antonio', verified: false },
 ];
 
-// Published on the current site but unverified — hidden until confirmed.
+// Published on the current site but unverified, hidden until confirmed.
 export const businessStats = {
   occupancyClaim: { value: '75%+', label: 'Typical occupancy on hosted properties', verified: false },
   annualRevenueLiftClaim: { value: '$15K', label: 'More per year vs. properties not hosted by Hosted Havens', verified: false },
@@ -106,14 +106,14 @@ export const ownerTestimonials = [
 
 export const guestReviews = [
   { quote: 'This was in a convenient location for our visit. Easy access to Loop 1604. Megan is very friendly and helpful… and quick… in her interactions. Would definitely stay here again if needed.', name: 'Melanie', from: 'Atlanta, GA', avatar: 'reviews/guest-melanie' },
-  { quote: 'Had a fantastic stay at Megan’s Airbnb! The place was clean, cozy, and pet-friendly, which was a huge plus. Megan was a great host — responsive and thoughtful. Highly recommend!', name: 'Chance', from: 'Wichita, KS', avatar: 'reviews/guest-chance' },
+  { quote: 'Had a fantastic stay at Megan’s Airbnb! The place was clean, cozy, and pet-friendly, which was a huge plus. Megan was a great host, responsive and thoughtful. Highly recommend!', name: 'Chance', from: 'Wichita, KS', avatar: 'reviews/guest-chance' },
   { quote: 'The casita was in a convenient location, comfortable with modern updates inside and outside. We enjoyed our stay over the Labor Day weekend!', name: 'Abel', from: 'Lubbock, TX', avatar: 'reviews/guest-abel' },
-  { quote: 'Ideal stop at Megan’s house. Easy to access and far from the hustle and bustle of San Antonio, we very much enjoyed the calm to sleep. Bedding, bathroom and kitchen — everything was spotless!', name: 'Stéphanie', from: 'Orléans, France', avatar: 'reviews/guest-stephanie' },
+  { quote: 'Ideal stop at Megan’s house. Easy to access and far from the hustle and bustle of San Antonio, we very much enjoyed the calm to sleep. Bedding, bathroom and kitchen: everything was spotless!', name: 'Stéphanie', from: 'Orléans, France', avatar: 'reviews/guest-stephanie' },
 ];
 
 export const team = [
   { name: 'Megan', role: 'Founder', blurb: 'Leads strategy, owner relationships and the guest experience standard.', image: 'team/megan-blount-hosted-havens-founder.webp', photo: true },
-  { name: 'Kemi', role: 'Guest Services', blurb: 'Customer service and virtual assistance — the voice guests hear first.', image: 'team/ks.svg', photo: false },
+  { name: 'Kemi', role: 'Guest Services', blurb: 'Customer service and virtual assistance, the voice guests hear first.', image: 'team/ks.svg', photo: false },
   { name: 'Christina', role: 'Maintenance Coordinator', blurb: 'Inspections, quality assurance and guest arrival setup.', image: 'team/cr.png', photo: false },
   { name: 'Pretty', role: 'Creative', blurb: 'Social media and website management.', image: 'team/pn.png', photo: false },
   { name: 'CS Outsourcing', role: 'Revenue Management', blurb: 'Listing and pricing optimization.', image: 'team/cs-outsourcing.png', photo: false },
@@ -125,5 +125,5 @@ export const values = [
   { title: 'Quality Over Shortcuts', text: 'Cleanliness, presentation and communication shape both reviews and long-term performance.' },
   { title: 'Adapt Quickly', text: 'Pricing and guest demand move. Strategy should move with them.' },
   { title: 'Lead With Empathy', text: 'Owners and guests are people first. Problems get solved with patience, not scripts.' },
-  { title: 'Clear, Honest Communication', text: 'You should always understand what is happening with your property — and why.' },
+  { title: 'Clear, Honest Communication', text: 'You should always understand what is happening with your property, and why.' },
 ];

@@ -24,14 +24,14 @@ export const services: Service[] = [
     metaDescription: 'Full-service Airbnb management and STR co-hosting in San Antonio. Hosted Havens handles pricing, guests, cleaning, listing optimization and property care.',
     eyebrow: 'Owners · San Antonio, TX',
     h1: 'Airbnb & Short-Term Rental Management in <em>San Antonio</em>',
-    lead: 'Hands-off short-term rental management support for San Antonio owners — pricing, guests, cleaning, maintenance and your listing, run by a local team that treats your home like its own.',
+    lead: 'Hands-off short-term rental management support for San Antonio owners, pricing, guests, cleaning, maintenance and your listing, run by a local team that treats your home like its own.',
     heroProperty: 'grass-hollow',
     widget: 'ops',
     intro: {
       h2: 'You keep the asset. <em>We run the stay.</em>',
       paragraphs: [
         'Owning a short-term rental in San Antonio can be rewarding. Running one day to day is a different job entirely: late-night guest questions, weekend pricing decisions, cleaner schedules, supply runs, repairs and reviews that follow your listing for months.',
-        'Hosted Havens provides full-service STR co-hosting — the day-to-day operations of an Airbnb or short-term rental, handled end to end — so you can stay the owner instead of becoming the front desk.',
+        'Hosted Havens provides full-service STR co-hosting: the day-to-day operations of an Airbnb or short-term rental, handled end to end, so you can stay the owner instead of becoming the front desk.',
       ],
     },
     pillars: [
@@ -40,12 +40,12 @@ export const services: Service[] = [
       { icon: 'camera', title: 'Listing Optimization', hook: 'Stand out before the first click.', text: 'Complimentary professional photography, full listing creation and ongoing optimization.' },
       { icon: 'broom', title: 'Property Care', hook: 'Guest-ready, every turnover.', text: 'Professional cleaning after each stay, routine inspections, proactive maintenance and restocking.' },
       { icon: 'eye', title: 'Owner Visibility', hook: 'Hands-off, never out of the loop.', text: 'Transparent access to professional hosting tools, real-time calendar visibility and 7-day support.' },
-      { icon: 'calendar', title: 'Short + Mid-Term Strategy', hook: 'More than one way to fill a calendar.', text: 'Nightly guests, 30+ day stays or a blend — matched to your property and goals.' },
+      { icon: 'calendar', title: 'Short + Mid-Term Strategy', hook: 'More than one way to fill a calendar.', text: 'Nightly guests, 30+ day stays or a blend, matched to your property and goals.' },
     ],
     detail: {
       h2: 'What full-service support actually includes',
       paragraphs: [
-        'Some co-hosts handle only messaging. Full-service co-hosting means the operation is covered — from the first property assessment to the thank-you message after checkout.',
+        'Some co-hosts handle only messaging. Full-service co-hosting means the operation is covered, from the first property assessment to the thank-you message after checkout.',
         'Hosted Havens is a co-hosting company, not a traditional long-term property manager. Long-term managers typically collect rent and handle tenancy. Our focus is short and mid-term stays: hospitality, pricing and property care that keep a rental performing.',
       ],
       bullets: [
@@ -97,7 +97,7 @@ export const services: Service[] = [
       h2: 'Not every co-host is <em>full-service</em>',
       paragraphs: [
         'On Airbnb, a co-host is someone the owner adds to help manage a listing. Some co-hosts only cover guest messaging or remote assistance. That can still leave you coordinating cleaners, chasing repairs and guessing at pricing.',
-        'Full-service co-hosting means Hosted Havens takes on the day-to-day operation — guests, pricing, listing, cleaning, inspections and maintenance — with a local San Antonio team, so the property runs without you in the middle of every decision.',
+        'Full-service co-hosting means Hosted Havens takes on the day-to-day operation: guests, pricing, listing, cleaning, inspections and maintenance, with a local San Antonio team, so the property runs without you in the middle of every decision.',
       ],
     },
     pillars: [
@@ -109,7 +109,7 @@ export const services: Service[] = [
       h2: 'Full-service co-hosting vs. limited virtual assistance',
       paragraphs: [
         'A remote assistant can reply to guests. But when a guest reports a problem at 8 PM, someone has to coordinate the fix, confirm the next cleaning and make sure the home is ready for tomorrow’s arrival.',
-        'That coordination is where most owner time disappears — and where full-service co-hosting earns its place.',
+        'That coordination is where most owner time disappears, and where full-service co-hosting earns its place.',
       ],
       bullets: [
         'Guest communication, check-in coordination and issue resolution',
@@ -134,16 +134,16 @@ export const services: Service[] = [
     slug: 'mid-term-rental-management-san-antonio',
     navLabel: 'Mid-Term Rentals',
     metaTitle: 'Mid-Term Rental Management San Antonio | Hosted Havens',
-    metaDescription: 'Mid-term rental management in San Antonio for 30+ day furnished stays — military PCS moves, traveling professionals, relocations and extended visits.',
+    metaDescription: 'Mid-term rental management in San Antonio for 30+ day furnished stays, military PCS moves, traveling professionals, relocations and extended visits.',
     eyebrow: 'Owners · 30+ Day Stays',
     h1: 'Mid-Term Rental Management in <em>San Antonio</em>',
-    lead: 'Furnished 30+ day stays for military moves, traveling professionals, relocations and extended visits — set up and operated so longer bookings stay easy on you and comfortable for guests.',
+    lead: 'Furnished 30+ day stays for military moves, traveling professionals, relocations and extended visits, set up and operated so longer bookings stay easy on you and comfortable for guests.',
     heroProperty: 's-park-1a',
     widget: 'calendar',
     intro: {
       h2: 'San Antonio has real <em>long-stay</em> demand',
       paragraphs: [
-        'San Antonio is home to Joint Base San Antonio — including Lackland, Randolph and Fort Sam Houston — a major medical center and a steady flow of relocating families and traveling professionals. Many of those guests need a furnished home for weeks or months, not nights.',
+        'San Antonio is home to Joint Base San Antonio, including Lackland, Randolph and Fort Sam Houston, a major medical center and a steady flow of relocating families and traveling professionals. Many of those guests need a furnished home for weeks or months, not nights.',
         'Hosted Havens already operates properties designed around those stays, from renovated studios near downtown to private rooms minutes from Randolph AFB. That experience shapes how we set up and run mid-term rentals for owners.',
       ],
     },
@@ -156,7 +156,7 @@ export const services: Service[] = [
       h2: 'What changes when stays get longer',
       paragraphs: [
         'Mid-term guests live in the home. They cook, work, do laundry and notice every missing detail. The setup has to support daily living, and the operation has to keep quality high without the reset of a nightly turnover.',
-        'A blended strategy can also help — combining nightly and 30+ day bookings to reduce empty weeks during slower seasons.',
+        'A blended strategy can also help, combining nightly and 30+ day bookings to reduce empty weeks during slower seasons.',
       ],
       bullets: [
         'Setup for daily living: workspace, laundry, stocked kitchen',
@@ -181,13 +181,13 @@ export const services: Service[] = [
     metaDescription: 'Airbnb revenue management in San Antonio: dynamic pricing, seasonality, minimum stays and gap-night strategy that keep your calendar and rates working.',
     eyebrow: 'Owners · Revenue Strategy',
     h1: 'Airbnb <em>Revenue Management</em> in San Antonio',
-    lead: 'Don’t leave your nightly rate on autopilot. Pricing that responds to demand, seasonality and booking patterns — with clear insight into how it’s performing.',
+    lead: 'Don’t leave your nightly rate on autopilot. Pricing that responds to demand, seasonality and booking patterns, with clear insight into how it’s performing.',
     heroProperty: 'halliday-fig-trees',
     widget: 'revenue',
     intro: {
       h2: 'One price all month is <em>a pricing decision</em> too',
       paragraphs: [
-        'A rate that never moves is usually too low on the weekends people want most and too high on the nights nobody is traveling. Both cost you money — one in underpriced bookings, the other in empty nights.',
+        'A rate that never moves is usually too low on the weekends people want most and too high on the nights nobody is traveling. Both cost you money, one in underpriced bookings, the other in empty nights.',
         'Revenue management keeps adjusting: nightly rates, minimum stays and booking windows shift with San Antonio’s demand so your calendar and your rate work together.',
       ],
     },
@@ -254,7 +254,7 @@ export const services: Service[] = [
         'Amenity accuracy and positioning',
         'Layout flow and focal points for photos',
         'House manual, signage and supply placement',
-        'Guest expectations that match reality — and the reviews that follow',
+        'Guest expectations that match reality, and the reviews that follow',
       ],
     },
     faqs: [
@@ -270,7 +270,7 @@ export const services: Service[] = [
     metaDescription: 'Launching an Airbnb in San Antonio? Hosted Havens helps new hosts with property assessment, photography, listing creation and guest-ready setup.',
     eyebrow: 'Owners · New Host Setup',
     h1: 'Launch Your <em>San Antonio</em> Short-Term Rental the Right Way',
-    lead: 'From a home you own to a guest-ready listing — assessment, recommendations, photography, listing creation and the systems that make the first bookings go smoothly.',
+    lead: 'From a home you own to a guest-ready listing, assessment, recommendations, photography, listing creation and the systems that make the first bookings go smoothly.',
     heroProperty: 'la-maison-blount',
     widget: 'launch',
     intro: {
@@ -282,14 +282,14 @@ export const services: Service[] = [
     },
     pillars: [
       { icon: 'eye', title: 'Property Assessment', hook: 'Know where you stand.', text: 'A walkthrough of layout, condition, guest appeal and suggested upgrades.' },
-      { icon: 'layers', title: 'Action Plan', hook: 'A clear path to launch.', text: 'A tailored plan from start to finish — no guessing at what comes next.' },
+      { icon: 'layers', title: 'Action Plan', hook: 'A clear path to launch.', text: 'A tailored plan from start to finish, no guessing at what comes next.' },
       { icon: 'camera', title: 'Photos & Listing', hook: 'Launch looking your best.', text: 'Complimentary professional photography and complete listing creation.' },
       { icon: 'shield', title: 'Guest-Ready Systems', hook: 'Ready before the first arrival.', text: 'Guidebook, supplies, cleaning standards and check-in processes in place.' },
     ],
     detail: {
       h2: 'What goes into a launch',
       paragraphs: [
-        'Operating an STR in San Antonio also involves local requirements such as permits and Hotel Occupancy Tax reporting. Our <a href="/resources/san-antonio-str-rules/">San Antonio STR rules guide</a> is a good starting point — confirm current requirements with the City before launching.',
+        'Operating an STR in San Antonio also involves local requirements such as permits and Hotel Occupancy Tax reporting. Our <a href="/resources/san-antonio-str-rules/">San Antonio STR rules guide</a> is a good starting point, confirm current requirements with the City before launching.',
       ],
       bullets: [
         'Customized property assessment and estimate',
@@ -315,7 +315,7 @@ export const services: Service[] = [
     metaDescription: 'Short-term rental property care in San Antonio: professional cleaning, inspections, proactive maintenance, restocking and guest arrival preparation.',
     eyebrow: 'Owners · Property Care',
     h1: 'Short-Term Rental <em>Property Care</em> in San Antonio',
-    lead: 'Every turnover is an inspection, a reset and a first impression. Cleaning, inspections, maintenance and restocking — coordinated so your home is guest-ready and protected.',
+    lead: 'Every turnover is an inspection, a reset and a first impression. Cleaning, inspections, maintenance and restocking, coordinated so your home is guest-ready and protected.',
     heroProperty: 'coastal-run',
     widget: 'care',
     intro: {

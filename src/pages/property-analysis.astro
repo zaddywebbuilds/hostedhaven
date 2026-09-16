@@ -35,10 +35,10 @@ const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Reve
         <div class="form-shell" id="analysis">
           <form id="analysis-form" novalidate data-endpoint={formEndpoint} data-fallback={links.intakeForm} data-owner-email={business.ownerEmail}>
             <ol class="steps" aria-label="Form progress">
-              <li class="on" data-n="1">1 — Property</li>
-              <li data-n="2">2 — Current Setup</li>
-              <li data-n="3">3 — Goals</li>
-              <li data-n="4">4 — Contact</li>
+              <li class="on" data-n="1">1. Property</li>
+              <li data-n="2">2. Current Setup</li>
+              <li data-n="3">3. Goals</li>
+              <li data-n="4">4. Contact</li>
             </ol>
 
             <div class="form-step active" data-step="1">
@@ -99,7 +99,7 @@ const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Reve
           <div class="form-success" id="analysis-success" tabindex="-1">
             <div class="success-mark"><Icon name="check" /></div>
             <h2>Property received.</h2>
-            <p class="lead" style="margin:0 auto 1.6rem">Thanks — the Hosted Havens team will review your property, local demand and comparable rentals to help identify its revenue potential.</p>
+            <p class="lead" style="margin:0 auto 1.6rem">Thanks, the Hosted Havens team will review your property, local demand and comparable rentals to help identify its revenue potential.</p>
             <p data-success-note class="small muted"></p>
             <div class="btn-row" style="justify-content:center">
               <a class="btn btn-primary" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Schedule Your Property Review <Icon name="arrow" /></a>
@@ -200,7 +200,7 @@ const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Reve
         const note = success.querySelector('[data-success-note]');
         if (!sent) {
           const body = Object.entries(entries).map(([k, v]) => `${k.replace(/_/g, ' ')}: ${v}`).join('\n');
-          const mailto = `mailto:${form.dataset.ownerEmail}?subject=${encodeURIComponent('Property analysis request — ' + (entries.address || ''))}&body=${encodeURIComponent(body)}`;
+          const mailto = `mailto:${form.dataset.ownerEmail}?subject=${encodeURIComponent('Property analysis request, ' + (entries.address || ''))}&body=${encodeURIComponent(body)}`;
           if (note) note.innerHTML = `To make sure your details reach us, <a class="text-link" href="${mailto}">send them by email</a> or complete our <a class="text-link" href="${form.dataset.fallback}" target="_blank" rel="noopener noreferrer">2-minute intake form</a>.`;
           if (status && endpoint) status.textContent = 'We couldn’t send the form automatically.';
         }
