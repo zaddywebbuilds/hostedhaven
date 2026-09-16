@@ -335,8 +335,13 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
 .hero-copy h1 { margin-bottom: 1.4rem; font-size: clamp(2.8rem, 5.2vw, 5.2rem); }
 .hero-copy .lead { margin-bottom: 2rem; }
 .persona-switch { display: inline-flex; padding: .3rem; gap: .25rem; border-radius: 999px; background: rgba(255, 255, 255, .5); border: 1px solid #fff; margin-bottom: 1.6rem; }
-.persona-switch a { padding: .45rem .95rem; border-radius: 999px; font-size: .84rem; font-weight: 600; color: var(--ink-soft); }
+.persona-switch a { display: inline-flex; align-items: center; gap: .35rem; padding: .45rem .95rem; border: 1px solid transparent; border-radius: 999px; font-size: .84rem; font-weight: 650; color: var(--ink-soft); transition: background .25s var(--ease), color .25s var(--ease), box-shadow .25s var(--ease), transform .25s var(--ease); }
 .persona-switch a.on { background: var(--ink); color: var(--cream); }
+/* The guest path reads as a real button, not a label: most visitors are guests. */
+.persona-switch a:not(.on) { background: #fff; color: var(--coral-ink); border-color: rgba(212, 163, 116, .6); box-shadow: 0 2px 8px rgba(112, 70, 48, .12); }
+.persona-switch a:not(.on):hover { background: var(--gold); color: #fff; border-color: var(--gold); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(112, 70, 48, .2); }
+.persona-switch a svg { width: 14px; height: 14px; }
+.persona-switch a.on svg { display: none; }
 
 .scene { position: relative; min-height: clamp(380px, 38vw, 520px); perspective: 1400px; }
 .product-aura { position: absolute; inset: 8% 6%; border-radius: 50%; background: radial-gradient(circle, rgba(212, 163, 116, .3), rgba(226, 183, 140, .16) 38%, transparent 68%); filter: blur(24px); }
