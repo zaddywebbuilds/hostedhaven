@@ -2,6 +2,18 @@
 
 Everything below needs confirmation from Hosted Havens (Megan) before launch. Nothing marked **hidden** renders publicly until it's verified in `src/data/business.ts`.
 
+## Brand + owner feedback (Megan, 2026-09-15 email)
+Applied from the Feb 2025 Brand Guidelines PDF and Megan's email:
+- Palette is now tan #D4A374 (primary), olive #656134 (secondary), rust #C0573B (accent), cream #FAF3E0. All pink/coral tones removed.
+- Typography is now Montserrat (headings, semibold/bold only) and Source Sans 3 (body), per the guide.
+- No "free property analysis" anywhere. The owner path is: property form -> overview video -> paid property tour ($150, includes extensive prep and a detailed analysis report).
+- Email is the primary contact. The phone number now appears only in the footer and on the Contact page; all Call buttons elsewhere are now email.
+- [ ] Send the logo files (Google Drive folder) including the white-trimmed version, so the header/footer logos use the current artwork
+- [ ] Supply the owner overview video (link or file) used between the form and the tour
+- [ ] Confirm the tour booking link (Calendly "property-analysis-tour") and whether payment is collected up front
+- [ ] Confirm the $150 tour fee is public-facing and whether it is credited toward setup if the owner signs
+- [ ] Confirm the one-time listing setup fee ($150-$500) still applies alongside the tour fee
+
 ## Credentials & status — hidden until confirmed
 - [ ] Airbnb Promoted Co-Host status is current
 - [ ] Volunteer Airbnb San Antonio Community Leader status is current

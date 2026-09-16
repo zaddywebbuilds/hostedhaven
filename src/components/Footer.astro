@@ -64,7 +64,7 @@ const year = new Date().getFullYear();
 </footer>
 
 <nav class="mobile-bar" aria-label="Quick actions" data-mobile-bar>
-  <a href={`tel:${business.phone}`} data-track="phone_click"><Icon name="phone" />Call</a>
+  <a href={`mailto:${business.ownerEmail}`} data-track="owner_email_click"><Icon name="mail" />Email</a>
   <a class="primary" href={u('/property-analysis/')} data-track="owner_analysis_start"><Icon name="home" />Analyze My Property</a>
   <a href={u('/stays/')} data-track="stays_view"><Icon name="calendar" />Book a Stay</a>
 </nav>

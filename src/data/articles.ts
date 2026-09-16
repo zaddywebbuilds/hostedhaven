@@ -76,7 +76,7 @@ export const articles: Article[] = [
 <p>The less a property depends on owner involvement, the more consistently it can perform. Homes that are simply furnished tend to generate more questions and more reactive problem-solving. Optimized homes are set up to run smoothly without constant intervention.</p>
 <p>For owners who aren’t nearby — including those relocating or preparing for a PCS move — that difference becomes critical: fewer interruptions, better reviews and a property that feels cared for even when you’re not there.</p>
 <h2>A helpful next step</h2>
-<p>Many owners aren’t sure whether their home is simply furnished or truly optimized. A property analysis can identify where your home is already well positioned, where small changes could improve performance and whether gaps may be limiting bookings or increasing risk. There’s no obligation.</p>`,
+<p>Many owners aren’t sure whether their home is simply furnished or truly optimized. A property tour and its analysis report can identify where your home is already well positioned, where small changes could improve performance and whether gaps may be limiting bookings or increasing risk.</p>`,
   },
   {
     slug: 'why-choose-hosted-havens',
@@ -138,7 +138,7 @@ export const articles: Article[] = [
     cluster: 'San Antonio',
     published: '2025-06-26',
     heroProperty: 'the-harding-place',
-    cta: { label: 'Get a Free Property Analysis', href: '/property-analysis/' },
+    cta: { label: 'Start the Property Form', href: '/property-analysis/' },
     body: `
 <p>Airbnb has reported that guest spending in 2024 contributed around $90 billion to the U.S. economy, with a large share spent close to where guests stay. For San Antonio homeowners, that’s a signal worth paying attention to: travelers are looking for homes, not just hotel rooms, and much of their spending supports the neighborhoods they stay in.</p>
 <h2>Why San Antonio homeowners are paying attention</h2>
@@ -154,7 +154,7 @@ export const articles: Article[] = [
 <li><strong>Maintenance coordination:</strong> cleaning turnovers, routine maintenance and fast follow-up on repairs.</li>
 <li><strong>Revenue strategy:</strong> dynamic pricing informed by market trends and seasonality.</li>
 </ul>
-<p>Every home is different. A free property analysis is the best way to understand what your property could do as a short or mid-term rental.</p>`,
+<p>Every home is different. Start with the property form; the paid property tour and its analysis report are the best way to understand what your property could do as a short or mid-term rental.</p>`,
   },
   {
     slug: 'the-future-of-getaways-top-vacation-rental-trends-for-2025-and-what-they-mean-for-san-antonio',

@@ -38,7 +38,7 @@ const isOn = (p: string) => (path.endsWith(p) ? 'page' : undefined);
     </nav>
     <div class="hh-actions">
       <a class="hh-guest-link" href={u('/stays/')} data-track="stays_view">Book a Stay</a>
-      <a class="btn btn-primary btn-sm" href={u('/property-analysis/')} data-track="owner_analysis_start">Free Property Analysis</a>
+      <a class="btn btn-primary btn-sm" href={u('/property-analysis/')} data-track="owner_analysis_start">Property Tour &amp; Analysis</a>
       <button class="hh-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer" data-drawer-open>
         <Icon name="menu" />
       </button>
@@ -70,8 +70,8 @@ const isOn = (p: string) => (path.endsWith(p) ? 'page' : undefined);
       <a href={u('/contact/')}>Contact <Icon name="arrow" /></a>
     </div>
     <div class="drawer-cta">
-      <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Get My Free Property Analysis</a>
-      <a class="btn btn-glass" href={`tel:${business.phone}`} data-track="phone_click">Call {business.displayPhone}</a>
+      <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Start the Property Form</a>
+      <a class="btn btn-glass" href={`mailto:${business.ownerEmail}`} data-track="owner_email_click">Email {business.ownerEmail}</a>
     </div>
   </div>
 </div>

@@ -54,9 +54,34 @@ export const pricing = {
   managementFeeUnit: 'per booking',
   setupFee: '$150–$500',
   setupFeeUnit: 'one-time listing setup',
+  tourFee: '$150',
+  tourFeeUnit: 'property tour',
+  tourIncludes: 'An on-site walkthrough with extensive prep beforehand and a detailed analysis report afterward.',
   note: 'Final pricing depends on property type, condition, service requirements and agreed scope.',
   source: 'Published on hostedhavens.co owner FAQ',
 };
+
+// The owner journey, in the order Hosted Havens runs it (confirmed by the owner, 2026-09-15).
+// Nothing here is offered free: the tour is a paid engagement.
+export const ownerProcess = [
+  {
+    step: 'Property form',
+    title: 'Tell us about your property',
+    text: 'Share the home, its location and your goals so we can review it before we speak.',
+    cta: { label: 'Start the Property Form', href: '/property-analysis/' },
+  },
+  {
+    step: 'Overview video',
+    title: 'Watch the owner overview',
+    text: 'A short video walks through how co-hosting with Hosted Havens works, so your questions are answered before any meeting.',
+  },
+  {
+    step: 'Property tour',
+    title: 'Book your property tour',
+    text: 'A paid on-site tour with extensive preparation beforehand and a detailed analysis report covering positioning, setup and revenue potential.',
+    price: '$150',
+  },
+];
 
 export const credentials = [
   { label: 'Airbnb Promoted Co-Host', verified: false },

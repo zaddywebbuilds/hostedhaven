@@ -8,7 +8,7 @@ const goals = ['Increase revenue', 'Become hands-off', 'Improve occupancy', 'Lau
 const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Revenue isn’t where it should be', 'I need better reviews', 'I’m launching a new property', 'Cleaning is difficult', 'Maintenance keeps interrupting me', 'I need a mid-term strategy', 'I want to scale'];
 ---
 <BaseLayout
-  title="Free Property Analysis for San Antonio Rentals | Hosted Havens"
+  title="Property Form & Paid Tour for San Antonio Rentals | Hosted Havens"
   description="Tell Hosted Havens about your San Antonio property and goals. We’ll review the home, location and rental setup to identify short-term rental opportunities."
   path="/property-analysis/"
   breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Property Analysis', path: '/property-analysis/' }]}
@@ -21,7 +21,7 @@ const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Reve
       <div class="ihero-grid form-layout">
         <div class="ihero-copy">
           <nav aria-label="Breadcrumb"><ol class="breadcrumbs"><li><a href={u('/')}>Home</a></li><li><span aria-current="page">Property Analysis</span></li></ol></nav>
-          <span class="eyebrow">Free · No obligation</span>
+          <span class="eyebrow">Step 1 · Property form</span>
           <h1 class="h1-interior">Let’s See What Your <em>Property</em> Could Do.</h1>
           <p class="lead">Tell us a little about your home and your goals. We’ll review the property, its location and your current rental setup to identify opportunities.</p>
           <ul class="ticks" style="margin:1.4rem 0">
@@ -29,7 +29,7 @@ const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Reve
             <li>Reviewed by a person on the Hosted Havens team</li>
             <li>No long-term contract required if you move forward</li>
           </ul>
-          <p class="small muted">Prefer to talk? Call <a class="text-link" href={`tel:${business.phone}`} data-track="phone_click">{business.displayPhone}</a> or email <a class="text-link" href={`mailto:${business.ownerEmail}`} data-track="owner_email_click">{business.ownerEmail}</a>.</p>
+          <p class="small muted">Prefer email? Write to <a class="text-link" href={`mailto:${business.ownerEmail}`} data-track="owner_email_click">{business.ownerEmail}</a>.</p>
         </div>
 
         <div class="form-shell" id="analysis">
@@ -91,7 +91,7 @@ const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Reve
                 <div class="hp" aria-hidden="true"><label for="company">Company</label><input id="company" name="company" tabindex="-1" autocomplete="off" /></div>
               </div>
               <p class="small muted">By submitting, you agree to be contacted about your property. See our <a class="text-link" href={u('/privacy/')}>privacy policy</a>.</p>
-              <div class="form-nav"><button type="button" class="btn btn-glass" data-prev>Back</button><button type="submit" class="btn btn-primary" data-submit>Get My Free Rental Analysis <Icon name="arrow" /></button></div>
+              <div class="form-nav"><button type="button" class="btn btn-glass" data-prev>Back</button><button type="submit" class="btn btn-primary" data-submit>Send My Property Details <Icon name="arrow" /></button></div>
               <p class="form-status" role="alert"></p>
             </div>
           </form>

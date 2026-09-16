@@ -31,7 +31,9 @@ const services = [
 ];
 
 const steps = [
-  { title: 'Property Analysis', text: 'Location, condition, guest appeal and your goals.' },
+  { title: 'Property Form', text: 'You tell us about the home, its location and your goals.' },
+  { title: 'Overview Video', text: 'A short video shows exactly how co-hosting with us works.' },
+  { title: `Property Tour · ${pricing.tourFee}`, text: 'A paid on-site tour with extensive prep and a detailed analysis report.' },
   { title: 'Strategy', text: 'Positioning, upgrades and the right rental mix.' },
   { title: 'Launch or Optimize', text: 'Photos, listing, pricing and guest systems go live.' },
   { title: 'Operate', text: 'Guests, cleaning, maintenance and the calendar — handled.' },
@@ -55,14 +57,14 @@ const faqs = [
   { q: 'How much does Hosted Havens charge?', a: `Typically ${pricing.managementFee} ${pricing.managementFeeUnit}, with a one-time ${pricing.setupFee} listing setup fee. ${pricing.note}` },
   { q: 'Can I still use my property personally?', a: 'Yes. You can block dates on the calendar and use your home whenever you like.' },
   { q: 'Do I sign a long-term contract?', a: 'No. Service is flexible, with no long-term contract.' },
-  { q: 'How much can my property earn?', a: 'It depends on the home, location, amenities and season, so we don’t quote a number without looking. The <a href="/property-analysis/">free property analysis</a> reviews your property, local demand and comparable rentals.' },
+  { q: 'How much can my property earn?', a: 'It depends on the home, location, amenities and season, so we don’t quote a number without looking. Start with the <a href="/property-analysis/">property form</a>; the paid property tour then reviews your home, local demand and comparable rentals, and you receive a detailed analysis report.' },
 ];
 
 const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `${SITE}/#website`, url: `${SITE}/`, name: business.shortName, publisher: { '@id': `${SITE}/#organization` } }];
 ---
 <BaseLayout
   title="San Antonio Airbnb Management & Vacation Rentals | Hosted Havens"
-  description="Full-service Airbnb and short-term rental co-hosting in San Antonio, plus professionally managed stays you can book direct. Get a free property analysis."
+  description="Full-service Airbnb and short-term rental co-hosting in San Antonio, plus professionally managed stays you can book direct. Start with the owner property form."
   path="/"
   schema={schema}
 >
@@ -82,7 +84,7 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
           <h1 id="hero-title">Your Rental Should Earn More — <em>Without Owning Your Time.</em></h1>
           <p class="lead">Full-service Airbnb and short-term rental co-hosting in San Antonio — smart pricing, guest care, listing optimization, cleaning coordination and hands-on property support.</p>
           <div class="btn-row">
-            <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Get My Free Property Analysis <Icon name="arrow" /></a>
+            <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Start the Property Form <Icon name="arrow" /></a>
             <a class="btn btn-glass" href={u('/stays/')} data-track="stays_view">Explore Our Stays</a>
           </div>
           <p class="btn-note"><span>2-minute property form</span><span>No long-term contract required</span></p>
@@ -395,12 +397,12 @@ const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': `
       <aside class="cta-card bg-dark reveal reveal-d2">
         <div class="ghost-panels" aria-hidden="true"><span></span><span></span><span></span></div>
         <div style="position:relative">
-          <span class="eyebrow">Free property analysis</span>
+          <span class="eyebrow">Owner property review</span>
           <h2 style="font-size:clamp(1.9rem,3vw,2.6rem)">Own the Property. <em>Let Us Handle the Hosting.</em></h2>
           <p>Tell us about your San Antonio rental and we’ll show you where pricing, presentation and operations could improve its performance.</p>
           <div style="display:grid;gap:.6rem;margin-top:1.2rem">
-            <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Get My Free Property Analysis <Icon name="arrow" /></a>
-            <a class="btn btn-glass" href={`tel:${business.phone}`} data-track="phone_click"><Icon name="phone" /> {business.displayPhone}</a>
+            <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Start the Property Form <Icon name="arrow" /></a>
+            <a class="btn btn-glass" href={`mailto:${business.ownerEmail}`} data-track="owner_email_click"><Icon name="mail" /> {business.ownerEmail}</a>
           </div>
         </div>
       </aside>

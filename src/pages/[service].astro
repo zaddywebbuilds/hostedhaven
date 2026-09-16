@@ -51,9 +51,9 @@ const schema = [
     image={imgs[0]}
     video={isMain ? { src: '/videos/house-tour.mp4', poster: '/videos/house-tour-poster.webp' } : undefined}
     imageAlt={isMain ? 'Video tour of a Hosted Havens rental bedroom' : 'Interior of a Hosted Havens managed rental'}
-    primary={{ label: 'Get My Property Analysis', href: '/property-analysis/', track: 'owner_analysis_start' }}
-    secondary={{ label: 'Schedule a Property Tour', href: '/contact/#owners', track: 'property_tour_click' }}
-    note="2-minute property form · No long-term contract required"
+    primary={{ label: 'Start the Property Form', href: '/property-analysis/', track: 'owner_analysis_start' }}
+    secondary={{ label: `Book a Property Tour · ${pricing.tourFee}`, href: '/contact/#owners', track: 'property_tour_click' }}
+    note="2-minute property form · Paid tour when you are ready"
   >
     <Fragment slot="widget">
       {s.widget === 'revenue' && (<>
@@ -193,7 +193,7 @@ const schema = [
       <div class="reveal">
         <span class="eyebrow">Owner FAQ</span>
         <h2>Questions owners ask</h2>
-        <p class="lead">Still deciding? A property analysis is free and there’s no obligation.</p>
+        <p class="lead">Start with the property form. The paid property tour comes later, once you have seen how we work.</p>
         <blockquote class="mini-quote">
           <p>“{ownerTestimonials[0].quote}”</p>
           <cite>— {ownerTestimonials[0].name}, {ownerTestimonials[0].role}</cite>

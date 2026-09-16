@@ -57,7 +57,7 @@ const toastImg = coverImage(guestPage ? 'coastal-run' : 'de-soto-lighthouse');
   <meta name="description" content={description} />
   <link rel="canonical" href={canon} />
   {noindex && <meta name="robots" content="noindex, follow" />}
-  <meta name="theme-color" content="#E5664A" />
+  <meta name="theme-color" content="#C0573B" />
   <meta name="geo.region" content="US-TX" />
   <meta name="geo.placename" content="San Antonio" />
 
@@ -83,7 +83,7 @@ const toastImg = coverImage(guestPage ? 'coastal-run' : 'de-soto-lighthouse');
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&family=Allura&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" />
 
   {allSchema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
 
@@ -101,7 +101,7 @@ const toastImg = coverImage(guestPage ? 'coastal-run' : 'de-soto-lighthouse');
     <span class="pulse" aria-hidden="true"></span>
     {guestPage
       ? <>Book direct with Hosted Havens — local support, no third-party platform fees.<a href={u('/why-book-direct/')}>Why book direct →</a></>
-      : <>Now welcoming new San Antonio property owners.<a href={u('/property-analysis/')} data-track="owner_analysis_start">Get a free property analysis →</a></>}
+      : <>Now welcoming new San Antonio property owners.<a href={u('/property-analysis/')} data-track="owner_analysis_start">See how our owner process works →</a></>}
   </div>
   <Header />
   <main id="main">
@@ -121,7 +121,7 @@ const toastImg = coverImage(guestPage ? 'coastal-run' : 'de-soto-lighthouse');
         <p data-r-quote></p>
         <span class="toast-source"><span class="live"></span>Verified guest review</span>
       </aside>
-      <aside class="toast right" data-toast-cta aria-label={guestPage ? 'Book direct' : 'Free property analysis'}>
+      <aside class="toast right" data-toast-cta aria-label={guestPage ? 'Book direct' : 'Owner property review'}>
         <button type="button" class="toast-close" data-toast-close aria-label="Dismiss"><Icon name="close" /></button>
         <div class="toast-head">
           {toastImg && <img class="toast-img" src={u(`/images/${toastImg.base}-640.webp`)} alt="" width="54" height="54" loading="lazy" />}
@@ -132,7 +132,7 @@ const toastImg = coverImage(guestPage ? 'coastal-run' : 'de-soto-lighthouse');
         </div>
         {guestPage
           ? <a class="toast-cta" href={u('/stays/')} data-track="stays_view">Browse stays <Icon name="arrow" /></a>
-          : <a class="toast-cta" href={u('/property-analysis/')} data-track="owner_analysis_start">Get my free analysis <Icon name="arrow" /></a>}
+          : <a class="toast-cta" href={u('/property-analysis/')} data-track="owner_analysis_start">Start the property form <Icon name="arrow" /></a>}
       </aside>
     </>
   )}
