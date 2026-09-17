@@ -13,6 +13,8 @@ Applied from the Feb 2025 Brand Guidelines PDF and Megan's email:
 - [ ] Confirm the tour booking link (Calendly "property-analysis-tour") and whether payment is collected up front
 - [ ] Confirm the $150 tour fee is public-facing and whether it is credited toward setup if the owner signs
 - [ ] Confirm the one-time listing setup fee ($150-$500) still applies alongside the tour fee
+- [ ] **Property form delivery:** go to https://web3forms.com, enter owners@hostedhavens.co, and paste the access key it emails into formAccessKey in src/data/business.ts. Until then, submissions fall back to email/Typeform
+- [ ] **Coastal Run video tour** (stay page) uses an AI-generated presenter built from the listing photos. It is labelled on the page as "Video created with AI from this home's listing photos". Confirm Megan is happy to publish it and keep the label
 
 ## Credentials & status — hidden until confirmed
 - [ ] Airbnb Promoted Co-Host status is current

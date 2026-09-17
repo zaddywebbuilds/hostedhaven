@@ -7,6 +7,7 @@ import { properties, type Property } from '../../data/properties';
 import { galleryImages } from '../../lib/images';
 import { u, SITE } from '../../lib/url';
 import { business } from '../../data/business';
+import { videoTours } from '../../data/videos';
 
 export function getStaticPaths() {
   return properties.map((p) => ({ params: { slug: p.slug }, props: { p } }));
@@ -26,6 +27,7 @@ const crumbs = [{ name: 'Home', path: '/' }, { name: 'Stays', path: '/stays/' },
 const metaTitle = `${p.name} · ${p.type === 'House' ? `${p.bedrooms}BR Home` : p.type} in ${p.city}, TX | Hosted Havens`;
 const desc = `${p.summary.slice(0, 150).replace(/\s+\S*$/, '')}… Sleeps ${p.guests}. Book direct with Hosted Havens.`;
 const cover = imgs[0];
+const tour = videoTours[p.slug];
 
 const schema = [{
   '@context': 'https://schema.org',
@@ -47,7 +49,7 @@ const schema = [{
   brand: { '@id': `${SITE}/#organization` },
 }];
 ---
-<BaseLayout title={metaTitle} description={desc} path={path} breadcrumbs={crumbs} schema={schema} ogImage={cover ? `/images/${cover.base}-1280.webp` : undefined}>
+<BaseLayout title={metaTitle} description={desc} path={path} breadcrumbs={crumbs} schema={schema} ogImage={`/images/og/stays/${p.slug}.jpg`}>
   <section class="section-tight" style="padding-top:2rem">
     <div class="container">
       <nav aria-label="Breadcrumb"><ol class="breadcrumbs">{crumbs.map((c, i) => <li>{i < crumbs.length - 1 ? <a href={u(c.path)}>{c.name}</a> : <span aria-current="page">{c.name}</span>}</li>)}</ol></nav>
@@ -74,6 +76,24 @@ const schema = [{
       </div>
     </div>
   </section>
+
+  {tour && (
+    <section class="section-tight">
+      <div class="container">
+        <div class="stay-video reveal">
+          <div>
+            <span class="eyebrow">Video tour · {tour.duration}</span>
+            <h2>Walk through <em>{p.name}</em></h2>
+            <p class="lead">See the layout before you book: the arrival, living space, kitchen, backyard and bedrooms, room by room.</p>
+            {tour.ai && <p class="ai-note"><Icon name="sparkle" />Video created with AI from this home’s listing photos.</p>}
+          </div>
+          <div class="reel-player">
+            <video src={u(tour.src)} poster={u(tour.poster)} controls playsinline preload="none" aria-label={`Video tour of ${p.name}`}></video>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="section-tight">
     <div class="container prop-layout">
