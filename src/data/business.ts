@@ -51,7 +51,7 @@ export const formEndpoint = '';
 
 // Web3Forms access key (free). Get one at https://web3forms.com by entering owners@hostedhavens.co;
 // the key is emailed to that inbox. Paste it here and submissions arrive there directly.
-export const formAccessKey = '';
+export const formAccessKey = '5bf82241-03b3-405c-aaf6-a074ad6eede3';
 
 export const pricing = {
   managementFee: '18%–22%',
