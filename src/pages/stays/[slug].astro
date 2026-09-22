@@ -187,6 +187,8 @@ const schema = [{
       document.querySelectorAll('[data-gallery] a').forEach(function (a) {
         a.addEventListener('click', function (e) { e.preventDefault(); open(Number(a.dataset.index)); });
       });
+      var more = document.querySelector('[data-gallery] .more');
+      if (more) more.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); open(5); });
       lb.querySelector('[data-lb-close]').addEventListener('click', close);
       lb.querySelector('[data-lb-prev]').addEventListener('click', function () { show(i - 1); });
       lb.querySelector('[data-lb-next]').addEventListener('click', function () { show(i + 1); });
