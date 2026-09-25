@@ -19,24 +19,25 @@ const featured = featuredProperties.slice(0, 3);
 const pains = ['11 PM guest messages', 'Pricing every weekend', 'Cleaner coordination', 'Maintenance emergencies', 'Restocking supplies', 'Review management', 'Calendar gaps', 'Listing updates', 'Check-in issues', 'Tax & compliance admin'];
 
 const services = [
-  { icon: 'message', title: 'Guest Management', hook: 'Five-star stays start with fast answers.', text: 'Guest communication, check-in support, issue resolution and follow-up that protects your reviews.', href: '/airbnb-co-host-san-antonio/', link: 'Explore Co-Hosting' },
-  { icon: 'trending', title: 'Revenue Strategy', hook: 'Don’t leave your nightly rate on autopilot.', text: 'Pricing adjusts with demand, booking patterns, seasonality and calendar opportunities.', href: '/airbnb-revenue-management-san-antonio/', link: 'Explore Revenue Management' },
-  { icon: 'camera', title: 'Listing Optimization', hook: 'Win the scroll before the stay.', text: 'Complimentary professional photography, listing creation, titles, descriptions and amenity positioning.', href: '/airbnb-listing-optimization-san-antonio/', link: 'Explore Listing Optimization' },
-  { icon: 'broom', title: 'Property Care', hook: 'Guest-ready after every turnover.', text: 'Professional cleaning, routine inspections, proactive maintenance and restocking.', href: '/str-property-care-san-antonio/', link: 'Explore Property Care' },
-  { icon: 'eye', title: 'Owner Support', hook: 'Hands-off but never in the dark.', text: 'Calendar visibility, access to professional hosting tools and support 7 days a week.', href: '/airbnb-management-san-antonio/', link: 'Explore Airbnb Management' },
-  { icon: 'calendar', title: 'Short + Mid-Term Strategy', hook: 'More than one way to fill a calendar.', text: 'Nightly stays, 30+ day furnished stays and blended strategies for steadier occupancy.', href: '/mid-term-rental-management-san-antonio/', link: 'Explore Mid-Term Management' },
+  { icon: 'message', title: 'Guest Management', hook: 'Five-star stays start with fast answers.', text: 'Guest communication, check-in support, issue resolution, and follow-up that protects your reviews.', href: '/airbnb-co-host-san-antonio/', link: 'Explore Co-Hosting' },
+  { icon: 'trending', title: 'Revenue Strategy', hook: 'Don’t leave your nightly rate on autopilot.', text: 'Pricing adjusts with demand, booking patterns, seasonality, and calendar opportunities.', href: '/airbnb-revenue-management-san-antonio/', link: 'Explore Revenue Management' },
+  { icon: 'camera', title: 'Listing Optimization', hook: 'Win the scroll before the stay.', text: 'Complimentary professional photography, listing creation, titles, descriptions, and amenity positioning.', href: '/airbnb-listing-optimization-san-antonio/', link: 'Explore Listing Optimization' },
+  { icon: 'broom', title: 'Property Care', hook: 'Guest-ready after every turnover.', text: 'Professional cleaning, routine inspections, proactive maintenance, and restocking.', href: '/str-property-care-san-antonio/', link: 'Explore Property Care' },
+  { icon: 'eye', title: 'Owner Support', hook: 'Hands-off but never in the dark.', text: 'Calendar visibility, access to professional hosting tools, and support 7 days a week.', href: '/airbnb-management-san-antonio/', link: 'Explore Airbnb Management' },
+  { icon: 'calendar', title: 'Short + Mid-Term Strategy', hook: 'More than one way to fill a calendar.', text: 'Nightly stays, 30+ day furnished stays, and blended strategies for steadier occupancy.', href: '/mid-term-rental-management-san-antonio/', link: 'Explore Mid-Term Management' },
 ];
 
 const steps = [
-  { title: 'Property Analysis', text: 'Review location, condition, guest appeal and your goals.' },
-  { title: 'Strategy', text: 'Recommend positioning, upgrades and the right rental strategy.' },
-  { title: 'Launch or Optimize', text: 'Photography, listing, pricing, systems and guest preparation.' },
-  { title: 'Operate', text: 'Guests, cleaning, maintenance, calendar and issues — coordinated.' },
-  { title: 'Improve', text: 'Keep refining pricing, reviews and property performance.' },
+  { title: 'Property Intake', text: 'Share your property, your setup, and your goals in about two minutes.' },
+  { title: 'Property Tour', text: 'A comprehensive onsite visit and detailed analysis report.' },
+  { title: 'Strategy', text: 'Recommend positioning, upgrades, and the right rental strategy.' },
+  { title: 'Launch & Optimize', text: 'Photography, listing, pricing, systems, and guest preparation.' },
+  { title: 'Operate', text: 'Guests, cleaning, maintenance, calendar, and issues, all coordinated.' },
+  { title: 'Improve', text: 'Keep refining pricing, reviews, presentation, and property performance.' },
 ];
 
 const compare = [
-  ['Local San Antonio team', 'yes', 'Varies', '—'],
+  ['Local San Antonio team', 'yes', 'Varies', 'No'],
   ['Guest support', 'yes', 'yes', 'Owner'],
   ['Dynamic pricing', 'yes', 'Varies', 'Owner'],
   ['Listing optimization', 'yes', 'Varies', 'Owner'],
@@ -49,12 +50,12 @@ const compare = [
 ];
 
 const faqs = [
-  { q: 'What does Hosted Havens manage?', a: 'The day-to-day operation of your short or mid-term rental: guest communication, pricing, listing creation and optimization, cleaning, inspections, maintenance coordination, restocking and owner support.' },
-  { q: 'Is Hosted Havens an Airbnb co-host or a property manager?', a: 'Hosted Havens is a full-service short-term rental co-host. We are not a traditional long-term property manager, but we perform the operational work that makes a short-term rental succeed.' },
+  { q: 'What does Hosted Havens manage?', a: 'The day-to-day operation of your short or mid-term rental: guest communication, pricing, listing creation and optimization, cleaning, inspections, maintenance coordination, restocking, and owner support.' },
+  { q: 'Is Hosted Havens an Airbnb co-host or a property manager?', a: 'Hosted Havens is a full-service short-term rental co-host. We are not a traditional long-term property manager, but we perform the operational work that makes a short-term rental succeed. We also manage mid-term rentals, meaning furnished stays under one year.' },
   { q: 'How much does Hosted Havens charge?', a: `Typically ${pricing.managementFee} ${pricing.managementFeeUnit}, with a one-time ${pricing.setupFee} listing setup fee. ${pricing.note}` },
   { q: 'Can I still use my property personally?', a: 'Yes. You can block dates on the calendar and use your home whenever you like.' },
   { q: 'What is the minimum contract length?', a: 'Contracts run a minimum of 4–12 months depending on property type and service scope, giving both sides time to build a strong operation.' },
-  { q: 'How much can my property earn?', a: 'It depends on the home, location, amenities and season, so we don’t quote a number without looking. The <a href="/property-analysis/">free property analysis</a> reviews your property, local demand and comparable rentals.' },
+  { q: 'How much can my property earn?', a: 'It depends on the home, location, amenities, and season, so we do not quote a number without looking. Start with the <a href="/property-analysis/">property intake</a>, then the onsite tour reviews your home, local demand, and comparable rentals, giving you a detailed analysis report and revenue projections.' },
 ];
 
 const schema = [
@@ -87,10 +88,10 @@ const schema = [
             <a href={u('/stays/')} data-track="stays_view">I’m a Guest</a>
           </div>
           <span class="eyebrow">San Antonio · Short &amp; Mid-Term Rental Co-Hosting</span>
-          <h1 id="hero-title">Your Rental Should Earn More — <em>Without Owning Your Time.</em></h1>
-          <p class="lead">Hosted Havens provides full-service Airbnb and short-term rental co-hosting in San Antonio — combining dynamic pricing, guest care, listing optimization, cleaning coordination and hands-on property support.</p>
+          <h1 id="hero-title">Your Rental Should Earn More <em>Without Owning Your Time.</em></h1>
+          <p class="lead">Hosted Havens provides full-service Airbnb and short-term rental co-hosting in San Antonio, combining dynamic pricing, guest care, listing optimization, cleaning coordination, and hands-on property support.</p>
           <div class="btn-row">
-            <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Get My Free Property Analysis <Icon name="arrow" /></a>
+            <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">See If You Qualify <Icon name="arrow" /></a>
             <a class="btn btn-glass" href={u('/stays/')} data-track="stays_view">Explore Our Stays</a>
           </div>
           <p class="btn-note"><span>2-minute property form</span><span>Min contract: 4–12 months</span></p>
@@ -141,7 +142,7 @@ const schema = [
       <ul class="pain-cloud reveal" aria-label="The work behind a short-term rental">
         {pains.map((p) => <li class="chip"><Icon name="clock" />{p}</li>)}
       </ul>
-      <p class="lead center reveal" style="margin:0 auto;text-align:center">We manage the moving pieces so you can remain the owner — not the receptionist, pricing analyst, cleaner coordinator and on-call maintenance desk.</p>
+      <p class="lead center reveal" style="margin:0 auto;text-align:center">We manage the moving pieces so you can remain the owner, not the receptionist, pricing analyst, cleaner coordinator, and on-call maintenance desk.</p>
     </div>
   </section>
 
@@ -150,8 +151,8 @@ const schema = [
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Full-service co-hosting</span>
-        <h2>Everything Behind a 5-Star Stay — <em>Handled.</em></h2>
-        <p class="lead">One local team covering guests, pricing, presentation and property care, so every part of your rental works from the same plan.</p>
+        <h2>Everything Behind a 5-Star Stay, <em>Handled.</em></h2>
+        <p class="lead">One local team covering guests, pricing, presentation, and property care, so every part of your rental works from the same plan.</p>
       </div>
       <div class="grid grid-3">
         {services.map((s, i) => (
@@ -177,15 +178,15 @@ const schema = [
       <div class="reveal reveal-d2">
         <span class="eyebrow">Free, no obligation</span>
         <h2>What Could Your <em>Property</em> Earn?</h2>
-        <p class="lead">Tell us about your home. We’ll review the property, local demand and comparable San Antonio rentals to identify its revenue potential — and what’s holding it back.</p>
+        <p class="lead">Tell us about your home. We’ll review the property, local demand and comparable San Antonio rentals to identify its revenue potential, and what is holding it back.</p>
         <ul class="ticks" style="margin:1.4rem 0 2rem">
-          <li>A human review of your home — not a generic calculator</li>
-          <li>Positioning, pricing and presentation opportunities</li>
-          <li>Short-term, mid-term or blended strategy fit</li>
+          <li>A human review of your home, not a generic calculator</li>
+          <li>Positioning, pricing, and presentation opportunities</li>
+          <li>Short-term, mid-term, or blended strategy fit</li>
           <li>A tailored proposal if it’s a good match</li>
         </ul>
         <div class="btn-row">
-          <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Get My Free Rental Analysis <Icon name="arrow" /></a>
+          <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">See If We’re a Good Fit <Icon name="arrow" /></a>
           <a class="btn btn-glass" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Schedule a Property Tour</a>
         </div>
       </div>
@@ -197,14 +198,14 @@ const schema = [
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Built for better performance</span>
-        <h2>Hospitality, pricing and property care — <em>working together.</em></h2>
+        <h2>Hospitality, pricing, and property care <em>working together.</em></h2>
         <p class="lead">Strong rentals aren’t built on one tactic. They come from consistent operations, honest listings and decisions made with the market in view.</p>
       </div>
       <div class="grid grid-4">
         <div class="dark-card reveal reveal-d1"><div class="dark-num">{pricing.managementFee}</div><h3>Published fee</h3><p>{pricing.managementFeeUnit}. No surprises, 4–12 month contracts.</p></div>
         <div class="dark-card reveal reveal-d2"><div class="dark-num">7 days</div><h3>Owner support</h3><p>A support team you can reach every day of the week.</p></div>
-        <div class="dark-card reveal reveal-d3"><div class="dark-num">{properties.length}</div><h3>Stays listed</h3><p>Homes, studios and rooms currently bookable direct on our site.</p></div>
-        <div class="dark-card reveal reveal-d4"><div class="dark-num">Local</div><h3>San Antonio team</h3><p>Guest services, maintenance coordination and photography close to home.</p></div>
+        <div class="dark-card reveal reveal-d3"><div class="dark-num">{properties.length}</div><h3>Stays listed</h3><p>Homes, studios, and rooms currently bookable direct on our site.</p></div>
+        <div class="dark-card reveal reveal-d4"><div class="dark-num">Local</div><h3>San Antonio team</h3><p>Guest services, maintenance coordination, and photography close to home.</p></div>
       </div>
       <div class="float-card" style="position:relative;width:auto;max-width:520px;margin:3rem 0 0;background:rgba(255,244,232,.06);border-color:rgba(255,244,232,.14);color:var(--cream)">
         <div class="fc-head"><span class="fc-title" style="color:var(--cream)">Today at Hosted Havens</span></div>
@@ -268,7 +269,7 @@ const schema = [
         <div style="max-width:680px">
           <span class="eyebrow">The portfolio</span>
           <h2>Homes Guests <em>Choose</em></h2>
-          <p class="lead" style="margin:0">Real Hosted Havens properties across San Antonio, Live Oak, Universal City and Converse.</p>
+          <p class="lead" style="margin:0">Real Hosted Havens properties across San Antonio, Live Oak, Universal City, and Converse.</p>
         </div>
         <a class="btn btn-glass" href={u('/stays/')} data-track="stays_view">View all {properties.length} stays <Icon name="arrow" /></a>
       </div>
@@ -286,10 +287,10 @@ const schema = [
         <ul class="ticks" style="margin-top:1.2rem">
           <li>Military travel and PCS moves around Joint Base San Antonio</li>
           <li>Medical stays near the South Texas Medical Center</li>
-          <li>Conventions, events and weekly Air Force graduations</li>
+          <li>Conventions, events, and weekly Air Force graduations</li>
           <li>Family travel to Six Flags Fiesta Texas and SeaWorld</li>
-          <li>Seasonality — from spring festivals to summer family trips</li>
-          <li>Neighborhood fit, parking and proximity to downtown</li>
+          <li>Seasonality, from spring festivals to summer family trips</li>
+          <li>Neighborhood fit, parking, and proximity to downtown</li>
         </ul>
       </div>
       <div class="demand-map reveal reveal-d2" aria-label="San Antonio demand drivers">
@@ -332,8 +333,8 @@ const schema = [
       <div class="reveal reveal-d2">
         <span class="eyebrow">Meet the founder</span>
         <h2>A hospitality operator who <em>started as a host.</em></h2>
-        <p class="lead">Megan began hosting in 2021 with her own San Antonio home, then an arbitrage rental — and discovered a genuine love for creating welcoming spaces and exceptional guest experiences.</p>
-        <p>With more than two decades of customer service and operational training experience, she expanded into co-hosting in 2024 and built Hosted Havens around one standard: manage every home as if it were her own.</p>
+        <p class="lead">Megan began hosting in 2021 with her own San Antonio home, then an arbitrage rental, and discovered a genuine love for creating welcoming spaces and exceptional guest experiences.</p>
+        <p>With more than two decades of customer service and operational training experience, she expanded into co-hosting in 2024, and built Hosted Havens around one standard: manage every home as if it were her own.</p>
         <div class="btn-row" style="margin-top:1.6rem">
           <a class="btn btn-dark" href={u('/about/')}>Meet the Team <Icon name="arrow" /></a>
         </div>
@@ -410,7 +411,7 @@ const schema = [
           <h2>Your Property Can Work Hard <em>Without You Working Around the Clock.</em></h2>
           <p class="lead">Tell us about your San Antonio rental and we’ll help you identify where stronger pricing, presentation and operations could improve its performance.</p>
           <div class="btn-row">
-            <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Get My Free Property Analysis <Icon name="arrow" /></a>
+            <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">See If You Qualify <Icon name="arrow" /></a>
             <a class="btn btn-glass" href={`tel:${business.phone}`} data-track="phone_click"><Icon name="phone" /> Call {business.displayPhone}</a>
           </div>
         </div>

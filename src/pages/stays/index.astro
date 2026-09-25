@@ -10,9 +10,9 @@ import { u, SITE } from '../../lib/url';
 import { guestReviews } from '../../data/business';
 
 const guestFaqs = [
-  { q: 'Why book direct?', a: 'Major travel platforms add service fees on top of your stay. Booking directly on our site means much lower fees — payment processing only. You get the same local support for less. <a href="/why-book-direct/">Learn more</a>.' },
+  { q: 'Why book direct?', a: 'Major travel platforms add service fees on top of your stay. Booking directly on our site means much lower fees, payment processing only. You get the same local support for less. <a href="/why-book-direct/">Learn more</a>.' },
   { q: 'What is the cancellation policy?', a: 'Most listings use a Moderate policy, allowing cancellation up to 5 days before check-in for a full refund. Check each property for exceptions.' },
-  { q: 'How does check-in work?', a: 'Most stays use a self-check-in process. After you complete the online check-in — covering the rental agreement, ID verification and security hold — you will receive your arrival instructions with access codes and directions.' },
+  { q: 'How does check-in work?', a: 'Most stays use a self-check-in process. After you complete the online check-in, covering the rental agreement, ID verification, and security hold, you receive your arrival instructions within 2 days of check-in.' },
   { q: 'Are monthly stays available?', a: 'Yes. Many homes are set up for extended stays, and some discounts are built in automatically for longer bookings.' },
   { q: 'Are pets allowed?', a: 'Several homes and studios are pet friendly. Use the Pet Friendly filter above, and check each listing’s pet rules.' },
   { q: 'Do you offer booking discounts?', a: 'Longer stays often include automatic discounts. Promo codes are shared in the <a href="https://www.facebook.com/groups/hostedhavensguestlounge" target="_blank" rel="noopener noreferrer">Hosted Havens Guest Lounge</a>.' },
@@ -27,7 +27,7 @@ const schema = [{
 ---
 <BaseLayout
   title="San Antonio Vacation Rentals & Furnished Stays | Hosted Havens"
-  description="Browse professionally managed vacation rentals, studios and furnished stays across San Antonio, Live Oak, Universal City and Converse. Book direct with local support."
+  description="Browse professionally managed vacation rentals, studios, and furnished stays across San Antonio, Live Oak, Universal City, and Converse. Book direct with local support."
   path="/stays/"
   breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Stays', path: '/stays/' }]}
   schema={schema}
@@ -42,7 +42,7 @@ const schema = [{
           <nav aria-label="Breadcrumb"><ol class="breadcrumbs"><li><a href={u('/')}>Home</a></li><li><span aria-current="page">Stays</span></li></ol></nav>
           <span class="eyebrow">Book direct · Local support</span>
           <h1 class="h1-interior">Vacation Rentals &amp; Furnished Stays in <em>San Antonio Area</em></h1>
-          <p class="lead">Browse professionally managed short-term and mid-term rentals for family trips, business travel, military stays, relocations and extended visits.</p>
+          <p class="lead">Browse professionally managed short-term and mid-term rentals for family trips, business travel, military stays, relocations, and extended visits.</p>
         </div>
       </div>
     </div>
@@ -96,7 +96,7 @@ const schema = [{
       <div class="reveal">
         <span class="eyebrow">Guest FAQ</span>
         <h2>Before you <em>book</em></h2>
-        <p class="lead">Property-specific rules, check-in times and pet policies are on each stay’s page.</p>
+        <p class="lead">Property-specific rules, check-in times, and pet policies are on each stay’s page.</p>
         <div class="btn-row" style="margin-top:1rem">
           <a class="btn btn-glass" href={u('/monthly-rentals-san-antonio/')}>Monthly stays</a>
           <a class="btn btn-glass" href={u('/pet-friendly-vacation-rentals-san-antonio/')}>Pet-friendly stays</a>

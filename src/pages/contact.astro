@@ -28,7 +28,7 @@ import { business, links, socials } from '../data/business';
         <span class="icon-box"><Icon name="home" /></span>
         <span class="eyebrow" style="margin-top:1.2rem">Property owners</span>
         <h2>Let’s Talk About <em>Your Property</em></h2>
-        <p>Start with the 2-minute property intake form. We review your home, then share our owner training video so you can see exactly how we work — and schedule an onsite property analysis tour when ready.</p>
+        <p>Start with the property intake form. Then after watching our short service video, you can book a property analysis tour, which includes an onsite visit, extensive prep list, and a detailed analysis report with revenue projections for your property.</p>
         <div class="btn-row" style="margin:1.4rem 0">
           <a class="btn btn-primary" href={u("/property-analysis/")} data-track="owner_analysis_start">Submit Your Property Details <Icon name="arrow" /></a>
           <a class="btn btn-glass" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Schedule a Property Tour</a>
@@ -43,7 +43,7 @@ import { business, links, socials } from '../data/business';
         <span class="icon-box sage"><Icon name="message" /></span>
         <span class="eyebrow" style="margin-top:1.2rem">Guests</span>
         <h2>Need Help With <em>a Stay?</em></h2>
-        <p>Questions about a booking, check-in or a specific home? Reach out and our guest services team will help.</p>
+        <p>Questions about a booking, check-in, or a specific home? Reach out and our guest services team will help.</p>
         <div class="btn-row" style="margin:1.4rem 0">
           <a class="btn btn-dark" href={`mailto:${business.guestEmail}`} data-track="guest_email_click"><Icon name="mail" /> {business.guestEmail}</a>
           <a class="btn btn-glass" href={`tel:${business.phone}`} data-track="phone_click"><Icon name="phone" /> Call</a>
@@ -62,7 +62,7 @@ import { business, links, socials } from '../data/business';
       <div class="cta-band bg-warm reveal" style="border:1px solid #fff">
         <span class="eyebrow">Follow along</span>
         <h2>San Antonio Area <em>service area</em></h2>
-        <p class="lead">Hosted Havens operates across Bexar County and surrounding communities: San Antonio, Converse, Live Oak, Universal City, Schertz, Leon Valley and beyond.</p>
+        <p class="lead">Hosted Havens operates across Bexar County and surrounding communities: San Antonio, Converse, Live Oak, Universal City, Schertz, Leon Valley, and beyond.</p>
         <div class="btn-row">
           {socials.map((s) => <a class="btn btn-glass btn-sm" href={s.href} target="_blank" rel="noopener noreferrer"><Icon name={s.icon} /> {s.name}</a>)}
         </div>

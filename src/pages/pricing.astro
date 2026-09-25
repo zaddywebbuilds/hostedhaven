@@ -16,9 +16,9 @@ const included = [
 ] as const;
 
 const faqs = [
-  { q: 'What does the management fee cover?', a: 'The ongoing fee covers full-service co-hosting: guest communication, pricing, listing management, owner support and coordination of cleaning, inspections and maintenance. Your custom proposal spells out the exact scope.' },
-  { q: 'Why is the fee a range?', a: 'Property type, size, condition, location and the services you need all affect the work involved. Your final rate is confirmed in a custom proposal.' },
-  { q: 'What is the setup fee for?', a: 'The one-time listing setup fee covers onboarding work such as the property assessment, action plan, photography coordination and listing creation.' },
+  { q: 'What does the management fee cover?', a: 'The ongoing fee covers full-service co-hosting: guest communication, pricing, listing management, owner support, and coordination of cleaning, inspections, and maintenance. Your custom proposal spells out the exact scope.' },
+  { q: 'Why is the fee a range?', a: 'Property type, size, condition, location, and the services you need all affect the work involved. Your final rate is confirmed in a custom proposal.' },
+  { q: 'What is the setup fee for?', a: 'The one-time listing setup fee covers onboarding work such as the property assessment, action plan, photography coordination, and listing creation.' },
   { q: 'Are cleaning costs included?', a: 'Cleaning after each stay is coordinated as part of the service. How cleaning costs are charged is outlined in your proposal.' },
   { q: 'What is the minimum contract length?', a: 'Contracts run a minimum of 4–12 months depending on property type and service scope. This gives both sides the time needed to build a strong, consistent operation.' },
 ];
@@ -32,11 +32,11 @@ const faqs = [
   <InteriorHero
     eyebrow="Owners · Transparent pricing"
     title="Straightforward Pricing for <em>Full-Service</em> Co-Hosting"
-    lead="No hidden tiers. A published fee range, a one-time setup fee, 4–12 month minimum contracts and a custom proposal that confirms exactly what’s included for your property."
+    lead="No hidden tiers. A published fee range, a one-time setup fee, 4–12 month minimum contracts, and a custom proposal that confirms exactly what’s included for your property."
     crumbs={[{ name: 'Home', path: '/' }, { name: 'Owners', path: '/airbnb-management-san-antonio/' }, { name: 'Pricing', path: '/pricing/' }]}
     image={coverImage('legislation-4br')}
     imageAlt="Game room at Legislation, a Hosted Havens home in Converse, TX"
-    primary={{ label: 'Request a Custom Proposal', href: '/property-analysis/', track: 'owner_analysis_start' }}
+    primary={{ label: 'See If You Qualify', href: '/property-analysis/', track: 'owner_analysis_start' }}
     secondary={{ label: 'Schedule a Property Tour', href: '/contact/#owners', track: 'property_tour_click' }}
   >
     <Fragment slot="widget">
@@ -53,13 +53,13 @@ const faqs = [
         <span class="price-sub">Ongoing management</span>
         <div class="price-big">{pricing.managementFee}</div>
         <p class="lead" style="margin:.4rem 0 1rem">{pricing.managementFeeUnit}, typical range</p>
-        <p class="muted">Full-service co-hosting: guests, pricing, listing, owner support and property care coordination.</p>
+        <p class="muted">Full-service co-hosting: guests, pricing, listing, owner support, and property care coordination.</p>
       </div>
       <div class="price-card reveal reveal-d2" style="background:linear-gradient(160deg,#fff,#EEF1E8)">
         <span class="price-sub">One-time setup</span>
         <div class="price-big" style="color:#5E6E50">{pricing.setupFee}</div>
         <p class="lead" style="margin:.4rem 0 1rem">listing setup fee</p>
-        <p class="muted">Assessment, action plan, photography coordination and complete listing creation.</p>
+        <p class="muted">Assessment, action plan, photography coordination, and complete listing creation.</p>
       </div>
     </div>
     <div class="narrow"><p class="notice" style="margin-top:1.6rem;text-align:center">{pricing.note}</p></div>
@@ -86,8 +86,8 @@ const faqs = [
         <span class="eyebrow">Pricing FAQ</span>
         <h2>Questions about <em>cost</em></h2>
         <p class="lead">Want exact numbers for your home? A custom proposal follows your property analysis.</p>
-        <div class="btn-row"><a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Request a Custom Proposal <Icon name="arrow" /></a>
-        <a class="btn btn-glass" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Book a Tour</a></div>
+        <div class="btn-row"><a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">See If You Qualify <Icon name="arrow" /></a>
+        <a class="btn btn-glass" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Book a Property Analysis Tour</a></div>
       </div>
       <div class="reveal reveal-d2"><FAQ items={faqs} /></div>
     </div>
