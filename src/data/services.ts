@@ -43,7 +43,7 @@ export const services: Service[] = [
       { icon: 'calendar', title: 'Short + Mid-Term Strategy', hook: 'More than one way to fill a calendar.', text: 'Nightly guests, 30+ day stays or a blend — matched to your property and goals.' },
     ],
     detail: {
-      h2: 'What full-service support actually includes',
+      h2: 'What full-service management actually includes',
       paragraphs: [
         'Some co-hosts handle only messaging. Full-service co-hosting means the operation is covered — from the first property assessment to the thank-you message after checkout.',
         'Hosted Havens is a co-hosting company, not a traditional long-term property manager. Long-term managers typically collect rent and handle tenancy. Our focus is short and mid-term stays: hospitality, pricing and property care that keep a rental performing.',
@@ -88,7 +88,7 @@ export const services: Service[] = [
     metaDescription: 'Full-service Airbnb co-hosting in San Antonio. Keep ownership of your listing while Hosted Havens handles guests, pricing, cleaning and maintenance.',
     eyebrow: 'Owners · Co-Hosting',
     h1: 'Full-Service <em>Airbnb Co-Hosting</em> in San Antonio',
-    lead: 'A co-host who does more than answer messages. Hosted Havens runs the whole operation behind your listing while you keep ownership, control and visibility.',
+    lead: 'A co-host who does more than answer messages. Hosted Havens runs the whole operation behind your listing while you keep ownership and visibility.',
     heroProperty: 'de-soto-lighthouse',
     widget: 'cohost',
     intro: {

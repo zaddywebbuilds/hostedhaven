@@ -27,11 +27,11 @@ const showcases = [
     changes: ['Design overhaul into bright, homey retreats', 'Fully equipped kitchenettes and remote-work Wi-Fi', 'Mix of pet-friendly and pet-free units', 'Set up for 30+ day stays near Lackland AFB'],
   },
   {
-    slug: 'ccp-3',
-    title: 'The Crashpad',
-    place: 'Room-by-room rentals near Randolph AFB',
-    challenge: 'A spacious house needed to work for military personnel, remote workers and traveling professionals booking individual rooms.',
-    changes: ['Private rooms with workspaces and pin-code locks', 'Shared game room, coffee bar and two living rooms', '1,000 Mbps internet and mid-stay housekeeping', 'Positioned for PCS moves and extended stays'],
+    slug: 'de-soto-lighthouse',
+    title: 'De Soto',
+    place: 'Smart home near SeaWorld and Six Flags',
+    challenge: 'A fully renovated home near two major San Antonio attractions needed strong positioning for family and leisure travelers.',
+    changes: ['Renovated to a modern, guest-ready standard', 'Positioned for family trips, theme park visitors and leisure stays', 'Smart home features for a seamless guest experience', 'Occupancy improved by targeting high-demand leisure travel periods'],
   },
 ];
 ---
@@ -93,8 +93,8 @@ const showcases = [
       </div>
       <div class="dark-card bg-dark reveal reveal-d2" style="border-radius:var(--r-xl);padding:clamp(1.8rem,4vw,3rem)">
         <span class="eyebrow">The portfolio today</span>
-        <div class="dark-num" style="font-size:4.5rem">{properties.length}</div>
-        <h3>Stays listed for direct booking</h3>
+        <div class="dark-num" style="font-size:4.5rem;color:var(--cream)">{properties.length}</div>
+        <h3 style="color:var(--cream)">Stays listed for direct booking</h3>
         <p>Homes, studios and private rooms across San Antonio, Live Oak, Universal City and Converse.</p>
         <a class="btn btn-gold" href={u('/stays/')} data-track="stays_view">Browse the portfolio <Icon name="arrow" /></a>
       </div>
