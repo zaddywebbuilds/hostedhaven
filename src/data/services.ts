@@ -124,7 +124,7 @@ export const services: Service[] = [
       { q: 'What does an Airbnb co-host do?', a: 'A co-host helps an owner manage a short or mid-term rental. At Hosted Havens, co-hosting is full-service: we perform the day-to-day operations so the owner can be hands-off.' },
       { q: 'Do I need to already have an Airbnb listing?', a: 'No. We can help launch a new short-term rental, including the property assessment, photography, and listing creation. See <a href="/airbnb-setup-san-antonio/">new host setup</a>.' },
       { q: 'Can I see what is happening with my property?', a: 'Yes. Owners have transparent access to our professional hosting tools, including real-time calendar visibility.' },
-      { q: 'How do I get started?', a: 'Complete the <a href="/property-analysis/">property intake form</a>, watch our short service video, and when you are ready, book your property analysis tour, which includes an onsite visit, extensive prep list, and a detailed analysis report with revenue projections.' },
+      { q: 'How do I get started?', a: 'Complete the <a href="/property-analysis/">property intake form</a>, watch our <a href="https://hostedhavens.co/training-video/">short service video</a>, and when you are ready, book your property analysis tour, which includes an onsite visit, extensive prep list, and a detailed analysis report with revenue projections.' },
     ],
     related: ['airbnb-management-san-antonio', 'airbnb-listing-optimization-san-antonio', 'pricing'],
   },

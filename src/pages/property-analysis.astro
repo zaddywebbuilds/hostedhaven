@@ -2,7 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import { u } from '../lib/url';
-import { business, links, formEndpoint } from '../data/business';
+import { business, links, formEndpoint, mailchimp } from '../data/business';
+
+const mailchimpUrl = mailchimp.audienceId
+  ? `https://${mailchimp.dc}.list-manage.com/subscribe/post?u=${mailchimp.u}&id=${mailchimp.audienceId}`
+  : '';
 
 const goals = ['Increase revenue', 'Become hands-off', 'Improve occupancy', 'Launch a new STR', 'Move into mid-term rentals', 'Improve reviews', 'Other'];
 const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Revenue isn’t where it should be', 'I need better reviews', 'I’m launching a new property', 'Cleaning is difficult', 'Maintenance keeps interrupting me', 'I need a mid-term strategy', 'I want to scale'];
@@ -33,7 +37,7 @@ const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Reve
         </div>
 
         <div class="form-shell" id="analysis">
-          <form id="analysis-form" novalidate data-endpoint={formEndpoint} data-fallback={links.intakeForm} data-owner-email={business.ownerEmail}>
+          <form id="analysis-form" novalidate data-endpoint={formEndpoint} data-fallback={links.intakeForm} data-owner-email={business.ownerEmail} data-mc-url={mailchimpUrl}>
             <ol class="steps" aria-label="Form progress">
               <li class="on" data-n="1">1 · Property</li>
               <li data-n="2">2 · Current Setup</li>
@@ -197,6 +201,18 @@ const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Reve
           } catch { sent = false; }
         }
         gtag?.('event', 'owner_analysis_submit', { form: 'property_analysis', delivered: sent });
+
+        // Add the lead to Mailchimp. Opaque by design (no-cors), so it can never
+        // block or fail the confirmation the visitor sees.
+        const mcUrl = form.dataset.mcUrl;
+        if (mcUrl && entries.email) {
+          const mc = new FormData();
+          mc.append('EMAIL', entries.email);
+          mc.append('FNAME', entries.first_name || '');
+          mc.append('LNAME', entries.last_name || '');
+          mc.append('PHONE', entries.phone || '');
+          try { await fetch(mcUrl, { method: 'POST', mode: 'no-cors', body: mc }); } catch { /* ignore */ }
+        }
         const note = success.querySelector('[data-success-note]');
         if (!sent) {
           const body = Object.entries(entries).map(([k, v]) => `${k.replace(/_/g, ' ')}: ${v}`).join('\n');

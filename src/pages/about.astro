@@ -92,12 +92,21 @@ const strip = [propertyImages('la-maison-blount')[0], propertyImages('the-hardin
   <section class="section">
     <div class="container">
       <div class="section-head reveal"><span class="eyebrow">Our values</span><h2>How we <em>work</em></h2></div>
+      <div class="grid grid-2" style="margin-bottom:1.5rem">
+        {values.slice(0, 2).map((v, i) => (
+          <article class={`card3d reveal reveal-d${i + 1}`}>
+            <span class="t-dot" style="width:60px;height:60px;font-size:1.4rem;margin:0">{String(i + 1).padStart(2, '0')}</span>
+            <h3 style="font-size:clamp(1.5rem,2.4vw,1.95rem)">{v.title}</h3>
+            <p class="lead">{v.text}</p>
+          </article>
+        ))}
+      </div>
       <div class="grid grid-3">
-        {values.map((v, i) => (
+        {values.slice(2).map((v, i) => (
           <article class={`card3d reveal reveal-d${(i % 3) + 1}`}>
-            <span class="t-dot" style="width:52px;height:52px;font-size:1.2rem;margin:0">{String(i + 1).padStart(2, '0')}</span>
-            <h3>{v.title}</h3>
-            <p>{v.text}</p>
+            <span class="t-dot" style="width:44px;height:44px;font-size:1rem;margin:0">{String(i + 3).padStart(2, '0')}</span>
+            <h3 style="font-size:1.15rem">{v.title}</h3>
+            <p class="small">{v.text}</p>
           </article>
         ))}
         <article class="card3d bg-dark reveal" style="color:var(--cream)">

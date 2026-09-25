@@ -7,6 +7,8 @@ export type Property = {
   title: string;
   city: string;
   area?: string;
+  /** Neighbourhood-level map query. Never an exact address: these are occupied rentals. */
+  mapQuery?: string;
   type: 'House' | 'Studio' | 'Private room';
   guests: number;
   bedrooms: number;

@@ -63,6 +63,11 @@ const schema = [{
           </a>
         ))}
       </div>
+      {imgs.length > 1 && (
+        <button type="button" class="btn btn-glass btn-sm" style="margin-top:.9rem" data-view-all>
+          <Icon name="layers" /> View all {imgs.length} photos
+        </button>
+      )}
       <div class="facts" style="margin-top:1.4rem">
         <span class="fact"><Icon name="users" />{p.guests} guests</span>
         <span class="fact"><Icon name="bed" />{p.bedrooms} {p.bedrooms === 1 ? 'bedroom' : 'bedrooms'} · {p.beds} {p.beds === 1 ? 'bed' : 'beds'}</span>
@@ -137,6 +142,20 @@ const schema = [{
 
   <section class="section-tight">
     <div class="container">
+      <div class="reveal" style="margin-bottom:2rem">
+        <h2>Where you will be</h2>
+        <p class="muted" style="margin-top:-.4rem">{[p.area, `${p.city}, TX`].filter(Boolean).join(' · ')}</p>
+        <div class="map-embed">
+          <iframe
+            title={`Map of the ${p.city} area where ${p.name} is located`}
+            src={`https://maps.google.com/maps?q=${encodeURIComponent(p.mapQuery || `${p.city}, TX`)}&z=12&output=embed`}
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <p class="small muted" style="margin-top:.7rem">Map shows the general area. The exact address is shared after your booking is confirmed.</p>
+      </div>
+
       <div class="cta-band bg-warm reveal" style="border:1px solid #fff;box-shadow:var(--shadow-glass)">
         <span class="eyebrow">Book direct</span>
         <h2>Your San Antonio Stay <em>Starts Here.</em></h2>
@@ -150,22 +169,43 @@ const schema = [{
 
   <div class="lightbox" data-lightbox role="dialog" aria-modal="true" aria-label={`${p.name} photos`}>
     <button type="button" class="lb-close" aria-label="Close" data-lb-close><Icon name="close" /></button>
+    <button type="button" class="lb-grid-toggle btn btn-glass btn-sm" data-lb-toggle>All photos</button>
     <button type="button" class="lb-prev" aria-label="Previous photo" data-lb-prev><Icon name="arrow" class="flip" /></button>
     <img alt="" data-lb-img />
     <button type="button" class="lb-next" aria-label="Next photo" data-lb-next><Icon name="arrow" /></button>
     <span class="lb-count" data-lb-count></span>
+    <div class="lb-grid" data-lb-grid hidden>
+      {imgs.map((im, i) => (
+        <button type="button" data-grid-index={i} aria-label={`Open photo ${i + 1}`}>
+          <img src={u(`/images/${im.base}-640.webp`)} alt="" loading="lazy" width="320" height="214" />
+        </button>
+      ))}
+    </div>
   </div>
   <script define:vars={{ photos: imgs.map((i) => u(`/images/${i.base}-1280.webp`)) }} is:inline>
     (function () {
       var lb = document.querySelector('[data-lightbox]');
       var img = lb.querySelector('[data-lb-img]');
       var count = lb.querySelector('[data-lb-count]');
+      var grid = lb.querySelector('[data-lb-grid]');
+      var toggle = lb.querySelector('[data-lb-toggle]');
       var i = 0, last = null;
       function show(n) { i = (n + photos.length) % photos.length; img.src = photos[i]; count.textContent = (i + 1) + ' / ' + photos.length; }
-      function open(n) { last = document.activeElement; show(n); lb.classList.add('open'); document.body.style.overflow = 'hidden'; lb.querySelector('[data-lb-close]').focus(); }
+      function setGrid(on) {
+        grid.hidden = !on;
+        lb.classList.toggle('grid-mode', on);
+        toggle.textContent = on ? 'Single photo' : 'All photos';
+      }
+      function open(n, asGrid) { last = document.activeElement; show(n); setGrid(!!asGrid); lb.classList.add('open'); document.body.style.overflow = 'hidden'; lb.querySelector('[data-lb-close]').focus(); }
       function close() { lb.classList.remove('open'); document.body.style.overflow = ''; if (last) last.focus(); }
       document.querySelectorAll('[data-gallery] a').forEach(function (a) {
-        a.addEventListener('click', function (e) { e.preventDefault(); open(Number(a.dataset.index)); });
+        a.addEventListener('click', function (e) { e.preventDefault(); open(Number(a.dataset.index), false); });
+      });
+      var viewAll = document.querySelector('[data-view-all]');
+      if (viewAll) viewAll.addEventListener('click', function () { open(0, true); });
+      toggle.addEventListener('click', function () { setGrid(grid.hidden); });
+      grid.querySelectorAll('[data-grid-index]').forEach(function (b) {
+        b.addEventListener('click', function () { show(Number(b.dataset.gridIndex)); setGrid(false); });
       });
       lb.querySelector('[data-lb-close]').addEventListener('click', close);
       lb.querySelector('[data-lb-prev]').addEventListener('click', function () { show(i - 1); });
@@ -174,8 +214,8 @@ const schema = [{
       document.addEventListener('keydown', function (e) {
         if (!lb.classList.contains('open')) return;
         if (e.key === 'Escape') close();
-        if (e.key === 'ArrowLeft') show(i - 1);
-        if (e.key === 'ArrowRight') show(i + 1);
+        if (grid.hidden && e.key === 'ArrowLeft') show(i - 1);
+        if (grid.hidden && e.key === 'ArrowRight') show(i + 1);
       });
     })();
   </script>

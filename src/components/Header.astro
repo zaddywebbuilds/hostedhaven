@@ -1,7 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import { u } from '../lib/url';
-import { business } from '../data/business';
+import { business, links } from '../data/business';
 const path = Astro.url.pathname;
 const ownerLinks = [
   { href: '/airbnb-management-san-antonio/', label: 'Airbnb Management' },
@@ -13,7 +13,7 @@ const ownerLinks = [
   { href: '/airbnb-setup-san-antonio/', label: 'New Host Setup' },
   { href: '/pricing/', label: 'Pricing' },
   { href: '/results/', label: 'Results' },
-  { href: 'https://hostedhavens.co/training-video/', label: 'Owner Training Video' },
+  { href: links.serviceVideo, label: 'Service Video' },
 ];
 const staysLinks = [
   { href: '/stays/', label: 'Browse All Stays' },
@@ -53,8 +53,8 @@ const isOn = (p: string) => (path.endsWith(p) ? 'page' : undefined);
       <a href={u('/contact/')} aria-current={isOn('/contact/')} class="hide-lg">Contact</a>
     </nav>
     <div class="hh-actions">
-      <a class="hh-guest-link" href={u('/stays/')} data-track="stays_view">Book a Stay</a>
-      <a class="btn btn-primary btn-sm" href={u('/property-analysis/')} data-track="owner_analysis_start">Free Property Analysis</a>
+      <a class="hh-guest-link" href={u('/property-analysis/')} data-track="owner_analysis_start">Property Intake</a>
+      <a class="btn btn-primary btn-sm" href={u('/stays/')} data-track="stays_view">Book a Stay</a>
       <button class="hh-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer" data-drawer-open>
         <Icon name="menu" />
       </button>

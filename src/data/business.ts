@@ -25,10 +25,25 @@ export const links = {
   calendlyAnalysisTour: 'https://calendly.com/hostedhavensco/property-analysis-tour',
   calendlyReviewMeeting: 'https://calendly.com/hostedhavens/property-review-meeting',
   calendlyIntakeMeeting: 'https://calendly.com/hostedhavens/co-hosting-intake',
+  serviceVideo: 'https://hostedhavens.co/training-video/',
   guestLounge: 'https://www.facebook.com/groups/hostedhavensguestlounge',
   airbnbProfile: 'https://www.airbnb.com/p/hostedhavensco',
   ownerSignIn: 'https://hostedhavens.co/sign-in',
   ownerPortal: 'https://owners.hostedhavens.co',
+};
+
+/**
+ * Mailchimp audience subscribe, via the classic embedded-form endpoint.
+ *
+ * `audienceId` must be the AUDIENCE id (Mailchimp > Audience > Settings >
+ * "Audience name and defaults" > Audience ID). It is NOT the `id` in Megan's
+ * survey link, which identifies a survey and cannot accept form posts.
+ * While this is blank the intake form submits normally and simply skips Mailchimp.
+ */
+export const mailchimp = {
+  dc: 'us11',
+  u: '6eaf2d165e149563724adbda3',
+  audienceId: '',
 };
 
 export const socials = [
@@ -90,10 +105,9 @@ export const team = [
   { name: 'Megan', role: 'Founder', blurb: 'Leads strategy, owner relationships, and the guest experience standard.', image: 'team/megan-blount-hosted-havens-founder.webp', photo: true },
   { name: 'Christina', role: 'Operations Manager', blurb: 'Maintenance coordination, inspections, and quality assurance.', image: 'team/cr.png', photo: false },
   { name: 'Kemi & Trust', role: 'Virtual Assistants', blurb: 'Guest and owner services, and first point of contact for customer outreach.', image: 'team/ks.svg', photo: false },
-  { name: 'Pretty', role: 'Creative', blurb: 'Social media and website management.', image: 'team/pn.png', photo: false },
   { name: 'CS Outsourcing', role: 'Revenue Management', blurb: 'Listing and pricing optimization.', image: 'team/cs-outsourcing.png', photo: false },
+  { name: 'Johno', role: 'Web Developer', blurb: 'Website design, build, and social media management.', image: 'team/johno.svg', photo: false },
   { name: 'Mark', role: 'Photographer', blurb: 'Professional residential and drone photography.', image: 'team/mm.png', photo: false },
-  { name: 'Johno', role: 'Web Developer', blurb: 'Website design, build, and digital infrastructure.', image: 'team/johno.svg', photo: false },
 ];
 
 export const values = [
