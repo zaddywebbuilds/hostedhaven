@@ -13,12 +13,12 @@ const {
     <div class="cta-band bg-dark reveal">
       <div class="ghost-panels" aria-hidden="true"><span></span><span></span><span></span></div>
       <div style="position:relative">
-        <span class="eyebrow">Owner property review</span>
+        <span class="eyebrow">Free property analysis</span>
         <h2 set:html={title} />
         <p class="lead">{text}</p>
         <div class="btn-row">
-          <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Start the Property Form <Icon name="arrow" /></a>
-          <a class="btn btn-glass" href={`mailto:${business.ownerEmail}`} data-track="owner_email_click"><Icon name="mail" /> {business.ownerEmail}</a>
+          <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Get My Free Property Analysis <Icon name="arrow" /></a>
+          <a class="btn btn-glass" href={`tel:${business.phone}`} data-track="phone_click"><Icon name="phone" /> Call {business.displayPhone}</a>
         </div>
       </div>
     </div>

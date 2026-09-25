@@ -69,7 +69,7 @@ const schema = [{
         <span class="filter-count" aria-live="polite" data-count>{properties.length} stays</span>
       </form>
 
-      <div class="prop-grid four" data-grid>{properties.map((p) => <PropertyCard p={p} />)}</div>
+      <div class="prop-grid" data-grid>{properties.map((p) => <PropertyCard p={p} />)}</div>
       <div class="empty-state" data-empty hidden>
         <h2 style="font-size:2rem">No stays match those filters yet.</h2>
         <p class="muted">Try removing a filter to see more homes.</p>
@@ -78,28 +78,22 @@ const schema = [{
     </div>
   </section>
 
-  <section class="section-tight">
+  <section class="section bg-warm">
     <div class="container">
-      <div class="section-head reveal"><span class="eyebrow">Every Hosted Havens stay</span><h2>Comfort you can <em>count on</em></h2></div>
-      <div class="amenity-grid">
-        {[
-          { icon: 'shield', title: 'Outdoor security, private interiors', text: 'Exterior cameras monitor the premises while interior privacy is guaranteed.' },
-          { icon: 'sparkle', title: 'Thoughtfully designed spaces', text: 'Modern furnishings, tasteful décor and a cohesive look throughout.' },
-          { icon: 'heart', title: 'Premium comfort amenities', text: 'Quality linens, plush towels and essential toiletries provided.' },
-          { icon: 'home', title: 'Fully equipped kitchens', text: 'Contemporary appliances, essential cookware and complete tableware.' },
-          { icon: 'wifi', title: 'Fast Wi-Fi & a place to work', text: 'Reliable home internet and workspaces for those important calls.' },
-          { icon: 'key', title: 'Complimentary parking', text: 'Free parking on or near the property for your stay.' },
-        ].map((a, i) => (
-          <div class={`amenity reveal reveal-d${(i % 3) + 1}`}>
-            <span class={`icon-box ${i % 3 === 1 ? 'sage' : i % 3 === 2 ? 'gold' : ''}`}><Icon name={a.icon} /></span>
-            <div><h3>{a.title}</h3><p>{a.text}</p></div>
-          </div>
+      <div class="section-head center reveal"><span class="eyebrow">What guests say</span><h2>Stays guests <em>come back to</em></h2></div>
+      <div class="grid grid-4">
+        {guestReviews.map((r, i) => (
+          <figure class={`review-card reveal reveal-d${i + 1}`} style="margin:0">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote style="margin:0"><p>“{r.quote}”</p></blockquote>
+            <figcaption class="review-by"><span class="avatar-initial">{r.name[0]}</span><span><strong>{r.name}</strong><small>{r.from}</small></span></figcaption>
+          </figure>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="section bg-warm">
+  <section class="section">
     <div class="container split" style="align-items:start">
       <div class="reveal">
         <span class="eyebrow">Guest FAQ</span>

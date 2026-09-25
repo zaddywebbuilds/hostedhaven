@@ -37,14 +37,14 @@ const showcases = [
 ---
 <BaseLayout
   title="Results & Property Showcases | Hosted Havens San Antonio"
-  description="See how Hosted Havens positions and operates real San Antonio rentals, from Craftsman family homes to 30+ day studios near Lackland and rooms near Randolph AFB."
+  description="See how Hosted Havens positions and operates real San Antonio rentals — from Craftsman family homes to 30+ day studios near Lackland and rooms near Randolph AFB."
   path="/results/"
   breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Results', path: '/results/' }]}
 >
   <InteriorHero
     eyebrow="Results"
     title="Real Properties. <em>Real Operations.</em>"
-    lead="A look at how Hosted Havens positions, prepares and operates homes across San Antonio, and what we’d look at in yours."
+    lead="A look at how Hosted Havens positions, prepares and operates homes across San Antonio — and what we’d look at in yours."
     crumbs={[{ name: 'Home', path: '/' }, { name: 'Results', path: '/results/' }]}
     image={coverImage('de-soto-lighthouse')}
     imageAlt="De Soto, a renovated Hosted Havens smart home in Universal City"
@@ -66,7 +66,7 @@ const showcases = [
       <section class={`section ${idx % 2 ? 'bg-warm' : ''}`}>
         <div class={`container split ${idx % 2 ? 'reverse' : ''}`}>
           <div class="img-stack reveal">
-            <div class="big"><Img src={imgs[0]} alt={`${sc.title}, ${sc.place}`} sizes="(max-width: 1024px) 90vw, 45vw" /></div>
+            <div class="big"><Img src={imgs[0]} alt={`${sc.title} — ${sc.place}`} sizes="(max-width: 1024px) 90vw, 45vw" /></div>
             <div class="small"><Img src={imgs[2]} alt="" sizes="(max-width: 1024px) 45vw, 22vw" /></div>
           </div>
           <div class="reveal reveal-d2">

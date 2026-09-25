@@ -9,7 +9,7 @@ export function u(path = '/'): string {
   return `${BASE}${p}`;
 }
 
-/** Canonical URL, always the production domain, never the preview host. */
+/** Canonical URL — always the production domain, never the preview host. */
 export function canonical(path = '/'): string {
   const p = path.startsWith('/') ? path : `/${path}`;
   return `${SITE}${p}`;

@@ -4,17 +4,16 @@ import Img from '../../components/Img.astro';
 import Icon from '../../components/Icon.astro';
 import PropertyCard from '../../components/PropertyCard.astro';
 import { properties, type Property } from '../../data/properties';
-import { galleryImages } from '../../lib/images';
+import { propertyImages } from '../../lib/images';
 import { u, SITE } from '../../lib/url';
 import { business } from '../../data/business';
-import { videoTours } from '../../data/videos';
 
 export function getStaticPaths() {
   return properties.map((p) => ({ params: { slug: p.slug }, props: { p } }));
 }
 interface Props { p: Property }
 const { p } = Astro.props;
-const imgs = galleryImages(p.slug);
+const imgs = propertyImages(p.slug);
 const path = `/stays/${p.slug}/`;
 const loc = p.area ? `${p.area}, ${p.city}, TX` : `${p.city}, TX`;
 const similar = properties
@@ -27,7 +26,6 @@ const crumbs = [{ name: 'Home', path: '/' }, { name: 'Stays', path: '/stays/' },
 const metaTitle = `${p.name} · ${p.type === 'House' ? `${p.bedrooms}BR Home` : p.type} in ${p.city}, TX | Hosted Havens`;
 const desc = `${p.summary.slice(0, 150).replace(/\s+\S*$/, '')}… Sleeps ${p.guests}. Book direct with Hosted Havens.`;
 const cover = imgs[0];
-const tour = videoTours[p.slug];
 
 const schema = [{
   '@context': 'https://schema.org',
@@ -49,7 +47,7 @@ const schema = [{
   brand: { '@id': `${SITE}/#organization` },
 }];
 ---
-<BaseLayout title={metaTitle} description={desc} path={path} breadcrumbs={crumbs} schema={schema} ogImage={`/images/og/stays/${p.slug}.jpg`}>
+<BaseLayout title={metaTitle} description={desc} path={path} breadcrumbs={crumbs} schema={schema} ogImage={cover ? `/images/${cover.base}-1280.webp` : undefined}>
   <section class="section-tight" style="padding-top:2rem">
     <div class="container">
       <nav aria-label="Breadcrumb"><ol class="breadcrumbs">{crumbs.map((c, i) => <li>{i < crumbs.length - 1 ? <a href={u(c.path)}>{c.name}</a> : <span aria-current="page">{c.name}</span>}</li>)}</ol></nav>
@@ -60,7 +58,7 @@ const schema = [{
       <div class="gallery" data-gallery>
         {imgs.slice(0, 5).map((im, i) => (
           <a href={u(`/images/${im.base}-1280.webp`)} data-index={i} aria-label={`Open photo ${i + 1} of ${imgs.length}`}>
-            <Img src={im} alt={i === 0 ? `${p.name} in ${p.city}, TX` : ''} eager={i === 0} lazy={false} sizes={i === 0 ? '(max-width: 760px) 100vw, 50vw' : '(max-width: 760px) 50vw, 25vw'} />
+            <Img src={im} alt={i === 0 ? `${p.name} in ${p.city}, TX` : ''} eager={i === 0} sizes={i === 0 ? '(max-width: 760px) 100vw, 50vw' : '(max-width: 760px) 50vw, 25vw'} />
             {i === 4 && imgs.length > 5 && <span class="btn btn-glass btn-sm more">+{imgs.length - 5} photos</span>}
           </a>
         ))}
@@ -76,24 +74,6 @@ const schema = [{
       </div>
     </div>
   </section>
-
-  {tour && (
-    <section class="section-tight">
-      <div class="container">
-        <div class="stay-video reveal">
-          <div>
-            <span class="eyebrow">Video tour · {tour.duration}</span>
-            <h2>Walk through <em>{p.name}</em></h2>
-            <p class="lead">See the layout before you book: the arrival, living space, kitchen, backyard and bedrooms, room by room.</p>
-            {tour.ai && <p class="ai-note"><Icon name="sparkle" />Video created with AI from this home’s listing photos.</p>}
-          </div>
-          <div class="reel-player">
-            <video src={u(tour.src)} poster={u(tour.poster)} controls playsinline preload="none" aria-label={`Video tour of ${p.name}`}></video>
-          </div>
-        </div>
-      </div>
-    </section>
-  )}
 
   <section class="section-tight">
     <div class="container prop-layout">
@@ -119,9 +99,9 @@ const schema = [{
         <h2>Good to know</h2>
         <ul>
           <li>Check-in and check-out times are listed on your booking confirmation (check-in is typically from 3:00 PM and checkout by 11:00 AM).</li>
-          <li>Most listings use a Moderate cancellation policy, cancel up to 5 days before check-in for a full refund. Confirm this stay’s policy when you book.</li>
+          <li>Most listings use a Moderate cancellation policy — cancel up to 5 days before check-in for a full refund. Confirm this stay’s policy when you book.</li>
           <li>Check-in typically includes an online rental agreement, ID verification and a security hold.</li>
-          <li>No smoking indoors and no parties. {p.petFriendly ? 'Pets are welcome, see pet rules at booking.' : 'Please check pet rules before booking.'}</li>
+          <li>No smoking indoors and no parties. {p.petFriendly ? 'Pets are welcome — see pet rules at booking.' : 'Please check pet rules before booking.'}</li>
           <li>Longer stays may include automatic discounts.</li>
         </ul>
 
@@ -143,7 +123,7 @@ const schema = [{
           <a class="btn btn-primary" href="#availability" data-track="availability_search">Check Availability <Icon name="arrow" /></a>
           <a class="btn btn-glass" href={p.bookingUrl} target="_blank" rel="noopener noreferrer" data-track="direct_booking_click">Book Direct</a>
         </div>
-        <p class="small muted" style="margin:1rem 0 0">Questions? <a class="text-link" href={`mailto:${business.guestEmail}`} data-track="guest_email_click">{business.guestEmail}</a></p>
+        <p class="small muted" style="margin:1rem 0 0">Questions? <a class="text-link" href={`tel:${business.phone}`} data-track="phone_click">{business.displayPhone}</a></p>
       </aside>
     </div>
   </section>
@@ -187,8 +167,6 @@ const schema = [{
       document.querySelectorAll('[data-gallery] a').forEach(function (a) {
         a.addEventListener('click', function (e) { e.preventDefault(); open(Number(a.dataset.index)); });
       });
-      var more = document.querySelector('[data-gallery] .more');
-      if (more) more.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); open(5); });
       lb.querySelector('[data-lb-close]').addEventListener('click', close);
       lb.querySelector('[data-lb-prev]').addEventListener('click', function () { show(i - 1); });
       lb.querySelector('[data-lb-next]').addEventListener('click', function () { show(i + 1); });

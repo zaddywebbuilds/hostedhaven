@@ -49,43 +49,14 @@ export const analytics = {
 // Where the /property-analysis/ form posts. Leave empty to fall back to the verified Typeform intake.
 export const formEndpoint = '';
 
-// Web3Forms access key (free). Get one at https://web3forms.com by entering owners@hostedhavens.co;
-// the key is emailed to that inbox. Paste it here and submissions arrive there directly.
-export const formAccessKey = '5bf82241-03b3-405c-aaf6-a074ad6eede3';
-
 export const pricing = {
-  managementFee: '18%–22%',
+  managementFee: '19%–24%',
   managementFeeUnit: 'per booking',
   setupFee: '$150–$500',
   setupFeeUnit: 'one-time listing setup',
-  tourFee: '$150',
-  tourFeeUnit: 'property tour',
-  tourIncludes: 'An on-site walkthrough with extensive prep beforehand and a detailed analysis report afterward.',
-  note: 'Final pricing depends on property type, condition, service requirements and agreed scope.',
+  note: 'Final pricing depends on property type, condition, service requirements and agreed scope. Minimum contract length 4–12 months.',
   source: 'Published on hostedhavens.co owner FAQ',
 };
-
-// The owner journey, in the order Hosted Havens runs it (confirmed by the owner, 2026-09-15).
-// Nothing here is offered free: the tour is a paid engagement.
-export const ownerProcess = [
-  {
-    step: 'Property form',
-    title: 'Tell us about your property',
-    text: 'Share the home, its location and your goals so we can review it before we speak.',
-    cta: { label: 'Start the Property Form', href: '/property-analysis/' },
-  },
-  {
-    step: 'Overview video',
-    title: 'Watch the owner overview',
-    text: 'A short video walks through how co-hosting with Hosted Havens works, so your questions are answered before any meeting.',
-  },
-  {
-    step: 'Property tour',
-    title: 'Book your property tour',
-    text: 'A paid on-site tour with extensive preparation beforehand and a detailed analysis report covering positioning, setup and revenue potential.',
-    price: '$150',
-  },
-];
 
 export const credentials = [
   { label: 'Airbnb Promoted Co-Host', verified: false },
@@ -93,7 +64,7 @@ export const credentials = [
   { label: 'Member, Short Term Rental Association of San Antonio', verified: false },
 ];
 
-// Published on the current site but unverified, hidden until confirmed.
+// Published on the current site but unverified — hidden until confirmed.
 export const businessStats = {
   occupancyClaim: { value: '75%+', label: 'Typical occupancy on hosted properties', verified: false },
   annualRevenueLiftClaim: { value: '$15K', label: 'More per year vs. properties not hosted by Hosted Havens', verified: false },
@@ -109,19 +80,20 @@ export const ownerTestimonials = [
 ];
 
 export const guestReviews = [
-  { quote: 'This was in a convenient location for our visit. Easy access to Loop 1604. Megan is very friendly and helpful… and quick… in her interactions. Would definitely stay here again if needed.', name: 'Melanie', from: 'Atlanta, GA', avatar: 'reviews/guest-melanie' },
-  { quote: 'Had a fantastic stay at Megan’s Airbnb! The place was clean, cozy, and pet-friendly, which was a huge plus. Megan was a great host, responsive and thoughtful. Highly recommend!', name: 'Chance', from: 'Wichita, KS', avatar: 'reviews/guest-chance' },
-  { quote: 'The casita was in a convenient location, comfortable with modern updates inside and outside. We enjoyed our stay over the Labor Day weekend!', name: 'Abel', from: 'Lubbock, TX', avatar: 'reviews/guest-abel' },
-  { quote: 'Ideal stop at Megan’s house. Easy to access and far from the hustle and bustle of San Antonio, we very much enjoyed the calm to sleep. Bedding, bathroom and kitchen: everything was spotless!', name: 'Stéphanie', from: 'Orléans, France', avatar: 'reviews/guest-stephanie' },
+  { quote: 'This was in a convenient location for our visit. Easy access to Loop 1604. Megan is very friendly and helpful… and quick… in her interactions. Would definitely stay here again if needed.', name: 'Melanie', from: 'Atlanta, GA' },
+  { quote: 'Had a fantastic stay at Megan’s Airbnb! The place was clean, cozy, and pet-friendly, which was a huge plus. Megan was a great host — responsive and thoughtful. Highly recommend!', name: 'Chance', from: 'Wichita, KS' },
+  { quote: 'The casita was in a convenient location, comfortable with modern updates inside and outside. We enjoyed our stay over the Labor Day weekend!', name: 'Abel', from: 'Lubbock, TX' },
+  { quote: 'Ideal stop at Megan’s house. Easy to access and far from the hustle and bustle of San Antonio, we very much enjoyed the calm to sleep. Bedding, bathroom and kitchen — everything was spotless!', name: 'Stéphanie', from: 'Orléans, France' },
 ];
 
 export const team = [
   { name: 'Megan', role: 'Founder', blurb: 'Leads strategy, owner relationships and the guest experience standard.', image: 'team/megan-blount-hosted-havens-founder.webp', photo: true },
-  { name: 'Kemi', role: 'Guest Services', blurb: 'Customer service and virtual assistance, the voice guests hear first.', image: 'team/ks.svg', photo: false },
-  { name: 'Christina', role: 'Maintenance Coordinator', blurb: 'Inspections, quality assurance and guest arrival setup.', image: 'team/cr.png', photo: false },
+  { name: 'Christina', role: 'Operations Manager', blurb: 'Inspections, quality assurance and guest arrival setup.', image: 'team/cr.png', photo: false },
+  { name: 'Kemi & Trust', role: 'Virtual Assistants', blurb: 'Customer service and virtual assistance — the voice guests hear first.', image: 'team/ks.svg', photo: false },
   { name: 'Pretty', role: 'Creative', blurb: 'Social media and website management.', image: 'team/pn.png', photo: false },
   { name: 'CS Outsourcing', role: 'Revenue Management', blurb: 'Listing and pricing optimization.', image: 'team/cs-outsourcing.png', photo: false },
   { name: 'Mark', role: 'Photographer', blurb: 'Professional residential and drone photography.', image: 'team/mm.png', photo: false },
+  { name: 'Johno', role: 'Web Developer', blurb: 'Website design, build and digital infrastructure.', image: 'team/johno.svg', photo: false },
 ];
 
 export const values = [
@@ -129,5 +101,5 @@ export const values = [
   { title: 'Quality Over Shortcuts', text: 'Cleanliness, presentation and communication shape both reviews and long-term performance.' },
   { title: 'Adapt Quickly', text: 'Pricing and guest demand move. Strategy should move with them.' },
   { title: 'Lead With Empathy', text: 'Owners and guests are people first. Problems get solved with patience, not scripts.' },
-  { title: 'Clear, Honest Communication', text: 'You should always understand what is happening with your property, and why.' },
+  { title: 'Clear, Honest Communication', text: 'You should always understand what is happening with your property — and why.' },
 ];

@@ -4,14 +4,21 @@ import { u } from '../lib/url';
 import { business } from '../data/business';
 const path = Astro.url.pathname;
 const ownerLinks = [
-  { href: '/airbnb-management-san-antonio/', label: 'Airbnb Management', sub: 'Full-service STR management support' },
-  { href: '/airbnb-co-host-san-antonio/', label: 'STR Co-Hosting', sub: 'Hands-off Airbnb co-hosting' },
-  { href: '/mid-term-rental-management-san-antonio/', label: 'Mid-Term Rentals', sub: '30+ day furnished stays' },
-  { href: '/airbnb-listing-optimization-san-antonio/', label: 'Listing Optimization', sub: 'Photos, copy & positioning' },
-  { href: '/airbnb-revenue-management-san-antonio/', label: 'Revenue Management', sub: 'Dynamic pricing & calendar strategy' },
-  { href: '/str-property-care-san-antonio/', label: 'Property Care', sub: 'Cleaning, inspections & maintenance' },
-  { href: '/airbnb-setup-san-antonio/', label: 'New Host Setup', sub: 'Launch a new short-term rental' },
-  { href: '/pricing/', label: 'Pricing', sub: 'Transparent, published fees' },
+  { href: '/airbnb-management-san-antonio/', label: 'Airbnb Management' },
+  { href: '/airbnb-co-host-san-antonio/', label: 'STR Co-Hosting' },
+  { href: '/mid-term-rental-management-san-antonio/', label: 'Mid-Term Rentals' },
+  { href: '/airbnb-listing-optimization-san-antonio/', label: 'Listing Optimization' },
+  { href: '/airbnb-revenue-management-san-antonio/', label: 'Revenue Management' },
+  { href: '/str-property-care-san-antonio/', label: 'Property Care' },
+  { href: '/airbnb-setup-san-antonio/', label: 'New Host Setup' },
+  { href: '/pricing/', label: 'Pricing' },
+  { href: '/results/', label: 'Results' },
+];
+const staysLinks = [
+  { href: '/stays/', label: 'Browse All Stays' },
+  { href: '/monthly-rentals-san-antonio/', label: 'Monthly Stays' },
+  { href: '/pet-friendly-vacation-rentals-san-antonio/', label: 'Pet-Friendly' },
+  { href: '/furnished-rentals-near-randolph-afb/', label: 'Near Randolph AFB' },
 ];
 const isOn = (p: string) => (path.endsWith(p) ? 'page' : undefined);
 ---
@@ -26,19 +33,25 @@ const isOn = (p: string) => (path.endsWith(p) ? 'page' : undefined);
         <button type="button" aria-expanded="false" aria-controls="owners-menu">Owners <Icon name="chevron" /></button>
         <div class="nav-menu" id="owners-menu">
           {ownerLinks.map((l) => (
-            <a href={u(l.href)} aria-current={isOn(l.href)}>{l.label}<small>{l.sub}</small></a>
+            <a href={u(l.href)} aria-current={isOn(l.href)}>{l.label}</a>
           ))}
         </div>
       </div>
-      <a href={u('/results/')} aria-current={isOn('/results/')}>Results</a>
-      <a href={u('/stays/')} aria-current={isOn('/stays/')}>Stays</a>
+      <div class="nav-drop" data-drop>
+        <button type="button" aria-expanded="false" aria-controls="stays-menu">Stays <Icon name="chevron" /></button>
+        <div class="nav-menu" id="stays-menu">
+          {staysLinks.map((l) => (
+            <a href={u(l.href)} aria-current={isOn(l.href)}>{l.label}</a>
+          ))}
+        </div>
+      </div>
       <a href={u('/about/')} aria-current={isOn('/about/')}>About</a>
       <a href={u('/resources/')} aria-current={isOn('/resources/')} class="hide-lg">Resources</a>
       <a href={u('/contact/')} aria-current={isOn('/contact/')} class="hide-lg">Contact</a>
     </nav>
     <div class="hh-actions">
       <a class="hh-guest-link" href={u('/stays/')} data-track="stays_view">Book a Stay</a>
-      <a class="btn btn-primary btn-sm" href={u('/property-analysis/')} data-track="owner_analysis_start">Property Tour &amp; Analysis</a>
+      <a class="btn btn-primary btn-sm" href={u('/property-analysis/')} data-track="owner_analysis_start">Free Property Analysis</a>
       <button class="hh-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer" data-drawer-open>
         <Icon name="menu" />
       </button>
@@ -70,8 +83,8 @@ const isOn = (p: string) => (path.endsWith(p) ? 'page' : undefined);
       <a href={u('/contact/')}>Contact <Icon name="arrow" /></a>
     </div>
     <div class="drawer-cta">
-      <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Start the Property Form</a>
-      <a class="btn btn-glass" href={`mailto:${business.ownerEmail}`} data-track="owner_email_click">Email {business.ownerEmail}</a>
+      <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Get My Free Property Analysis</a>
+      <a class="btn btn-glass" href={`tel:${business.phone}`} data-track="phone_click">Call {business.displayPhone}</a>
     </div>
   </div>
 </div>

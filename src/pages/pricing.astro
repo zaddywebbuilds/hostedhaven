@@ -10,35 +10,34 @@ import { pricing, links } from '../data/business';
 
 const included = [
   ['Effortless onboarding', ['Customized property assessment and estimate', 'Tailored action plan from start to finish', 'Complimentary professional photography', 'Complete listing creation and optimization']],
-  ['Dedicated owner support', ['Access to our support team 7 days a week', 'Transparent access to professional hosting tools', 'Real-time calendar visibility', 'Flexible service with no long-term contract']],
-  ['Price optimization', ['Dynamic smart pricing', 'Revenue strategies tailored to your property', 'Calendar optimized for peak booking times', 'Real-time adjustments based on market trends', 'Clear insights into pricing performance']],
+  ['Dedicated owner support', ['Access to our support team 7 days a week', 'Transparent access to professional hosting tools', 'Real-time calendar visibility', 'Minimum contract length 4–12 months']],
+  ['Price optimization', ['Dynamic pricing', 'Revenue strategies tailored to your property', 'Calendar optimized for peak booking times', 'Real-time adjustments based on market trends', 'Clear insights into pricing performance']],
   ['Comprehensive home care', ['Custom home guidebook for guests', 'Professional cleaning after each stay', 'Tax collection and remittance support', 'Routine inspections and proactive maintenance', 'Low-inventory alerts and restocking']],
 ] as const;
 
 const faqs = [
-  { q: 'What does the property tour cost, and what do I get?', a: `The property tour is ${pricing.tourFee}. ${pricing.tourIncludes} It follows the property form and a short overview video, so you already know how we work before you book.` },
   { q: 'What does the management fee cover?', a: 'The ongoing fee covers full-service co-hosting: guest communication, pricing, listing management, owner support and coordination of cleaning, inspections and maintenance. Your custom proposal spells out the exact scope.' },
   { q: 'Why is the fee a range?', a: 'Property type, size, condition, location and the services you need all affect the work involved. Your final rate is confirmed in a custom proposal.' },
   { q: 'What is the setup fee for?', a: 'The one-time listing setup fee covers onboarding work such as the property assessment, action plan, photography coordination and listing creation.' },
   { q: 'Are cleaning costs included?', a: 'Cleaning after each stay is coordinated as part of the service. How cleaning costs are charged is outlined in your proposal.' },
-  { q: 'Is there a long-term contract?', a: 'No. Hosted Havens offers flexible service with no long-term contract.' },
+  { q: 'What is the minimum contract length?', a: 'Contracts run a minimum of 4–12 months depending on property type and service scope. This gives both sides the time needed to build a strong, consistent operation.' },
 ];
 ---
 <BaseLayout
   title="Airbnb Co-Hosting Pricing San Antonio | Hosted Havens"
-  description="Transparent Airbnb co-hosting pricing in San Antonio: a $150 property tour with analysis report, typically 18%–22% per booking and a one-time $150–$500 listing setup fee."
+  description="Transparent Airbnb co-hosting pricing in San Antonio: typically 19%–24% per booking with a one-time $150–$500 listing setup fee. 4–12 month minimum contracts."
   path="/pricing/"
   breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'Owners', path: '/airbnb-management-san-antonio/' }, { name: 'Pricing', path: '/pricing/' }]}
 >
   <InteriorHero
     eyebrow="Owners · Transparent pricing"
     title="Straightforward Pricing for <em>Full-Service</em> Co-Hosting"
-    lead="No hidden tiers and no long-term lock-in. A paid property tour with a detailed analysis report, a published fee range, a one-time setup fee and a custom proposal that confirms exactly what’s included for your property."
+    lead="No hidden tiers. A published fee range, a one-time setup fee, 4–12 month minimum contracts and a custom proposal that confirms exactly what’s included for your property."
     crumbs={[{ name: 'Home', path: '/' }, { name: 'Owners', path: '/airbnb-management-san-antonio/' }, { name: 'Pricing', path: '/pricing/' }]}
-    image={coverImage('halliday-fig-trees')}
-    imageAlt="Dining room at Halliday, a renovated Hosted Havens home near downtown San Antonio"
+    image={coverImage('legislation-4br')}
+    imageAlt="Game room at Legislation, a Hosted Havens home in Converse, TX"
     primary={{ label: 'Request a Custom Proposal', href: '/property-analysis/', track: 'owner_analysis_start' }}
-    secondary={{ label: `Book a Property Tour · ${pricing.tourFee}`, href: '/contact/#owners', track: 'property_tour_click' }}
+    secondary={{ label: 'Schedule a Property Tour', href: '/contact/#owners', track: 'property_tour_click' }}
   >
     <Fragment slot="widget">
       <div class="fc-head"><span class="fc-title">Management Fee</span></div>
@@ -56,9 +55,9 @@ const faqs = [
         <p class="lead" style="margin:.4rem 0 1rem">{pricing.managementFeeUnit}, typical range</p>
         <p class="muted">Full-service co-hosting: guests, pricing, listing, owner support and property care coordination.</p>
       </div>
-      <div class="price-card reveal reveal-d2" style="background:linear-gradient(160deg,#fff,#F0EEE3)">
+      <div class="price-card reveal reveal-d2" style="background:linear-gradient(160deg,#fff,#EEF1E8)">
         <span class="price-sub">One-time setup</span>
-        <div class="price-big" style="color:#656134">{pricing.setupFee}</div>
+        <div class="price-big" style="color:#5E6E50">{pricing.setupFee}</div>
         <p class="lead" style="margin:.4rem 0 1rem">listing setup fee</p>
         <p class="muted">Assessment, action plan, photography coordination and complete listing creation.</p>
       </div>

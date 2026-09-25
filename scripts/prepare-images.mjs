@@ -7,12 +7,11 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const CLIENT = 'C:/Users/Johno/OneDrive/WEBSITE BUILDS/Hosted Havens LLC';
-const SITE_IMAGES = process.env.SITE_IMAGES || path.join(CLIENT, 'site-images');
-const BRAND = process.env.BRAND_ASSETS || path.join(CLIENT, 'brand-assets');
+const SITE_IMAGES = process.env.SITE_IMAGES || path.resolve(root, '..', 'site-images');
+const BRAND = process.env.BRAND_ASSETS || path.resolve(root, '..', 'brand-assets');
 const OUT = path.join(root, 'public', 'images');
 const DATA = path.join(root, 'src', 'data', 'images.json');
-const PER_PROPERTY = Infinity;
+const PER_PROPERTY = 14;
 const WIDTHS = [640, 1280];
 
 const citySlug = {
@@ -25,15 +24,6 @@ const citySlug = {
 };
 
 async function exists(p) { try { await fs.access(p); return true; } catch { return false; } }
-
-// 64-bit difference hash: visually identical photos (resized/re-encoded copies) land within a few bits.
-async function dhash(file) {
-  const px = await sharp(file, { failOn: 'none' }).rotate().greyscale().resize(9, 8, { fit: 'fill' }).raw().toBuffer();
-  let bits = '';
-  for (let y = 0; y < 8; y++) for (let x = 0; x < 8; x++) bits += px[y * 9 + x] > px[y * 9 + x + 1] ? '1' : '0';
-  return bits;
-}
-const hamming = (a, b) => { let d = 0; for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) d++; return d; };
 
 async function emit(input, outBase, widths = WIDTHS, opts = {}) {
   const meta = await sharp(input, { failOn: 'none' }).rotate().metadata();
@@ -57,7 +47,6 @@ const manifest = { properties: {}, brand: {} };
 for (const slug of Object.keys(citySlug)) {
   const dir = path.join(SITE_IMAGES, slug);
   if (!(await exists(dir))) { console.warn(`missing ${slug}`); continue; }
-  // Full gallery in live-site order. Files are named NNN-original.ext by gallery position.
   const files = (await fs.readdir(dir)).filter((f) => /\.(jpe?g|png|webp|avif)$/i.test(f)).sort();
   const seen = new Set();
   const picked = [];
@@ -70,35 +59,13 @@ for (const slug of Object.keys(citySlug)) {
   }
   manifest.properties[slug] = [];
   let n = 0;
-  const pickedHashes = [];
   for (const f of picked) {
     n++;
     const base = `properties/${slug}/${slug}-${citySlug[slug]}-tx-rental-${String(n).padStart(2, '0')}`;
-    try {
-      manifest.properties[slug].push(await emit(path.join(dir, f), base));
-      pickedHashes.push(await dhash(path.join(dir, f)));
-    } catch (e) { console.warn(`skip ${slug}/${f}: ${e.message}`); }
+    try { manifest.properties[slug].push(await emit(path.join(dir, f), base)); }
+    catch (e) { console.warn(`skip ${slug}/${f}: ${e.message}`); }
   }
-  // Second pass: small-but-real photos (AVIF squeezes a full 720px photo under 20 KB).
-  // Keep any that are photo-sized and visually different from everything already picked.
-  // Appended after the existing sequence so current photo numbers never shift.
-  let added = 0;
-  for (const f of files) {
-    if (picked.includes(f)) continue;
-    const abs = path.join(dir, f);
-    try {
-      const meta = await sharp(abs, { failOn: 'none' }).metadata();
-      if ((meta.width || 0) < 600) continue;
-      const h = await dhash(abs);
-      if (pickedHashes.some((p) => hamming(p, h) <= 10)) continue;
-      n++;
-      const base = `properties/${slug}/${slug}-${citySlug[slug]}-tx-rental-${String(n).padStart(2, '0')}`;
-      manifest.properties[slug].push(await emit(abs, base));
-      pickedHashes.push(h);
-      added++;
-    } catch (e) { console.warn(`skip ${slug}/${f}: ${e.message}`); }
-  }
-  console.log(`${slug}: ${manifest.properties[slug].length} images (${added} small AVIF photos added)`);
+  console.log(`${slug}: ${manifest.properties[slug].length} images`);
 }
 
 // Brand + people
@@ -110,20 +77,8 @@ const brandJobs = [
   ['VERTICAL-COLOR-GUESTS.png', 'brand/hosted-havens-logo-stacked', [320, 640]],
   ['VERTICAL-COLOR-OWNERS.png', 'brand/hosted-havens-logo-stacked-owners', [320, 640]],
 ];
-// Images that sat on specific live pages (homepage review avatars, owner page photo).
-brandJobs.push(
-  [path.join(SITE_IMAGES, '_owners-cohosting-page', '005-happy-smiling-mature-older-family-couple-new-home-owners-standing-outside-house-.jpg'), 'brand/happy-homeowners-outside-house', [640, 1280]],
-  [path.join(SITE_IMAGES, '_homepage', '011-05267295-9b85-451c-b6e1-744cb9f0936c.avif'), 'reviews/guest-stephanie', [96, 192]],
-  [path.join(SITE_IMAGES, '_homepage', '012-00af2627-cef4-45e7-9022-54dba5755da7.avif'), 'reviews/guest-melanie', [96, 192]],
-  [path.join(SITE_IMAGES, '_homepage', '013-f8107259-8dff-4181-bfe0-5bb969f398d9-1.avif'), 'reviews/guest-chance', [96, 192]],
-  [path.join(SITE_IMAGES, '_homepage', '014-0276c772-ee39-4402-bdad-b9dfeffbe3b6.avif'), 'reviews/guest-abel', [96, 192]],
-);
-// Licensed stock (Unsplash License) illustrating services the client photos don't show.
-for (const name of ['property-care-making-bed', 'listing-photography-tripod', 'revenue-analytics-laptop', 'owner-checking-phone', 'extended-stay-suitcase']) {
-  brandJobs.push([path.join(BRAND, 'stock', `${name}.jpg`), `stock/${name}`, [640, 1280]]);
-}
 for (const [file, base, widths] of brandJobs) {
-  const p = path.isAbsolute(file) ? file : path.join(BRAND, file);
+  const p = path.join(BRAND, file);
   if (await exists(p)) manifest.brand[base.split('/')[1]] = await emit(p, base, widths, { quality: 85 });
 }
 for (const [file, out] of [['Ks.svg', 'team/ks.svg'], ['CR.png', 'team/cr.png'], ['PN.png', 'team/pn.png'], ['2.png', 'team/mm.png'], ['Cs-Outsourcing.png', 'team/cs-outsourcing.png'], ['HH-HORIZONTAL-LOGO-WITH-TAG.png', 'brand/hosted-havens-logo-horizontal-white.png'], ['HOSTED-HAVENS-SQUARE-LOGO-ICON-WHITE-TRANSPARENT.png', 'brand/hosted-havens-icon-white.png']]) {
