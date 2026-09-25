@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import { u } from '../lib/url';
-import { business, links, formEndpoint, mailchimp } from '../data/business';
+import { business, links, formEndpoint, formAccessKey, mailchimp } from '../data/business';
 
 const mailchimpUrl = mailchimp.audienceId
   ? `https://${mailchimp.dc}.list-manage.com/subscribe/post?u=${mailchimp.u}&id=${mailchimp.audienceId}`
@@ -37,7 +37,7 @@ const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Reve
         </div>
 
         <div class="form-shell" id="analysis">
-          <form id="analysis-form" novalidate data-endpoint={formEndpoint} data-fallback={links.intakeForm} data-owner-email={business.ownerEmail} data-mc-url={mailchimpUrl}>
+          <form id="analysis-form" novalidate data-endpoint={formEndpoint} data-key={formAccessKey} data-fallback={links.intakeForm} data-owner-email={business.ownerEmail} data-mc-url={mailchimpUrl}>
             <ol class="steps" aria-label="Form progress">
               <li class="on" data-n="1">1 · Property</li>
               <li data-n="2">2 · Current Setup</li>
@@ -192,12 +192,17 @@ const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Reve
         if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
         const entries: Record<string, string> = {};
         data.forEach((v, k) => { if (k !== 'company') entries[k] = entries[k] ? `${entries[k]}, ${v}` : String(v); });
-        const endpoint = form.dataset.endpoint;
+        const key = form.dataset.key;
+        const endpoint = key ? 'https://api.web3forms.com/submit' : form.dataset.endpoint;
         let sent = false;
         if (endpoint) {
+          const payload = key
+            ? { access_key: key, subject: `New property form: ${entries.address || 'San Antonio property'}`, from_name: 'Hosted Havens website', replyto: entries.email, ...entries }
+            : entries;
           try {
-            const res = await fetch(endpoint, { method: 'POST', headers: { Accept: 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify(entries) });
-            sent = res.ok;
+            const res = await fetch(endpoint, { method: 'POST', headers: { Accept: 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+            const json = await res.json().catch(() => ({}));
+            sent = res.ok && (key ? json.success === true : true);
           } catch { sent = false; }
         }
         gtag?.('event', 'owner_analysis_submit', { form: 'property_analysis', delivered: sent });

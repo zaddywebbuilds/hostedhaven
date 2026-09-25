@@ -66,6 +66,12 @@ export const analytics = {
 // Where the /property-analysis/ form posts. Leave empty to fall back to the verified Typeform intake.
 export const formEndpoint = '';
 
+// Web3Forms access key (free). Get one at https://web3forms.com by entering owners@hostedhavens.co;
+// the key is emailed to that inbox. Submissions then arrive there directly.
+// Web3Forms keys are designed to live in client-side markup: the key only routes
+// mail to its own verified inbox, so it is not a secret.
+export const formAccessKey = '5bf82241-03b3-405c-aaf6-a074ad6eede3';
+
 export const pricing = {
   managementFee: '19%–24%',
   managementFeeUnit: 'per booking',
