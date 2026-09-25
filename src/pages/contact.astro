@@ -36,6 +36,7 @@ import { business, links, socials } from '../data/business';
         <ul class="ticks">
           <li><a class="text-link" href={`mailto:${business.ownerEmail}`} data-track="owner_email_click">{business.ownerEmail}</a></li>
           <li><a class="text-link" href={`tel:${business.phone}`} data-track="phone_click">{business.displayPhone}</a></li>
+          <li>Already a Hosted Havens owner? <a class="text-link" href={links.ownerCheckIn} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Book an owner check-in call</a></li>
         </ul>
       </article>
 

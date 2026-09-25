@@ -50,14 +50,14 @@ const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
   {(kind === 'trending' || kind === 'chart') && (
     <div class="mock mock-rate">
-      <div class="mock-top"><Icon name="trending" />Nightly rate <em>Smart pricing</em></div>
+      <div class="mock-top"><Icon name="trending" />Nightly rate <em>Dynamic pricing</em></div>
       <div class="rate-bars">{bars.map((h, i) => <i class={i === 4 || i === 5 ? 'hot' : ''} style={`--h:${h}%;--d:${i * 70}ms`}></i>)}</div>
       <div class="rate-days">{days.map((d) => <span>{d}</span>)}</div>
     </div>
   )}
 
   {kind === 'camera' && (
-    <div class="mock mock-shot"><span class="rec"></span>Cover photo selected <em>· listing shoot</em></div>
+    <div class="mock mock-shot"><span class="rec"></span>Cover photo selected <em>listing shoot</em></div>
   )}
 
   {(kind === 'broom' || kind === 'shield' || kind === 'sparkle') && (

@@ -23,7 +23,9 @@ export const links = {
   // Verified from the live site (2026-09-14)
   intakeForm: 'https://form.typeform.com/to/e4sXEear',
   calendlyAnalysisTour: 'https://calendly.com/hostedhavensco/property-analysis-tour',
-  calendlyReviewMeeting: 'https://calendly.com/hostedhavens/property-review-meeting',
+  // Deliberately no property-review-meeting link: Megan uses it privately with
+  // new leads after their tour and asked that it not be published.
+  ownerCheckIn: 'https://calendly.com/hostedhavensco/owner-check-in',
   calendlyIntakeMeeting: 'https://calendly.com/hostedhavens/co-hosting-intake',
   serviceVideo: 'https://hostedhavens.co/training-video/',
   guestLounge: 'https://www.facebook.com/groups/hostedhavensguestlounge',

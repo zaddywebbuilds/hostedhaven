@@ -4,6 +4,7 @@ import Img from '../components/Img.astro';
 import Icon from '../components/Icon.astro';
 import FAQ from '../components/FAQ.astro';
 import PropertyCard from '../components/PropertyCard.astro';
+import ServiceScene from '../components/ServiceScene.astro';
 import { u, SITE } from '../lib/url';
 import { propertyImages, brandImage, coverImage } from '../lib/images';
 import { business, pricing, ownerTestimonials, guestReviews, links } from '../data/business';
@@ -89,7 +90,7 @@ const schema = [
           </div>
           <span class="eyebrow">San Antonio · Short &amp; Mid-Term Rental Co-Hosting</span>
           <h1 id="hero-title">Your Rental Should Earn More <em>Without Owning Your Time.</em></h1>
-          <p class="lead">Hosted Havens provides full-service Airbnb and short-term rental co-hosting in San Antonio, combining dynamic pricing, guest care, listing optimization, cleaning coordination, and hands-on property support.</p>
+          <p class="lead">Hosted Havens provides full-service Airbnb and short-term rental co-hosting in San Antonio, combining dynamic pricing, guest care, listing optimization, cleaning coordination, and maintenance managed end to end.</p>
           <div class="btn-row">
             <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">See If You Qualify <Icon name="arrow" /></a>
             <a class="btn btn-glass" href={u('/stays/')} data-track="stays_view">Explore Our Stays</a>
@@ -156,13 +157,15 @@ const schema = [
       </div>
       <div class="grid grid-3">
         {services.map((s, i) => (
-          <article class={`card3d reveal reveal-d${(i % 3) + 1}`}>
-            <span class={`icon-box ${i % 3 === 1 ? 'sage' : i % 3 === 2 ? 'gold' : ''}`}><Icon name={s.icon} /></span>
-            <h3>{s.title}</h3>
-            <p class="hook">{s.hook}</p>
-            <p>{s.text}</p>
-            <a class="text-link" href={u(s.href)}>{s.link} <Icon name="arrow" /></a>
-          </article>
+          <a class={`card3d svc-card reveal reveal-d${(i % 3) + 1}`} href={u(s.href)}>
+            <div class="svc-inner">
+              <ServiceScene kind={s.icon} />
+              <h3>{s.title}</h3>
+              <p class="hook">{s.hook}</p>
+              <p>{s.text}</p>
+              <span class="text-link">{s.link} <Icon name="arrow" /></span>
+            </div>
+          </a>
         ))}
       </div>
     </div>

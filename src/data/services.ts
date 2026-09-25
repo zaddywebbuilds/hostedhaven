@@ -24,7 +24,7 @@ export const services: Service[] = [
     metaDescription: 'Full-service Airbnb management and STR co-hosting in San Antonio. Hosted Havens handles pricing, guests, cleaning, listing optimization, and property care.',
     eyebrow: 'Owners · San Antonio, TX',
     h1: 'Airbnb & Short-Term Rental Management in <em>San Antonio</em>',
-    lead: 'Hands-off short-term rental management support for San Antonio owners: pricing, guests, cleaning, maintenance, and your listing, run by a local team that treats your home like its own.',
+    lead: 'Hands-off short-term rental management for San Antonio owners: pricing, guests, cleaning, maintenance, and your listing, run by a local team that treats your home like its own.',
     heroProperty: 'grass-hollow',
     widget: 'ops',
     intro: {
@@ -45,8 +45,8 @@ export const services: Service[] = [
     detail: {
       h2: 'What full-service management actually includes',
       paragraphs: [
-        'Some co-hosts handle only messaging. Full-service co-hosting means the operation is covered, from the first property assessment to the thank-you message after checkout.',
-        'Hosted Havens is a co-hosting company, not a traditional long-term property manager. Long-term managers typically collect rent and handle tenancy. Our focus is short and mid-term stays: hospitality, pricing, and property care that keep a rental performing.',
+        'Some co-hosts handle only messaging. Full-service management covers the whole operation, from the first property assessment to the thank-you message after checkout.',
+        'That means guest communication and check-in support, dynamic pricing and calendar strategy, listing creation and optimization, cleaning after every stay, routine inspections, maintenance coordination, restocking, and tax collection and remittance support.',
       ],
       bullets: [
         'Customized property assessment and estimate',
@@ -146,7 +146,7 @@ export const services: Service[] = [
       ],
     },
     pillars: [
-      { icon: 'plane', title: 'Military & PCS Moves', hook: 'Close to base, ready on arrival.', text: 'Furnished housing for service members and families moving in or out of San Antonio.' },
+      { icon: 'plane', title: 'Military & PCS Moves', hook: 'Home stocked · arrival inspected.', text: 'Furnished housing for service members and families moving in or out of San Antonio.' },
       { icon: 'briefcase', title: 'Traveling Professionals', hook: 'A home that works like an office.', text: 'Fast Wi-Fi, a real workspace, and a kitchen that handles weeknight cooking.' },
       { icon: 'home', title: 'Relocations & Transitions', hook: 'Somewhere to land between homes.', text: 'Comfortable, fully stocked stays for families in the middle of a move.' },
     ],
@@ -162,7 +162,7 @@ export const services: Service[] = [
         'Mid-stay housekeeping options',
         'Screening and clear house guidance for longer stays',
         'Maintenance coordination during the stay',
-        'Blended short- and mid-term calendar planning',
+        'Blended short and mid-term calendar planning',
       ],
     },
     faqs: [
