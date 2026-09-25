@@ -179,7 +179,7 @@ export const services: Service[] = [
     metaDescription: 'Airbnb revenue management in San Antonio: dynamic pricing, seasonality, minimum stays and gap-night strategy that keep your calendar and rates working.',
     eyebrow: 'Owners · Revenue Strategy',
     h1: 'Airbnb <em>Revenue Management</em> in San Antonio',
-    lead: 'Don’t leave your nightly rate on autopilot. Pricing that responds to demand, seasonality and booking patterns — with clear insight into how it’s performing.',
+    lead: "Don’t leave your nightly rate on autopilot. Pricing adjusts to demand, seasonality and booking patterns so your calendar and rate work together.",
     heroProperty: 'legislation-4br',
     widget: 'revenue',
     intro: {

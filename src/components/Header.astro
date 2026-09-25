@@ -13,6 +13,7 @@ const ownerLinks = [
   { href: '/airbnb-setup-san-antonio/', label: 'New Host Setup' },
   { href: '/pricing/', label: 'Pricing' },
   { href: '/results/', label: 'Results' },
+  { href: 'https://hostedhavens.co/training-video/', label: 'Owner Training Video' },
 ];
 const staysLinks = [
   { href: '/stays/', label: 'Browse All Stays' },
@@ -33,7 +34,9 @@ const isOn = (p: string) => (path.endsWith(p) ? 'page' : undefined);
         <button type="button" aria-expanded="false" aria-controls="owners-menu">Owners <Icon name="chevron" /></button>
         <div class="nav-menu" id="owners-menu">
           {ownerLinks.map((l) => (
-            <a href={u(l.href)} aria-current={isOn(l.href)}>{l.label}</a>
+            l.href.startsWith('http')
+              ? <a href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>
+              : <a href={u(l.href)} aria-current={isOn(l.href)}>{l.label}</a>
           ))}
         </div>
       </div>
@@ -67,7 +70,11 @@ const isOn = (p: string) => (path.endsWith(p) ? 'page' : undefined);
     </div>
     <div class="drawer-group">
       <h2>Own a property?</h2>
-      {ownerLinks.map((l) => (<a href={u(l.href)}>{l.label}<Icon name="arrow" class="small" /></a>))}
+      {ownerLinks.map((l) => (
+        l.href.startsWith('http')
+          ? <a href={l.href} target="_blank" rel="noopener noreferrer">{l.label}<Icon name="arrow" class="small" /></a>
+          : <a href={u(l.href)}>{l.label}<Icon name="arrow" class="small" /></a>
+      ))}
     </div>
     <div class="drawer-group">
       <h2>Need a stay?</h2>
@@ -83,7 +90,7 @@ const isOn = (p: string) => (path.endsWith(p) ? 'page' : undefined);
       <a href={u('/contact/')}>Contact <Icon name="arrow" /></a>
     </div>
     <div class="drawer-cta">
-      <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">Get My Free Property Analysis</a>
+      <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">See If You Qualify</a>
       <a class="btn btn-glass" href={`tel:${business.phone}`} data-track="phone_click">Call {business.displayPhone}</a>
     </div>
   </div>
