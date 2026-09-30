@@ -637,6 +637,7 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 /* All-photos grid. Declared after .lightbox button/img so it wins over them. */
 .lightbox .lb-grid-toggle { position: absolute; top: 1rem; left: 1rem; z-index: 3; width: auto; height: auto; border-radius: 999px; }
 .lightbox .lb-grid { position: absolute; inset: 0; overflow-y: auto; padding: 5rem 1rem 2rem; display: grid; gap: .6rem; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); align-content: start; }
+.lightbox .lb-grid[hidden] { display: none; }
 .lightbox .lb-grid button { position: static; width: 100%; height: auto; padding: 0; border: 0; background: none; cursor: pointer; border-radius: 10px; overflow: hidden; aspect-ratio: 3 / 2; display: block; }
 .lightbox .lb-grid img { width: 100%; height: 100%; max-height: none; object-fit: cover; display: block; border-radius: 0; transition: transform .4s var(--ease); }
 .lightbox .lb-grid button:hover img, .lightbox .lb-grid button:focus-visible img { transform: scale(1.06); }
