@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, claude/hosted-havens-revamp]
+    branches: [claude/hosted-havens-revamp]
   workflow_dispatch:
 
 permissions:
@@ -24,10 +24,10 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      # Preview lives at /<repo>/; canonical URLs still point to https://hostedhavens.co
+      # Preview at /hostedhaven/; canonical URLs point to https://hostedhavens.co
       - run: npm run build
         env:
-          BASE_PATH: ${{ github.ref_name != 'main' && format('/{0}', github.event.repository.name) || '' }}
+          BASE_PATH: /${{ github.event.repository.name }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
