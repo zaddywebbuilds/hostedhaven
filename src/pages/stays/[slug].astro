@@ -201,8 +201,10 @@ const schema = [{
       document.querySelectorAll('[data-gallery] a').forEach(function (a) {
         a.addEventListener('click', function (e) { e.preventDefault(); open(Number(a.dataset.index), false); });
       });
+      var more = document.querySelector('[data-gallery] .more');
+      if (more) more.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); open(5, false); });
       var viewAll = document.querySelector('[data-view-all]');
-      if (viewAll) viewAll.addEventListener('click', function () { open(0, true); });
+      if (viewAll) viewAll.addEventListener('click', function () { open(0, false); });
       toggle.addEventListener('click', function () { setGrid(grid.hidden); });
       grid.querySelectorAll('[data-grid-index]').forEach(function (b) {
         b.addEventListener('click', function () { show(Number(b.dataset.gridIndex)); setGrid(false); });
