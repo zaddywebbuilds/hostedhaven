@@ -66,9 +66,10 @@ export const services: Service[] = [
       ],
     },
     steps: [
-      { title: 'Property Analysis', text: 'We review your home, location, guest appeal, and goals.' },
-      { title: 'Strategy', text: 'You get a positioning plan, suggested upgrades and a tailored proposal.' },
-      { title: 'Launch or Optimize', text: 'Photography, listing, pricing, and guest systems go live.' },
+      { title: 'Property Intake', text: 'Share your property, your setup, and your goals in about two minutes.' },
+      { title: 'Property Tour', text: 'A comprehensive onsite visit and detailed analysis report.' },
+      { title: 'Strategy', text: 'You get a positioning plan, suggested upgrades, and the right rental strategy.' },
+      { title: 'Launch & Optimize', text: 'Photography, listing, pricing, systems, and guest preparation.' },
       { title: 'Operate', text: 'Guests, cleaning, maintenance, and the calendar are coordinated.' },
       { title: 'Improve', text: 'Pricing, presentation, and reviews keep getting refined.' },
     ],
