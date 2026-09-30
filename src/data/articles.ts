@@ -1,5 +1,9 @@
 // Owner resources migrated from hostedhavens.co/article/*, proofread, restructured,
 // and stripped of unverified statistics. Original URLs are mapped in redirects.md.
+// September 2026 posts are split across articles-sep-2026.ts and articles-sep-2026b.ts
+// and merged below to keep this file manageable.
+import { articlesSep2026 } from './articles-sep-2026';
+import { articlesSep2026b } from './articles-sep-2026b';
 
 export type Article = {
   slug: string;
@@ -187,6 +191,8 @@ export const articles: Article[] = [
 <h2>What this means for owners</h2>
 <p>Adapting to these preferences helps a property compete. Staying current takes time and expertise, which is where a full-service co-host helps, from listing and pricing strategy to amenities and guest experience.</p>`,
   },
+  ...articlesSep2026,
+  ...articlesSep2026b,
 ];
 
 export const getArticle = (slug: string) => articles.find((a) => a.slug === slug);
