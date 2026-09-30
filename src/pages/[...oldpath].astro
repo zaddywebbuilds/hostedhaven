@@ -1,0 +1,29 @@
+---
+import { redirects } from '../data/redirects';
+import { u, canonical } from '../lib/url';
+
+export function getStaticPaths() {
+  return redirects.map(({ from, to }) => ({
+    params: { oldpath: from.replace(/^\/+|\/+$/g, '') },
+    props: { to },
+  }));
+}
+
+const { to } = Astro.props;
+const target = u(to);
+const canonicalUrl = canonical(to);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Page moved</title>
+    <link rel="canonical" href={canonicalUrl} />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <script is:inline define:vars={{ target }}>window.location.replace(target);</script>
+  </head>
+  <body>
+    <p>This page has moved to <a href={target}>{canonicalUrl}</a>.</p>
+  </body>
+</html>

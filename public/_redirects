@@ -1,0 +1,20 @@
+# Real 301s for Netlify or Cloudflare Pages. GitHub Pages ignores this file,
+# which is why src/pages/[...oldpath].astro also emits HTML redirect stubs.
+# First match wins, so the exceptions must stay above the wildcards.
+
+/article/why-book-direct/                                             /why-book-direct/                   301
+/article/get-airbnb-management-in-san-antonio/                        /airbnb-management-san-antonio/     301
+/article/san-antonio-realtors-earn-referral-income-without-managing-rentals/  /resources/                 301
+
+/bespoke-san-antonio-str-management-agency/   /airbnb-management-san-antonio/   301
+/full-service-str-co-hosting/                 /airbnb-co-host-san-antonio/      301
+/contact-hosted-havens/                       /contact/                         301
+/insights-and-updates/                        /resources/                       301
+/property-intake-form/                        /property-analysis/               301
+/properties-search-results/                   /stays/                           301
+/privacy-policy/                              /privacy/                         301
+/terms-conditions/                            /terms/                           301
+/frequently-asked-questions/                  /airbnb-management-san-antonio/   301
+
+/article/*    /resources/:splat   301
+/property/*   /stays/:splat       301

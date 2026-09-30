@@ -12,6 +12,7 @@ export const GET: APIRoute = () => {
     ...services.map((s) => ({ path: `/${s.slug}/`, priority: s.slug === 'airbnb-management-san-antonio' ? '0.95' : '0.8' })),
     { path: '/pricing/', priority: '0.8' },
     { path: '/property-analysis/', priority: '0.9' },
+    { path: '/training-video/', priority: '0.8' },
     { path: '/results/', priority: '0.7' },
     { path: '/stays/', priority: '0.9' },
     { path: '/monthly-rentals-san-antonio/', priority: '0.7' },
