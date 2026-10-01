@@ -91,6 +91,15 @@ const showcases = [
         <blockquote>{ownerTestimonials[0].quote}</blockquote>
         <div class="quote-by"><span class="avatar-initial">{ownerTestimonials[0].name[0]}</span><div><strong>{ownerTestimonials[0].name}</strong><small>{ownerTestimonials[0].role}</small></div></div>
       </div>
+      <!-- Every page renders ownerTestimonials[0], so the rest only surface here. -->
+      <div class="grid" style="gap:1.2rem;grid-column:1/-1;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))">
+        {ownerTestimonials.slice(1).map((t, i) => (
+          <div class={`quote-card reveal reveal-d${(i % 3) + 1}`}>
+            <blockquote>{t.quote}</blockquote>
+            <div class="quote-by"><span class="avatar-initial">{t.name[0]}</span><div><strong>{t.name}</strong><small>{t.role}</small></div></div>
+          </div>
+        ))}
+      </div>
       {/* bg-dark only. .dark-card is a translucent glass layer for use INSIDE an
           already-dark section, and it is declared later in global.css, so pairing
           the two here overrode the dark background and left cream text on cream. */}

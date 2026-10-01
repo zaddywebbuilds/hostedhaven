@@ -107,10 +107,24 @@ export const ownerTestimonials = [
     name: 'Lea',
     role: 'Property owner',
   },
-  { quote: 'Thanks, Megan. I appreciate our partnership and your professionalism.', name: 'Kyle', role: 'Home owner and Airbnb host' },
+  // Google review, posted by Kyle McAlpin. Replaces his earlier one-line quote,
+  // which was the same person, so he is not listed twice.
+  {
+    quote: 'I’ve worked with Hosted Havens for a long time now and found them highly professional and effective. I’d strongly recommend them for hands-off property management.',
+    name: 'Kyle',
+    role: 'Home owner and Airbnb host',
+  },
+  // Google review, posted by Patrick Stefl.
+  {
+    quote: 'Hosted Havens has been a great property management organization to work with. They were always very responsive and proactive in handling issues, whether they be maintenance or tenant related. I highly recommend them.',
+    name: 'Patrick',
+    role: 'Property owner',
+  },
 ];
 
 export const guestReviews = [
+  // Google review, posted by Michael Place.
+  { quote: 'Fabulous accommodations in a perfect location in San Antonio! Hosts were always so hospitable! The units are spotless!', name: 'Michael', from: 'Google review' },
   { quote: 'This was in a convenient location for our visit. Easy access to Loop 1604. Megan is very friendly and helpful… and quick… in her interactions. Would definitely stay here again if needed.', name: 'Melanie', from: 'Atlanta, GA' },
   { quote: 'Had a fantastic stay at Megan’s Airbnb! The place was clean, cozy, and pet-friendly, which was a huge plus. Megan was a great host, responsive and thoughtful. Highly recommend!', name: 'Chance', from: 'Wichita, KS' },
   { quote: 'The casita was in a convenient location, comfortable with modern updates inside and outside. We enjoyed our stay over the Labor Day weekend!', name: 'Abel', from: 'Lubbock, TX' },
