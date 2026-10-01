@@ -98,7 +98,15 @@ export const businessStats = {
 
 export const resultsDisclaimer = 'Results vary by property, location, seasonality, amenities, pricing, and market conditions.';
 
+// Quotes are reproduced verbatim from the reviewer's own words. Do not tidy,
+// shorten, or paraphrase them: they are attributed to real people.
 export const ownerTestimonials = [
+  // Google review, Hosted Havens LLC business profile, posted March 2026.
+  {
+    quote: 'I am so grateful to have found Hosted Havens as a property owner. I had been considering selling my property because I just couldn’t afford it with no rentals. Hosted Havens have turned around my rental from a complete non-earner to having the best 3 months we have had in 2 years of it being a short term rental. Megan really talks to you and listens and works with you to support your needs. I wanted a property manager that takes care of everything and Hosted Havens is that and I couldn’t be happier.',
+    name: 'Lea',
+    role: 'Property owner',
+  },
   { quote: 'Thanks, Megan. I appreciate our partnership and your professionalism.', name: 'Kyle', role: 'Home owner and Airbnb host' },
 ];
 
