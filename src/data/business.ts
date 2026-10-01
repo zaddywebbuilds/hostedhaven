@@ -27,7 +27,7 @@ export const links = {
   // new leads after their tour and asked that it not be published.
   ownerCheckIn: 'https://calendly.com/hostedhavensco/owner-check-in',
   calendlyIntakeMeeting: 'https://calendly.com/hostedhavens/co-hosting-intake',
-  serviceVideo: '/training-video/',
+  serviceVideo: '/service-video/',
   guestLounge: 'https://www.facebook.com/groups/hostedhavensguestlounge',
   airbnbProfile: 'https://www.airbnb.com/p/hostedhavensco',
   ownerSignIn: 'https://hostedhavens.co/sign-in',
@@ -45,7 +45,7 @@ export const links = {
 export const mailchimp = {
   dc: 'us11',
   u: '6eaf2d165e149563724adbda3',
-  audienceId: '',
+  audienceId: '7b29e79066',
 };
 
 export const socials = [

@@ -26,6 +26,9 @@ const carriedOverArticles = [
   'from-one-house-to-hosted-havens-how-a-missed-move-abroad-sparked-my-dream-business',
   'san-antonio-homeowners-dont-miss-out-on-the-90-billion-airbnb-boom',
   'the-future-of-getaways-top-vacation-rental-trends-for-2025-and-what-they-mean-for-san-antonio',
+  // Carried over 2026-10-01 after Megan confirmed both are live and should stay.
+  'get-airbnb-management-in-san-antonio',
+  'san-antonio-realtors-earn-referral-income-without-managing-rentals',
 ];
 
 export const redirects: Redirect[] = [
@@ -45,11 +48,11 @@ export const redirects: Redirect[] = [
   // Articles that moved from /article/ to /resources/
   ...carriedOverArticles.map((slug) => ({ from: `/article/${slug}/`, to: `/resources/${slug}/` })),
 
-  // Articles that became pages, or are not carried over yet
+  // Articles that became pages
   { from: '/article/why-book-direct/', to: '/why-book-direct/' },
-  { from: '/article/get-airbnb-management-in-san-antonio/', to: '/airbnb-management-san-antonio/' },
-  // Not yet rebuilt: point at the hub until Megan confirms she wants it back.
-  { from: '/article/san-antonio-realtors-earn-referral-income-without-managing-rentals/', to: '/resources/' },
+
+  // Renamed at Megan's request (2026-10-01): "service video" rather than "training video".
+  { from: '/training-video/', to: '/service-video/' },
 
   // Properties moved from /property/ to /stays/
   ...propertySlugs.map((slug) => ({ from: `/property/${slug}/`, to: `/stays/${slug}/` })),

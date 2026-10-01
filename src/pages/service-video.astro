@@ -5,15 +5,13 @@ import OwnerCTA from '../components/OwnerCTA.astro';
 import { u } from '../lib/url';
 import { links, business } from '../data/business';
 
-// Rebuilt from the page of the same name on the previous site so the address
-// keeps working after launch. The nav and several pages link straight to it.
 const videoId = 'ualldyV06lc';
-const crumbs = [{ name: 'Home', path: '/' }, { name: 'Owners', path: '/airbnb-management-san-antonio/' }, { name: 'Service Video', path: '/training-video/' }];
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Owners', path: '/airbnb-management-san-antonio/' }, { name: 'Service Video', path: '/service-video/' }];
 ---
 <BaseLayout
   title="Service Video for San Antonio Owners | Hosted Havens"
   description="Watch a short message from Megan, founder of Hosted Havens, explaining how full-service co-hosting works for San Antonio property owners."
-  path="/training-video/"
+  path="/service-video/"
   breadcrumbs={crumbs}
 >
   <section class="section-tight" style="padding-top:2rem">

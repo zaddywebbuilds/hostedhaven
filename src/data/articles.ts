@@ -4,6 +4,7 @@
 // and merged below to keep this file manageable.
 import { articlesSep2026 } from './articles-sep-2026';
 import { articlesSep2026b } from './articles-sep-2026b';
+import { articlesCarriedOver } from './articles-carried-over';
 
 export type Article = {
   slug: string;
@@ -191,6 +192,7 @@ export const articles: Article[] = [
 <h2>What this means for owners</h2>
 <p>Adapting to these preferences helps a property compete. Staying current takes time and expertise, which is where a full-service co-host helps, from listing and pricing strategy to amenities and guest experience.</p>`,
   },
+  ...articlesCarriedOver,
   ...articlesSep2026,
   ...articlesSep2026b,
 ];
