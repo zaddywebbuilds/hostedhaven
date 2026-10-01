@@ -5,6 +5,11 @@ on:
     branches: [main, claude/hosted-havens-revamp]
   workflow_dispatch:
 
+env:
+  # 'false' while the review site is served from <owner>.github.io/<repo>/.
+  # Flip to 'true' only when hostedhavens.co DNS points at GitHub Pages.
+  LIVE_ON_CUSTOM_DOMAIN: 'false'
+
 permissions:
   contents: read
   pages: write
@@ -24,10 +29,20 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      # Preview lives at /<repo>/; canonical URLs still point to https://hostedhavens.co
+      # There is only ONE GitHub Pages site for this repo, and it is served at
+      # https://<owner>.github.io/<repo>/ until hostedhavens.co DNS points here.
+      # So every branch must build for that subpath. Building `main` for the bare
+      # root (as this previously did) shipped a bundle whose asset URLs all 404,
+      # which rendered the site completely unstyled for anyone reviewing it.
+      #
+      # AT LAUNCH: once DNS for hostedhavens.co points at GitHub Pages, set
+      # LIVE_ON_CUSTOM_DOMAIN to 'true' below. That is the only change needed.
+      # Canonical URLs already point at https://hostedhavens.co either way.
       - run: npm run build
         env:
-          BASE_PATH: ${{ github.ref_name != 'main' && format('/{0}', github.event.repository.name) || '' }}
+          # Note the inverted condition: in Actions, an empty string is falsy, so
+          # `cond && '' || X` always yields X. The non-empty branch must sit on &&.
+          BASE_PATH: ${{ env.LIVE_ON_CUSTOM_DOMAIN != 'true' && format('/{0}', github.event.repository.name) || '' }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
