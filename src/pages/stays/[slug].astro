@@ -128,8 +128,26 @@ const schema = [{
           <a class="btn btn-primary" href="#availability" data-track="availability_search">Check Availability <Icon name="arrow" /></a>
           <a class="btn btn-glass" href={p.bookingUrl} target="_blank" rel="noopener noreferrer" data-track="direct_booking_click">Book Direct</a>
         </div>
-        <p class="small muted" style="margin:1rem 0 0">Questions? <a class="text-link" href={`tel:${business.phone}`} data-track="phone_click">{business.displayPhone}</a></p>
+        
       </aside>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="reveal">
+        <h2>Where you will be</h2>
+        <p class="muted" style="margin-top:-.4rem">{[p.area, `${p.city}, TX`].filter(Boolean).join(' · ')}</p>
+        <div class="map-embed">
+          <iframe
+            title={`Map of the ${p.city} area where ${p.name} is located`}
+            src={`https://maps.google.com/maps?q=${encodeURIComponent(p.mapQuery || `${p.city}, TX`)}&z=14&output=embed`}
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <p class="small muted" style="margin-top:.7rem">Map shows the general area. The exact address is shared after your booking is confirmed.</p>
+      </div>
     </div>
   </section>
 
@@ -142,20 +160,6 @@ const schema = [{
 
   <section class="section-tight">
     <div class="container">
-      <div class="reveal" style="margin-bottom:2rem">
-        <h2>Where you will be</h2>
-        <p class="muted" style="margin-top:-.4rem">{[p.area, `${p.city}, TX`].filter(Boolean).join(' · ')}</p>
-        <div class="map-embed">
-          <iframe
-            title={`Map of the ${p.city} area where ${p.name} is located`}
-            src={`https://maps.google.com/maps?q=${encodeURIComponent(p.mapQuery || `${p.city}, TX`)}&z=12&output=embed`}
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-        <p class="small muted" style="margin-top:.7rem">Map shows the general area. The exact address is shared after your booking is confirmed.</p>
-      </div>
-
       <div class="cta-band bg-warm reveal" style="border:1px solid #fff;box-shadow:var(--shadow-glass)">
         <span class="eyebrow">Book direct</span>
         <h2>Your San Antonio Stay <em>Starts Here.</em></h2>

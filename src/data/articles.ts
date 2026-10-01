@@ -143,7 +143,7 @@ export const articles: Article[] = [
     cluster: 'San Antonio',
     published: '2025-06-26',
     heroProperty: 'the-harding-place',
-    cta: { label: 'Get a Free Property Analysis', href: '/property-analysis/' },
+    cta: { label: 'Submit Your Property Details', href: '/property-analysis/' },
     body: `
 <p>Airbnb has reported that guest spending in 2024 contributed around $90 billion to the U.S. economy, with a large share spent close to where guests stay. For San Antonio homeowners, that’s a signal worth paying attention to: travelers are looking for homes, not just hotel rooms, and much of their spending supports the neighborhoods they stay in.</p>
 <h2>Why San Antonio homeowners are paying attention</h2>

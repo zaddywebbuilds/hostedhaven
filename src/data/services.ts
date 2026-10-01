@@ -78,7 +78,7 @@ export const services: Service[] = [
       { q: 'How much does Airbnb management cost with Hosted Havens?', a: 'The typical ongoing fee is 19%–24% per booking, with a one-time listing setup fee of $150–$500. Final pricing depends on your property type, condition, service requirements, and agreed scope. See the <a href="/pricing/">pricing page</a> for details.' },
       { q: 'Can I still use my property for personal stays?', a: 'Yes. It is your property. With access to the hosting tools, you can block dates on the calendar and use your home whenever you choose.' },
       { q: 'What is the minimum contract length?', a: 'Contracts run a minimum of 4–12 months depending on property type and service scope. This gives both sides the time needed to build a strong, consistent operation.' },
-      { q: 'How much can my property earn?', a: 'Every home is different, so there is no honest single number. A free property analysis looks at your home, location, amenities, and comparable rentals to identify its potential. Results vary by property, seasonality, and market conditions.' },
+      { q: 'How much can my property earn?', a: 'Every home is different, so there is no honest single number. A property analysis tour looks at your home, location, amenities, and comparable rentals to identify its potential. Results vary by property, seasonality, and market conditions.' },
     ],
     related: ['airbnb-co-host-san-antonio', 'airbnb-revenue-management-san-antonio', 'str-property-care-san-antonio'],
   },

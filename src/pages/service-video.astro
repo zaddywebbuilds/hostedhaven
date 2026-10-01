@@ -41,7 +41,7 @@ const crumbs = [{ name: 'Home', path: '/' }, { name: 'Owners', path: '/airbnb-ma
       <ul class="ticks" style="margin-top:1.6rem">
         <li><a class="text-link" href={u('/pricing/')}>How pricing works</a></li>
         <li><a class="text-link" href={u('/results/')}>Real properties we operate</a></li>
-        <li><a class="text-link" href={`tel:${business.phone}`} data-track="phone_click">Prefer to talk? Call {business.displayPhone}</a></li>
+        <li><a class="text-link" href={`mailto:${business.ownerEmail}`} data-track="owner_email_click">Prefer to email? {business.ownerEmail}</a></li>
       </ul>
     </div>
   </section>

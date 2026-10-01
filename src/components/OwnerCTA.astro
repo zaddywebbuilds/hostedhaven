@@ -1,11 +1,11 @@
 ---
 import Icon from './Icon.astro';
 import { u } from '../lib/url';
-import { business } from '../data/business';
+import { links } from '../data/business';
 interface Props { title?: string; text?: string; }
 const {
   title = 'Own the Property. <em>Let Us Handle the Hosting.</em>',
-  text = 'Tell us about your San Antonio rental and we’ll help you see where stronger pricing, presentation and operations could improve its performance.',
+  text = 'Start with the property intake. Then schedule your property analysis tour when you are ready.',
 } = Astro.props;
 ---
 <section class="section-tight">
@@ -13,12 +13,12 @@ const {
     <div class="cta-band bg-dark reveal">
       <div class="ghost-panels" aria-hidden="true"><span></span><span></span><span></span></div>
       <div style="position:relative">
-        <span class="eyebrow">Free property analysis</span>
+        <span class="eyebrow">Property analysis tour</span>
         <h2 set:html={title} />
         <p class="lead">{text}</p>
         <div class="btn-row">
           <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">See If You Qualify <Icon name="arrow" /></a>
-          <a class="btn btn-glass" href={`tel:${business.phone}`} data-track="phone_click"><Icon name="phone" /> Call {business.displayPhone}</a>
+          <a class="btn btn-glass" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Book a Property Analysis Tour</a>
         </div>
       </div>
     </div>

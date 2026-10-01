@@ -72,7 +72,7 @@ const schema = [
 ---
 <BaseLayout
   title="San Antonio Airbnb Management & Vacation Rentals | Hosted Havens"
-  description="Full-service Airbnb and short-term rental co-hosting in San Antonio, plus professionally managed stays you can book direct. Get a free property analysis."
+  description="Full-service Airbnb and short-term rental co-hosting in San Antonio, plus professionally managed stays you can book direct. Start with the 2-minute property intake."
   path="/"
   schema={schema}
 >
@@ -205,7 +205,7 @@ const schema = [
         <p class="lead">Strong rentals aren’t built on one tactic. They come from consistent operations, honest listings and decisions made with the market in view.</p>
       </div>
       <div class="grid grid-4">
-        <div class="dark-card reveal reveal-d1"><div class="dark-num">{pricing.managementFee}</div><h3>Published fee</h3><p>{pricing.managementFeeUnit}. No surprises, 4–12 month contracts.</p></div>
+        <div class="dark-card reveal reveal-d1"><div class="dark-num">{pricing.managementFee}</div><h3>Published fee</h3><p>{pricing.managementFeeUnit}. 4–12 month contracts.</p></div>
         <div class="dark-card reveal reveal-d2"><div class="dark-num">7 days</div><h3>Owner support</h3><p>A support team you can reach every day of the week.</p></div>
         <div class="dark-card reveal reveal-d3"><div class="dark-num">{properties.length}</div><h3>Stays listed</h3><p>Homes, studios, and rooms currently bookable direct on our site.</p></div>
         <div class="dark-card reveal reveal-d4"><div class="dark-num">Local</div><h3>San Antonio team</h3><p>Guest services, maintenance coordination, and photography close to home.</p></div>
@@ -367,7 +367,7 @@ const schema = [
             <h2>Looking for Somewhere to Stay?</h2>
             <p class="lead">Explore professionally managed short and mid-term rentals across San Antonio and surrounding communities.</p>
             <div class="btn-row">
-              <a class="btn btn-primary" href={u('/stays/')} data-track="stays_view">Explore Hosted Havens <Icon name="arrow" /></a>
+              <a class="btn btn-primary" href={u('/stays/')} data-track="stays_view">Explore Our Homes <Icon name="arrow" /></a>
               <a class="btn btn-glass" href={u('/why-book-direct/')}>Why Book Direct</a>
             </div>
           </div>
@@ -410,12 +410,12 @@ const schema = [
       <div class="cta-band bg-dark reveal">
         <div class="ghost-panels" aria-hidden="true"><span></span><span></span><span></span></div>
         <div style="position:relative">
-          <span class="eyebrow">Free property analysis</span>
+          <span class="eyebrow">Property analysis tour</span>
           <h2>Your Property Can Work Hard <em>Without You Working Around the Clock.</em></h2>
-          <p class="lead">Tell us about your San Antonio rental and we’ll help you identify where stronger pricing, presentation and operations could improve its performance.</p>
+          <p class="lead">Start with the property intake. Then schedule your property analysis tour when you are ready.</p>
           <div class="btn-row">
             <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">See If You Qualify <Icon name="arrow" /></a>
-            <a class="btn btn-glass" href={`tel:${business.phone}`} data-track="phone_click"><Icon name="phone" /> Call {business.displayPhone}</a>
+            <a class="btn btn-glass" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Book a Property Analysis Tour</a>
           </div>
         </div>
       </div>
