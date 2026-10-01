@@ -21,6 +21,8 @@ const citySlug = {
   'ccp-1': 'converse', 'ccp-2': 'converse', 'ccp-3': 'converse', 'ccp-4': 'converse', 'ccp-5': 'converse',
   's-park-1a': 'san-antonio', 's-park-1b': 'san-antonio', 's-park-1c': 'san-antonio', 's-park-1d': 'san-antonio',
   's-park-2a': 'san-antonio', 's-park-2b': 'san-antonio', 's-park-2c': 'san-antonio', 's-park-2d': 'san-antonio',
+  'quiet-fox': 'san-antonio', 'retama-hollow': 'live-oak', 'santa-anna-main': 'san-antonio',
+  'santa-anna-casita': 'san-antonio', 'evergreen-1': 'san-antonio', 'evergreen-2': 'san-antonio',
 };
 
 async function exists(p) { try { await fs.access(p); return true; } catch { return false; } }

@@ -2507,6 +2507,690 @@
      1280
     ]
    }
+  ],
+  "quiet-fox": [
+   {
+    "base": "properties/quiet-fox/quiet-fox-san-antonio-tx-rental-01",
+    "ratio": 0.5628,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/quiet-fox/quiet-fox-san-antonio-tx-rental-02",
+    "ratio": 0.5628,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/quiet-fox/quiet-fox-san-antonio-tx-rental-03",
+    "ratio": 0.5628,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/quiet-fox/quiet-fox-san-antonio-tx-rental-04",
+    "ratio": 0.5636,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/quiet-fox/quiet-fox-san-antonio-tx-rental-05",
+    "ratio": 0.5629,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/quiet-fox/quiet-fox-san-antonio-tx-rental-06",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/quiet-fox/quiet-fox-san-antonio-tx-rental-07",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/quiet-fox/quiet-fox-san-antonio-tx-rental-08",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/quiet-fox/quiet-fox-san-antonio-tx-rental-09",
+    "ratio": 0.563,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/quiet-fox/quiet-fox-san-antonio-tx-rental-10",
+    "ratio": 0.5628,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/quiet-fox/quiet-fox-san-antonio-tx-rental-11",
+    "ratio": 0.5629,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/quiet-fox/quiet-fox-san-antonio-tx-rental-12",
+    "ratio": 0.5629,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/quiet-fox/quiet-fox-san-antonio-tx-rental-13",
+    "ratio": 0.5628,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/quiet-fox/quiet-fox-san-antonio-tx-rental-14",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "retama-hollow": [
+   {
+    "base": "properties/retama-hollow/retama-hollow-live-oak-tx-rental-01",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/retama-hollow/retama-hollow-live-oak-tx-rental-02",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/retama-hollow/retama-hollow-live-oak-tx-rental-03",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/retama-hollow/retama-hollow-live-oak-tx-rental-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/retama-hollow/retama-hollow-live-oak-tx-rental-05",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/retama-hollow/retama-hollow-live-oak-tx-rental-06",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/retama-hollow/retama-hollow-live-oak-tx-rental-07",
+    "ratio": 1.3333,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/retama-hollow/retama-hollow-live-oak-tx-rental-08",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/retama-hollow/retama-hollow-live-oak-tx-rental-09",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/retama-hollow/retama-hollow-live-oak-tx-rental-10",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/retama-hollow/retama-hollow-live-oak-tx-rental-11",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/retama-hollow/retama-hollow-live-oak-tx-rental-12",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/retama-hollow/retama-hollow-live-oak-tx-rental-13",
+    "ratio": 0.749,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/retama-hollow/retama-hollow-live-oak-tx-rental-14",
+    "ratio": 1.4015,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "santa-anna-main": [
+   {
+    "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-05",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-07",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-08",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-10",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-11",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-12",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-13",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-14",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "santa-anna-casita": [
+   {
+    "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-01",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-02",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-03",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-04",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-05",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-06",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-07",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-08",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-09",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-10",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-11",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-12",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-13",
+    "ratio": 0.6667,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-14",
+    "ratio": 1.5,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "evergreen-1": [
+   {
+    "base": "properties/evergreen-1/evergreen-1-san-antonio-tx-rental-01",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-1/evergreen-1-san-antonio-tx-rental-02",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-1/evergreen-1-san-antonio-tx-rental-03",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-1/evergreen-1-san-antonio-tx-rental-04",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-1/evergreen-1-san-antonio-tx-rental-05",
+    "ratio": 0.7491,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-1/evergreen-1-san-antonio-tx-rental-06",
+    "ratio": 0.749,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-1/evergreen-1-san-antonio-tx-rental-07",
+    "ratio": 0.749,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-1/evergreen-1-san-antonio-tx-rental-08",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-1/evergreen-1-san-antonio-tx-rental-09",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-1/evergreen-1-san-antonio-tx-rental-10",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-1/evergreen-1-san-antonio-tx-rental-11",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-1/evergreen-1-san-antonio-tx-rental-12",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-1/evergreen-1-san-antonio-tx-rental-13",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-1/evergreen-1-san-antonio-tx-rental-14",
+    "ratio": 0.749,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "evergreen-2": [
+   {
+    "base": "properties/evergreen-2/evergreen-2-san-antonio-tx-rental-01",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-2/evergreen-2-san-antonio-tx-rental-02",
+    "ratio": 0.7491,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-2/evergreen-2-san-antonio-tx-rental-03",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-2/evergreen-2-san-antonio-tx-rental-04",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-2/evergreen-2-san-antonio-tx-rental-05",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-2/evergreen-2-san-antonio-tx-rental-06",
+    "ratio": 0.749,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-2/evergreen-2-san-antonio-tx-rental-07",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-2/evergreen-2-san-antonio-tx-rental-08",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-2/evergreen-2-san-antonio-tx-rental-09",
+    "ratio": 1.5,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-2/evergreen-2-san-antonio-tx-rental-10",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-2/evergreen-2-san-antonio-tx-rental-11",
+    "ratio": 1.3333,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-2/evergreen-2-san-antonio-tx-rental-12",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-2/evergreen-2-san-antonio-tx-rental-13",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/evergreen-2/evergreen-2-san-antonio-tx-rental-14",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   }
   ]
  },
  "brand": {

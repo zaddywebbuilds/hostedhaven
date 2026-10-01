@@ -9,7 +9,7 @@ export type Property = {
   area?: string;
   /** Neighbourhood-level map query. Never an exact address: these are occupied rentals. */
   mapQuery?: string;
-  type: 'House' | 'Studio' | 'Private room';
+  type: 'House' | 'Studio' | 'Private room' | 'Casita' | 'Apartment';
   guests: number;
   bedrooms: number;
   beds: number;
@@ -245,6 +245,87 @@ export const properties: Property[] = [
     summary: 'A newly renovated second-floor studio for solo travelers or couples, fast Wi-Fi for work and the park just across the street.',
     highlights: ['Second-floor studio', 'Newly renovated', 'Remote-work ready Wi-Fi', 'Pet-free unit', 'Free parking'],
     bookingUrl: `${H1}1713984`,
+  },
+
+  // Added 2026-10-01. These six were live and taking bookings in Hospitable but
+  // had never been published on the site. Facts below are pulled from the
+  // Hospitable API (capacity, bed configuration, amenities, check-in times).
+  // mapQuery stays neighbourhood-level: the API returns exact street addresses
+  // and these are occupied rentals.
+  {
+    slug: 'quiet-fox', name: 'Quiet Fox', title: 'Single-Level 4BR with Gamer Room · Pets OK · Fire Pit',
+    city: 'San Antonio', area: 'Far West Side', mapQuery: 'Far West Side, San Antonio, TX',
+    type: 'House', guests: 8, bedrooms: 4, beds: 4, baths: '2',
+    petFriendly: true, extendedStay: true, workspace: true, familyFriendly: true,
+    summary: 'An open-concept, single-level home built around an 81-inch smart TV and a kitchen island, with four bedrooms including a dedicated gamer room, and a fire pit out back. Families and their pets are both welcome.',
+    highlights: ['81-inch smart TV', 'Dedicated gamer room', 'Large primary suite', 'Patio with fire pit', 'Pets welcome'],
+    sleeping: ['Bedroom 1: King bed', 'Bedroom 2: Queen bed', 'Bedroom 3: Queen bed', 'Bedroom 4: Full bed'],
+    amenities: ['Kitchen island with full appliances', 'Dishwasher', 'In-unit washer & dryer', 'EV charger', 'Dedicated workspace', 'Central air conditioning', 'Free on-site parking'],
+    bookingUrl: `${H1}2355845`,
+  },
+  {
+    slug: 'retama-hollow', name: 'Retama Hollow', title: 'Family Stay Near Live Oak Park · Patio & Game Room',
+    city: 'Live Oak', mapQuery: 'Live Oak, TX',
+    type: 'House', guests: 11, bedrooms: 4, beds: 6, baths: '2.5',
+    petFriendly: true, extendedStay: true, workspace: true, familyFriendly: true,
+    summary: 'A spacious four-bedroom retreat near Live Oak Park, designed for comfort, connection, and large groups. Six beds across four bedrooms sleep up to eleven, with a game room, a covered patio, and a garden.',
+    highlights: ['Sleeps up to 11', 'Game room', 'Covered patio & garden', 'High chair on site', 'Pets welcome'],
+    sleeping: ['Bedroom 1: King bed + queen bed', 'Bedroom 2: Queen bed', 'Bedroom 3: Queen bed', 'Bedroom 4: Full bed + twin bed'],
+    amenities: ['Full kitchen with dishwasher', 'In-unit washer & dryer', 'High chair', 'Dedicated workspace', 'Central air conditioning', 'Free on-site parking'],
+    distances: ['Walkable to Live Oak Park'],
+    bookingUrl: `${H1}2341389`,
+  },
+  {
+    slug: 'santa-anna-main', name: 'Santa Anna', title: 'Charming 3BR/2BA Home 10 Minutes from Downtown',
+    city: 'San Antonio', area: 'Los Angeles Heights', mapQuery: 'Los Angeles Heights, San Antonio, TX',
+    type: 'House', guests: 6, bedrooms: 3, beds: 3, baths: '2',
+    petFriendly: false, extendedStay: true, workspace: true, familyFriendly: true,
+    group: 'Santa Anna',
+    summary: 'An updated home on a large corner lot in Los Angeles Heights, an established family neighbourhood close to everything San Antonio has to offer.',
+    highlights: ['Large corner lot', 'Established family neighbourhood', 'Three bedrooms, two full baths', 'Dedicated workspace', 'Free on-site parking'],
+    sleeping: ['Three bedrooms', 'Sleeps up to 6 guests'],
+    amenities: ['Full kitchen with dishwasher', 'In-unit washer & dryer', 'Smart TV', 'Garden', 'Central air conditioning', 'Free on-site parking'],
+    distances: ['Minutes from San Antonio International Airport', 'Close to the Pearl, the Medical Center, and North Star Mall'],
+    bookingUrl: `${H1}2353493`,
+  },
+  {
+    slug: 'santa-anna-casita', name: 'Santa Anna Casita', title: 'Cozy Renovated Casita with Patio · Central Location',
+    city: 'San Antonio', area: 'Los Angeles Heights', mapQuery: 'Los Angeles Heights, San Antonio, TX',
+    type: 'Casita', guests: 2, bedrooms: 1, beds: 1, baths: '1',
+    petFriendly: false, extendedStay: true, workspace: true, familyFriendly: false,
+    group: 'Santa Anna',
+    summary: 'A newly renovated one-bedroom casita offering comfort, space, and a central location, with modern touches throughout and a private patio.',
+    highlights: ['Newly renovated', 'Private patio & garden', 'Central location', 'Dedicated workspace', 'Free on-site parking'],
+    sleeping: ['Queen bed'],
+    amenities: ['Smart TV', 'Free Wi-Fi', 'Dedicated workspace', 'Private patio', 'Central air conditioning', 'Free on-site parking'],
+    distances: ['Under 15 minutes to the Airport, the River Walk, the Alamo, and the Pearl District', 'Under 15 minutes to Six Flags Fiesta Texas and Splashtown'],
+    bookingUrl: `${H1}2353492`,
+  },
+  {
+    slug: 'evergreen-1', name: 'Evergreen Loft', title: 'Chic 1BR Loft with Backyard Near the Pearl & Downtown',
+    city: 'San Antonio', area: 'Tobin Hill', mapQuery: 'Tobin Hill, San Antonio, TX',
+    type: 'Casita', guests: 2, bedrooms: 1, beds: 1, baths: '1',
+    petFriendly: false, extendedStay: true, workspace: true, familyFriendly: false,
+    group: 'Evergreen',
+    summary: 'A loft casita in vibrant Tobin Hill, within walking distance of the Pearl, the River Walk, and the Saint Mary’s strip. City living with a quiet home to retreat to.',
+    highlights: ['Walk to the Pearl', 'Walk to the Saint Mary’s strip', 'Quiet retreat in a central neighbourhood', 'Dedicated workspace', 'Free on-site parking'],
+    sleeping: ['Queen bed'],
+    amenities: ['Full kitchen', 'Smart TV', 'Free Wi-Fi', 'Dedicated workspace', 'Central air conditioning', 'Free on-site parking'],
+    distances: ['Walking distance to the Pearl, the River Walk, and the Saint Mary’s strip'],
+    bookingUrl: `${H1}2339351`,
+  },
+  {
+    slug: 'evergreen-2', name: 'Evergreen Apartment', title: 'Tobin Hill 1BR Apartment · Walk to the Pearl',
+    city: 'San Antonio', area: 'Tobin Hill', mapQuery: 'Tobin Hill, San Antonio, TX',
+    type: 'Apartment', guests: 3, bedrooms: 1, beds: 2, baths: '1',
+    petFriendly: false, extendedStay: true, workspace: true, familyFriendly: false,
+    group: 'Evergreen',
+    summary: 'A one-bedroom apartment in vibrant Tobin Hill, within walking distance of the Pearl, the River Walk, and the Saint Mary’s strip, with room for a third guest.',
+    highlights: ['Walk to the Pearl', 'Sleeps up to 3', 'Central Tobin Hill location', 'Dedicated workspace', 'Free on-site parking'],
+    sleeping: ['Bedroom: Queen bed', 'Living area: Twin bed'],
+    amenities: ['Full kitchen', 'Smart TV', 'Free Wi-Fi', 'Dedicated workspace', 'Central air conditioning', 'Free on-site parking'],
+    distances: ['Walking distance to the Pearl, the River Walk, and the Saint Mary’s strip'],
+    bookingUrl: `${H1}2339352`,
   },
 ];
 
