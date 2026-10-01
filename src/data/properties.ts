@@ -51,7 +51,7 @@ const studioShared = {
 const crashpadShared = {
   city: 'Converse',
   type: 'Private room' as const,
-  guests: 2, bedrooms: 1, beds: 1, baths: '1',
+  guests: 2, bedrooms: 1, beds: 1, baths: '1.5',
   petFriendly: false,
   extendedStay: true,
   workspace: true,
@@ -116,7 +116,7 @@ export const properties: Property[] = [
   },
   {
     slug: 'legislation-4br', name: 'Legislation', title: 'Movie Night, Pool & Poker · 2 Living Rooms & Spacious',
-    city: 'Converse', type: 'House', guests: 10, bedrooms: 4, beds: 4, baths: '2',
+    city: 'Converse', type: 'House', guests: 10, bedrooms: 4, beds: 4, baths: '2.5',
     petFriendly: false, extendedStay: true, workspace: false, familyFriendly: true, nearBase: 'Randolph AFB', featured: true,
     summary: 'A stylish, spacious home made for group trips, and PCS moves, two living rooms, a movie projector, pool, and poker tables, and a covered patio with grill.',
     highlights: ['Two living rooms', 'Movie projector', 'Game room with pool & poker tables', 'Covered back patio with grill', 'About 4 minutes from Randolph AFB’s back gate'],
@@ -147,10 +147,10 @@ export const properties: Property[] = [
   },
   {
     slug: 'discovery-mill-crash-pad', name: 'Discovery Mill', title: 'Modern Family Retreat · Pets OK · Near Randolph AFB',
-    city: 'Converse', type: 'House', guests: 10, bedrooms: 5, beds: 5, baths: '3',
+    city: 'Converse', type: 'House', guests: 10, bedrooms: 5, beds: 5, baths: '3.5',
     petFriendly: true, extendedStay: true, workspace: false, familyFriendly: true, nearBase: 'Randolph AFB',
-    summary: 'A five-bedroom, three-bath retreat near Randolph AFB with room for large families and groups, and your pets.',
-    highlights: ['Five bedrooms, three baths', 'Sleeps up to 10', 'Pet friendly', 'Game room with shuffleboard', 'Near Randolph AFB'],
+    summary: 'A five-bedroom retreat near Randolph AFB with room for large families and groups, and your pets.',
+    highlights: ['Five bedrooms, three and a half baths', 'Sleeps up to 10', 'Pet friendly', 'Game room with shuffleboard', 'Near Randolph AFB'],
     sleeping: ['Five bedrooms', 'Sleeps up to 10 guests'],
     amenities: ['Full kitchen', 'Free parking'],
     bookingUrl: `${H1}1485370`,

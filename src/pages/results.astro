@@ -27,11 +27,11 @@ const showcases = [
     changes: ['Design overhaul into bright, homey retreats', 'Fully equipped kitchenettes and remote-work Wi-Fi', 'Mix of pet-friendly and pet-free units', 'Set up for 30+ day stays near Lackland AFB'],
   },
   {
-    slug: 'de-soto-lighthouse',
-    title: 'De Soto',
-    place: 'Smart home near SeaWorld and Six Flags',
-    challenge: 'A fully renovated home near two major San Antonio attractions needed strong positioning for family and leisure travelers.',
-    changes: ['Renovated to a modern, guest-ready standard', 'Positioned for family trips, theme park visitors, and leisure stays', 'Smart home features for a seamless guest experience', 'Occupancy improved by targeting high-demand leisure travel periods'],
+    slug: 'santa-anna-main',
+    title: 'Santa Anna',
+    place: 'Main house and guesthouse in Los Angeles Heights',
+    challenge: 'A three-bedroom home and a separate one-bedroom casita sat on one lot, each competing for the same smaller bookings.',
+    changes: ['Main house and guesthouse combined into a rare four-bedroom option for the area', 'Also bookable separately, so smaller groups still fit', 'Positioned against limited four-bedroom competition nearby', 'Minutes from the airport, the Pearl, and the Medical Center'],
   },
 ];
 ---
@@ -91,7 +91,10 @@ const showcases = [
         <blockquote>{ownerTestimonials[0].quote}</blockquote>
         <div class="quote-by"><span class="avatar-initial">{ownerTestimonials[0].name[0]}</span><div><strong>{ownerTestimonials[0].name}</strong><small>{ownerTestimonials[0].role}</small></div></div>
       </div>
-      <div class="dark-card bg-dark reveal reveal-d2" style="border-radius:var(--r-xl);padding:clamp(1.8rem,4vw,3rem)">
+      {/* bg-dark only. .dark-card is a translucent glass layer for use INSIDE an
+          already-dark section, and it is declared later in global.css, so pairing
+          the two here overrode the dark background and left cream text on cream. */}
+      <div class="bg-dark reveal reveal-d2" style="border-radius:var(--r-xl);padding:clamp(1.8rem,4vw,3rem);border:1px solid var(--glass-dark-border)">
         <span class="eyebrow">The portfolio today</span>
         <div class="dark-num" style="font-size:4.5rem;color:var(--cream)">{properties.length}</div>
         <h3 style="color:var(--cream)">Stays listed for direct booking</h3>

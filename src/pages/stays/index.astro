@@ -43,6 +43,22 @@ const schema = [{
           <span class="eyebrow">Book direct · Local support</span>
           <h1 class="h1-interior">Vacation Rentals &amp; Furnished Stays in <em>San Antonio Area</em></h1>
           <p class="lead">Browse professionally managed short-term and mid-term rentals for family trips, business travel, military stays, relocations, and extended visits.</p>
+          <form class="filters" aria-label="Filter stays" onsubmit="return false">
+            <label>Location
+              <select name="city" data-filter="city"><option value="">All locations</option>{cities.map((c) => <option value={c}>{c}, TX</option>)}</select>
+            </label>
+            <label>Guests
+              <select name="guests" data-filter="guests"><option value="">Any</option><option value="2">2+</option><option value="4">4+</option><option value="6">6+</option><option value="8">8+</option></select>
+            </label>
+            <label>Bedrooms
+              <select name="bedrooms" data-filter="bedrooms"><option value="">Any</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select>
+            </label>
+            <button type="button" class="filter-toggle" aria-pressed="false" data-toggle="pet"><Icon name="paw" />Pet friendly</button>
+            <button type="button" class="filter-toggle" aria-pressed="false" data-toggle="extended"><Icon name="calendar" />Monthly stay</button>
+            <button type="button" class="filter-toggle" aria-pressed="false" data-toggle="workspace"><Icon name="briefcase" />Workspace</button>
+            <button type="button" class="filter-toggle" aria-pressed="false" data-toggle="family"><Icon name="users" />Family friendly</button>
+            <span class="filter-count" aria-live="polite" data-count>{properties.length} stays</span>
+          </form>
         </div>
       </div>
     </div>
@@ -50,22 +66,6 @@ const schema = [{
 
   <section class="section" id="all-stays">
     <div class="container">
-      <form class="filters" aria-label="Filter stays" onsubmit="return false">
-        <label>Location
-          <select name="city" data-filter="city"><option value="">All locations</option>{cities.map((c) => <option value={c}>{c}, TX</option>)}</select>
-        </label>
-        <label>Guests
-          <select name="guests" data-filter="guests"><option value="">Any</option><option value="2">2+</option><option value="4">4+</option><option value="6">6+</option><option value="8">8+</option></select>
-        </label>
-        <label>Bedrooms
-          <select name="bedrooms" data-filter="bedrooms"><option value="">Any</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select>
-        </label>
-        <button type="button" class="filter-toggle" aria-pressed="false" data-toggle="pet"><Icon name="paw" />Pet friendly</button>
-        <button type="button" class="filter-toggle" aria-pressed="false" data-toggle="extended"><Icon name="calendar" />Monthly stay</button>
-        <button type="button" class="filter-toggle" aria-pressed="false" data-toggle="workspace"><Icon name="briefcase" />Workspace</button>
-        <button type="button" class="filter-toggle" aria-pressed="false" data-toggle="family"><Icon name="users" />Family friendly</button>
-        <span class="filter-count" aria-live="polite" data-count>{properties.length} stays</span>
-      </form>
 
       <div class="prop-grid" data-grid>{properties.map((p) => <PropertyCard p={p} />)}</div>
       <div class="empty-state" data-empty hidden>

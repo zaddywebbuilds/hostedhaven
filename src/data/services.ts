@@ -125,7 +125,7 @@ export const services: Service[] = [
       { q: 'What does an Airbnb co-host do?', a: 'A co-host helps an owner manage a short or mid-term rental. At Hosted Havens, co-hosting is full-service: we perform the day-to-day operations so the owner can be hands-off.' },
       { q: 'Do I need to already have an Airbnb listing?', a: 'No. We can help launch a new short-term rental, including the property assessment, photography, and listing creation. See <a href="/airbnb-setup-san-antonio/">new host setup</a>.' },
       { q: 'Can I see what is happening with my property?', a: 'Yes. Owners have transparent access to our professional hosting tools, including real-time calendar visibility.' },
-      { q: 'How do I get started?', a: 'Complete the <a href="/property-analysis/">property intake form</a>, watch our <a href="/service-video/">short service video</a>, and when you are ready, book your property analysis tour, which includes an onsite visit, extensive prep list, and a detailed analysis report with revenue projections.' },
+      { q: 'How do I get started?', a: 'Complete the <a href="/property-analysis/">property intake form</a>, watch our <a href="/service-video/">short service video</a>, and when you are ready, book your <a href="https://calendly.com/hostedhavensco/property-analysis-tour" target="_blank" rel="noopener noreferrer">property analysis tour</a>, which includes an onsite visit, extensive prep list, and a detailed analysis report with revenue projections.' },
     ],
     related: ['airbnb-management-san-antonio', 'airbnb-listing-optimization-san-antonio', 'pricing'],
   },
@@ -232,7 +232,7 @@ export const services: Service[] = [
     intro: {
       h2: '“Furnished” is not the same as <em>optimized</em>',
       paragraphs: [
-        'A furnished home has beds, seating and kitchenware. An optimized short-term rental is intentionally prepared to perform: it photographs well, guides guests intuitively and protects the property from avoidable wear.',
+        'A furnished home has beds, seating and kitchenware. An optimized short-term rental is intentionally prepared to perform: it photographs well, guides guests intuitively, and protects the property from avoidable wear.',
         'Your listing is the first version of your home guests experience. Photography, title, description, and amenity choices decide whether they click, book, and leave a favorable review that matches what they expected.',
       ],
     },
@@ -314,7 +314,7 @@ export const services: Service[] = [
     metaDescription: 'Short-term rental property care in San Antonio: professional cleaning, inspections, proactive maintenance, restocking, and guest arrival preparation.',
     eyebrow: 'Owners · Property Care',
     h1: 'Short-Term Rental <em>Property Care</em> in San Antonio',
-    lead: 'Every turnover is an inspection, a reset and a first impression. Cleaning, inspections, maintenance, and restocking, all coordinated so your home is guest-ready and protected.',
+    lead: 'Every turnover is an inspection, a reset, and a first impression. Cleaning, inspections, maintenance, and restocking, all coordinated so your home is guest-ready and protected.',
     heroProperty: 'coastal-run',
     widget: 'care',
     intro: {
