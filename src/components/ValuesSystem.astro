@@ -224,7 +224,7 @@ const idx = (n: number) => String(n).padStart(2, '0');
 
   /* Index disc */
   .vs-index { position: relative; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, rgba(246, 233, 214, .85)); box-shadow: 0 1px 0 #fff inset, 0 10px 24px rgba(192, 87, 59, .16), 0 0 0 6px rgba(255, 255, 255, .35); transform: translateZ(20px); transition: transform .7s cubic-bezier(.22, 1, .36, 1) .15s; }
-  .vs-index b { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; color: var(--coral-deep); }
+  .vs-index b { font-family: var(--display); font-size: 1.15rem; font-weight: 600; color: var(--coral-deep); }
   .vs-index svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
   .vs-index circle { fill: none; stroke: rgba(192, 87, 59, .45); stroke-width: 1.2; stroke-dasharray: 164; stroke-dashoffset: 0; transition: stroke-dashoffset 1.1s cubic-bezier(.22, 1, .36, 1) .2s; }
 
@@ -320,7 +320,7 @@ const idx = (n: number) => String(n).padStart(2, '0');
   .ui-timeline li::before { content: ''; position: absolute; left: calc(-1.1rem + 1px); top: .3rem; width: 8px; height: 8px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 2px var(--coral-deep); }
   .ui-timeline li:last-child::before { box-shadow: 0 0 0 2px var(--sage); background: var(--sage); }
   .ui-timeline time { font-size: .66rem; font-weight: 700; color: var(--ink-mute); font-variant-numeric: tabular-nums; }
-  .note { font-family: var(--serif); font-style: italic; font-size: .92rem; font-weight: 600; color: var(--ink); }
+  .note { font-family: var(--display); font-style: italic; font-size: .92rem; font-weight: 600; color: var(--ink); }
   .more { font-size: .68rem; font-weight: 700; color: var(--coral-ink); }
 
   /* Wide cards: copy left, scene right */
