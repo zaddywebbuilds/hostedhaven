@@ -109,12 +109,19 @@ const strip = [propertyImages('la-maison-blount')[0], propertyImages('the-hardin
             <p class="small">{v.text}</p>
           </article>
         ))}
-        <article class="card3d bg-dark reveal" style="color:var(--cream)">
-          <span class="eyebrow">Join the team</span>
-          <h3 style="color:var(--cream);margin-top:0">Driven, resilient, and quality-focused?</h3>
-          <p style="color:rgba(253,244,232,.75)">Hosted Havens is growing. Send your resume and qualifications.</p>
-          <a class="btn btn-gold btn-sm" href={`mailto:${business.guestEmail}?subject=Joining%20the%20Hosted%20Havens%20team`}>Email Your Resume</a>
-        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="cta-band bg-dark reveal" style="border:1px solid var(--glass-dark-border)">
+        <span class="eyebrow">Join the team</span>
+        <h2>Driven, Resilient, and <em>Quality-Focused?</em></h2>
+        <p class="lead">Hosted Havens is growing across San Antonio and the surrounding communities. If you take pride in hospitality and in doing the small things properly, we would like to hear from you.</p>
+        <div class="btn-row">
+          <a class="btn btn-gold" href={`mailto:${business.guestEmail}?subject=Joining%20the%20Hosted%20Havens%20team`}>Email Your Resume <Icon name="arrow" /></a>
+        </div>
       </div>
     </div>
   </section>

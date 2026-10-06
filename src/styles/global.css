@@ -865,3 +865,8 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   .rate-bars i, .chk .box, .term-bar i { transform: none !important; opacity: 1 !important; }
 }
+
+/* Take the Tour. The source is a portrait social clip, so it is capped rather
+   than stretched to full width. */
+.tour-frame { max-width: 420px; margin: 0 auto; border-radius: var(--r-lg); overflow: hidden; background: var(--peach); border: 1px solid #fff; box-shadow: var(--shadow-deep); }
+.tour-frame video { display: block; width: 100%; height: auto; }

@@ -357,6 +357,33 @@ const schema = [
   </section>
 
   <!-- GUEST BRIDGE -->
+  <!-- Take the Tour. Uses house-tour.mp4 only: the other social tour clips still
+       feature the AI presenter Megan rejected, so they are deliberately not used. -->
+  <section class="section" aria-labelledby="tour-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Take the tour</span>
+        <h2 id="tour-title">See a Hosted Havens Home <em>From the Inside</em></h2>
+        <p class="lead">A short walkthrough of how a Hosted Havens property is set up and presented for guests.</p>
+      </div>
+      <div class="tour-frame reveal">
+        <video
+          src={u('/videos/house-tour.mp4')}
+          poster={u('/videos/house-tour-poster.webp')}
+          controls
+          muted
+          playsinline
+          loop
+          preload="none"
+          aria-label="Walkthrough of a Hosted Havens home"
+        ></video>
+      </div>
+      <div class="btn-row" style="justify-content:center;margin-top:1.6rem">
+        <a class="btn btn-primary" href={u('/stays/')} data-track="stays_view">Explore Our Homes <Icon name="arrow" /></a>
+      </div>
+    </div>
+  </section>
+
   <section class="section-tight">
     <div class="container">
       <div class="bridge reveal">
