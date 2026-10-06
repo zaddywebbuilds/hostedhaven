@@ -101,7 +101,7 @@ export const properties: Property[] = [
   {
     slug: 'la-maison-blount', name: 'La Maison Blount', title: 'Beautifully Renovated Home Near I-10',
     city: 'San Antonio', type: 'House', guests: 7, bedrooms: 2, beds: 5, baths: '1.5',
-    petFriendly: true, extendedStay: false, workspace: false, familyFriendly: true, featured: true,
+    petFriendly: true, extendedStay: true, workspace: false, familyFriendly: true, featured: true,
     summary: 'A beautifully remodeled family home five miles from the heart of the city, with original hardwood floors, a coffee bar and a large private yard for pets and play.',
     highlights: ['Large private fenced yard', 'Coffee bar & granite countertops', 'Original hardwood floors', 'Charcoal grill, dart board & chimenea', 'Pets welcome (up to 3)'],
     sleeping: ['Bedroom 1: Queen bed', 'Bedroom 2: Twin/queen bunk bed', 'Lounge: Twin daybed with trundle', 'Pack-n-play available'],
@@ -112,7 +112,7 @@ export const properties: Property[] = [
   {
     slug: 'coastal-run', name: 'Coastal Run', title: 'Cozy 3BR near Six Flags with BBQ, Backyard & Pets OK',
     city: 'San Antonio', area: 'Leon Valley', type: 'House', guests: 6, bedrooms: 3, beds: 3, baths: '2.5',
-    petFriendly: true, extendedStay: false, workspace: false, familyFriendly: true, featured: true,
+    petFriendly: true, extendedStay: true, workspace: false, familyFriendly: true, featured: true,
     summary: 'A modern townhome in a gated Leon Valley community with moody, stylish décor, a private fenced yard, and a two-car garage with an EV charger. Private entry, no shared spaces.',
     highlights: ['Gated community', 'Private fenced backyard', '2-car garage with EV charger', 'Smart TVs in every bedroom', 'Pet friendly'],
     sleeping: ['Bedroom 1: Queen bed', 'Bedroom 2: Queen bed', 'Bedroom 3: Queen bed', 'Pack-n-play available'],
@@ -122,7 +122,7 @@ export const properties: Property[] = [
   {
     slug: 'halliday-fig-trees', name: 'Halliday', title: 'Urban 2BR Escape Near Downtown SA with Fire Pit & Yard',
     city: 'San Antonio', area: 'Riverside', type: 'House', guests: 8, bedrooms: 2, beds: 4, baths: '2',
-    petFriendly: true, extendedStay: false, workspace: false, familyFriendly: true,
+    petFriendly: true, extendedStay: true, workspace: false, familyFriendly: true,
     summary: 'Renovated farmhouse charm minutes from downtown, a gathering-sized dining room, a fenced yard, and a fire pit under string lights.',
     highlights: ['Fenced yard with gate code', 'Recently renovated in soothing earth tones', 'Dining room for the whole group', 'Fire pit & backyard string lights', 'Pet friendly'],
     sleeping: ['Bedroom 1: Two queen beds', 'Bedroom 2: Full-over-full bunk beds', 'Pack-n-play available'],
@@ -132,7 +132,7 @@ export const properties: Property[] = [
   {
     slug: 'liberty-bell', monthlyMinNights: 28, name: 'Liberty Bell', title: '2BR Family Unit 10 Minutes from the Airport with Free Parking',
     city: 'San Antonio', type: 'House', guests: 4, bedrooms: 2, beds: 3, baths: '2',
-    petFriendly: false, extendedStay: false, workspace: false, familyFriendly: true,
+    petFriendly: false, extendedStay: true, workspace: false, familyFriendly: true,
     summary: 'An open-concept family home built around a 10-foot kitchen island, two bedrooms, two full baths, and space for the kids to play.',
     highlights: ['10-foot kitchen island', 'Kids’ play area', 'Screened-in front patio', 'Fenced side and back yard', 'Full-size washer & dryer'],
     sleeping: ['Bedroom 1: Queen bed with en suite', 'Bedroom 2: Queen bed', 'Pack-n-play on site'],

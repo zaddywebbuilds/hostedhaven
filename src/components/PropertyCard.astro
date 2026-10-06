@@ -33,7 +33,7 @@ const loc = p.area ? `${p.area} · ${p.city}, TX` : `${p.city}, TX`;
     </div>
     <div class="prop-pills">
       {p.petFriendly && <span class="pill">Pet Friendly</span>}
-      {p.extendedStay && <span class="pill sage">Extended Stays</span>}
+      {p.extendedStay && <span class="pill sage">{p.monthlyMinNights ? `${p.monthlyMinNights}-Night Min` : 'Extended Stays'}</span>}
       {p.workspace && <span class="pill gold">Workspace</span>}
       {p.nearBase && <span class="pill sage">Near {p.nearBase}</span>}
     </div>

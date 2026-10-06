@@ -74,7 +74,7 @@ const schema = [{
         <span class="fact"><Icon name="bath" />{p.baths} {p.baths === '1' ? 'bath' : 'baths'}</span>
         {p.petFriendly && <span class="fact"><Icon name="paw" />Pet friendly</span>}
         {p.workspace && <span class="fact"><Icon name="briefcase" />Workspace</span>}
-        {p.extendedStay && <span class="fact"><Icon name="calendar" />Extended stays</span>}
+        {p.extendedStay && <span class="fact"><Icon name="calendar" />{p.monthlyMinNights ? `Monthly stays · ${p.monthlyMinNights}-night minimum` : 'Extended stays'}</span>}
         {p.nearBase && <span class="fact"><Icon name="plane" />Near {p.nearBase}</span>}
       </div>
     </div>
