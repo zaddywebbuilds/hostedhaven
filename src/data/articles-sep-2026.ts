@@ -47,7 +47,7 @@ export const articlesSep2026: Article[] = [
     description: 'Moving to Randolph AFB on PCS orders? Here is a complete guide to short-term furnished rentals in Converse and Universal City, TX, covering families, singles, and extended stays.',
     cluster: 'San Antonio',
     published: '2026-09-02',
-    heroProperty: 'legislation-4br',
+    heroProperty: 'discovery-mill-crash-pad',
     cta: { label: 'Browse Stays Near Randolph AFB', href: '/furnished-rentals-near-randolph-afb/' },
     body: `
 <p>A PCS move to Randolph AFB creates an immediate housing problem: you need somewhere to live while on-base housing clears, off-base permanent housing closes, or TLE runs out. Short-term furnished rentals near the base have become the default solution for families and service members who need more than a hotel room but less than a 12-month lease.</p>
@@ -56,8 +56,8 @@ export const articlesSep2026: Article[] = [
 <p>A hotel works for a week, not for the three-to-eight-week transition window that most PCS moves involve. Families need a kitchen, laundry, and separate bedrooms. Service members doing an unaccompanied tour still benefit from a workspace, a real bed, and a kitchen instead of eating out for every meal. Short-term rentals fill exactly that gap: fully furnished, all utilities included, flexible check-out dates, and no long lease commitment.</p>
 <h2>Where to look: Converse and Universal City</h2>
 <p>Randolph AFB sits between Converse and Universal City, with both cities offering short-term rental inventory within a 10-minute drive of the back gate. Converse is slightly closer to base and has a higher concentration of available rentals. Universal City is quieter, more suburban, and a good fit for families looking for a lower-density neighborhood during a stressful move.</p>
-<h3>Legislation (Converse)</h3>
-<p><a href="/stays/legislation-4br/">Legislation</a> is a spacious four-bedroom home about four minutes from Randolph's back gate. Two living rooms, a covered patio, a game room with pool and poker tables, and a full kitchen make it practical for families who are living out of a rental for weeks rather than days. It sleeps up to ten, so it also works for service members hosting family who fly in during the transition.</p>
+<h3>Discovery Mill (Converse)</h3>
+<p><a href="/stays/discovery-mill-crash-pad/">Discovery Mill</a> is a spacious five-bedroom home in Converse, minutes from Randolph's back gate. Two living rooms, a covered patio, a game room with pool and poker tables, and a full kitchen make it practical for families who are living out of a rental for weeks rather than days. It sleeps up to ten, so it also works for service members hosting family who fly in during the transition.</p>
 <h3>Discovery Mill (Converse)</h3>
 <p><a href="/stays/discovery-mill-crash-pad/">Discovery Mill</a> is a five-bedroom, three-bath home that accommodates up to ten guests and allows pets. For larger families or two households sharing costs during simultaneous PCS moves, this is one of the roomiest options near the base.</p>
 <h3>The Crashpad (Converse)</h3>
@@ -97,7 +97,7 @@ export const articlesSep2026: Article[] = [
 <p>The <a href="/stays/s-park-1a/">Collins Garden Studios</a> were built specifically for this kind of stay. They are self-contained studio apartments in the Collins Garden Park neighborhood, two miles from downtown San Antonio and nine miles from Lackland AFB. Each studio has a fully equipped kitchenette, private mini-split heating and cooling, fast Wi-Fi, keyless entry, and a park directly across the street.</p>
 <p>Monthly rates are priced to reflect the extended stay discount that applies when you book 28 nights or more, making them competitive with furnished apartment sublets without the lease requirement.</p>
 <h2>Monthly stays in family-sized homes</h2>
-<p>For families who need more than a studio, several larger properties accommodate extended stays. <a href="/stays/de-soto-lighthouse/">De Soto</a> in Universal City has a dedicated office, four bedrooms, and two living rooms, which works well for a family or a dual-income couple both working remotely during a transition. <a href="/stays/legislation-4br/">Legislation</a> in Converse accommodates up to ten guests and has in-unit laundry, making it realistic for larger families waiting on long-term housing near Randolph AFB.</p>
+<p>For families who need more than a studio, several larger properties accommodate extended stays. <a href="/stays/de-soto-lighthouse/">De Soto</a> in Universal City has a dedicated office, four bedrooms, and two living rooms, which works well for a family or a dual-income couple both working remotely during a transition. <a href="/stays/discovery-mill-crash-pad/">Discovery Mill</a> in Converse accommodates up to ten guests and has in-unit laundry, making it realistic for larger families waiting on long-term housing near Randolph AFB.</p>
 <h2>Monthly rental vs. hotel: the honest comparison</h2>
 <p>A mid-range hotel in San Antonio runs $110 to $160 per night, which translates to $3,300 to $4,800 for a 30-day stay. A furnished monthly rental for a family typically runs $2,500 to $3,800 per month, with no food costs for breakfast or lunch since you have a full kitchen. The gap widens significantly for groups and families.</p>
 <p>Hotels offer more transient flexibility, a gym, and daily housekeeping. Furnished rentals offer more space, privacy, a kitchen, and a more stable living environment for anything over two weeks.</p>
@@ -159,7 +159,7 @@ export const articlesSep2026: Article[] = [
 <h2>The case for staying in the suburbs</h2>
 <p>San Antonio's suburban neighborhoods offer more space, lower nightly rates, and better access to the attractions on the outer edges of the city that a strictly downtown rental ignores: Six Flags Fiesta Texas, SeaWorld, Natural Bridge Caverns, and the South Texas Medical Center complex.</p>
 <p>The commute from suburban properties to downtown is typically 20 to 35 minutes depending on traffic and direction. For families who spend most of their time in the car anyway, that gap is negligible compared to the space and cost difference.</p>
-<p><a href="/stays/grass-hollow/">Grass Hollow</a> in Live Oak is a four-bedroom home near Live Oak Park, about 20 minutes from downtown and walkable to a local park. <a href="/stays/legislation-4br/">Legislation</a> in Converse puts you near Randolph AFB, McAllister Park, and the northeast side attractions. <a href="/stays/coastal-run/">Coastal Run</a> in Leon Valley is four miles from Six Flags and a reasonable drive to downtown via Loop 410.</p>
+<p><a href="/stays/grass-hollow/">Grass Hollow</a> in Live Oak is a four-bedroom home near Live Oak Park, about 20 minutes from downtown and walkable to a local park. <a href="/stays/discovery-mill-crash-pad/">Discovery Mill</a> in Converse puts you near Randolph AFB, McAllister Park, and the northeast side attractions. <a href="/stays/coastal-run/">Coastal Run</a> in Leon Valley is four miles from Six Flags and a reasonable drive to downtown via Loop 410.</p>
 <h2>The middle ground: northeast and northwest San Antonio</h2>
 <p>For trips that combine downtown sightseeing with theme parks or base visits, a property in northeast San Antonio or Universal City sits close to the geographic midpoint. <a href="/stays/de-soto-lighthouse/">De Soto</a> in Universal City, for example, is accessible from both the northeast attractions and the city center in roughly equal drive times.</p>
 <h2>What actually determines the right choice</h2>
@@ -322,15 +322,15 @@ export const articlesSep2026: Article[] = [
     description: 'Traveling to San Antonio with a large group? Find homes that sleep 8 to 10 people with game rooms, large kitchens, and outdoor spaces that actually make group trips work.',
     cluster: 'San Antonio',
     published: '2026-09-11',
-    heroProperty: 'legislation-4br',
+    heroProperty: 'discovery-mill-crash-pad',
     cta: { label: 'Browse Large Group Stays', href: '/stays/' },
     body: `
 <p>Large group trips, whether a family reunion, a military unit gathering, a college friends weekend, or a corporate offsite, have a different set of requirements from typical vacation rentals. The home needs to accommodate people who want to be together and people who need an hour away from the group. Game rooms, multiple living areas, large outdoor spaces, and a kitchen that can handle 10 people making breakfast all become relevant when a group is sharing a roof for three to five nights.</p>
 <h2>What to look for in a group rental</h2>
 <p>The most common failure point in group trip rentals is the common area to bedroom ratio. A home with four bedrooms but one living room forces everyone together when the group needs to split. Multiple living areas, a covered patio, and a game room transform a crowded house into one where different subgroups can occupy different spaces naturally.</p>
 <p>For group cooking, check that the kitchen is actually functional at scale: burner count, refrigerator size, and counter space matter more than listing photos of stainless appliances.</p>
-<h2>Legislation: built for groups in Converse</h2>
-<p><a href="/stays/legislation-4br/">Legislation</a> is one of the clearest examples of a home designed for group stays. Four bedrooms, two living rooms, a movie projector, a covered patio with a grill, and a game room with pool and poker tables means the group has room to exist in different configurations throughout the day. It sleeps up to ten. Four minutes from Randolph AFB's back gate, it is also a practical option for military unit gatherings or off-base group stays.</p>
+<h2>Discovery Mill: built for groups in Converse</h2>
+<p><a href="/stays/discovery-mill-crash-pad/">Discovery Mill</a> is one of the clearest examples of a home designed for group stays. Four bedrooms, two living rooms, a movie projector, a covered patio with a grill, and a game room with pool and poker tables means the group has room to exist in different configurations throughout the day. It sleeps up to ten. Four minutes from Randolph AFB's back gate, it is also a practical option for military unit gatherings or off-base group stays.</p>
 <h2>Discovery Mill: five bedrooms and pet-friendly</h2>
 <p><a href="/stays/discovery-mill-crash-pad/">Discovery Mill</a> is the largest pet-friendly group option in the Hosted Havens portfolio. Five bedrooms, three baths, a shuffleboard table, and space for 10 guests. For reunion trips where some members are bringing dogs, having a pet-friendly option that also sleeps a full group is uncommon and genuinely useful.</p>
 <h2>Crashpad room blocks: coordinated individual space</h2>
@@ -461,7 +461,7 @@ export const articlesSep2026: Article[] = [
 <p>TLE covers up to 10 days of authorized lodging costs. After that, you are covering the gap between your BAH and actual rental costs from your own pocket. At Randolph AFB BAH rates for E-6 and above, short-term rentals in Converse and Universal City typically fall within BAH range for monthly pricing. Nightly-rate bookings at the same properties often exceed BAH when annualized.</p>
 <p>The practical answer is to book a 28-night or longer stay from day one if you expect to need housing for more than two weeks. Monthly pricing at furnished rentals runs 20 to 35 percent below their nightly rate.</p>
 <h2>Randolph AFB options</h2>
-<p>For families moving to Randolph, the short-term rental options closest to the back gate are in Converse: <a href="/stays/legislation-4br/">Legislation</a> for families (four bedrooms, sleeps ten), <a href="/stays/discovery-mill-crash-pad/">Discovery Mill</a> for larger families needing five bedrooms, and <a href="/stays/ccp-1/">The Crashpad</a> for single service members needing a private room with dedicated workspace.</p>
+<p>For families moving to Randolph, the short-term rental options closest to the back gate are in Converse: <a href="/stays/discovery-mill-crash-pad/">Discovery Mill</a> for families needing five bedrooms, and <a href="/stays/ccp-1/">The Crashpad</a> for single service members needing a private room with dedicated workspace.</p>
 <h2>Lackland AFB options</h2>
 <p>For assignments to Lackland or Wilford Hall, the <a href="/stays/s-park-1a/">Collins Garden Studios</a> in the Collins Garden Park neighborhood are nine miles from base and designed for extended stays. Each studio has its own kitchenette, private climate control, and workspace. Several units are pet-friendly.</p>
 <h2>The documents to have ready</h2>

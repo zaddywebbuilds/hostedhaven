@@ -798,120 +798,6 @@
     ]
    }
   ],
-  "legislation-4br": [
-   {
-    "base": "properties/legislation-4br/legislation-4br-converse-tx-rental-01",
-    "ratio": 0.6667,
-    "widths": [
-     640,
-     1280
-    ]
-   },
-   {
-    "base": "properties/legislation-4br/legislation-4br-converse-tx-rental-02",
-    "ratio": 0.6723,
-    "widths": [
-     640,
-     1280
-    ]
-   },
-   {
-    "base": "properties/legislation-4br/legislation-4br-converse-tx-rental-03",
-    "ratio": 0.6699,
-    "widths": [
-     640,
-     1280
-    ]
-   },
-   {
-    "base": "properties/legislation-4br/legislation-4br-converse-tx-rental-04",
-    "ratio": 0.6667,
-    "widths": [
-     640,
-     1280
-    ]
-   },
-   {
-    "base": "properties/legislation-4br/legislation-4br-converse-tx-rental-05",
-    "ratio": 0.6667,
-    "widths": [
-     640,
-     1280
-    ]
-   },
-   {
-    "base": "properties/legislation-4br/legislation-4br-converse-tx-rental-06",
-    "ratio": 0.6667,
-    "widths": [
-     640,
-     1280
-    ]
-   },
-   {
-    "base": "properties/legislation-4br/legislation-4br-converse-tx-rental-07",
-    "ratio": 0.6667,
-    "widths": [
-     640,
-     1280
-    ]
-   },
-   {
-    "base": "properties/legislation-4br/legislation-4br-converse-tx-rental-08",
-    "ratio": 0.6667,
-    "widths": [
-     640,
-     1280
-    ]
-   },
-   {
-    "base": "properties/legislation-4br/legislation-4br-converse-tx-rental-09",
-    "ratio": 0.6737,
-    "widths": [
-     640,
-     1280
-    ]
-   },
-   {
-    "base": "properties/legislation-4br/legislation-4br-converse-tx-rental-10",
-    "ratio": 0.6667,
-    "widths": [
-     640,
-     1280
-    ]
-   },
-   {
-    "base": "properties/legislation-4br/legislation-4br-converse-tx-rental-11",
-    "ratio": 0.6667,
-    "widths": [
-     640,
-     1280
-    ]
-   },
-   {
-    "base": "properties/legislation-4br/legislation-4br-converse-tx-rental-12",
-    "ratio": 0.75,
-    "widths": [
-     640,
-     1280
-    ]
-   },
-   {
-    "base": "properties/legislation-4br/legislation-4br-converse-tx-rental-13",
-    "ratio": 0.6667,
-    "widths": [
-     640,
-     1280
-    ]
-   },
-   {
-    "base": "properties/legislation-4br/legislation-4br-converse-tx-rental-14",
-    "ratio": 0.6676,
-    "widths": [
-     640,
-     1280
-    ]
-   }
-  ],
   "discovery-mill-crash-pad": [
    {
     "base": "properties/discovery-mill-crash-pad/discovery-mill-crash-pad-converse-tx-rental-01",
@@ -2739,7 +2625,7 @@
   "santa-anna-main": [
    {
     "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-01",
-    "ratio": 0.6667,
+    "ratio": 0.5628,
     "widths": [
      640,
      1280
@@ -2747,7 +2633,7 @@
    },
    {
     "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-02",
-    "ratio": 0.6667,
+    "ratio": 1,
     "widths": [
      640,
      1280
@@ -2755,7 +2641,7 @@
    },
    {
     "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-03",
-    "ratio": 0.6667,
+    "ratio": 1,
     "widths": [
      640,
      1280
@@ -2763,7 +2649,7 @@
    },
    {
     "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-04",
-    "ratio": 0.6667,
+    "ratio": 1,
     "widths": [
      640,
      1280
@@ -2771,7 +2657,7 @@
    },
    {
     "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-05",
-    "ratio": 0.6667,
+    "ratio": 0.5631,
     "widths": [
      640,
      1280
@@ -2779,7 +2665,7 @@
    },
    {
     "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-06",
-    "ratio": 0.6667,
+    "ratio": 0.563,
     "widths": [
      640,
      1280
@@ -2787,7 +2673,7 @@
    },
    {
     "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-07",
-    "ratio": 0.6667,
+    "ratio": 0.5632,
     "widths": [
      640,
      1280
@@ -2795,7 +2681,7 @@
    },
    {
     "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-08",
-    "ratio": 0.6667,
+    "ratio": 0.5632,
     "widths": [
      640,
      1280
@@ -2803,7 +2689,7 @@
    },
    {
     "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-09",
-    "ratio": 0.6667,
+    "ratio": 0.5626,
     "widths": [
      640,
      1280
@@ -2811,7 +2697,7 @@
    },
    {
     "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-10",
-    "ratio": 0.6667,
+    "ratio": 0.5629,
     "widths": [
      640,
      1280
@@ -2819,7 +2705,7 @@
    },
    {
     "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-11",
-    "ratio": 0.6667,
+    "ratio": 0.5628,
     "widths": [
      640,
      1280
@@ -2827,7 +2713,7 @@
    },
    {
     "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-12",
-    "ratio": 0.6667,
+    "ratio": 0.563,
     "widths": [
      640,
      1280
@@ -2835,7 +2721,7 @@
    },
    {
     "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-13",
-    "ratio": 0.6667,
+    "ratio": 0.5634,
     "widths": [
      640,
      1280
@@ -2843,7 +2729,7 @@
    },
    {
     "base": "properties/santa-anna-main/santa-anna-main-san-antonio-tx-rental-14",
-    "ratio": 0.6667,
+    "ratio": 0.5627,
     "widths": [
      640,
      1280
@@ -2853,7 +2739,7 @@
   "santa-anna-casita": [
    {
     "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-01",
-    "ratio": 0.6667,
+    "ratio": 1,
     "widths": [
      640,
      1280
@@ -2861,7 +2747,7 @@
    },
    {
     "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-02",
-    "ratio": 0.6667,
+    "ratio": 1,
     "widths": [
      640,
      1280
@@ -2869,7 +2755,7 @@
    },
    {
     "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-03",
-    "ratio": 0.6667,
+    "ratio": 1,
     "widths": [
      640,
      1280
@@ -2877,7 +2763,7 @@
    },
    {
     "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-04",
-    "ratio": 0.6667,
+    "ratio": 0.5628,
     "widths": [
      640,
      1280
@@ -2885,7 +2771,7 @@
    },
    {
     "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-05",
-    "ratio": 0.6667,
+    "ratio": 0.749,
     "widths": [
      640,
      1280
@@ -2893,7 +2779,7 @@
    },
    {
     "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-06",
-    "ratio": 0.6667,
+    "ratio": 0.5626,
     "widths": [
      640,
      1280
@@ -2901,7 +2787,7 @@
    },
    {
     "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-07",
-    "ratio": 0.6667,
+    "ratio": 0.5627,
     "widths": [
      640,
      1280
@@ -2909,7 +2795,7 @@
    },
    {
     "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-08",
-    "ratio": 0.6667,
+    "ratio": 0.5632,
     "widths": [
      640,
      1280
@@ -2917,7 +2803,7 @@
    },
    {
     "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-09",
-    "ratio": 0.6667,
+    "ratio": 1,
     "widths": [
      640,
      1280
@@ -2925,7 +2811,7 @@
    },
    {
     "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-10",
-    "ratio": 0.6667,
+    "ratio": 0.5631,
     "widths": [
      640,
      1280
@@ -2933,7 +2819,7 @@
    },
    {
     "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-11",
-    "ratio": 0.6667,
+    "ratio": 0.5627,
     "widths": [
      640,
      1280
@@ -2941,7 +2827,7 @@
    },
    {
     "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-12",
-    "ratio": 0.6667,
+    "ratio": 0.5631,
     "widths": [
      640,
      1280
@@ -2949,7 +2835,7 @@
    },
    {
     "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-13",
-    "ratio": 0.6667,
+    "ratio": 0.563,
     "widths": [
      640,
      1280
@@ -2957,7 +2843,121 @@
    },
    {
     "base": "properties/santa-anna-casita/santa-anna-casita-san-antonio-tx-rental-14",
-    "ratio": 1.5,
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   }
+  ],
+  "santa-anna-combo": [
+   {
+    "base": "properties/santa-anna-combo/santa-anna-combo-san-antonio-tx-rental-01",
+    "ratio": 0.5628,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-combo/santa-anna-combo-san-antonio-tx-rental-02",
+    "ratio": 0.5629,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-combo/santa-anna-combo-san-antonio-tx-rental-03",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-combo/santa-anna-combo-san-antonio-tx-rental-04",
+    "ratio": 0.749,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-combo/santa-anna-combo-san-antonio-tx-rental-05",
+    "ratio": 0.6084,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-combo/santa-anna-combo-san-antonio-tx-rental-06",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-combo/santa-anna-combo-san-antonio-tx-rental-07",
+    "ratio": 0.5627,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-combo/santa-anna-combo-san-antonio-tx-rental-08",
+    "ratio": 0.5626,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-combo/santa-anna-combo-san-antonio-tx-rental-09",
+    "ratio": 0.563,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-combo/santa-anna-combo-san-antonio-tx-rental-10",
+    "ratio": 0.563,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-combo/santa-anna-combo-san-antonio-tx-rental-11",
+    "ratio": 0.5628,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-combo/santa-anna-combo-san-antonio-tx-rental-12",
+    "ratio": 0.5628,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-combo/santa-anna-combo-san-antonio-tx-rental-13",
+    "ratio": 0.5628,
+    "widths": [
+     640,
+     1280
+    ]
+   },
+   {
+    "base": "properties/santa-anna-combo/santa-anna-combo-san-antonio-tx-rental-14",
+    "ratio": 0.5627,
     "widths": [
      640,
      1280

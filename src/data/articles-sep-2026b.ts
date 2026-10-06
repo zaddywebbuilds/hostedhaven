@@ -105,8 +105,8 @@ export const articlesSep2026b: Article[] = [
 <h2>Discovery Mill: the five-bedroom family option</h2>
 <p><a href="/stays/discovery-mill-crash-pad/">Discovery Mill</a> is the largest family-ready rental near Randolph in the Hosted Havens portfolio. Five bedrooms, three baths, space for 10 guests, a game room with shuffleboard, and a full kitchen. It accepts pets, which is one of the most common filtering requirements for military families who have animals and need a rental that can accommodate them without surrendering the pet.</p>
 <p>For families waiting on base housing clearance or a permanent off-base lease, a five-bedroom home provides the space to actually live rather than camp out. Multiple bathrooms prevent the morning bottleneck that becomes a real issue in large families when everyone has a schedule.</p>
-<h2>Legislation: four bedrooms with entertainment space</h2>
-<p><a href="/stays/legislation-4br/">Legislation</a> is about four minutes from Randolph's back gate, sleeps ten, and has two living rooms plus a game room with pool and poker tables. For families with teenagers or a mix of age groups, the multiple common areas let the group occupy different spaces rather than everyone competing for the same couch. The covered patio and grill extend living space outdoors on San Antonio's many mild evenings.</p>
+<h2>Discovery Mill: five bedrooms with entertainment space</h2>
+<p><a href="/stays/discovery-mill-crash-pad/">Discovery Mill</a> is minutes from Randolph's back gate, sleeps ten, and has a game room with shuffleboard. For families with teenagers or a mix of age groups, the multiple common areas let the group occupy different spaces rather than everyone competing for the same couch. The covered patio and grill extend living space outdoors on San Antonio's many mild evenings.</p>
 <h2>De Soto: Universal City's family home with a dedicated office</h2>
 <p><a href="/stays/de-soto-lighthouse/">De Soto</a> is in Universal City, between Randolph and downtown San Antonio. Its dedicated office and two living rooms make it practical for a family where one person is working or handling admin during the transition while the rest of the household has separate space. Four bedrooms, two baths, and smart home lighting are the key features.</p>
 <h2>What families consistently overlook when booking near base</h2>
@@ -265,15 +265,15 @@ export const articlesSep2026b: Article[] = [
     description: 'Converse sits four minutes from Randolph AFB and 20 minutes from downtown San Antonio. It is one of the most underrated neighborhoods for vacation rentals in the metro area.',
     cluster: 'San Antonio',
     published: '2026-09-25',
-    heroProperty: 'legislation-4br',
+    heroProperty: 'discovery-mill-crash-pad',
     cta: { label: 'Browse Converse Stays', href: '/stays/' },
     body: `
 <p>Most travelers searching for San Antonio vacation rentals type "San Antonio" and filter by the results. Converse, a city of about 30,000 on the northeast edge of the metro, rarely comes up on its own terms. But for specific types of trips, particularly those involving Randolph AFB, the northeast side attractions, or groups who need more space than downtown rentals typically offer, Converse delivers consistently.</p>
 <h2>What makes Converse a practical base for San Antonio trips</h2>
 <p>The geographic position of Converse puts it within 20 minutes of downtown, 10 minutes of San Antonio International Airport, and four minutes of Randolph AFB's back gate. Loop 1604 and I-35 both run through or near the area, which means driving times to most San Antonio destinations are reasonable without the traffic density of in-city routes.</p>
 <p>Property sizes in Converse tend to run larger per dollar than comparable downtown San Antonio rentals. Four and five-bedroom homes with game rooms, multiple living areas, and large yards are more accessible here than they would be at comparable price points in Southtown or the Riverside neighborhood.</p>
-<h2>Legislation: four bedrooms and a game room four minutes from base</h2>
-<p><a href="/stays/legislation-4br/">Legislation</a> is the flagship Converse property in the Hosted Havens portfolio. Four bedrooms, two living rooms, a movie projector setup, pool table, poker table, a covered patio with a grill, and a large fenced yard. It sleeps ten and is priced for groups who want house-level space rather than hotel rooms. The game room specifically makes it popular for unit gatherings, friend groups, and families with teenagers who need their own entertainment space.</p>
+<h2>Discovery Mill: five bedrooms and a game room minutes from base</h2>
+<p><a href="/stays/discovery-mill-crash-pad/">Discovery Mill</a> is the flagship Converse property in the Hosted Havens portfolio. Four bedrooms, two living rooms, a movie projector setup, pool table, poker table, a covered patio with a grill, and a large fenced yard. It sleeps ten and is priced for groups who want house-level space rather than hotel rooms. The game room specifically makes it popular for unit gatherings, friend groups, and families with teenagers who need their own entertainment space.</p>
 <h2>Discovery Mill: five bedrooms for larger families</h2>
 <p><a href="/stays/discovery-mill-crash-pad/">Discovery Mill</a> adds a fifth bedroom and a third bath, plus pet accommodation, for families or groups that need the extra room. For two families sharing costs on a joint trip, the five-bedroom layout allows each family to occupy a separate bedroom cluster without the adults sharing a bathroom with everyone else.</p>
 <h2>The Crashpad: private rooms for individuals or small groups</h2>
@@ -301,8 +301,8 @@ export const articlesSep2026b: Article[] = [
 <p>The minimum for a family of four with two kids is three bedrooms: one for each child, one for the parents. Five is better when the kids are teenagers who need genuine separation. A single common living area works. Two is better for the weeks when everyone is stressed and needs a different room to decompress in.</p>
 <h2>Discovery Mill for larger families</h2>
 <p><a href="/stays/discovery-mill-crash-pad/">Discovery Mill</a> in Converse has five bedrooms, three baths, and a game room. For a family with three or four kids, this is one of the few short-term rental options near Randolph AFB that provides enough bedrooms without doubling up kids who would prefer their own space. It accepts pets, which removes the most common complication for military families who have dogs and cannot surrender them for the duration of a PCS transition.</p>
-<h2>Legislation for families with older kids or teenagers</h2>
-<p><a href="/stays/legislation-4br/">Legislation</a> has four bedrooms and two living rooms, which gives teenagers their own common area without requiring them to be present for every adult conversation. The game room with pool and poker tables is a genuine entertainment option for kids who are bored during the weeks before school enrollment goes through.</p>
+<h2>Discovery Mill for families with older kids or teenagers</h2>
+<p><a href="/stays/discovery-mill-crash-pad/">Discovery Mill</a> has five bedrooms and a game room, which gives teenagers their own space without requiring them to be present for every adult conversation. The game room with pool and poker tables is a genuine entertainment option for kids who are bored during the weeks before school enrollment goes through.</p>
 <h2>Managing the timeline</h2>
 <p>PCS timelines almost never land exactly where the orders suggest. Build buffer into your rental booking. If your orders say you arrive the 15th, book from the 12th and through a week after the expected housing clearance date. The cost of extending a short-term rental stay by a few days is far lower than the stress of being without housing because clearance ran late.</p>
 <p>All Hosted Havens properties support extended bookings and can often accommodate timeline shifts with advance notice. Confirm this directly before booking if your timeline has uncertainty built into it.</p>
@@ -418,7 +418,7 @@ export const articlesSep2026b: Article[] = [
     description: 'What full-service short-term rental management actually looks like in practice, from the property analysis process to ongoing operations, for owners in the San Antonio area.',
     cluster: 'Our Story',
     published: '2026-09-30',
-    heroProperty: 'legislation-4br',
+    heroProperty: 'discovery-mill-crash-pad',
     cta: { label: 'See If You Qualify', href: '/property-analysis/' },
     body: `
 <p>Most short-term rental management companies describe what they do in the same way: guest communication, cleaning, pricing. The description is accurate as far as it goes, but it does not explain the difference between a co-host who responds to problems and one who prevents them, or between a pricing strategy that reacts to the market and one that anticipates it. Those differences show up in occupancy rates, review scores, and owner income over time, not in a service description.</p>

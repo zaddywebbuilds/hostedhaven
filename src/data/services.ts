@@ -181,7 +181,7 @@ export const services: Service[] = [
     eyebrow: 'Owners · Revenue Strategy',
     h1: 'Airbnb <em>Revenue Management</em> in San Antonio',
     lead: "Don’t leave your nightly rate on autopilot. Pricing adjusts to demand, seasonality, and booking patterns so your calendar and rate work together.",
-    heroProperty: 'legislation-4br',
+    heroProperty: 'discovery-mill-crash-pad',
     widget: 'revenue',
     intro: {
       h2: 'One price all month is <em>a pricing decision</em> too',

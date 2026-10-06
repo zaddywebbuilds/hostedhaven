@@ -14,6 +14,10 @@ export type Property = {
   bedrooms: number;
   beds: number;
   baths: string;
+  /** Minimum nights for a monthly booking, where the owner has confirmed it.
+   *  Megan 2026-10-06: S Park 30, Liberty Bell 28, Santa Anna 30 (the Santa
+   *  Anna minimum drops once the owner's permit comes through). */
+  monthlyMinNights?: number;
   petFriendly: boolean;
   extendedStay: boolean;
   workspace: boolean;
@@ -40,6 +44,7 @@ const studioShared = {
   type: 'Studio' as const,
   guests: 2, bedrooms: 1, beds: 1, baths: '1',
   extendedStay: true,
+  monthlyMinNights: 30,
   familyFriendly: false,
   nearBase: 'Lackland AFB' as const,
   group: 'Collins Garden Studios',
@@ -115,16 +120,6 @@ export const properties: Property[] = [
     bookingUrl: `${H1}2005408`,
   },
   {
-    slug: 'legislation-4br', name: 'Legislation', title: 'Movie Night, Pool & Poker · 2 Living Rooms & Spacious',
-    city: 'Converse', type: 'House', guests: 10, bedrooms: 4, beds: 4, baths: '2.5',
-    petFriendly: false, extendedStay: true, workspace: false, familyFriendly: true, nearBase: 'Randolph AFB', featured: true,
-    summary: 'A stylish, spacious home made for group trips, and PCS moves, two living rooms, a movie projector, pool, and poker tables, and a covered patio with grill.',
-    highlights: ['Two living rooms', 'Movie projector', 'Game room with pool & poker tables', 'Covered back patio with grill', 'About 4 minutes from Randolph AFB’s back gate'],
-    sleeping: ['Four upstairs bedrooms with queen beds', 'Two couches (1 guest each)'],
-    amenities: ['Large kitchen with walk-in pantry', 'Dishwasher, air fryer & crockpot', 'Samsung HDTVs in each bedroom', 'In-unit washer & dryer', 'Large fenced yard'],
-    bookingUrl: `${H1}1630750`,
-  },
-  {
     slug: 'halliday-fig-trees', name: 'Halliday', title: 'Urban 2BR Escape Near Downtown SA with Fire Pit & Yard',
     city: 'San Antonio', area: 'Riverside', type: 'House', guests: 8, bedrooms: 2, beds: 4, baths: '2',
     petFriendly: true, extendedStay: false, workspace: false, familyFriendly: true,
@@ -135,7 +130,7 @@ export const properties: Property[] = [
     bookingUrl: `${H3}2247418`,
   },
   {
-    slug: 'liberty-bell', name: 'Liberty Bell', title: '2BR Family Unit 10 Minutes from the Airport with Free Parking',
+    slug: 'liberty-bell', monthlyMinNights: 28, name: 'Liberty Bell', title: '2BR Family Unit 10 Minutes from the Airport with Free Parking',
     city: 'San Antonio', type: 'House', guests: 4, bedrooms: 2, beds: 3, baths: '2',
     petFriendly: false, extendedStay: false, workspace: false, familyFriendly: true,
     summary: 'An open-concept family home built around a 10-foot kitchen island, two bedrooms, two full baths, and space for the kids to play.',
@@ -276,32 +271,6 @@ export const properties: Property[] = [
     bookingUrl: `${H1}2341389`,
   },
   {
-    slug: 'santa-anna-main', name: 'Santa Anna', title: 'Charming 3BR/2BA Home 10 Minutes from Downtown',
-    city: 'San Antonio', area: 'Los Angeles Heights', mapQuery: 'Los Angeles Heights, San Antonio, TX',
-    type: 'House', guests: 6, bedrooms: 3, beds: 3, baths: '2',
-    petFriendly: false, extendedStay: true, workspace: true, familyFriendly: true,
-    group: 'Santa Anna',
-    summary: 'An updated home on a large corner lot in Los Angeles Heights, an established family neighbourhood close to everything San Antonio has to offer.',
-    highlights: ['Large corner lot', 'Established family neighbourhood', 'Three bedrooms, two full baths', 'Dedicated workspace', 'Free on-site parking'],
-    sleeping: ['Three bedrooms', 'Sleeps up to 6 guests'],
-    amenities: ['Full kitchen with dishwasher', 'In-unit washer & dryer', 'Smart TV', 'Garden', 'Central air conditioning', 'Free on-site parking'],
-    distances: ['Minutes from San Antonio International Airport', 'Close to the Pearl, the Medical Center, and North Star Mall'],
-    bookingUrl: `${H1}2353493`,
-  },
-  {
-    slug: 'santa-anna-casita', name: 'Santa Anna Casita', title: 'Cozy Renovated Casita with Patio · Central Location',
-    city: 'San Antonio', area: 'Los Angeles Heights', mapQuery: 'Los Angeles Heights, San Antonio, TX',
-    type: 'Casita', guests: 2, bedrooms: 1, beds: 1, baths: '1',
-    petFriendly: false, extendedStay: true, workspace: true, familyFriendly: false,
-    group: 'Santa Anna',
-    summary: 'A newly renovated one-bedroom casita offering comfort, space, and a central location, with modern touches throughout and a private patio.',
-    highlights: ['Newly renovated', 'Private patio & garden', 'Central location', 'Dedicated workspace', 'Free on-site parking'],
-    sleeping: ['Queen bed'],
-    amenities: ['Smart TV', 'Free Wi-Fi', 'Dedicated workspace', 'Private patio', 'Central air conditioning', 'Free on-site parking'],
-    distances: ['Under 15 minutes to the Airport, the River Walk, the Alamo, and the Pearl District', 'Under 15 minutes to Six Flags Fiesta Texas and Splashtown'],
-    bookingUrl: `${H1}2353492`,
-  },
-  {
     slug: 'evergreen-1', name: 'Evergreen Loft', title: 'Chic 1BR Loft with Backyard Near the Pearl & Downtown',
     city: 'San Antonio', area: 'Tobin Hill', mapQuery: 'Tobin Hill, San Antonio, TX',
     type: 'Casita', guests: 2, bedrooms: 1, beds: 1, baths: '1',
@@ -326,6 +295,48 @@ export const properties: Property[] = [
     amenities: ['Full kitchen', 'Smart TV', 'Free Wi-Fi', 'Dedicated workspace', 'Central air conditioning', 'Free on-site parking'],
     distances: ['Walking distance to the Pearl, the River Walk, and the Saint Mary’s strip'],
     bookingUrl: `${H1}2339352`,
+  },
+  // Santa Anna, re-listed in Hospitable 2026-10. The previous "Santa Anna Main"
+  // and "Santa Anna Casita" listings were deleted; these three replace them.
+  // The combo books the main house and casita together as a rare 4BR for the area.
+  {
+    slug: 'santa-anna-combo', monthlyMinNights: 30, name: 'Santa Anna', title: 'Main House & Casita Together · 4BR · 7 Minutes to Downtown',
+    city: 'San Antonio', area: 'Los Angeles Heights', mapQuery: 'Los Angeles Heights, San Antonio, TX',
+    type: 'House', guests: 11, bedrooms: 4, beds: 5, baths: '3',
+    petFriendly: false, extendedStay: true, workspace: true, familyFriendly: true,
+    group: 'Santa Anna', featured: true,
+    summary: 'The main house and the private casita booked together, giving a four-bedroom with room for eleven, seven minutes from downtown San Antonio.',
+    highlights: ['Main house and casita together', 'Four bedrooms, three baths', 'Sleeps up to 11', 'Separate casita for privacy', '7 minutes to downtown'],
+    sleeping: ['Main house: three queen bedrooms', 'Casita: queen bedroom', 'Sleeps up to 11 guests'],
+    amenities: ['Two full kitchens', 'In-unit washer & dryer', 'Dedicated workspace', 'Private patio', 'Central air conditioning', 'Free on-site parking'],
+    distances: ['7 minutes to Downtown San Antonio', 'Minutes from the Pearl and the Medical Center'],
+    bookingUrl: `${H1}2360273`,
+  },
+  {
+    slug: 'santa-anna-main', monthlyMinNights: 30, name: 'Santa Anna Main House', title: 'Beautifully Renovated 3BR · 7 Minutes to Downtown',
+    city: 'San Antonio', area: 'Los Angeles Heights', mapQuery: 'Los Angeles Heights, San Antonio, TX',
+    type: 'House', guests: 7, bedrooms: 3, beds: 3, baths: '2',
+    petFriendly: false, extendedStay: true, workspace: true, familyFriendly: true,
+    group: 'Santa Anna',
+    summary: 'A beautifully renovated three-bedroom home on a large corner lot in Los Angeles Heights, an established family neighbourhood seven minutes from downtown.',
+    highlights: ['Three queen bedrooms', 'Large corner lot', 'Dedicated workspace', '7 minutes to downtown', 'Free on-site parking'],
+    sleeping: ['Bedroom 1: Queen bed', 'Bedroom 2: Queen bed', 'Bedroom 3: Queen bed'],
+    amenities: ['Full kitchen with dishwasher', 'In-unit washer & dryer', 'Smart TV', 'Dedicated workspace', 'Central air conditioning', 'Free on-site parking'],
+    distances: ['7 minutes to Downtown San Antonio', 'Minutes from the Pearl, the Medical Center, and North Star Mall'],
+    bookingUrl: `${H1}2360274`,
+  },
+  {
+    slug: 'santa-anna-casita', monthlyMinNights: 30, name: 'Santa Anna Casita', title: 'Private Casita with Patio · Near Downtown & Bus Line',
+    city: 'San Antonio', area: 'Los Angeles Heights', mapQuery: 'Los Angeles Heights, San Antonio, TX',
+    type: 'Casita', guests: 4, bedrooms: 1, beds: 2, baths: '1',
+    petFriendly: false, extendedStay: true, workspace: true, familyFriendly: false,
+    group: 'Santa Anna',
+    summary: 'A private renovated casita with its own patio, close to downtown and on the bus line, with room for up to four guests.',
+    highlights: ['Private entrance and patio', 'Sleeps up to 4', 'On the bus line', 'Dedicated workspace', 'Free on-site parking'],
+    sleeping: ['Bedroom: Queen bed', 'Living area: additional bed'],
+    amenities: ['Full kitchen', 'Smart TV', 'Free Wi-Fi', 'Dedicated workspace', 'Private patio', 'Free on-site parking'],
+    distances: ['7 minutes to Downtown San Antonio', 'On the bus line'],
+    bookingUrl: `${H1}2360275`,
   },
 ];
 

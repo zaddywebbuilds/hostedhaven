@@ -14,7 +14,7 @@ export type Redirect = { from: string; to: string };
 const propertySlugs = [
   'halliday-fig-trees', 's-park-1a', 's-park-1b', 's-park-1c', 's-park-1d',
   's-park-2a', 's-park-2b', 's-park-2c', 's-park-2d', 'la-maison-blount',
-  'grass-hollow', 'liberty-bell', 'legislation-4br', 'the-harding-place',
+  'grass-hollow', 'liberty-bell', 'the-harding-place',
   'ccp-1', 'ccp-2', 'ccp-3', 'ccp-4', 'ccp-5',
   'discovery-mill-crash-pad', 'de-soto-lighthouse', 'coastal-run',
 ];
@@ -50,6 +50,10 @@ export const redirects: Redirect[] = [
 
   // Articles that became pages
   { from: '/article/why-book-direct/', to: '/why-book-direct/' },
+
+  // Legislation was deleted in Hospitable (2026-10), so its old property URL
+  // goes to the stays index rather than a page that no longer exists.
+  { from: '/property/legislation-4br/', to: '/stays/' },
 
   // Renamed at Megan's request (2026-10-01): "service video" rather than "training video".
   { from: '/training-video/', to: '/service-video/' },
