@@ -154,7 +154,7 @@ export const services: Service[] = [
     detail: {
       h2: 'What changes when stays get longer',
       paragraphs: [
-        'Mid-term guests live in the home. They cook, work, do laundry and notice every missing detail. The setup has to support daily living, and the operation has to keep quality high without the reset of a nightly turnover.',
+        'Mid-term guests live in the home. They cook, work, do laundry, and notice every missing detail. The setup has to support daily living, and the operation has to keep quality high without the reset of a nightly turnover.',
         'A blended strategy can also help, combining nightly and 30+ day bookings to reduce empty weeks during slower seasons.',
       ],
       bullets: [
