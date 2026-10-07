@@ -77,10 +77,10 @@ const allSchema = [org, ...crumbSchema, ...schema];
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Montserrat matches the geometric sans in the Hosted Havens wordmark. The
-       previous display face was Cormorant Garamond, a serif, which is a
-       different category of type from the logo entirely. -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" />
+  <!-- Per the Hosted Havens brand guidelines: headings Montserrat (semibold or
+       bold only, never regular), body Source Sans 3. Weight 500 is deliberately
+       not loaded so a heading cannot fall back to regular. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" />
 
   {allSchema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
 
