@@ -16,6 +16,7 @@
 import { articlesSep2026 } from './articles-sep-2026';
 import { articlesSep2026b } from './articles-sep-2026b';
 import { articlesCarriedOver } from './articles-carried-over';
+import { properties } from './properties';
 
 export type Article = {
   slug: string;
@@ -292,3 +293,29 @@ export const articles: Article[] = [
 ];
 
 export const getArticle = (slug: string) => articles.find((a) => a.slug === slug);
+
+/**
+ * Articles name individual properties, in their hero image and in body links.
+ * Properties come and go, so those references rot silently: when Legislation was
+ * deleted in Oct 2026 it left eight dead links and five broken hero images.
+ *
+ * This fails the build instead of shipping them. If a property is removed, the
+ * build names every article that still points at it, so the copy gets updated in
+ * the same change rather than discovered later by a guest hitting a 404.
+ */
+const propertySlugs = new Set(properties.map((p) => p.slug));
+const brokenRefs = articles.flatMap((a) => {
+  const problems: string[] = [];
+  if (!propertySlugs.has(a.heroProperty)) problems.push(`heroProperty "${a.heroProperty}"`);
+  for (const [, slug] of a.body.matchAll(/href="\/stays\/([a-z0-9-]+)\/"/g)) {
+    if (!propertySlugs.has(slug)) problems.push(`link to /stays/${slug}/`);
+  }
+  return problems.map((p) => `  ${a.slug}: ${p}`);
+});
+if (brokenRefs.length) {
+  throw new Error(
+    `${brokenRefs.length} article reference(s) point at properties that no longer exist:\n` +
+    brokenRefs.join('\n') +
+    `\n\nUpdate the article copy, or re-add the property.`
+  );
+}

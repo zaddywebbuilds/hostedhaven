@@ -120,6 +120,13 @@ export const ownerTestimonials = [
     name: 'Patrick',
     role: 'Property owner',
   },
+  // Google review posted under the display name "Office Email"; Megan confirmed
+  // (2026-10-07) that it is Andrew.
+  {
+    quote: 'Megan and her team are excellent at being cohosts. From booking the property to dealing with the occasional guest that makes us all cringe, she deals with it all! Highly recommended and wonderful to work with.',
+    name: 'Andrew',
+    role: 'Property owner',
+  },
 ];
 
 export const guestReviews = [
