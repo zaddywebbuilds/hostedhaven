@@ -7,8 +7,8 @@
   --cream-page: #F7EDDF;
   --cream: #FDF7EE;
   --cream-deep: #F2E3CD;
-  --coral: #D98A6E;
-  --coral-deep: #C0573B;
+  --coral: #C0573B;
+  --coral-deep: #A84A31;
   --coral-ink: #96412B;
   --pink: #E8CBA8;
   --pink-soft: #F5E7D4;
@@ -93,12 +93,12 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 /* ---------- Typography ---------- */
 h1, h2, h3, h4 { font-family: var(--display); font-weight: 600; line-height: 1.05; letter-spacing: -.012em; margin: 0 0 .5em; color: var(--ink); text-wrap: balance; }
-h1 { font-size: clamp(2.9rem, 6vw, 6rem); font-weight: 500; }
+h1 { font-size: clamp(2.9rem, 6vw, 6rem); font-weight: 600; }
 .h1-interior { font-size: clamp(2.5rem, 5vw, 4.8rem); }
-h2 { font-size: clamp(2.1rem, 4vw, 3.8rem); font-weight: 500; }
+h2 { font-size: clamp(2.1rem, 4vw, 3.8rem); font-weight: 600; }
 h3 { font-size: clamp(1.45rem, 2vw, 1.85rem); }
 h4 { font-size: 1.25rem; }
-h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 500; }
+h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
 .lead { font-size: clamp(1.05rem, 1.35vw, 1.22rem); color: var(--ink-soft); max-width: 62ch; }
 .muted { color: var(--ink-mute); }
 .small { font-size: .88rem; }
@@ -163,9 +163,9 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 500; }
 .btn-primary {
   background: linear-gradient(135deg, var(--coral) 0%, var(--coral-deep) 100%);
   color: #fff;
-  box-shadow: 0 10px 28px rgba(229, 102, 74, .38), inset 0 1px 0 rgba(255, 255, 255, .35);
+  box-shadow: 0 10px 28px rgba(192, 87, 59, .38), inset 0 1px 0 rgba(255, 255, 255, .35);
 }
-.btn-primary:hover { box-shadow: 0 16px 38px rgba(229, 102, 74, .48), inset 0 1px 0 rgba(255, 255, 255, .35); }
+.btn-primary:hover { box-shadow: 0 16px 38px rgba(192, 87, 59, .48), inset 0 1px 0 rgba(255, 255, 255, .35); }
 .btn-glass {
   background: var(--glass-strong); color: var(--ink);
   border-color: var(--glass-border);
@@ -209,7 +209,7 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 500; }
   display: grid; place-items: center;
   background: linear-gradient(145deg, #fff, var(--pink-soft));
   color: var(--coral-deep);
-  box-shadow: inset 0 1px 0 #fff, 0 8px 20px rgba(229, 102, 74, .18);
+  box-shadow: inset 0 1px 0 #fff, 0 8px 20px rgba(192, 87, 59, .18);
 }
 .icon-box svg { width: 24px; height: 24px; }
 .icon-box.sage { background: linear-gradient(145deg, #fff, #E6EBDD); color: #5E6E50; box-shadow: inset 0 1px 0 #fff, 0 8px 20px rgba(138, 154, 123, .22); }
@@ -316,8 +316,8 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 500; }
   background:
     radial-gradient(ellipse 70% 50% at 50% 30%, #FBEEDD 0%, transparent 60%),
     radial-gradient(ellipse 80% 50% at 80% 80%, #EFD9BE 0%, transparent 60%),
-    radial-gradient(ellipse 70% 50% at 15% 70%, #E3CBA6 0%, transparent 60%),
-    linear-gradient(180deg, #FDF3E6 0%, #F1DEC4 60%, #DFC5A2 100%);
+    radial-gradient(ellipse 70% 50% at 15% 70%, rgba(101, 97, 52, .18) 0%, transparent 62%),
+    linear-gradient(180deg, #FDF8F0 0%, #F4E8D6 60%, #E7D6BA 100%);
   border: 1px solid rgba(255, 255, 255, .7);
   box-shadow: 0 40px 100px rgba(180, 110, 80, .25), inset 0 1px 0 rgba(255, 255, 255, .9);
 }
@@ -325,8 +325,8 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 500; }
 .stage-arch span { width: 1px; height: 100%; background: linear-gradient(180deg, transparent, rgba(255, 255, 255, .9) 40%, transparent); }
 .stage-arch span:nth-child(2) { opacity: .5; } .stage-arch span:nth-child(4) { opacity: .6; }
 .stage-glow { position: absolute; width: 60vw; max-width: 780px; aspect-ratio: 1; border-radius: 50%; filter: blur(10px); pointer-events: none; }
-.stage-glow.a { top: -18%; right: -10%; background: radial-gradient(circle, rgba(192, 87, 59, .32), rgba(212, 163, 116, .24) 35%, transparent 65%); animation: drift 18s ease-in-out infinite alternate; }
-.stage-glow.b { bottom: -30%; left: -15%; background: radial-gradient(circle, rgba(212, 163, 116, .42), transparent 62%); animation: drift 22s ease-in-out infinite alternate-reverse; }
+.stage-glow.a { top: -18%; right: -10%; background: radial-gradient(circle, rgba(192, 87, 59, .22), rgba(212, 163, 116, .18) 35%, transparent 65%); animation: drift 18s ease-in-out infinite alternate; }
+.stage-glow.b { bottom: -30%; left: -15%; background: radial-gradient(circle, rgba(101, 97, 52, .22), transparent 62%); animation: drift 22s ease-in-out infinite alternate-reverse; }
 
 .hero-grid {
   position: relative; z-index: 2;
@@ -482,14 +482,14 @@ ul.ticks li::before { content: ''; flex: none; width: 18px; height: 18px; margin
 
 /* Stats orbs */
 .orbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
-.orb { text-align: center; padding: 2rem 1rem; border-radius: 50% / 42%; background: radial-gradient(circle at 30% 25%, #fff, rgba(255, 228, 214, .7) 60%, rgba(248, 212, 187, .6)); border: 1px solid #fff; box-shadow: var(--shadow-glass), inset 0 -10px 30px rgba(229, 102, 74, .08); }
+.orb { text-align: center; padding: 2rem 1rem; border-radius: 50% / 42%; background: radial-gradient(circle at 30% 25%, #fff, rgba(255, 228, 214, .7) 60%, rgba(248, 212, 187, .6)); border: 1px solid #fff; box-shadow: var(--shadow-glass), inset 0 -10px 30px rgba(192, 87, 59, .08); }
 .orb strong { display: block; font-family: var(--display); font-size: clamp(2.3rem, 3.5vw, 3.3rem); font-weight: 600; line-height: 1; color: var(--coral-deep); }
 .orb span { font-size: .88rem; color: var(--ink-soft); font-weight: 550; }
 
 /* Testimonials */
 .quote-card { position: relative; padding: clamp(1.8rem, 4vw, 3rem); border-radius: var(--r-xl); background: rgba(255, 255, 255, .7); border: 1px solid #fff; box-shadow: var(--shadow-deep); }
-.quote-card blockquote { margin: 0; font-family: var(--display); font-size: clamp(1.6rem, 2.6vw, 2.4rem); line-height: 1.2; font-weight: 600; color: var(--ink); }
-.quote-card blockquote::before { content: '“'; display: block; font-size: 4.5rem; line-height: .6; color: var(--coral); margin-bottom: .6rem; }
+.quote-card blockquote { margin: 0; font-family: var(--display); font-size: clamp(1.15rem, 1.5vw, 1.45rem); line-height: 1.4; font-weight: 600; color: var(--ink); }
+.quote-card blockquote::before { content: '“'; display: block; font-size: 3rem; line-height: .6; color: var(--coral); margin-bottom: .6rem; }
 .quote-by { display: flex; align-items: center; gap: .8rem; margin-top: 1.4rem; }
 .avatar-initial { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(145deg, var(--coral), var(--coral-deep)); color: #fff; font-family: var(--display); font-size: 1.4rem; font-weight: 600; flex: none; }
 .quote-by strong { display: block; } .quote-by small { color: var(--ink-mute); }
@@ -528,7 +528,7 @@ ul.ticks li::before { content: ''; flex: none; width: 18px; height: 18px; margin
 .demand-map img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .55; filter: sepia(.35) saturate(.8); }
 .demand-map::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, transparent 20%, rgba(14, 11, 8, .55)); }
 .demand-chip { position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: .45rem; padding: .5rem .85rem; border-radius: 999px; background: rgba(253, 244, 232, .92); font-size: .82rem; font-weight: 650; color: var(--ink); box-shadow: 0 10px 26px rgba(0, 0, 0, .3); animation: float 8s ease-in-out infinite; }
-.demand-chip i { width: 8px; height: 8px; border-radius: 50%; background: var(--coral-deep); box-shadow: 0 0 0 5px rgba(229, 102, 74, .25); }
+.demand-chip i { width: 8px; height: 8px; border-radius: 50%; background: var(--coral-deep); box-shadow: 0 0 0 5px rgba(192, 87, 59, .25); }
 
 /* FAQ */
 .faq-list { display: grid; gap: .75rem; }
@@ -580,7 +580,7 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .hp { position: absolute; left: -9999px; }
 .form-success { display: none; text-align: center; padding: 1rem 0; }
 .form-success.show { display: block; animation: rise .6s var(--ease); }
-.success-mark { width: 84px; height: 84px; margin: 0 auto 1.2rem; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(145deg, var(--coral), var(--coral-deep)); color: #fff; box-shadow: 0 16px 40px rgba(229, 102, 74, .4); }
+.success-mark { width: 84px; height: 84px; margin: 0 auto 1.2rem; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(145deg, var(--coral), var(--coral-deep)); color: #fff; box-shadow: 0 16px 40px rgba(192, 87, 59, .4); }
 .success-mark svg { width: 38px; height: 38px; }
 .form-status { font-size: .9rem; color: #B03A2E; margin-top: .8rem; }
 
@@ -654,6 +654,11 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .lightbox .lb-grid button { position: static; width: 100%; height: auto; padding: 0; border: 0; background: none; cursor: pointer; border-radius: 10px; overflow: hidden; aspect-ratio: 3 / 2; display: block; }
 .lightbox .lb-grid img { width: 100%; height: 100%; max-height: none; object-fit: cover; display: block; border-radius: 0; transition: transform .4s var(--ease); }
 .lightbox .lb-grid button:hover img, .lightbox .lb-grid button:focus-visible img { transform: scale(1.06); }
+/* The grid was display:grid unconditionally, and only the single-photo view was
+   hidden in grid mode. Out of grid mode nothing hid the grid, so both views
+   rendered on top of each other. Each mode now hides the other. */
+.lightbox:not(.grid-mode) .lb-grid,
+.lightbox .lb-grid[hidden] { display: none; }
 .lightbox.grid-mode [data-lb-img], .lightbox.grid-mode .lb-prev,
 .lightbox.grid-mode .lb-next, .lightbox.grid-mode .lb-count { display: none; }
 
@@ -869,5 +874,5 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 
 /* Take the Tour. The source is a portrait social clip, so it is capped rather
    than stretched to full width. */
-.tour-frame { max-width: 420px; margin: 0 auto; border-radius: var(--r-lg); overflow: hidden; background: var(--peach); border: 1px solid #fff; box-shadow: var(--shadow-deep); }
+.tour-frame { max-width: 340px; margin: 0 auto; border-radius: var(--r-lg); overflow: hidden; background: var(--peach); border: 1px solid #fff; box-shadow: var(--shadow-deep); }
 .tour-frame video { display: block; width: 100%; height: auto; }

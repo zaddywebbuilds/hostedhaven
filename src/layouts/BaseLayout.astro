@@ -80,7 +80,7 @@ const allSchema = [org, ...crumbSchema, ...schema];
   <!-- Per the Hosted Havens brand guidelines: headings Montserrat (semibold or
        bold only, never regular), body Source Sans 3. Weight 500 is deliberately
        not loaded so a heading cannot fall back to regular. -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;1,600;1,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" />
 
   {allSchema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
 

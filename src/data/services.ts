@@ -169,7 +169,7 @@ export const services: Service[] = [
     faqs: [
       { q: 'Do you manage mid-term rentals?', a: 'Yes. Hosted Havens supports short-term, mid-term (30+ day), and blended rental strategies depending on the property and the owner’s goals.' },
       { q: 'Who books mid-term rentals in San Antonio?', a: 'Common guests include military personnel on PCS moves, traveling professionals, families relocating to the area, and people who need temporary housing during a transition.' },
-      { q: 'Is my home a good fit for 30+ day stays?', a: 'Location, layout, workspace, and storage all matter. A <a href="/property-analysis/">property analysis</a> is the best way to see whether short, mid-term or a blend fits your home.' },
+      { q: 'Is my home a good fit for 30+ day stays?', a: 'Location, layout, workspace, and storage all matter. A <a href="/property-analysis/">property analysis</a> is the best way to see whether short, mid-term, or a blend fits your home.' },
     ],
     related: ['airbnb-management-san-antonio', 'airbnb-revenue-management-san-antonio', 'furnished-rentals-near-randolph-afb'],
   },
@@ -232,7 +232,7 @@ export const services: Service[] = [
     intro: {
       h2: '“Furnished” is not the same as <em>optimized</em>',
       paragraphs: [
-        'A furnished home has beds, seating and kitchenware. An optimized short-term rental is intentionally prepared to perform: it photographs well, guides guests intuitively, and protects the property from avoidable wear.',
+        'A furnished home has beds, seating, and kitchenware. An optimized short-term rental is intentionally prepared to perform: it photographs well, guides guests intuitively, and protects the property from avoidable wear.',
         'Your listing is the first version of your home guests experience. Photography, title, description, and amenity choices decide whether they click, book, and leave a favorable review that matches what they expected.',
       ],
     },
