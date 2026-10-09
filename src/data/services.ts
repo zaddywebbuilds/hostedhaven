@@ -158,7 +158,7 @@ export const services: Service[] = [
         'A blended strategy can also help, combining nightly and 30+ day bookings to reduce empty weeks during slower seasons.',
       ],
       bullets: [
-        'Setup for daily living: workspace, laundry, stocked kitchen',
+        'Setup for daily living: workspace, laundry, and stocked kitchen',
         'Extended-stay pricing and length-of-stay strategy',
         'Mid-stay housekeeping options',
         'Screening and clear house guidance for longer stays',
