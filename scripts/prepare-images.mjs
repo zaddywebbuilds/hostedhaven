@@ -11,7 +11,7 @@ const SITE_IMAGES = process.env.SITE_IMAGES || path.resolve(root, '..', 'site-im
 const BRAND = process.env.BRAND_ASSETS || path.resolve(root, '..', 'brand-assets');
 const OUT = path.join(root, 'public', 'images');
 const DATA = path.join(root, 'src', 'data', 'images.json');
-const PER_PROPERTY = 14;
+const PER_PROPERTY = 40;
 const WIDTHS = [640, 1280];
 
 const citySlug = {

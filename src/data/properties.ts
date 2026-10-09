@@ -69,7 +69,7 @@ const crashpadShared = {
 
 export const properties: Property[] = [
   {
-    slug: 'the-harding-place', name: 'The Harding Place', title: 'Spacious Family Home · Game Room · Fenced Yard',
+    slug: 'the-harding-place', mapQuery: 'River Walk, San Antonio, TX', name: 'The Harding Place', title: 'Spacious Family Home · Game Room · Fenced Yard',
     city: 'San Antonio', area: 'Near Downtown & the River Walk', type: 'House', guests: 7, bedrooms: 3, beds: 3, baths: '1.5',
     petFriendly: true, extendedStay: true, workspace: false, familyFriendly: true, featured: true,
     summary: 'A timeless Craftsman-style home near Downtown and the River Walk, nearly 2,000 sq. ft. of natural light, vintage character, and room for the whole family.',
@@ -130,7 +130,7 @@ export const properties: Property[] = [
     bookingUrl: `${H3}2247418`,
   },
   {
-    slug: 'liberty-bell', monthlyMinNights: 28, name: 'Liberty Bell', title: '2BR Family Unit 10 Minutes from the Airport with Free Parking',
+    slug: 'liberty-bell', monthlyMinNights: 28, name: 'Liberty Bell', mapQuery: 'San Antonio International Airport, San Antonio, TX', title: '2BR Family Unit 10 Minutes from the Airport with Free Parking',
     city: 'San Antonio', type: 'House', guests: 4, bedrooms: 2, beds: 3, baths: '2',
     petFriendly: false, extendedStay: true, workspace: false, familyFriendly: true,
     summary: 'An open-concept family home built around a 10-foot kitchen island, two bedrooms, two full baths, and space for the kids to play.',

@@ -49,6 +49,17 @@ const descLead = summary.length <= descBudget
   ? summary
   : summary.slice(0, descBudget - 1).replace(/[\s,;:]+\S*$/, '') + '…';
 const desc = descLead + descTail;
+// Megan: "the map isn't centered to the property". Most properties never set
+// mapQuery, so the embed fell all the way back to "San Antonio, TX" and every
+// page showed the same city centre. Fall through the neighbourhood first, and
+// only widen the zoom when all we genuinely have is the city. This stays
+// neighbourhood-level on purpose: these are occupied homes and the exact
+// address goes to the guest after booking, not to anyone browsing.
+const mapArea = p.mapQuery || (p.area ? `${p.area}, ${p.city}, TX` : `${p.city}, TX`);
+// Live Oak, Universal City and Converse are small enough that the city name is
+// already neighbourhood scale. Only a San Antonio property with no area needs
+// the wider view, so the map does not imply a precision we do not have.
+const mapZoom = p.mapQuery || p.area || p.city !== 'San Antonio' ? 14 : 12;
 const cover = imgs[0];
 
 const schema = [{
@@ -169,8 +180,8 @@ const schema = [{
         <p class="muted" style="margin-top:-.4rem">{[p.area, `${p.city}, TX`].filter(Boolean).join(' · ')}</p>
         <div class="map-embed">
           <iframe
-            title={`Map of the ${p.city} area where ${p.name} is located`}
-            src={`https://maps.google.com/maps?q=${encodeURIComponent(p.mapQuery || `${p.city}, TX`)}&z=14&output=embed`}
+            title={`Map of the ${mapArea} area where ${p.name} is located`}
+            src={`https://maps.google.com/maps?q=${encodeURIComponent(mapArea)}&z=${mapZoom}&output=embed`}
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
