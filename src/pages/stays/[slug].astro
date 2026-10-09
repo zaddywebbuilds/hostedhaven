@@ -6,6 +6,7 @@ import PropertyCard from '../../components/PropertyCard.astro';
 import { properties, type Property } from '../../data/properties';
 import { propertyImages } from '../../lib/images';
 import { u, SITE } from '../../lib/url';
+import hospitable from '../../data/hospitable.json';
 import { business } from '../../data/business';
 
 export function getStaticPaths() {
@@ -24,6 +25,18 @@ const similar = properties
   .map((x) => x.o);
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'Stays', path: '/stays/' }, { name: p.city, path: '/stays/' }, { name: p.name, path }];
 const metaTitle = `${p.name} · ${p.type === 'House' ? `${p.bedrooms}BR Home` : p.type} in ${p.city}, TX | Hosted Havens`;
+// Hospitable is the source of truth for listing content, per Megan. The synced
+// snapshot supplies the full amenity list and the long description; the
+// hand-written summary stays as the short lead.
+const pms = (hospitable as Record<string, any>)[p.slug];
+const pmsAmenities: string[] = pms?.amenities ?? [];
+const pmsDescription: string = pms?.description ?? '';
+// Split the PMS copy into paragraphs here rather than in the template: a regex
+// literal containing a newline escape does not survive the Astro compiler.
+const pmsParagraphs: string[] = pmsDescription
+  .split('\n')
+  .map((line) => line.trim())
+  .filter((line) => line.length > 0);
 const desc = `${p.summary.slice(0, 150).replace(/\s+\S*$/, '')}… Sleeps ${p.guests}. Book direct with Hosted Havens.`;
 const cover = imgs[0];
 
@@ -93,7 +106,12 @@ const schema = [{
         <ul class="ticks" style="padding:0">{p.sleeping.map((h) => <li>{h}</li>)}</ul>
 
         <h2>Amenities</h2>
-        <ul class="ticks" style="padding:0;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">{p.amenities.map((h) => <li>{h}</li>)}</ul>
+        <ul class="ticks" style="padding:0;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">{(pmsAmenities.length ? pmsAmenities : p.amenities).map((h) => <li>{h}</li>)}</ul>
+
+          {pmsParagraphs.length > 0 && (<>
+            <h2>About this home</h2>
+            {pmsParagraphs.map((para) => <p>{para}</p>)}
+          </>)}
 
         {p.distances && (<>
           <h2>Location</h2>
