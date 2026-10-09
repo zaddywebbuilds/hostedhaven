@@ -6,9 +6,9 @@ import type { Article } from './articles';
 export const articlesSep2026b: Article[] = [
   // ── 16 ─────────────────────────────────────────────────────────────────────
   {
-    slug: 'remote-work-rentals-san-antonio-2026',
-    title: 'Remote Work Rentals in San Antonio: The 2026 Guide for Digital Nomads and Relocators',
-    metaTitle: 'Best Remote Work Vacation Rentals San Antonio 2026 | Hosted Havens',
+    slug: 'remote-work-rentals-san-antonio',
+    title: 'Remote Work Rentals in San Antonio: The Guide for Digital Nomads and Relocators',
+    metaTitle: 'Best Remote Work Vacation Rentals San Antonio | Hosted Havens',
     description: 'Working remotely from San Antonio? Find furnished rentals with dedicated offices, fast fiber internet, and the quiet you need to actually be productive during a longer stay.',
     cluster: 'San Antonio',
     published: '2026-09-16',
@@ -27,7 +27,7 @@ export const articlesSep2026b: Article[] = [
 </ul>
 <h2>Collins Garden Studios: purpose-built for extended remote stays</h2>
 <p>The <a href="/stays/s-park-1a/">Collins Garden Studios</a> are the most work-focused option in the Hosted Havens portfolio. Each studio unit has a dedicated workspace, personal climate control so you are not fighting a shared thermostat, fast Wi-Fi, and keyless entry. The complex is two miles from downtown San Antonio and nine miles from Lackland AFB, in a quiet residential neighborhood facing Collins Garden Park.</p>
-<p>For a solo remote worker or a couple both working during a month-long stay, the studio format provides a self-contained environment without the noise or interruptions of a larger shared vacation rental. Monthly rates apply at 28 nights, making the cost competitive with furnished apartment sublets in the area.</p>
+<p>For a solo remote worker or a couple both working during a month-long stay, the studio format provides a self-contained environment without the noise or interruptions of a larger shared vacation rental. Monthly rates make the cost competitive with furnished apartment sublets in the area.</p>
 <h2>De Soto: the dedicated office option for families or teams</h2>
 <p><a href="/stays/de-soto-lighthouse/">De Soto</a> in Universal City is the best-equipped option for a family or small team where one or more people need to work seriously during the stay. It has a dedicated large office with high-speed internet, Google smart home lighting (useful for controlling the environment without interrupting a call), and a quiet separate sleeping wing that keeps the office separate from the rest of the household.</p>
 <p>For two adults both working remotely, De Soto's office and the flexibility of the secondary living room give two people dedicated workspace without sharing a desk.</p>
@@ -50,14 +50,14 @@ export const articlesSep2026b: Article[] = [
     body: `
 <p>The 30 to 60 day stay category sits in an awkward gap. Hotels are clearly not the right answer. A standard apartment lease requires a 12-month commitment and typically a full move-in sequence: application, deposit, renter's insurance, and a week or two before the unit is ready. Short-term furnished rentals exist specifically to fill this gap, but the cost comparison is not always obvious.</p>
 <h2>What a short-term furnished rental costs vs. an apartment in San Antonio</h2>
-<p>A one-bedroom apartment in San Antonio runs $1,100 to $1,500 per month in 2026, unfurnished. Add furniture rental ($200 to $400 per month for a basic set), utilities ($120 to $180 per month), and internet service ($70 to $90 per month), and the actual monthly cost lands between $1,490 and $2,170. That assumes you find a month-to-month lease at all, which is increasingly uncommon in the San Antonio market.</p>
+<p>A one-bedroom apartment in San Antonio runs $1,100 to $1,500 per month, unfurnished. Add furniture rental ($200 to $400 per month for a basic set), utilities ($120 to $180 per month), and internet service ($70 to $90 per month), and the actual monthly cost lands between $1,490 and $2,170. That assumes you find a month-to-month lease at all, which is increasingly uncommon in the San Antonio market.</p>
 <p>A furnished short-term rental at the monthly rate includes all of the above in one number. Monthly rates for a studio or one-bedroom in the Hosted Havens portfolio run $1,400 to $2,200 per month depending on the property, with no setup costs, no furniture rental, no separate utility accounts, and no 12-month commitment.</p>
 <h2>The setup cost difference</h2>
 <p>A standard apartment lease in San Antonio typically requires first and last month's rent plus a security deposit, putting the upfront cost at $3,300 to $4,500 before you have spent a night in the unit. Furniture rental adds another $400 to $800 to get the space functional. A short-term furnished rental requires none of that. You pay the monthly rate and arrive to a fully equipped home.</p>
 <h2>When an apartment makes more sense</h2>
 <p>If you are moving to San Antonio permanently, or if your stay will extend beyond three months with high certainty, a standard lease eventually becomes the lower-cost option. The crossover point is usually around 90 days: before that, the setup costs and commitment of a lease make a short-term rental more economical and more flexible. After 90 days, a lease cost advantage typically exceeds the flexibility premium of a furnished rental.</p>
 <h2>Collins Garden Studios: the furnished apartment alternative</h2>
-<p>The <a href="/stays/s-park-2c/">Collins Garden Studios</a> are designed specifically for this segment. Self-contained studio units with private climate control, a fully equipped kitchenette, dedicated workspace, and all utilities included. They sit in a residential neighborhood two miles from downtown and are available at monthly rates for 28-night-or-longer bookings. For someone who wants the functionality of a furnished apartment without the lease or setup process, they are the closest equivalent in the Hosted Havens portfolio.</p>
+<p>The <a href="/stays/s-park-2c/">Collins Garden Studios</a> are designed specifically for this segment. Self-contained studio units with private climate control, a fully equipped kitchenette, dedicated workspace, and all utilities included. They sit in a residential neighborhood two miles from downtown and are available at monthly rates for longer bookings. For someone who wants the functionality of a furnished apartment without the lease or setup process, they are the closest equivalent in the Hosted Havens portfolio.</p>
 <h2>The flexibility premium</h2>
 <p>The main reason to choose a furnished short-term rental over an apartment, even when costs are comparable, is the exit option. If your assignment ends early, your purchase closes ahead of schedule, or your situation changes, you can leave without a lease break penalty. For people in transition, that flexibility has real monetary value that does not appear in a side-by-side cost comparison.</p>
 <p>View all <a href="/monthly-rentals-san-antonio/">monthly rentals in San Antonio</a> and compare pricing for your target stay length.</p>`,
@@ -67,7 +67,7 @@ export const articlesSep2026b: Article[] = [
   {
     slug: 'perfect-weekend-san-antonio-itinerary',
     title: 'A Perfect Weekend in San Antonio: Itinerary and Where to Stay',
-    metaTitle: 'Perfect Weekend in San Antonio Itinerary 2026 | Hosted Havens',
+    metaTitle: 'Perfect Weekend in San Antonio Itinerary | Hosted Havens',
     description: 'Planning a long weekend in San Antonio? A two-day itinerary covering the River Walk, the Alamo, Southtown, and the Pearl District, plus where to stay for easy access to all of it.',
     cluster: 'San Antonio',
     published: '2026-09-18',
@@ -92,8 +92,8 @@ export const articlesSep2026b: Article[] = [
   // ── 19 ─────────────────────────────────────────────────────────────────────
   {
     slug: 'best-rentals-near-randolph-afb-families',
-    title: 'Best Short-Term Rentals Near Randolph AFB for Families in 2026',
-    metaTitle: 'Best Family Rentals Near Randolph AFB Converse TX 2026 | Hosted Havens',
+    title: 'Best Short-Term Rentals Near Randolph AFB for Families',
+    metaTitle: 'Best Family Rentals Near Randolph AFB Converse TX | Hosted Havens',
     description: 'Moving to or visiting Randolph AFB with family? A guide to the best short-term and extended-stay rentals in Converse and Universal City for families of all sizes.',
     cluster: 'San Antonio',
     published: '2026-09-19',
@@ -101,7 +101,7 @@ export const articlesSep2026b: Article[] = [
     cta: { label: 'Browse Family Stays Near Bases', href: '/furnished-rentals-near-randolph-afb/' },
     body: `
 <p>Randolph AFB families face a specific version of the short-term housing challenge: you need enough bedrooms for everyone, you need pet accommodation in many cases, you need laundry and a kitchen to keep daily life functional during a transition, and you need to be within a reasonable drive of a base that is tucked into the northeast corner of the metro area.</p>
-<p>The Converse and Universal City neighborhoods surrounding Randolph have the highest concentration of short-term rental options that actually meet family requirements. Here is what is available in 2026.</p>
+<p>The Converse and Universal City neighborhoods surrounding Randolph have the highest concentration of short-term rental options that actually meet family requirements. Here is what is available.</p>
 <h2>Discovery Mill: the five-bedroom family option</h2>
 <p><a href="/stays/discovery-mill-crash-pad/">Discovery Mill</a> is the largest family-ready rental near Randolph in the Hosted Havens portfolio. Five bedrooms, three baths, space for 10 guests, a game room with shuffleboard, and a full kitchen. It accepts pets, which is one of the most common filtering requirements for military families who have animals and need a rental that can accommodate them without surrendering the pet.</p>
 <p>For families waiting on base housing clearance or a permanent off-base lease, a five-bedroom home provides the space to actually live rather than camp out. Multiple bathrooms prevent the morning bottleneck that becomes a real issue in large families when everyone has a schedule.</p>
@@ -111,7 +111,7 @@ export const articlesSep2026b: Article[] = [
 <p><a href="/stays/de-soto-lighthouse/">De Soto</a> is in Universal City, between Randolph and downtown San Antonio. Its dedicated office and two living rooms make it practical for a family where one person is working or handling admin during the transition while the rest of the household has separate space. Four bedrooms, two baths, and smart home lighting are the key features.</p>
 <h2>What families consistently overlook when booking near base</h2>
 <p>Proximity to the base gate nearest your duty building matters more than proximity to the base address. Randolph is large, and entering from the wrong gate adds 10 to 15 minutes to every morning commute. Confirm which gate you will use daily before picking a rental location.</p>
-<p>Also confirm that extended stay pricing applies from day one of your booking if you expect to stay 28 nights or longer. Booking a 30-night stay at a nightly rate versus a monthly rate can mean a difference of $800 to $1,500 over the period.</p>
+<p>Also confirm that extended stay pricing applies from day one of your booking if you expect to stay a month or longer. Booking a 30-night stay at a nightly rate versus a monthly rate can mean a difference of $800 to $1,500 over the period.</p>
 <h2>Grocery and service access near these properties</h2>
 <p>Converse and Universal City both have strong grocery options along FM 1516 and Loop 1604. H-E-B, the Texas grocery standard, has locations within a few miles of every property in this area. Medical facilities, urgent care, and schools are all well-served in the northeast corridor.</p>
 <p>Browse all <a href="/furnished-rentals-near-randolph-afb/">furnished rentals near Randolph AFB</a> to compare bedroom counts, pet policies, and availability for your arrival window.</p>`,
@@ -119,21 +119,21 @@ export const articlesSep2026b: Article[] = [
 
   // ── 20 ─────────────────────────────────────────────────────────────────────
   {
-    slug: 'san-antonio-str-market-2026-owner-guide',
-    title: 'The San Antonio Short-Term Rental Market in 2026: What Property Owners Need to Know',
-    metaTitle: 'San Antonio STR Market 2026: Owner Guide | Hosted Havens',
+    slug: 'san-antonio-str-market-owner-guide',
+    title: 'The San Antonio Short-Term Rental Market: What Property Owners Need to Know',
+    metaTitle: 'San Antonio STR Market: Owner Guide | Hosted Havens',
     description: 'A 2026 overview of the San Antonio short-term rental market for owners: demand drivers, pricing trends, regulations, and what separates high-performing properties from the rest.',
     cluster: 'Revenue',
     published: '2026-09-20',
     heroProperty: 'la-maison-blount',
     cta: { label: 'See If You Qualify', href: '/property-analysis/' },
     body: `
-<p>The San Antonio short-term rental market in 2026 is mature but still expanding. Inventory has grown, pricing tools have become more sophisticated, and guest expectations have risen. For owners who entered the market three or four years ago, the landscape is meaningfully different from what it was at launch.</p>
+<p>The San Antonio short-term rental market is mature but still expanding. Inventory has grown, pricing tools have become more sophisticated, and guest expectations have risen. For owners who entered the market three or four years ago, the landscape is meaningfully different from what it was at launch.</p>
 <p>Here is what the current market looks like, and what it means for owners evaluating performance or considering entering.</p>
 <h2>Demand drivers that are specific to San Antonio</h2>
 <p>San Antonio's STR demand comes from a more diverse mix of sources than most Texas markets. Tourism around the River Walk, the Alamo, and SeaWorld is year-round. Military moves generate a steady stream of mid-term demand from PCS families at Randolph AFB, Lackland AFB, and Fort Sam Houston. The Medical Center complex on the northwest side creates demand for medical travel stays. UTSA and the Pearl District area attract weekend leisure travelers from Houston, Austin, and Dallas.</p>
 <p>This diversification is one of the reasons San Antonio's occupancy rates are more consistent throughout the year than markets that are primarily tourism-driven. A dip in leisure travel does not collapse the market because military and medical demand continues.</p>
-<h2>What high-performing properties in 2026 have in common</h2>
+<h2>What high-performing properties have in common</h2>
 <p>Properties that consistently outperform comparable listings share several traits: professional photography that represents the space accurately, a pricing strategy that adjusts for local events and seasonal demand, consistent cleaning quality that earns and maintains review scores above 4.8, and a guest communication system that handles inquiries quickly at any hour.</p>
 <p>The properties that underperform typically do one of two things: they price statically (a flat nightly rate regardless of season or local events) or they manage inconsistently (strong months followed by weak months when the owner is busy or traveling).</p>
 <h2>Regulations: what San Antonio requires</h2>
@@ -173,7 +173,7 @@ export const articlesSep2026b: Article[] = [
   {
     slug: 'san-antonio-vacation-rentals-with-pets-guide',
     title: 'Traveling to San Antonio with Pets: Your Complete Rental Guide',
-    metaTitle: 'Traveling San Antonio with Pets: Vacation Rental Guide 2026 | Hosted Havens',
+    metaTitle: 'Traveling San Antonio with Pets: Vacation Rental Guide | Hosted Havens',
     description: 'Everything you need to know about bringing a dog or cat to San Antonio, from pet-friendly rental features to parks, vet access, and what to prepare before you arrive.',
     cluster: 'San Antonio',
     published: '2026-09-22',
@@ -204,8 +204,8 @@ export const articlesSep2026b: Article[] = [
   // ── 23 ─────────────────────────────────────────────────────────────────────
   {
     slug: 'affordable-vacation-rentals-san-antonio',
-    title: 'Affordable Vacation Rentals in San Antonio: Where to Find Good Value in 2026',
-    metaTitle: 'Affordable Vacation Rentals San Antonio 2026: Good Value Options | Hosted Havens',
+    title: 'Affordable Vacation Rentals in San Antonio: Where to Find Good Value',
+    metaTitle: 'Affordable Vacation Rentals San Antonio: Good Value Options | Hosted Havens',
     description: 'San Antonio does not have to be expensive. Find well-maintained, fully equipped vacation rentals that offer real value at competitive rates across different neighborhoods.',
     cluster: 'San Antonio',
     published: '2026-09-23',
@@ -214,10 +214,10 @@ export const articlesSep2026b: Article[] = [
     body: `
 <p>San Antonio is one of the more affordable major Texas cities for travel. Hotel rates are lower than Austin or Dallas, and the short-term rental inventory has enough depth that good value options exist across multiple neighborhoods and property types. "Affordable" in San Antonio does not mean sacrificing quality, it means knowing where to look and what the price-to-value relationship actually looks like across different property categories.</p>
 <h2>Studios and smaller units: the lowest entry point</h2>
-<p>For solo travelers, couples, or individuals on extended assignment, studio and one-bedroom units offer the lowest nightly rates in the market. The <a href="/stays/s-park-2c/">Collins Garden Studios</a> are self-contained units in the Collins Garden Park neighborhood with all utilities included, a fully equipped kitchenette, dedicated workspace, private climate control, and free parking. For guests on extended stays booking 28 nights or longer, monthly pricing applies, bringing the cost per night down substantially from the standard rate.</p>
+<p>For solo travelers, couples, or individuals on extended assignment, studio and one-bedroom units offer the lowest nightly rates in the market. The <a href="/stays/s-park-2c/">Collins Garden Studios</a> are self-contained units in the Collins Garden Park neighborhood with all utilities included, a fully equipped kitchenette, dedicated workspace, private climate control, and free parking. For guests staying a month or longer, monthly pricing applies, bringing the cost per night down substantially from the standard rate.</p>
 <p>Two miles from downtown and nine miles from Lackland AFB, they are well-positioned for most itineraries that include both city access and southwest side destinations.</p>
 <h2>What "affordable" actually costs per night in San Antonio</h2>
-<p>A rough breakdown of the San Antonio short-term rental market by price tier in 2026:</p>
+<p>A rough breakdown of the San Antonio short-term rental market by price tier:</p>
 <ul>
   <li>Under $100/night: studios, private rooms, or smaller units in suburban neighborhoods</li>
   <li>$100-$150/night: one and two-bedroom homes or well-maintained studios near downtown</li>
@@ -236,7 +236,7 @@ export const articlesSep2026b: Article[] = [
   {
     slug: 'fall-travel-san-antonio-events-guide',
     title: 'Fall Travel in San Antonio: Events, Activities, and Where to Stay',
-    metaTitle: 'Fall Travel San Antonio 2026: Events, Activities & Rentals | Hosted Havens',
+    metaTitle: 'Fall Travel San Antonio: Events, Activities & Rentals | Hosted Havens',
     description: 'Fall is one of the best times to visit San Antonio. Cooler temperatures, major events, and fewer tourist crowds make September through November the sweet spot for a trip.',
     cluster: 'San Antonio',
     published: '2026-09-24',
@@ -261,7 +261,7 @@ export const articlesSep2026b: Article[] = [
   {
     slug: 'converse-texas-vacation-rentals-near-san-antonio',
     title: 'Converse, TX: A Hidden Gem for Short-Term Rentals Near San Antonio',
-    metaTitle: 'Converse TX Short-Term Rentals Near San Antonio 2026 | Hosted Havens',
+    metaTitle: 'Converse TX Short-Term Rentals Near San Antonio | Hosted Havens',
     description: 'Converse sits four minutes from Randolph AFB and 20 minutes from downtown San Antonio. It is one of the most underrated neighborhoods for vacation rentals in the metro area.',
     cluster: 'San Antonio',
     published: '2026-09-25',
@@ -345,7 +345,7 @@ export const articlesSep2026b: Article[] = [
 </ul>
 <p>First-floor units are practical for guests who prefer step-free access or who travel with dogs that need easy outdoor exit. Second-floor park-facing units have a different view and light quality that some guests prefer for extended stays.</p>
 <h2>Pricing for extended stays</h2>
-<p>Monthly rates apply at 28 nights and represent a significant discount from the standard nightly rate. For guests on a fixed-term assignment of four to eight weeks, booking at the monthly rate from the start reduces the total cost substantially compared to running a nightly rate throughout.</p>
+<p>Monthly rates represent a significant discount from the standard nightly rate. For guests on a fixed-term assignment of four to eight weeks, booking at the monthly rate from the start reduces the total cost substantially compared to running a nightly rate throughout.</p>
 <h2>Who books the Collins Garden Studios</h2>
 <p>The most common guest profiles: traveling nurses and healthcare workers rotating through San Antonio Medical Center assignments, military personnel on Lackland AFB TDY or PCS assignments, contractors working in the city for a project duration, and individuals relocating to San Antonio who need a furnished base while searching for permanent housing.</p>
 <p>Book <a href="/stays/s-park-1a/">Studio 1A</a> directly or browse all available <a href="/monthly-rentals-san-antonio/">monthly rentals in San Antonio</a> to compare your options.</p>`,
@@ -355,7 +355,7 @@ export const articlesSep2026b: Article[] = [
   {
     slug: 'extended-stay-near-san-antonio-medical-center',
     title: 'Extended Stay Rentals Near the San Antonio Medical Center: What to Expect',
-    metaTitle: 'Extended Stay Rentals Near San Antonio Medical Center 2026 | Hosted Havens',
+    metaTitle: 'Extended Stay Rentals Near San Antonio Medical Center | Hosted Havens',
     description: 'Patients, caregivers, and healthcare professionals needing extended furnished housing near the South Texas Medical Center. What to look for and where to find it.',
     cluster: 'San Antonio',
     published: '2026-09-28',
@@ -378,7 +378,7 @@ export const articlesSep2026b: Article[] = [
 <h2>La Maison Blount for families</h2>
 <p>La Maison Blount is a two-bedroom home with a large private yard, original hardwood floors, and a full kitchen. For a family with a patient receiving treatment, it offers the space to maintain some normalcy during an extended and stressful stay: separate bedrooms, a yard for children or dogs, and the ability to cook real meals rather than depending entirely on takeout.</p>
 <h2>Collins Garden Studios for individuals or couples</h2>
-<p>For solo patients or couples without children, a Collins Garden Studio provides a self-contained, low-maintenance base with a kitchenette, workspace, private climate control, and free parking. Monthly rates at 28 nights bring the cost down to a range competitive with furnished apartment sublets, with no lease commitment and utilities included.</p>
+<p>For solo patients or couples without children, a Collins Garden Studio provides a self-contained, low-maintenance base with a kitchenette, workspace, private climate control, and free parking. Monthly rates bring the cost down to a range competitive with furnished apartment sublets, with no lease commitment and utilities included.</p>
 <p>View all available <a href="/monthly-rentals-san-antonio/">monthly and extended-stay rentals in San Antonio</a> to compare proximity to the Medical Center, bedroom count, and current availability.</p>`,
   },
 
@@ -386,7 +386,7 @@ export const articlesSep2026b: Article[] = [
   {
     slug: 'vacation-rental-amenities-that-matter-guests',
     title: 'Short-Term Rental Amenities That Actually Make a Difference to Guests',
-    metaTitle: 'Vacation Rental Amenities That Actually Matter 2026 | Hosted Havens',
+    metaTitle: 'Vacation Rental Amenities That Actually Matter | Hosted Havens',
     description: 'Not all vacation rental amenities are equal. Here are the features that consistently improve guest experience and drive repeat bookings, and the ones that are mostly marketing.',
     cluster: 'Property Setup',
     published: '2026-09-29',

@@ -8,8 +8,8 @@ export const articlesSep2026: Article[] = [
   // ── 1 ──────────────────────────────────────────────────────────────────────
   {
     slug: 'best-pet-friendly-vacation-rentals-san-antonio',
-    title: 'The Best Pet-Friendly Vacation Rentals in San Antonio for 2026',
-    metaTitle: 'Best Pet-Friendly Vacation Rentals San Antonio 2026 | Hosted Havens',
+    title: 'The Best Pet-Friendly Vacation Rentals in San Antonio',
+    metaTitle: 'Best Pet-Friendly Vacation Rentals San Antonio | Hosted Havens',
     description: 'Traveling to San Antonio with a dog or cat? Discover the top pet-friendly short-term rentals with fenced yards, pet supplies, and flexible house rules.',
     cluster: 'San Antonio',
     published: '2026-09-01',
@@ -43,7 +43,7 @@ export const articlesSep2026: Article[] = [
   {
     slug: 'pcs-to-randolph-afb-short-term-housing',
     title: 'PCS to Randolph AFB: Short-Term Housing Options Near the Base',
-    metaTitle: 'PCS to Randolph AFB Short-Term Housing 2026 | Hosted Havens San Antonio',
+    metaTitle: 'PCS to Randolph AFB Short-Term Housing | Hosted Havens San Antonio',
     description: 'Moving to Randolph AFB on PCS orders? Here is a complete guide to short-term furnished rentals in Converse and Universal City, TX, covering families, singles, and extended stays.',
     cluster: 'San Antonio',
     published: '2026-09-02',
@@ -72,8 +72,8 @@ export const articlesSep2026: Article[] = [
   // ── 3 ──────────────────────────────────────────────────────────────────────
   {
     slug: 'monthly-rentals-san-antonio-guide',
-    title: 'Monthly Rentals in San Antonio: A Practical Guide for 2026',
-    metaTitle: 'Monthly Rentals San Antonio 2026: Furnished Extended Stays | Hosted Havens',
+    title: 'Monthly Rentals in San Antonio: A Practical Guide',
+    metaTitle: 'Monthly Rentals San Antonio: Furnished Extended Stays | Hosted Havens',
     description: 'Looking for a monthly rental in San Antonio? This guide covers your options, what to expect from furnished extended stays, and how they compare to hotel blocks and apartment leases.',
     cluster: 'San Antonio',
     published: '2026-09-03',
@@ -95,7 +95,7 @@ export const articlesSep2026: Article[] = [
 <p>A good furnished monthly rental in San Antonio includes: a fully equipped kitchen, in-unit washer and dryer, high-speed internet, linens and towels refreshed on a schedule, and either free parking or a garage.</p>
 <h2>Collins Garden Studios: a dedicated extended-stay option near downtown</h2>
 <p>The <a href="/stays/s-park-1a/">Collins Garden Studios</a> were built specifically for this kind of stay. They are self-contained studio apartments in the Collins Garden Park neighborhood, two miles from downtown San Antonio and nine miles from Lackland AFB. Each studio has a fully equipped kitchenette, private mini-split heating and cooling, fast Wi-Fi, keyless entry, and a park directly across the street.</p>
-<p>Monthly rates are priced to reflect the extended stay discount that applies when you book 28 nights or more, making them competitive with furnished apartment sublets without the lease requirement.</p>
+<p>Monthly rates reflect an extended stay discount, which makes them competitive with furnished apartment sublets without the lease requirement. Minimum stays differ by property, and each listing shows its own.</p>
 <h2>Monthly stays in family-sized homes</h2>
 <p>For families who need more than a studio, several larger properties accommodate extended stays. <a href="/stays/de-soto-lighthouse/">De Soto</a> in Universal City has a dedicated office, four bedrooms, and two living rooms, which works well for a family or a dual-income couple both working remotely during a transition. <a href="/stays/discovery-mill-crash-pad/">Discovery Mill</a> in Converse accommodates up to ten guests and has in-unit laundry, making it realistic for larger families waiting on long-term housing near Randolph AFB.</p>
 <h2>Monthly rental vs. hotel: the honest comparison</h2>
@@ -108,7 +108,7 @@ export const articlesSep2026: Article[] = [
   {
     slug: 'family-vacation-san-antonio-rental-guide',
     title: 'Family Vacation in San Antonio: Picking the Right Short-Term Rental',
-    metaTitle: 'Family Vacation Rentals in San Antonio TX 2026 | Hosted Havens',
+    metaTitle: 'Family Vacation Rentals in San Antonio TX | Hosted Havens',
     description: 'Planning a family trip to San Antonio? Here is how to choose the right short-term rental for your group, from bunk rooms and fenced yards to proximity to the River Walk and theme parks.',
     cluster: 'San Antonio',
     published: '2026-09-04',
@@ -145,7 +145,7 @@ export const articlesSep2026: Article[] = [
     slug: 'downtown-san-antonio-vs-suburbs-where-to-stay',
     title: 'Downtown San Antonio vs. the Suburbs: Where Should You Stay?',
     metaTitle: 'Downtown San Antonio vs Suburbs: Best Area to Stay | Hosted Havens',
-    description: 'Should you stay near the River Walk or rent outside the city center? An honest comparison of San Antonio neighborhoods for short-term rental guests in 2026.',
+    description: 'Should you stay near the River Walk or rent outside the city center? An honest comparison of San Antonio neighborhoods for short-term rental guests.',
     cluster: 'San Antonio',
     published: '2026-09-05',
     heroProperty: 'halliday-fig-trees',
@@ -175,9 +175,9 @@ export const articlesSep2026: Article[] = [
 
   // ── 6 ──────────────────────────────────────────────────────────────────────
   {
-    slug: 'why-travelers-book-direct-san-antonio-2026',
-    title: 'Why More Travelers Are Booking Direct Instead of Using Airbnb in 2026',
-    metaTitle: 'Why Book Direct vs Airbnb in San Antonio 2026 | Hosted Havens',
+    slug: 'why-travelers-book-direct-san-antonio',
+    title: 'Why More Travelers Are Booking Direct Instead of Using Airbnb',
+    metaTitle: 'Why Book Direct vs Airbnb in San Antonio | Hosted Havens',
     description: 'Third-party platform fees have pushed more San Antonio travelers toward booking direct with property managers. Here is what you actually save and what you gain.',
     cluster: 'San Antonio',
     published: '2026-09-06',
@@ -209,7 +209,7 @@ export const articlesSep2026: Article[] = [
   {
     slug: 'pcs-lackland-afb-short-term-housing',
     title: 'PCS to Lackland AFB: Short-Term Housing Options in San Antonio',
-    metaTitle: 'PCS to Lackland AFB Short-Term Furnished Housing 2026 | Hosted Havens',
+    metaTitle: 'PCS to Lackland AFB Short-Term Furnished Housing | Hosted Havens',
     description: 'Moving to Lackland AFB on PCS orders? Find furnished short-term rentals near the base in San Antonio, covering studios for individuals and homes for families.',
     cluster: 'San Antonio',
     published: '2026-09-07',
@@ -222,7 +222,7 @@ export const articlesSep2026: Article[] = [
 <p>Single service members or couples without children typically need a clean, fully furnished studio or one-bedroom unit with fast internet, a kitchenette, and parking. Families need multiple bedrooms, laundry in-unit, and outdoor space. Both options exist near Lackland.</p>
 <h2>Collins Garden Studios: two miles from downtown, nine miles from Lackland</h2>
 <p>The <a href="/stays/s-park-1a/">Collins Garden Studios</a> are in the Collins Garden Park neighborhood, about nine miles from Lackland AFB. Each unit is a self-contained studio with a kitchenette, personal mini-split climate control, fast Wi-Fi, keyless entry, and free parking. Collins Garden Park is directly across the street, which is useful for anyone who wants outdoor exercise without a car.</p>
-<p>These studios are priced for extended stays. Guests on 28-night-or-longer bookings qualify for monthly pricing, which is substantially more affordable than running a nightly rate for 30 days. For service members doing a training pipeline assignment of four to eight weeks near Lackland, they are among the most cost-efficient options in the corridor.</p>
+<p>These studios are priced for extended stays. Guests who reach the monthly minimum qualify for monthly pricing, which is substantially more affordable than running a nightly rate. For service members doing a training pipeline assignment of four to eight weeks near Lackland, they are among the most cost-efficient options in the corridor.</p>
 <p>Several studio variants are available: <a href="/stays/s-park-1a/">Studio 1A</a> faces the park from the first floor, <a href="/stays/s-park-2a/">Studio 2A</a> faces the park from the second floor, and pet-friendly options are available in select units. Each unit has private climate control, so you are not managing a shared HVAC system.</p>
 <h2>Family-sized options near Lackland</h2>
 <p>For families who need more than a studio, <a href="/stays/la-maison-blount/">La Maison Blount</a> is six miles from the Medical Center complex and works for mid-term stays. It accepts pets, has a large fenced yard, and is designed for extended stays. <a href="/stays/coastal-run/">Coastal Run</a> in Leon Valley is the other family-ready option on the southwest side.</p>
@@ -237,7 +237,7 @@ export const articlesSep2026: Article[] = [
   {
     slug: 'vacation-rentals-near-san-antonio-river-walk',
     title: 'Vacation Rentals Near the San Antonio River Walk: What to Know Before You Book',
-    metaTitle: 'Vacation Rentals Near San Antonio River Walk 2026 | Hosted Havens',
+    metaTitle: 'Vacation Rentals Near San Antonio River Walk | Hosted Havens',
     description: 'The River Walk is the heart of San Antonio tourism, but the best vacation rentals are not always on it. Find out which neighborhoods put you closest without the price spike.',
     cluster: 'San Antonio',
     published: '2026-09-08',
@@ -263,8 +263,8 @@ export const articlesSep2026: Article[] = [
   // ── 9 ──────────────────────────────────────────────────────────────────────
   {
     slug: 'extended-stay-rentals-san-antonio-guide',
-    title: 'Extended Stay Rentals in San Antonio: What to Look for in 2026',
-    metaTitle: 'Extended Stay Rentals San Antonio 2026: What to Look For | Hosted Havens',
+    title: 'Extended Stay Rentals in San Antonio: What to Look for',
+    metaTitle: 'Extended Stay Rentals San Antonio: What to Look For | Hosted Havens',
     description: 'Planning a stay of 14 days or more in San Antonio? This guide covers the features that matter most in a furnished extended-stay rental, from kitchen setup to workspace quality.',
     cluster: 'San Antonio',
     published: '2026-09-09',
@@ -283,7 +283,7 @@ export const articlesSep2026: Article[] = [
 <h2>Air conditioning and climate control</h2>
 <p>San Antonio in summer and early fall runs hot. Extended-stay properties need reliable central air or dedicated mini-split units that allow room-by-room control. Properties with a single thermostat for the whole house create comfort tradeoffs that become real problems over a multi-week stay, especially if different people in the group have different temperature preferences.</p>
 <h2>Pricing structure for 30-day-plus stays</h2>
-<p>Most properties offer a significant discount for 28-night-or-longer bookings. The exact discount varies, but a standard short-term rental nightly rate often drops 20 to 35 percent at the monthly tier. When comparing options, always price a 30-night booking rather than multiplying a nightly rate, since the monthly price is what you would actually pay.</p>
+<p>Most properties offer a significant discount once you reach their monthly minimum. The exact discount varies, but a standard short-term rental nightly rate often drops 20 to 35 percent at the monthly tier. When comparing options, always price a 30-night booking rather than multiplying a nightly rate, since the monthly price is what you would actually pay.</p>
 <p>View all available <a href="/monthly-rentals-san-antonio/">extended-stay and monthly rentals in San Antonio</a>, filtered to properties that support longer stays.</p>`,
   },
 
@@ -344,14 +344,14 @@ export const articlesSep2026: Article[] = [
   {
     slug: 'smart-home-vacation-rentals-san-antonio',
     title: 'Smart Home Vacation Rentals in San Antonio: What Modern Travelers Expect',
-    metaTitle: 'Smart Home Vacation Rentals San Antonio 2026 | Hosted Havens',
+    metaTitle: 'Smart Home Vacation Rentals San Antonio | Hosted Havens',
     description: 'Smart home technology in short-term rentals has moved from novelty to expectation. What does a genuinely smart vacation rental include, and where to find one in San Antonio.',
     cluster: 'Property Setup',
     published: '2026-09-12',
     heroProperty: 'de-soto-lighthouse',
     cta: { label: 'Book De Soto', href: '/stays/de-soto-lighthouse/' },
     body: `
-<p>Smart home features have shifted from a marketing differentiator to a baseline expectation for short-term rental guests in 2026. Keyless entry has become standard. Smart thermostats, voice-controlled lighting, and streaming-ready TVs in every room have followed. The properties that stand out now are the ones where the technology is integrated and reliable rather than bolted on.</p>
+<p>Smart home features have shifted from a marketing differentiator to a baseline expectation for short-term rental guests. Keyless entry has become standard. Smart thermostats, voice-controlled lighting, and streaming-ready TVs in every room have followed. The properties that stand out now are the ones where the technology is integrated and reliable rather than bolted on.</p>
 <h2>What a genuinely smart vacation rental looks like</h2>
 <p>There is a meaningful difference between a rental that lists "smart lock" and one where the entire living environment responds to the guest. The features that most consistently improve a stay:</p>
 <ul>
@@ -407,7 +407,7 @@ export const articlesSep2026: Article[] = [
   {
     slug: 'san-antonio-airport-hotel-vs-vacation-rental',
     title: 'San Antonio Airport Hotel vs. Short-Term Rental: An Honest Comparison',
-    metaTitle: 'San Antonio Airport Hotel vs Short-Term Rental 2026 | Hosted Havens',
+    metaTitle: 'San Antonio Airport Hotel vs Short-Term Rental | Hosted Havens',
     description: 'Is an airport hotel the right choice for your San Antonio trip? Compare cost, space, and convenience against short-term rentals that are close to San Antonio International Airport.',
     cluster: 'San Antonio',
     published: '2026-09-14',
@@ -438,7 +438,7 @@ export const articlesSep2026: Article[] = [
   {
     slug: 'military-pcs-housing-checklist-san-antonio',
     title: 'Military PCS Housing Checklist: What Families Need Before Arriving in San Antonio',
-    metaTitle: 'Military PCS Housing Checklist San Antonio 2026 | Hosted Havens',
+    metaTitle: 'Military PCS Housing Checklist San Antonio | Hosted Havens',
     description: 'A practical checklist for military families PCSing to San Antonio, covering TLE limits, furnished rental features to confirm, and the questions to ask before booking.',
     cluster: 'San Antonio',
     published: '2026-09-15',
@@ -459,7 +459,7 @@ export const articlesSep2026: Article[] = [
 </ul>
 <h2>TLE, BAH, and bridging the gap</h2>
 <p>TLE covers up to 10 days of authorized lodging costs. After that, you are covering the gap between your BAH and actual rental costs from your own pocket. At Randolph AFB BAH rates for E-6 and above, short-term rentals in Converse and Universal City typically fall within BAH range for monthly pricing. Nightly-rate bookings at the same properties often exceed BAH when annualized.</p>
-<p>The practical answer is to book a 28-night or longer stay from day one if you expect to need housing for more than two weeks. Monthly pricing at furnished rentals runs 20 to 35 percent below their nightly rate.</p>
+<p>The practical answer is to book at the monthly minimum from day one if you expect to need housing for more than two weeks. Monthly pricing at furnished rentals runs 20 to 35 percent below their nightly rate.</p>
 <h2>Randolph AFB options</h2>
 <p>For families moving to Randolph, the short-term rental options closest to the back gate are in Converse: <a href="/stays/discovery-mill-crash-pad/">Discovery Mill</a> for families needing five bedrooms, and <a href="/stays/ccp-1/">The Crashpad</a> for single service members needing a private room with dedicated workspace.</p>
 <h2>Lackland AFB options</h2>
