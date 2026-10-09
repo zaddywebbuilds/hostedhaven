@@ -190,7 +190,7 @@ const idx = (n: number) => String(n).padStart(2, '0');
 
 <style>
   .vs { position: relative; overflow: clip; }
-  .vs-aura { position: absolute; left: 50%; top: 18%; width: min(1100px, 120vw); aspect-ratio: 1.6; margin-left: calc(min(1100px, 120vw) / -2); background: radial-gradient(closest-side, rgba(206, 106, 76, .22), rgba(234, 211, 180, .16) 55%, transparent 75%); transform: translate3d(0, var(--aura-y, 0px), 0); pointer-events: none; z-index: 0; }
+  .vs-aura { position: absolute; left: 50%; top: 18%; width: min(1100px, 120vw); aspect-ratio: 1.6; margin-left: calc(min(1100px, 120vw) / -2); background: radial-gradient(closest-side, rgba(40, 36, 28, .08), transparent 75%); transform: translate3d(0, var(--aura-y, 0px), 0); pointer-events: none; z-index: 0; }
   .vs .container { position: relative; z-index: 1; }
   .vs-head { margin-bottom: clamp(2rem, 4vw, 3.2rem); }
 
@@ -216,14 +216,14 @@ const idx = (n: number) => String(n).padStart(2, '0');
     transform-style: preserve-3d;
     transition: transform .6s cubic-bezier(.22, 1, .36, 1), box-shadow .6s cubic-bezier(.22, 1, .36, 1);
   }
-  .vs-light { position: absolute; inset: 0; border-radius: inherit; z-index: -1; pointer-events: none; background: radial-gradient(520px circle at var(--mx) var(--my), rgba(240, 219, 190, .55), transparent 60%); }
+  .vs-light { position: absolute; inset: 0; border-radius: inherit; z-index: -1; pointer-events: none; background: radial-gradient(520px circle at var(--mx) var(--my), rgba(255, 255, 255, .75), transparent 60%); }
   .vs-card:hover { --lift: -4px; box-shadow: 0 1px 0 rgba(255, 255, 255, .9) inset, 0 26px 55px rgba(112, 70, 48, .14), 0 50px 110px rgba(145, 88, 56, .11); }
 
   .vs-copy h3 { margin: 1rem 0 .45rem; font-size: clamp(1.55rem, 2vw, 1.9rem); line-height: 1.1; text-wrap: balance; }
   .vs-copy p { margin: 0; font-size: 1rem; line-height: 1.6; color: var(--ink-soft); max-width: 42ch; }
 
   /* Index disc */
-  .vs-index { position: relative; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, rgba(246, 233, 214, .85)); box-shadow: 0 1px 0 #fff inset, 0 10px 24px rgba(192, 87, 59, .16), 0 0 0 6px rgba(255, 255, 255, .35); transform: translateZ(20px); transition: transform .7s cubic-bezier(.22, 1, .36, 1) .15s; }
+  .vs-index { position: relative; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #F4F4F2); box-shadow: 0 1px 0 #fff inset, 0 10px 24px rgba(40, 36, 28, .12), 0 0 0 6px rgba(255, 255, 255, .35); transform: translateZ(20px); transition: transform .7s cubic-bezier(.22, 1, .36, 1) .15s; }
   .vs-index b { font-family: var(--display); font-size: 1.15rem; font-weight: 600; color: var(--coral-deep); }
   .vs-index svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
   .vs-index circle { fill: none; stroke: rgba(192, 87, 59, .45); stroke-width: 1.2; stroke-dasharray: 164; stroke-dashoffset: 0; transition: stroke-dashoffset 1.1s cubic-bezier(.22, 1, .36, 1) .2s; }

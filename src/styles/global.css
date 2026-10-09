@@ -38,10 +38,12 @@
   --glass-dark: rgba(255, 244, 232, .06);
   --glass-dark-border: rgba(255, 244, 232, .14);
 
-  --shadow-soft: 0 8px 24px rgba(120, 70, 50, .10);
-  --shadow-glass: 0 12px 36px rgba(160, 100, 70, .18);
-  --shadow-deep: 0 30px 80px rgba(180, 110, 80, .28);
-  --shadow-floating: 0 30px 80px rgba(180, 110, 80, .28), 0 80px 160px rgba(220, 140, 110, .22);
+  /* These were all warm brown tints, which put a faint peach halo around every
+     card and panel on the site. Neutral ink shadows keep the depth without it. */
+  --shadow-soft: 0 8px 24px rgba(40, 36, 28, .08);
+  --shadow-glass: 0 12px 36px rgba(40, 36, 28, .12);
+  --shadow-deep: 0 30px 80px rgba(40, 36, 28, .16);
+  --shadow-floating: 0 30px 80px rgba(40, 36, 28, .16), 0 80px 160px rgba(40, 36, 28, .10);
 
   --r-sm: 12px;
   --r-md: 18px;
@@ -132,10 +134,9 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
 .split.reverse > :first-child { order: 2; }
 
 .bg-warm {
-  background:
-    radial-gradient(ellipse 60% 60% at 85% 20%, rgba(255, 200, 175, .55), transparent 60%),
-    radial-gradient(ellipse 50% 60% at 10% 90%, rgba(212, 163, 116, .38), transparent 60%),
-    linear-gradient(180deg, var(--cream) 0%, var(--blush) 100%);
+  /* Was a peach radial (255,200,175) plus a gold one. Neither is in the kit as a
+     surface wash, and together they were the warm cast Megan kept reporting. */
+  background: linear-gradient(180deg, #FFFFFF 0%, #F7F7F5 100%);
 }
 .bg-cream { background: var(--cream); }
 .bg-dark {
@@ -280,9 +281,7 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
   position: absolute; inset: .6rem; overflow-y: auto;
   padding: 1.2rem 1.3rem 2rem;
   border-radius: var(--r-lg);
-  background:
-    radial-gradient(ellipse 80% 40% at 100% 0%, rgba(212, 163, 116, .40), transparent 60%),
-    var(--cream);
+  background: var(--cream);
   box-shadow: var(--shadow-floating);
   transform: translateY(-14px) scale(.98); transition: transform .45s var(--ease);
 }
@@ -318,20 +317,20 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
   position: relative; overflow: hidden;
   width: min(100% - 1.5rem, 1320px); margin: 0 auto;
   border-radius: clamp(28px, 4vw, 48px);
-  background:
-    radial-gradient(ellipse 70% 50% at 50% 30%, rgba(212, 163, 116, .10) 0%, transparent 60%),
-    radial-gradient(ellipse 80% 50% at 80% 80%, rgba(192, 87, 59, .10) 0%, transparent 60%),
-    radial-gradient(ellipse 70% 50% at 15% 70%, rgba(101, 97, 52, .18) 0%, transparent 62%),
-    linear-gradient(180deg, #FFFFFF 0%, #FAF9F7 60%, #F3F1EC 100%);
+  /* Megan has reported peach three times. The washes here were gold, terracotta
+     and olive at low alpha, all genuinely from her kit, but blended over white
+     they read as peach, which is what she keeps seeing. The hero is now neutral
+     and the brand shows in the type, buttons and photography instead. */
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 60%, #F4F4F4 100%);
   border: 1px solid rgba(255, 255, 255, .7);
-  box-shadow: 0 40px 100px rgba(180, 110, 80, .25), inset 0 1px 0 rgba(255, 255, 255, .9);
+  box-shadow: 0 40px 100px rgba(40, 36, 28, .12), inset 0 1px 0 rgba(255, 255, 255, .9);
 }
 .stage-arch { position: absolute; inset: 0; display: flex; justify-content: space-around; pointer-events: none; opacity: .5; }
 .stage-arch span { width: 1px; height: 100%; background: linear-gradient(180deg, transparent, rgba(255, 255, 255, .9) 40%, transparent); }
 .stage-arch span:nth-child(2) { opacity: .5; } .stage-arch span:nth-child(4) { opacity: .6; }
-.stage-glow { position: absolute; width: 60vw; max-width: 780px; aspect-ratio: 1; border-radius: 50%; filter: blur(10px); pointer-events: none; }
-.stage-glow.a { top: -18%; right: -10%; background: radial-gradient(circle, rgba(192, 87, 59, .22), rgba(212, 163, 116, .18) 35%, transparent 65%); animation: drift 18s ease-in-out infinite alternate; }
-.stage-glow.b { bottom: -30%; left: -15%; background: radial-gradient(circle, rgba(101, 97, 52, .22), transparent 62%); animation: drift 22s ease-in-out infinite alternate-reverse; }
+/* The two blurred colour blobs were the strongest source of the peach cast in
+   the hero corners. Kept in the markup but no longer painted. */
+.stage-glow { display: none; }
 
 .hero-grid {
   position: relative; z-index: 2;
@@ -346,7 +345,7 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
 .persona-switch a.on { background: var(--ink); color: var(--cream); }
 
 .scene { position: relative; min-height: clamp(420px, 44vw, 600px); perspective: 1400px; }
-.product-aura { position: absolute; inset: 8% 6%; border-radius: 50%; background: radial-gradient(circle, rgba(192, 87, 59, .34), rgba(212, 163, 116, .26) 38%, transparent 68%); filter: blur(24px); }
+.product-aura { position: absolute; inset: 8% 6%; border-radius: 50%; background: radial-gradient(circle, rgba(40, 36, 28, .10), transparent 68%); filter: blur(24px); }
 .product {
   position: absolute; left: 50%; top: 50%;
   width: min(72%, 400px); aspect-ratio: 4 / 5;
@@ -487,7 +486,7 @@ ul.ticks li::before { content: ''; flex: none; width: 18px; height: 18px; margin
 
 /* Stats orbs */
 .orbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
-.orb { text-align: center; padding: 2rem 1rem; border-radius: 50% / 42%; background: radial-gradient(circle at 30% 25%, #fff, rgba(255, 228, 214, .7) 60%, rgba(248, 212, 187, .6)); border: 1px solid #fff; box-shadow: var(--shadow-glass), inset 0 -10px 30px rgba(192, 87, 59, .08); }
+.orb { text-align: center; padding: 2rem 1rem; border-radius: 50% / 42%; background: radial-gradient(circle at 30% 25%, #fff, #FAFAFA 60%, #F2F2F0); border: 1px solid #fff; box-shadow: var(--shadow-glass), inset 0 -10px 30px rgba(40, 36, 28, .06); }
 .orb strong { display: block; font-family: var(--display); font-size: clamp(2.3rem, 3.5vw, 3.3rem); font-weight: 600; line-height: 1; color: var(--coral-deep); }
 .orb span { font-size: .88rem; color: var(--ink-soft); font-weight: 550; }
 
