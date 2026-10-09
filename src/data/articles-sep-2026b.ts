@@ -122,7 +122,7 @@ export const articlesSep2026b: Article[] = [
     slug: 'san-antonio-str-market-owner-guide',
     title: 'The San Antonio Short-Term Rental Market: What Property Owners Need to Know',
     metaTitle: 'San Antonio STR Market: Owner Guide | Hosted Havens',
-    description: 'A 2026 overview of the San Antonio short-term rental market for owners: demand drivers, pricing trends, regulations, and what separates high-performing properties from the rest.',
+    description: 'An overview of the San Antonio short-term rental market for owners: demand drivers, pricing trends, regulations, and what separates high-performing properties from the rest.',
     cluster: 'Revenue',
     published: '2026-09-20',
     heroProperty: 'la-maison-blount',
