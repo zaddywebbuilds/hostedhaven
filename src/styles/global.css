@@ -19,6 +19,10 @@
   --ink-mute: #7A6558;
   --gold: #B8905C;
   --gold-soft: #D4A374;
+  /* --gold is 2.92:1 on a white card, under the 3:1 WCAG wants for a glyph that
+     carries meaning. This deeper tone clears it at 3.88:1 and is for gold text
+     sitting on a light surface; --gold stays correct on the dark sections. */
+  --gold-ink: #A17A47;
   --sage: #8E8A5E;
   /* Brand kit, sampled from the logo: olive is the wordmark colour and the
      single most-used brand colour. It was absent from the palette entirely. */
@@ -301,9 +305,10 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
   backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 14px 40px rgba(120, 70, 50, .25);
   transform: translateY(140%); transition: transform .45s var(--ease);
+  min-width: 0;
 }
 .mobile-bar.show { transform: none; }
-.mobile-bar a { flex: 1; min-height: 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 999px; font-size: .74rem; font-weight: 650; color: var(--ink-soft); gap: .1rem; }
+.mobile-bar a { flex: 1; min-width: 0; min-height: 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 999px; font-size: .74rem; font-weight: 650; color: var(--ink-soft); gap: .1rem; }
 .mobile-bar a svg { width: 18px; height: 18px; }
 .mobile-bar a.primary { flex: 1.6; background: linear-gradient(135deg, var(--coral), var(--coral-deep)); color: #fff; flex-direction: row; gap: .45rem; font-size: .88rem; }
 
@@ -494,7 +499,7 @@ ul.ticks li::before { content: ''; flex: none; width: 18px; height: 18px; margin
 .avatar-initial { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(145deg, var(--coral), var(--coral-deep)); color: #fff; font-family: var(--display); font-size: 1.4rem; font-weight: 600; flex: none; }
 .quote-by strong { display: block; } .quote-by small { color: var(--ink-mute); }
 .review-card { padding: 1.5rem; border-radius: var(--r-lg); background: rgba(255, 255, 255, .7); border: 1px solid #fff; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; gap: .8rem; }
-.stars { color: var(--gold); letter-spacing: .1em; font-size: .95rem; }
+.stars { color: var(--gold-ink); letter-spacing: .1em; font-size: .95rem; }
 .review-card p { font-size: .98rem; color: var(--ink-soft); margin: 0; flex: 1; }
 .review-by { display: flex; gap: .7rem; align-items: center; }
 .review-by .avatar-initial { width: 40px; height: 40px; font-size: 1.1rem; }
@@ -717,7 +722,7 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
   .hero-grid, .ihero-grid, .split, .prop-layout, .bridge-inner { grid-template-columns: 1fr; }
   .split.reverse > :first-child { order: 0; }
   .scene { min-height: 460px; }
-  .grid-4, .orbs { grid-template-columns: repeat(2, 1fr); }
+  .grid-4, .orbs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid-3, .prop-grid, .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .timeline { grid-template-columns: 1fr; gap: 1.2rem; }
   .timeline::before { top: 0; bottom: 0; left: 33px; right: auto; width: 2px; height: auto; background: linear-gradient(180deg, var(--coral), var(--gold), var(--sage)); }
@@ -746,7 +751,7 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
   .fc-row:nth-of-type(n+4) { display: none; }
   .trust-strip { border-radius: 24px; margin: 0 .8rem 1rem; justify-content: flex-start; }
   .grid-2, .grid-3, .prop-grid, .team-grid, .fields, .img-strip { grid-template-columns: 1fr; }
-  .orbs { grid-template-columns: 1fr 1fr; gap: .8rem; }
+  .orbs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
   .orb { padding: 1.4rem .6rem; }
   .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 220px 120px; }
   .gallery a:first-child { grid-column: 1 / -1; grid-row: auto; }
@@ -872,3 +877,13 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
   .rate-bars i, .chk .box, .term-bar i { transform: none !important; opacity: 1 !important; }
 }
 
+
+/* Neighbourhood strip. Real homes in named San Antonio areas, standing in for
+   city photography Megan does not have. */
+.hood-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(.7rem, 1.4vw, 1.1rem); }
+.hood { position: relative; display: block; border-radius: var(--r-md); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: var(--shadow-soft); }
+.hood img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+.hood:hover img, .hood:focus-visible img { transform: scale(1.06); }
+.hood::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(18, 16, 10, .78) 100%); }
+.hood span { position: absolute; left: .7rem; right: .7rem; bottom: .6rem; z-index: 1; color: #fff; font-weight: 600; font-size: .86rem; line-height: 1.25; }
+@media (max-width: 860px) { .hood-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

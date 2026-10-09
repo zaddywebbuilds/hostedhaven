@@ -14,6 +14,20 @@ const heroImg = coverImage('the-harding-place');
 const stack = propertyImages('grass-hollow');
 const megan = brandImage('megan-blount-hosted-havens-founder');
 const map = brandImage('san-antonio-map');
+// Megan asked for the site to feel more local. Her current site has no San
+// Antonio city photography, only property shots, so this uses her own homes in
+// named neighbourhoods instead, which is genuinely local and already licensed.
+const neighbourhoods = [
+  { slug: 'the-harding-place', area: 'Near Downtown & the River Walk' },
+  { slug: 'evergreen-1', area: 'Tobin Hill' },
+  { slug: 'santa-anna-combo', area: 'Los Angeles Heights' },
+  { slug: 'halliday-fig-trees', area: 'Riverside' },
+  { slug: 'coastal-run', area: 'Leon Valley' },
+  { slug: 'grass-hollow', area: 'Live Oak' },
+  { slug: 'de-soto-lighthouse', area: 'Universal City' },
+  { slug: 'discovery-mill-crash-pad', area: 'Converse' },
+].map((n) => ({ ...n, img: coverImage(n.slug) })).filter((n) => n.img);
+
 const bridgeImg = coverImage('de-soto-lighthouse');
 const featured = featuredProperties.slice(0, 3);
 
@@ -176,7 +190,7 @@ const schema = [
     <div class="container split">
       <div class="img-stack reveal">
         <div class="big"><Img src={stack[1]} alt="Family living area at Grass Hollow, a Hosted Havens home in Live Oak, TX" sizes="(max-width: 1024px) 90vw, 45vw" /></div>
-        <div class="small"><Img src={stack[3]} alt="" sizes="(max-width: 1024px) 45vw, 22vw" /></div>
+        <div class="small"><Img src={stack[3]} alt="Interior of a Hosted Havens managed rental in San Antonio" sizes="(max-width: 1024px) 45vw, 22vw" /></div>
       </div>
       <div class="reveal reveal-d2">
         <span class="eyebrow">Free, no obligation</span>
@@ -304,6 +318,25 @@ const schema = [
         <span class="demand-chip" style="bottom:28%;right:14%;animation-delay:-1s"><i></i>Lackland AFB</span>
         <span class="demand-chip" style="bottom:12%;left:8%;animation-delay:-3s"><i></i>Six Flags</span>
         <span class="demand-chip" style="top:64%;right:4%;animation-delay:-5s"><i></i>Airport</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEIGHBOURHOODS -->
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Across the San Antonio area</span>
+        <h2>Homes in the <em>Neighbourhoods</em> Guests Ask For</h2>
+        <p class="lead">Hosted Havens manages across Bexar County and the surrounding communities, from the River Walk and Tobin Hill to Live Oak, Converse, and Universal City.</p>
+      </div>
+      <div class="hood-grid reveal">
+        {neighbourhoods.map((n) => (
+          <a class="hood" href={u(`/stays/${n.slug}/`)} data-track="property_view">
+            <Img src={n.img} alt={`A Hosted Havens home in ${n.area}, San Antonio area`} sizes="(max-width: 760px) 50vw, 25vw" />
+            <span>{n.area}</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>

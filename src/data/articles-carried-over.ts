@@ -65,7 +65,7 @@ export const articlesCarriedOver: Article[] = [
   {
     slug: 'san-antonio-realtors-earn-referral-income-without-managing-rentals',
     title: 'San Antonio Realtors: Earn Referral Income Without Managing Rentals',
-    metaTitle: 'San Antonio Realtor Referral Program for STR Owners | Hosted Havens',
+    metaTitle: 'San Antonio Realtor Referral Program | Hosted Havens',
     description: 'Refer a property owner who wants short-term rental income without self-managing. You keep your client, we handle the hosting, and you get paid when they sign.',
     cluster: 'Management',
     published: '2025-08-21',

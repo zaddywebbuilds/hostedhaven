@@ -21,7 +21,7 @@ const loc = p.area ? `${p.area} · ${p.city}, TX` : `${p.city}, TX`;
   data-family={p.familyFriendly ? '1' : '0'}
 >
   <a class="prop-media" href={u(`/stays/${p.slug}/`)} tabindex="-1" aria-hidden="true">
-    <Img src={coverImage(p.slug)} alt="" sizes="(max-width: 760px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+    <Img src={coverImage(p.slug)} alt={`${p.name}, a Hosted Havens rental in ${p.area ? p.area + ", " : ""}${p.city}, TX`} sizes="(max-width: 760px) 100vw, (max-width: 1024px) 50vw, 33vw" />
     <span class="prop-type">{p.type}</span>
   </a>
   <div class="prop-body">

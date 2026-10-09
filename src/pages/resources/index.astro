@@ -43,7 +43,7 @@ const sorted = [...articles].sort((a, b) => b.published.localeCompare(a.publishe
       <div class="grid grid-3">
         {sorted.map((a, i) => (
           <a class={`post-card reveal reveal-d${(i % 3) + 1}`} href={u(`/resources/${a.slug}/`)}>
-            <div class="post-media"><Img src={coverImage(a.heroProperty)} alt="" sizes="(max-width: 760px) 100vw, 33vw" /></div>
+            <div class="post-media"><Img src={coverImage(a.heroProperty)} alt={a.title} sizes="(max-width: 760px) 100vw, 33vw" /></div>
             <div class="post-body">
               <span class="pill">{a.cluster}</span>
               <h3>{a.title}</h3>

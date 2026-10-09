@@ -42,7 +42,7 @@ const schema = [{
       </div>
       <div class="container" style="margin-top:2rem">
         <div style="border-radius:var(--r-xl);overflow:hidden;aspect-ratio:21/9;box-shadow:var(--shadow-deep)">
-          <Img src={cover} alt="" eager sizes="(max-width: 1320px) 100vw, 1240px" class="cover-fill" />
+          <Img src={cover} alt={a.title} eager sizes="(max-width: 1320px) 100vw, 1240px" class="cover-fill" />
         </div>
       </div>
     </section>
@@ -66,7 +66,7 @@ const schema = [{
       <div class="grid grid-3">
         {more.map((m, i) => (
           <a class={`post-card reveal reveal-d${i + 1}`} href={u(`/resources/${m.slug}/`)}>
-            <div class="post-media"><Img src={coverImage(m.heroProperty)} alt="" sizes="(max-width: 760px) 100vw, 33vw" /></div>
+            <div class="post-media"><Img src={coverImage(m.heroProperty)} alt={m.title} sizes="(max-width: 760px) 100vw, 33vw" /></div>
             <div class="post-body"><span class="pill">{m.cluster}</span><h3>{m.title}</h3></div>
           </a>
         ))}

@@ -34,7 +34,7 @@ export const articles: Article[] = [
   {
     slug: 'the-diy-trap',
     title: 'The DIY Trap: How Owners Lose Good Guests and Earn Bad Reviews',
-    metaTitle: 'The DIY Trap: Self-Managing an Airbnb in San Antonio | Hosted Havens',
+    metaTitle: 'The DIY Trap: Self-Managing an Airbnb | Hosted Havens',
     description: 'Why self-managing a short-term rental quietly costs owners guests, reviews, and time, and what full-service co-hosting changes.',
     cluster: 'Management',
     published: '2025-10-29',
@@ -220,7 +220,7 @@ export const articles: Article[] = [
   {
     slug: 'san-antonio-homeowners-dont-miss-out-on-the-90-billion-airbnb-boom',
     title: 'San Antonio Homeowners: Is Your Property Ready for Short-Term Rental Demand?',
-    metaTitle: 'San Antonio Short-Term Rental Opportunity for Homeowners | Hosted Havens',
+    metaTitle: 'San Antonio STR Opportunity for Homeowners | Hosted Havens',
     description: 'Why San Antonio homeowners are exploring short-term rentals, what guests look for, and how hands-off co-hosting removes the day-to-day work.',
     cluster: 'San Antonio',
     published: '2025-06-26',

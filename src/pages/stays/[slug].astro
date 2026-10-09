@@ -24,7 +24,9 @@ const similar = properties
   .slice(0, 3)
   .map((x) => x.o);
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'Stays', path: '/stays/' }, { name: p.city, path: '/stays/' }, { name: p.name, path }];
-const metaTitle = `${p.name} · ${p.type === 'House' ? `${p.bedrooms}BR Home` : p.type} in ${p.city}, TX | Hosted Havens`;
+// No ", TX" after the city: it pushed the longest names past the ~65 characters
+// Google will show, and "San Antonio" / "Converse" already read as local.
+const metaTitle = `${p.name} · ${p.type === 'House' ? `${p.bedrooms}BR Home` : p.type} in ${p.city} | Hosted Havens`;
 // Hospitable is the source of truth for listing content, per Megan. The synced
 // snapshot supplies the full amenity list and the long description; the
 // hand-written summary stays as the short lead.
@@ -37,7 +39,16 @@ const pmsParagraphs: string[] = pmsDescription
   .split('\n')
   .map((line) => line.trim())
   .filter((line) => line.length > 0);
-const desc = `${p.summary.slice(0, 150).replace(/\s+\S*$/, '')}… Sleeps ${p.guests}. Book direct with Hosted Havens.`;
+// The summary gets whatever the fixed tail leaves inside a 158-character budget.
+// A flat 150-character slice plus the tail put every stay page at ~190, past the
+// point Google truncates, and it cut the summary mid-sentence even when it fit.
+const descTail = ` Sleeps ${p.guests}. Book direct with Hosted Havens.`;
+const descBudget = 158 - descTail.length;
+const summary = p.summary.trim();
+const descLead = summary.length <= descBudget
+  ? summary
+  : summary.slice(0, descBudget - 1).replace(/[\s,;:]+\S*$/, '') + '…';
+const desc = descLead + descTail;
 const cover = imgs[0];
 
 const schema = [{
@@ -71,7 +82,7 @@ const schema = [{
       <div class="gallery" data-gallery>
         {imgs.slice(0, 5).map((im, i) => (
           <a href={u(`/images/${im.base}-1280.webp`)} data-index={i} aria-label={`Open photo ${i + 1} of ${imgs.length}`}>
-            <Img src={im} alt={i === 0 ? `${p.name} in ${p.city}, TX` : ''} eager={i === 0} sizes={i === 0 ? '(max-width: 760px) 100vw, 50vw' : '(max-width: 760px) 50vw, 25vw'} />
+            <Img src={im} alt={i === 0 ? `${p.name} in ${p.city}, TX` : `${p.name} in ${p.city}, photo ${i + 1}`} eager={i === 0} sizes={i === 0 ? '(max-width: 760px) 100vw, 50vw' : '(max-width: 760px) 50vw, 25vw'} />
             {i === 4 && imgs.length > 5 && <span class="btn btn-glass btn-sm more">+{imgs.length - 5} photos</span>}
           </a>
         ))}
@@ -180,13 +191,13 @@ const schema = [{
     <button type="button" class="lb-close" aria-label="Close" data-lb-close><Icon name="close" /></button>
     <button type="button" class="lb-grid-toggle btn btn-glass btn-sm" data-lb-toggle>All photos</button>
     <button type="button" class="lb-prev" aria-label="Previous photo" data-lb-prev><Icon name="arrow" class="flip" /></button>
-    <img alt="" data-lb-img />
+    <img alt={`${p.name} photo`} data-lb-img />
     <button type="button" class="lb-next" aria-label="Next photo" data-lb-next><Icon name="arrow" /></button>
     <span class="lb-count" data-lb-count></span>
     <div class="lb-grid" data-lb-grid hidden>
       {imgs.map((im, i) => (
         <button type="button" data-grid-index={i} aria-label={`Open photo ${i + 1}`}>
-          <img src={u(`/images/${im.base}-640.webp`)} alt="" loading="lazy" width="320" height="214" />
+          <img src={u(`/images/${im.base}-640.webp`)} alt={`${p.name} in ${p.city}, photo ${i + 1}`} loading="lazy" width="320" height="214" />
         </button>
       ))}
     </div>
