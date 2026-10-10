@@ -151,7 +151,18 @@ const schema = [{
         </ul>
 
         <h2 id="availability">Check availability</h2>
-        <iframe class="booking-frame" src={p.bookingUrl} title={`Availability and booking for ${p.name}`} loading="lazy"></iframe>
+        <div class="hsp-widget-host" data-pid={String(p.widgetId)} data-uuid="a172bb81-09b1-4a40-86cb-58ab5f6c1bf4"></div>
+        <script is:inline>
+          (function () {
+            var host = document.currentScript.previousElementSibling;
+            var s = document.createElement('script');
+            s.src = 'https://cdn.hsptb.com/direct-booking-widget/widget-loader.prod.js';
+            s.setAttribute('data-site-uuid', host.getAttribute('data-uuid'));
+            s.setAttribute('data-property-id', host.getAttribute('data-pid'));
+            s.setAttribute('data-theme', 'boutique');
+            host.appendChild(s);
+          })();
+        </script>
         <p class="small muted">Booking powered by Hospitable. Having trouble? <a href={p.bookingUrl} target="_blank" rel="noopener noreferrer" data-track="book_now_click">Open booking in a new tab</a> or email <a href={`mailto:${business.guestEmail}`} data-track="guest_email_click">{business.guestEmail}</a>.</p>
       </div>
 

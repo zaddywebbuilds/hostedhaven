@@ -31,11 +31,12 @@ export type Property = {
   distances?: string[];
   notes?: string[];
   bookingUrl: string;
+  widgetId: number;
   featured?: boolean;
 };
 
-const H1 = 'https://booking.hospitable.com/widget/9eb13f0b-a039-49cc-94f8-e8a349b0f0e9/';
-const H2 = 'https://booking.hospitable.com/widget/9e221a57-a7a7-4dda-a5d9-4d4eddb6fc37/';
+const H1 = 'https://booking.hospitable.com/widget/a172bb81-09b1-4a40-86cb-58ab5f6c1bf4/';
+const H2 = 'https://booking.hospitable.com/widget/a172bb81-09b1-4a40-86cb-58ab5f6c1bf4/';
 const H3 = 'https://booking.hospitable.com/widget/a172bb81-09b1-4a40-86cb-58ab5f6c1bf4/';
 
 const studioShared = {
@@ -77,6 +78,7 @@ export const properties: Property[] = [
     sleeping: ['Bedroom 1: King bed + pack-n-play', 'Bedroom 2: King bed', 'Bedroom 3: Queen bed', 'Kids’ nook: Fold-out twin chair'],
     amenities: ['5-burner gas stove & oven', 'Dishwasher, crockpot & blender', 'Smart TVs', 'Blackout curtains', 'Ceiling fans in every bedroom', 'High-speed Wi-Fi', 'Half bath with laundry combo'],
     bookingUrl: `${H1}1979634`,
+    widgetId: 1979634,
   },
   {
     slug: 'grass-hollow', name: 'Grass Hollow', title: 'Live Oak Family Escape · Pets OK · Near Live Oak Park',
@@ -87,6 +89,7 @@ export const properties: Property[] = [
     sleeping: ['Bedroom 1: King bed', 'Bedroom 2: Twin-over-twin bunk', 'Bedroom 3: Queen bed', 'Bedroom 4: Full bed'],
     amenities: ['Crib and high chair', 'Coffee & tea bar', 'Induction stove, air fryer, crockpot & griddle', 'Full-size washer & dryer', 'Gym equipment', 'Garage storage + 2-car driveway'],
     bookingUrl: `${H1}1931230`,
+    widgetId: 1931230,
   },
   {
     slug: 'de-soto-lighthouse', name: 'De Soto', title: 'Spacious Smart Home with Office & Covered Patio',
@@ -97,6 +100,7 @@ export const properties: Property[] = [
     sleeping: ['Four bedrooms in a separate sleeping wing', 'Sleeps up to 7 guests'],
     amenities: ['Chef’s kitchen', 'High-speed internet', 'Covered back patio', 'Garage storage'],
     bookingUrl: `${H1}2031800`,
+    widgetId: 2031800,
   },
   {
     slug: 'la-maison-blount', name: 'La Maison Blount', title: 'Beautifully Renovated Home Near I-10',
@@ -108,6 +112,7 @@ export const properties: Property[] = [
     amenities: ['5-burner gas stove & oven', 'Ice maker & water filter', 'Reclining sectional & Smart TVs', 'In-unit washer & dryer', 'Board & card games', 'Two free driveways'],
     distances: ['5 miles to Downtown', '6 miles to the Medical Center', '12 miles to Six Flags Fiesta Texas'],
     bookingUrl: `${H2}1708018`,
+    widgetId: 1708018,
   },
   {
     slug: 'coastal-run', name: 'Coastal Run', title: 'Cozy 3BR near Six Flags with BBQ, Backyard & Pets OK',
@@ -118,6 +123,7 @@ export const properties: Property[] = [
     sleeping: ['Bedroom 1: Queen bed', 'Bedroom 2: Queen bed', 'Bedroom 3: Queen bed', 'Pack-n-play available'],
     amenities: ['Chef-ready kitchen', 'Memory foam mattresses', 'Blackout curtains', 'Free high-speed Wi-Fi'],
     bookingUrl: `${H1}2005408`,
+    widgetId: 2005408,
   },
   {
     slug: 'halliday-fig-trees', name: 'Halliday', title: 'Urban 2BR Escape Near Downtown SA with Fire Pit & Yard',
@@ -128,6 +134,7 @@ export const properties: Property[] = [
     sleeping: ['Bedroom 1: Two queen beds', 'Bedroom 2: Full-over-full bunk beds', 'Pack-n-play available'],
     amenities: ['4-burner gas stove', 'In-unit washer & dryer', 'Covered front porch', 'Grilling area with seating', 'Free high-speed Wi-Fi', 'Central air conditioning'],
     bookingUrl: `${H3}2247418`,
+    widgetId: 2247418,
   },
   {
     slug: 'liberty-bell', monthlyMinNights: 28, name: 'Liberty Bell', mapQuery: 'San Antonio International Airport, San Antonio, TX', title: '2BR Family Unit 10 Minutes from the Airport with Free Parking',
@@ -139,6 +146,7 @@ export const properties: Property[] = [
     amenities: ['Premium cookware', '4-burner gas stove', 'Smart TV in primary bedroom', 'Central heating & air', '2-car driveway'],
     distances: ['About 10 minutes from San Antonio International Airport'],
     bookingUrl: `${H1}2090920`,
+    widgetId: 2090920,
   },
   {
     slug: 'discovery-mill-crash-pad', name: 'Discovery Mill', title: 'Modern Family Retreat · Pets OK · Near Randolph AFB',
@@ -149,6 +157,7 @@ export const properties: Property[] = [
     sleeping: ['Five bedrooms', 'Sleeps up to 10 guests'],
     amenities: ['Full kitchen', 'Free parking'],
     bookingUrl: `${H1}1485370`,
+    widgetId: 1485370,
   },
   {
     ...crashpadShared, slug: 'ccp-1', name: 'Crashpad · Room 1', title: 'Master Suite Room Rental with En Suite & Fridge', petFriendly: false,
@@ -156,6 +165,7 @@ export const properties: Property[] = [
     highlights: ['Private en suite bathroom', 'In-room fridge', 'Private workspace', 'Pin-code door lock', 'Mid-stay housekeeping'],
     sleeping: ['Queen bed'],
     bookingUrl: `${H2}1522582`,
+    widgetId: 1522582,
   },
   {
     ...crashpadShared, slug: 'ccp-2', name: 'Crashpad · Room 2', title: 'The Crashpad Room #2 · 2nd Floor',
@@ -163,6 +173,7 @@ export const properties: Property[] = [
     highlights: ['Queen bed & TV in room', 'Private workspace', 'Private vanity & closet', 'Pin-code bedroom & bathroom locks', 'Shower area shared with one other room'],
     sleeping: ['Queen bed'],
     bookingUrl: `${H2}1525504`,
+    widgetId: 1525504,
   },
   {
     ...crashpadShared, slug: 'ccp-3', name: 'Crashpad · Room 3', title: 'Spacious & Tidy Room Rental near Randolph AFB',
@@ -170,6 +181,7 @@ export const properties: Property[] = [
     highlights: ['Queen bed & TV in room', 'Walk-in closet', 'Private workspace', 'Pin-code door lock', 'Hall bath shared with one other room'],
     sleeping: ['Queen bed'],
     bookingUrl: `${H2}1525810`,
+    widgetId: 1525810,
   },
   {
     ...crashpadShared, slug: 'ccp-4', name: 'Crashpad · Room 4', title: 'The Crashpad Room #4 · 2nd Floor',
@@ -177,6 +189,7 @@ export const properties: Property[] = [
     highlights: ['Queen bed & TV in room', 'Walk-in closet', 'Private workspace', 'Pin-code door lock', 'Hall bath shared with one other room'],
     sleeping: ['Queen bed'],
     bookingUrl: `${H2}1525812`,
+    widgetId: 1525812,
   },
   {
     ...crashpadShared, slug: 'ccp-5', name: 'Crashpad · Room 5', title: 'Natural Light Room Rental near Randolph AFB',
@@ -184,6 +197,7 @@ export const properties: Property[] = [
     highlights: ['Queen bed & TV in room', 'Natural light', 'Private workspace', 'Private vanity & closet', 'Shower area shared with one other room'],
     sleeping: ['Queen bed'],
     bookingUrl: `${H2}1525720`,
+    widgetId: 1525720,
   },
   {
     ...studioShared, slug: 's-park-1a', name: 'Collins Garden Studio 1A', title: 'Facing Collins Garden Park · 1st Floor Access',
@@ -191,6 +205,7 @@ export const properties: Property[] = [
     summary: 'A renovated first-floor studio facing Collins Garden Park, smart home tech, and fast Wi-Fi by day, tennis, basketball, and grilling across the street by evening.',
     highlights: ['First-floor access', 'Faces Collins Garden Park', 'Pets welcome', 'Remote-work ready Wi-Fi', 'Keyless entry'],
     bookingUrl: `${H1}1713534`,
+    widgetId: 1713534,
   },
   {
     ...studioShared, slug: 's-park-1b', name: 'Collins Garden Studio 1B', title: 'Collins Garden First-Floor Room · Pet Friendly',
@@ -198,6 +213,7 @@ export const properties: Property[] = [
     summary: 'A newly remodeled first-floor studio near downtown, minutes from H-E-B, the freeways, the River Walk, the Pearl, and Fort Sam Houston.',
     highlights: ['First-floor room', 'Pets welcome', 'Close to highways & downtown', 'Equipped kitchenette', 'Keyless entry'],
     bookingUrl: `${H1}1713504`,
+    widgetId: 1713504,
   },
   {
     ...studioShared, slug: 's-park-1c', name: 'Collins Garden Studio 1C', title: 'First-Floor Private Studio Minutes from Lackland',
@@ -205,6 +221,7 @@ export const properties: Property[] = [
     summary: 'A cozy first-floor studio for solo travelers or couples, with a sleek kitchen, a comfortable sleeping area, and fast Wi-Fi for remote work.',
     highlights: ['First-floor private studio', 'Minutes from Lackland AFB', 'Remote-work ready Wi-Fi', 'Pet-free unit', 'Keyless entry'],
     bookingUrl: `${H1}1713310`,
+    widgetId: 1713310,
   },
   {
     ...studioShared, slug: 's-park-1d', name: 'Collins Garden Studio 1D', title: 'Collins Garden Studio Near Downtown',
@@ -212,6 +229,7 @@ export const properties: Property[] = [
     summary: 'A recently refurbished studio minutes from H-E-B, downtown attractions, military bases, and the Medical Center, with the park just across the street.',
     highlights: ['Near downtown & the Medical Center', 'Smart home tech', 'Remote-work ready Wi-Fi', 'Pet-free unit', 'Park across the street'],
     bookingUrl: `${H1}1713308`,
+    widgetId: 1713308,
   },
   {
     ...studioShared, slug: 's-park-2a', name: 'Collins Garden Studio 2A', title: 'Park Facing · Pet Friendly · Free Parking · Studio',
@@ -219,6 +237,7 @@ export const properties: Property[] = [
     summary: 'A park-facing downtown studio close to the highway, easy access to conventions, Air Force graduations, and every corner of San Antonio.',
     highlights: ['Faces the park', 'Pets welcome', 'Close to highway access', 'Great for Air Force graduations', 'Free parking'],
     bookingUrl: `${H1}1713536`,
+    widgetId: 1713536,
   },
   {
     ...studioShared, slug: 's-park-2b', name: 'Collins Garden Studio 2B', title: 'Facing Collins Garden Park · 2nd Floor Access',
@@ -226,6 +245,7 @@ export const properties: Property[] = [
     summary: 'A second-floor studio with modern amenities and stylish décor, steps from a large two-story H-E-B, restaurants, and downtown.',
     highlights: ['Second-floor access', 'Faces Collins Garden Park', 'Pets welcome', 'Walk to H-E-B', 'Keyless entry'],
     bookingUrl: `${H1}1713306`,
+    widgetId: 1713306,
   },
   {
     ...studioShared, slug: 's-park-2c', name: 'Collins Garden Studio 2C', title: 'Updated Studio with Free Parking · Pet-Free',
@@ -233,6 +253,7 @@ export const properties: Property[] = [
     summary: 'An updated studio with a sleek design, fully equipped kitchen, and smart home tech, work remotely by day, walk to the park’s tennis, and basketball courts by evening.',
     highlights: ['Recently updated', 'Smart home tech', 'Remote-work ready Wi-Fi', 'Pet-free unit', 'Free parking'],
     bookingUrl: `${H1}2119144`,
+    widgetId: 2119144,
   },
   {
     ...studioShared, slug: 's-park-2d', name: 'Collins Garden Studio 2D', title: 'Pet-Free Studio on the 2nd Floor with Parking',
@@ -240,6 +261,7 @@ export const properties: Property[] = [
     summary: 'A newly renovated second-floor studio for solo travelers or couples, fast Wi-Fi for work and the park just across the street.',
     highlights: ['Second-floor studio', 'Newly renovated', 'Remote-work ready Wi-Fi', 'Pet-free unit', 'Free parking'],
     bookingUrl: `${H1}1713984`,
+    widgetId: 1713984,
   },
 
   // Added 2026-10-01. These six were live and taking bookings in Hospitable but
@@ -257,6 +279,7 @@ export const properties: Property[] = [
     sleeping: ['Bedroom 1: King bed', 'Bedroom 2: Queen bed', 'Bedroom 3: Queen bed', 'Bedroom 4: Full bed'],
     amenities: ['Kitchen island with full appliances', 'Dishwasher', 'In-unit washer & dryer', 'EV charger', 'Dedicated workspace', 'Central air conditioning', 'Free on-site parking'],
     bookingUrl: `${H1}2355845`,
+    widgetId: 2355845,
   },
   {
     slug: 'retama-hollow', name: 'Retama Hollow', title: 'Family Stay Near Live Oak Park · Patio & Game Room',
@@ -269,6 +292,7 @@ export const properties: Property[] = [
     amenities: ['Full kitchen with dishwasher', 'In-unit washer & dryer', 'High chair', 'Dedicated workspace', 'Central air conditioning', 'Free on-site parking'],
     distances: ['Walkable to Live Oak Park'],
     bookingUrl: `${H1}2341389`,
+    widgetId: 2341389,
   },
   {
     slug: 'evergreen-1', name: 'Evergreen Loft', title: 'Chic 1BR Loft with Backyard Near the Pearl & Downtown',
@@ -282,6 +306,7 @@ export const properties: Property[] = [
     amenities: ['Full kitchen', 'Smart TV', 'Free Wi-Fi', 'Dedicated workspace', 'Central air conditioning', 'Free on-site parking'],
     distances: ['Walking distance to the Pearl, the River Walk, and the Saint Mary’s strip'],
     bookingUrl: `${H1}2339351`,
+    widgetId: 2339351,
   },
   {
     slug: 'evergreen-2', name: 'Evergreen Apartment', title: 'Tobin Hill 1BR Apartment · Walk to the Pearl',
@@ -295,6 +320,7 @@ export const properties: Property[] = [
     amenities: ['Full kitchen', 'Smart TV', 'Free Wi-Fi', 'Dedicated workspace', 'Central air conditioning', 'Free on-site parking'],
     distances: ['Walking distance to the Pearl, the River Walk, and the Saint Mary’s strip'],
     bookingUrl: `${H1}2339352`,
+    widgetId: 2339352,
   },
   // Santa Anna, re-listed in Hospitable 2026-10. The previous "Santa Anna Main"
   // and "Santa Anna Casita" listings were deleted; these three replace them.
@@ -311,6 +337,7 @@ export const properties: Property[] = [
     amenities: ['Two full kitchens', 'In-unit washer & dryer', 'Dedicated workspace', 'Private patio', 'Central air conditioning', 'Free on-site parking'],
     distances: ['7 minutes to Downtown San Antonio', 'Minutes from the Pearl and the Medical Center'],
     bookingUrl: `${H1}2360273`,
+    widgetId: 2360273,
   },
   {
     slug: 'santa-anna-main', monthlyMinNights: 30, name: 'Santa Anna Main House', title: 'Beautifully Renovated 3BR · 7 Minutes to Downtown',
@@ -324,6 +351,7 @@ export const properties: Property[] = [
     amenities: ['Full kitchen with dishwasher', 'In-unit washer & dryer', 'Smart TV', 'Dedicated workspace', 'Central air conditioning', 'Free on-site parking'],
     distances: ['7 minutes to Downtown San Antonio', 'Minutes from the Pearl, the Medical Center, and North Star Mall'],
     bookingUrl: `${H1}2360274`,
+    widgetId: 2360274,
   },
   {
     slug: 'santa-anna-casita', monthlyMinNights: 30, name: 'Santa Anna Casita', title: 'Private Casita with Patio · Near Downtown & Bus Line',
@@ -337,6 +365,7 @@ export const properties: Property[] = [
     amenities: ['Full kitchen', 'Smart TV', 'Free Wi-Fi', 'Dedicated workspace', 'Private patio', 'Free on-site parking'],
     distances: ['7 minutes to Downtown San Antonio', 'On the bus line'],
     bookingUrl: `${H1}2360275`,
+    widgetId: 2360275,
   },
 ];
 
