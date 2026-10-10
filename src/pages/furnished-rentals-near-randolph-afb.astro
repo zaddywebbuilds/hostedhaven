@@ -1,32 +1,32 @@
 ---
 import GuestLanding from '../components/GuestLanding.astro';
 import { properties } from '../data/properties';
-const items = properties.filter((p) => p.nearBase === 'Randolph AFB');
+const items = properties.filter((p) => p.nearBase !== undefined);
 ---
 <GuestLanding
   path="/furnished-rentals-near-randolph-afb/"
-  metaTitle="Furnished Rentals Near Randolph AFB, Converse TX | Hosted Havens"
-  metaDescription="Furnished rentals and private rooms near Randolph AFB in Converse, TX, minutes from the base, with workspaces, fast internet, and extended-stay setups."
-  crumb="Near Randolph AFB"
+  metaTitle="Furnished Rentals Near Military Bases San Antonio | Hosted Havens"
+  metaDescription="Furnished rentals near Randolph AFB, Lackland AFB, and Fort Sam Houston in San Antonio. Full homes and furnished stays for military families, PCS moves, and TDY assignments."
+  crumb="Near Military Bases"
   eyebrow="Guests · Military & PCS"
-  h1="Furnished Rentals Near <em>Randolph AFB</em>"
-  lead="Full homes and furnished stays in and around San Antonio, convenient for military personnel at Randolph, Lackland, and Fort Sam Houston, set up for PCS moves, TDY assignments, and extended visits."
+  h1="Furnished Rentals for <em>Military Families & Personnel</em>"
+  lead="Full homes and furnished stays across San Antonio, positioned conveniently for service members at Randolph AFB, Lackland AFB, and Fort Sam Houston, set up for PCS moves, TDY assignments, and extended visits."
   heroSlug="discovery-mill-crash-pad"
-  heroAlt="Discovery Mill, a spacious Hosted Havens home in Converse near Randolph AFB"
+  heroAlt="Discovery Mill, a spacious Hosted Havens home in Converse, convenient to Randolph AFB"
   items={items}
-  introH2="San Antonio is a <em>military city</em>"
+  introH2="San Antonio has <em>three major bases</em>"
   intro={[
-    'With three major installations, Joint Base San Antonio–Randolph, Lackland AFB, and Fort Sam Houston, San Antonio hosts a steady flow of service members, families, and DoD civilians in transition. Comfortable, well-equipped housing makes that transition easier.',
-    'Hosted Havens manages properties across the city and surrounding communities, from full homes for families to furnished stays near each base. See <a href="/monthly-rentals-san-antonio/">monthly rentals</a> for extended-stay options across San Antonio.',
+    'Joint Base San Antonio spans Randolph AFB in Converse, Lackland AFB on the west side, and Fort Sam Houston near downtown, bringing a steady flow of service members, families, and DoD civilians to the area. With three installations, there are military families and singles with housing needs across the entire city.',
+    'Hosted Havens manages properties across San Antonio and surrounding communities, from full homes for families to furnished stays convenient to each base. See <a href="/monthly-rentals-san-antonio/">monthly rentals</a> for all extended-stay options.',
   ]}
   points={[
-    { icon: 'plane', title: 'Convenient to all three bases', text: 'Properties positioned near Randolph, Lackland, and Fort Sam Houston across San Antonio.' },
-    { icon: 'home', title: 'Fully equipped homes', text: 'Furnished kitchens, fast internet, workspaces, and laundry for daily living.' },
-    { icon: 'calendar', title: 'Extended-stay ready', text: 'Mid-stay housekeeping and flexible booking for PCS and TDY timelines.' },
+    { icon: 'plane', title: 'Three bases covered', text: 'Properties near Randolph AFB in Converse, Lackland AFB on the west side, and Fort Sam Houston near downtown.' },
+    { icon: 'home', title: 'Homes for families and singles', text: 'Full homes for families and furnished stays for solo service members, all with kitchens, fast internet, and laundry.' },
+    { icon: 'calendar', title: 'Extended-stay ready', text: 'Set up for PCS and TDY timelines with mid-stay housekeeping options and flexible booking.' },
   ]}
   faqs={[
-    { q: 'Do you have rentals near Randolph AFB?', a: 'Yes. Hosted Havens manages properties in Converse, about four minutes from Randolph AFB, as well as homes across San Antonio near other bases.' },
+    { q: 'Do you have rentals near Randolph AFB?', a: 'Yes. Hosted Havens manages properties in Converse, about four minutes from Randolph AFB, as well as homes near Lackland AFB and across San Antonio.' },
     { q: 'Are stays available for PCS and TDY assignments?', a: 'Yes. Properties are set up for extended stays with fully equipped kitchens, fast internet, and laundry. Longer bookings may include automatic discounts.' },
-    { q: 'Do you have options for families with larger groups?', a: 'Yes. Several full homes can accommodate families or groups. Use the filters on the <a href="/stays/">stays page</a> to browse by guest count and bedrooms.' },
+    { q: 'Do you have options for military families with children?', a: 'Yes. Several full homes can accommodate families or groups. Use the filters on the <a href="/stays/">stays page</a> to browse by guest count and bedrooms.' },
   ]}
 />

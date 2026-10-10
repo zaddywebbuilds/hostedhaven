@@ -95,7 +95,7 @@ export const services: Service[] = [
     intro: {
       h2: 'Not every co-host is <em>full-service</em>',
       paragraphs: [
-        'On Airbnb, a co-host is someone the owner adds to help manage a listing. Some co-hosts only cover guest messaging or remote assistance. That can still leave you coordinating cleaners, chasing repairs and guessing at pricing.',
+        'On Airbnb, a co-host is someone the owner adds to help manage a listing. Some co-hosts only cover guest messaging or remote assistance. That can still leave you coordinating cleaners, chasing repairs, and guessing at pricing.',
         'Full-service co-hosting means Hosted Havens takes on the day-to-day operation: guests, pricing, listing, cleaning, inspections, and maintenance, with a local San Antonio team, so the property runs without your time being tied up.',
       ],
     },
