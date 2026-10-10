@@ -77,6 +77,30 @@ const schema = [{
     </div>
   </section>
 
+  <section class="section">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Every stay · No exceptions</span>
+        <h2>What every Hosted Havens <em>stay includes</em></h2>
+      </div>
+      <div class="grid grid-3">
+        {[
+          { icon: 'shield',  title: 'Outdoor security, indoor privacy', text: 'Exterior cameras on every property. What happens inside is always private.' },
+          { icon: 'sparkle', title: 'Thoughtfully furnished',           text: 'Modern furniture, quality bedding, and a consistent feel throughout.' },
+          { icon: 'star',    title: 'Comfort essentials included',      text: 'High-quality linens, plush towels, and starter toiletries ready on arrival.' },
+          { icon: 'home',    title: 'Fully equipped kitchen',           text: 'Cookware, appliances, and tableware for meals and morning coffee.' },
+          { icon: 'wifi',    title: 'Fast Wi-Fi and workspace',         text: 'High-speed internet and a dedicated spot for calls and focused work.' },
+          { icon: 'key',     title: 'Parking on property',             text: 'Complimentary parking directly on site at every home.' },
+        ].map((f, i) => (
+          <div class={`card3d reveal reveal-d${(i % 3) + 1}`} style="display:flex;gap:1rem;align-items:flex-start">
+            <span class={`icon-box${i % 3 === 1 ? ' sage' : i % 3 === 2 ? ' gold' : ''}`}><Icon name={f.icon} /></span>
+            <div><h3 style="margin:.2rem 0 .3rem">{f.title}</h3><p style="margin:0">{f.text}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="section bg-warm">
     <div class="container">
       <div class="section-head center reveal"><span class="eyebrow">What guests say</span><h2>Stays guests <em>come back to</em></h2></div>
