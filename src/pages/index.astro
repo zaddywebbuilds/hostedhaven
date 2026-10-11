@@ -341,13 +341,6 @@ const schema = [
       {/* Megan: "I like that the current site has a section to talk about the
           area on the Home page... I think it should be included somewhere in the
           site." This is her own wording from hostedhavens.co, carried over as-is. */}
-      <div class="split reveal reveal-d2" style="margin-top:clamp(2.6rem,5vw,4rem);align-items:start">
-        <h3 style="margin:0">San Antonio, Texas is a vibrant blend of rich history, diverse culture, and modern charm.</h3>
-        <div>
-          <p>At the heart of the city lies the world-famous River Walk, a scenic network of walkways along the San Antonio River, lined with lively restaurants, boutique shops, and colorful art installations. History lovers can explore iconic landmarks like The Alamo, Mission San José, and the historic Market Square, while families will enjoy attractions like SeaWorld, Six Flags Fiesta Texas, and the San Antonio Zoo. The city’s architecture reflects its multicultural heritage, with Spanish colonial influences beautifully preserved throughout downtown and surrounding neighborhoods.</p>
-          <p style="margin-bottom:0">Beyond the tourist hotspots, San Antonio offers a welcoming atmosphere, a thriving food scene (from Tex-Mex to contemporary cuisine), and year-round events that celebrate its cultural roots—from Fiesta San Antonio to vibrant mariachi performances. Whether you’re strolling through the Pearl District, visiting local art galleries, or catching a Spurs game, San Antonio offers a unique and memorable experience for every kind of traveler.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -407,7 +400,7 @@ const schema = [
         <div class="bridge-inner">
           <div>
             <span class="eyebrow">For guests</span>
-            <h2>Looking for Somewhere to Stay?</h2>
+            <h2 style="text-shadow:0 2px 12px rgba(0,0,0,.55),0 1px 4px rgba(0,0,0,.4)">Looking for Somewhere to Stay?</h2>
             <p class="lead">Explore professionally managed short and mid-term rentals across San Antonio and surrounding communities.</p>
             <div class="btn-row">
               <a class="btn btn-primary" href={u('/stays/')} data-track="stays_view">Explore Our Homes <Icon name="arrow" /></a>
@@ -422,14 +415,25 @@ const schema = [
           </ul>
         </div>
       </div>
-      <div class="grid grid-4" style="margin-top:2rem">
-        {guestReviews.map((r, i) => (
-          <figure class={`review-card reveal reveal-d${i + 1}`} style="margin:0">
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote style="margin:0"><p>“{r.quote}”</p></blockquote>
-            <figcaption class="review-by"><span class="avatar-initial">{r.name[0]}</span><span><strong>{r.name}</strong><small>{r.from} · Guest review</small></span></figcaption>
-          </figure>
-        ))}
+      <div class=”review-slider” style=”margin-top:2rem” id=”review-slider”>
+        <div class=”review-track” id=”review-track”>
+          {guestReviews.map((r) => (
+            <figure class=”review-card” style=”margin:0”>
+              <div class=”stars” aria-label=”5 out of 5 stars”>★★★★★</div>
+              <blockquote style=”margin:0”><p>”{r.quote}”</p></blockquote>
+              <figcaption class=”review-by”><span class=”avatar-initial”>{r.name[0]}</span><span><strong>{r.name}</strong><small>{r.from} · Guest review</small></span></figcaption>
+            </figure>
+          ))}
+        </div>
+        <div class=”slider-nav”>
+          <button class=”slider-arrow prev” id=”review-prev” aria-label=”Previous reviews”><Icon name=”arrow” /></button>
+          <div class=”slider-dots” id=”review-dots”>
+            {guestReviews.map((_, i) => (
+              <button class={`slider-dot${i === 0 ? ' on' : ''}`} data-i={String(i)} aria-label={`Review ${i + 1}`}></button>
+            ))}
+          </div>
+          <button class=”slider-arrow next” id=”review-next” aria-label=”Next reviews”><Icon name=”arrow” /></button>
+        </div>
       </div>
     </div>
   </section>
@@ -446,6 +450,47 @@ const schema = [
       <div class="reveal reveal-d2"><FAQ items={faqs} /></div>
     </div>
   </section>
+
+  <!-- REVIEW SLIDER SCRIPT -->
+  <script>
+    (function () {
+      const track = document.getElementById('review-track') as HTMLElement | null;
+      const dots = [...document.querySelectorAll<HTMLElement>('#review-dots .slider-dot')];
+      if (!track) return;
+
+      function cardW(): number {
+        const card = track!.querySelector<HTMLElement>('.review-card');
+        if (!card) return 0;
+        const gap = parseFloat(getComputedStyle(track!).gap) || 0;
+        return card.offsetWidth + gap;
+      }
+      function curIdx(): number { return Math.round(track!.scrollLeft / (cardW() || 1)); }
+      function goTo(idx: number): void {
+        const total = track!.querySelectorAll('.review-card').length;
+        idx = Math.max(0, Math.min(idx, total - 1));
+        track!.scrollTo({ left: idx * cardW(), behavior: 'smooth' });
+        dots.forEach((d, i) => d.classList.toggle('on', i === idx));
+      }
+
+      document.getElementById('review-prev')?.addEventListener('click', () => goTo(curIdx() - 1));
+      document.getElementById('review-next')?.addEventListener('click', () => goTo(curIdx() + 1));
+      dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+
+      let ticking = false;
+      track.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => { const i = curIdx(); dots.forEach((d, j) => d.classList.toggle('on', j === i)); ticking = false; });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      const total = () => track!.querySelectorAll('.review-card').length;
+      let timer = setInterval(() => goTo((curIdx() + 1) % total()), 4800);
+      const slider = document.getElementById('review-slider');
+      slider?.addEventListener('mouseenter', () => clearInterval(timer));
+      slider?.addEventListener('mouseleave', () => { timer = setInterval(() => goTo((curIdx() + 1) % total()), 4800); });
+    })();
+  </script>
 
   <!-- DARK CONVERSION -->
   <section class="section-tight">

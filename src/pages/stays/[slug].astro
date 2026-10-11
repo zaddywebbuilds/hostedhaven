@@ -128,11 +128,15 @@ const schema = [{
         <ul class="ticks" style="padding:0">{p.sleeping.map((h) => <li>{h}</li>)}</ul>
 
         <h2>Amenities</h2>
-        <ul class="ticks" style="padding:0;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">{(pmsAmenities.length ? pmsAmenities : p.amenities).map((h) => <li>{h}</li>)}</ul>
+        <div class="amenities-wrap">
+          <ul class="ticks" style="padding:0;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">{(pmsAmenities.length ? pmsAmenities : p.amenities).map((h) => <li>{h}</li>)}</ul>
+        </div>
 
           {pmsParagraphs.length > 0 && (<>
             <h2>About this home</h2>
-            {pmsParagraphs.map((para) => <p>{para}</p>)}
+            <div class="desc-wrap">
+              {pmsParagraphs.map((para) => <p set:html={para}></p>)}
+            </div>
           </>)}
 
         {p.distances && (<>
@@ -162,6 +166,29 @@ const schema = [{
             s.setAttribute('data-theme', 'boutique');
             host.appendChild(s);
           })();
+        </script>
+        <script>
+          // Amenities: hide after 8, insert "Show all N" button
+          document.querySelectorAll('.amenities-wrap .ticks').forEach((list) => {
+            const items = list.querySelectorAll('li');
+            if (items.length <= 8) return;
+            list.classList.add('collapsed');
+            const btn = document.createElement('button');
+            btn.className = 'expand-btn';
+            btn.textContent = `Show all ${items.length} amenities`;
+            btn.addEventListener('click', () => { list.classList.remove('collapsed'); btn.remove(); });
+            list.after(btn);
+          });
+          // Description: collapse when content exceeds visible height
+          document.querySelectorAll('.desc-wrap').forEach((wrap) => {
+            if (wrap.scrollHeight <= 130) return;
+            wrap.classList.add('collapsed');
+            const btn = document.createElement('button');
+            btn.className = 'expand-btn';
+            btn.textContent = 'Read more';
+            btn.addEventListener('click', () => { wrap.classList.remove('collapsed'); btn.remove(); });
+            wrap.after(btn);
+          });
         </script>
         <p class="small muted">Booking powered by Hospitable. Having trouble? <a href={p.bookingUrl} target="_blank" rel="noopener noreferrer" data-track="book_now_click">Open booking in a new tab</a> or email <a href={`mailto:${business.guestEmail}`} data-track="guest_email_click">{business.guestEmail}</a>.</p>
       </div>

@@ -27,13 +27,12 @@ const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Reve
           <nav aria-label="Breadcrumb"><ol class="breadcrumbs"><li><a href={u('/')}>Home</a></li><li><span aria-current="page">Property Analysis</span></li></ol></nav>
           <span class="eyebrow">No obligation</span>
           <h1 class="h1-interior">Let’s See What Your <em>Property</em> Could Do.</h1>
-          <p class="lead">Tell us a little about your home and your goals. We’ll review the property, its location and your current rental setup to identify opportunities.</p>
+          <p class="lead">Tell us a little about your home and your goals. Start with the property intake. Then schedule your property analysis tour when you are ready.</p>
           <ul class="ticks" style="margin:1.4rem 0">
             <li>Takes about 2–3 minutes</li>
             <li>Reviewed by a person on the Hosted Havens team</li>
             <li>Min contract 4–12 months if you move forward</li>
           </ul>
-          <p class="small muted">Prefer to talk? Call <a class="text-link" href={`tel:${business.phone}`} data-track="phone_click">{business.displayPhone}</a> or email <a class="text-link" href={`mailto:${business.ownerEmail}`} data-track="owner_email_click">{business.ownerEmail}</a>.</p>
         </div>
 
         <div class="form-shell" id="analysis">
@@ -103,7 +102,7 @@ const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Reve
           <div class="form-success" id="analysis-success" tabindex="-1">
             <div class="success-mark"><Icon name="check" /></div>
             <h2>Property received.</h2>
-            <p class="lead" style="margin:0 auto 1.6rem">Thanks. The Hosted Havens team will review your property, local demand, and comparable rentals to help identify its revenue potential.</p>
+            <p class="lead" style="margin:0 auto 1.6rem">Thanks. The Hosted Havens team will review your intake form and contact you shortly.</p>
             <p data-success-note class="small muted"></p>
             <div class="btn-row" style="justify-content:center">
               <a class="btn btn-primary" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Schedule a Property Tour <Icon name="arrow" /></a>
