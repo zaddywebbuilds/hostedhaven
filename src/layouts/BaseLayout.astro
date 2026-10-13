@@ -129,7 +129,11 @@ const allSchema = [org, ...crumbSchema, ...schema];
       drawer?.setAttribute('aria-hidden', String(!open));
       opener?.setAttribute('aria-expanded', String(open));
       document.body.style.overflow = open ? 'hidden' : '';
-      if (open) drawer?.querySelector<HTMLElement>('[data-drawer-close]')?.focus(); else opener?.focus();
+      // Focus waits a frame: the panel animates out of visibility:hidden, and
+      // focus() on a still-hidden element is silently dropped. The dialog is
+      // aria-modal, so losing that call would strand a keyboard user outside it.
+      if (open) requestAnimationFrame(() => drawer?.querySelector<HTMLElement>('[data-drawer-close]')?.focus());
+      else opener?.focus();
     };
     opener?.addEventListener('click', () => setDrawer(true));
     drawer?.querySelector('[data-drawer-close]')?.addEventListener('click', () => setDrawer(false));

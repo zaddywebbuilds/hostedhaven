@@ -289,8 +289,11 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
 .drawer-close { width: 46px; height: 46px; border-radius: 50%; border: 1px solid #fff; background: var(--glass-strong); display: grid; place-items: center; }
 .drawer-close svg { width: 20px; height: 20px; }
 .drawer-group { margin-bottom: 1.4rem; }
-.drawer-group h2 { font-family: var(--sans); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--coral-ink); margin-bottom: .5rem; font-weight: 700; }
+.drawer-group h2 { font-family: var(--sans); font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; color: var(--coral-ink); margin-bottom: .5rem; font-weight: 700; }
 .drawer-group a { display: flex; justify-content: space-between; align-items: center; padding: .85rem 0; border-bottom: 1px solid rgba(92, 74, 63, .12); font-family: var(--display); font-size: 1.45rem; font-weight: 600; }
+/* Without an explicit size the arrow stretches to fill the flex row: it rendered
+   around 200px square in the mobile drawer, and a different size per link. */
+.drawer-group a svg { width: 20px; height: 20px; flex: none; }
 .drawer-cta { display: grid; gap: .6rem; margin-top: 1.4rem; }
 
 .mobile-bar {
