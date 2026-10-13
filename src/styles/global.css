@@ -99,7 +99,9 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 /* ---------- Typography ---------- */
 h1, h2, h3, h4 { font-family: var(--display); font-weight: 600; line-height: 1.05; letter-spacing: -.012em; margin: 0 0 .5em; color: var(--ink); text-wrap: balance; }
-h1 { font-size: clamp(2.9rem, 6vw, 6rem); font-weight: 600; }
+/* The homepage h1 used to run to 6rem while every interior page capped at 4.8rem,
+   which is why the homepage read as bigger than the rest of the site. Same scale now. */
+h1 { font-size: clamp(2.5rem, 5vw, 4.8rem); font-weight: 600; }
 .h1-interior { font-size: clamp(2.5rem, 5vw, 4.8rem); }
 h2 { font-size: clamp(2.1rem, 4vw, 3.8rem); font-weight: 600; }
 h3 { font-size: clamp(1.45rem, 2vw, 1.85rem); }
@@ -660,6 +662,12 @@ ul.ticks li::before { content: ''; flex: none; width: 18px; height: 18px; margin
 
 /* Forms */
 .form-shell { padding: clamp(1.5rem, 4vw, 3rem); border-radius: var(--r-xl); background: rgba(255, 255, 255, .75); border: 1px solid #fff; box-shadow: var(--shadow-floating); }
+/* Megan's Mailchimp intake form. It is her hosted survey, so it keeps its own
+   styling and scrolls inside the frame; we only give it room and a matching edge. */
+/* The survey supplies its own padding, so the card keeps only enough to read as a
+   frame. At full .form-shell padding the frame was 284px wide on a 390px phone. */
+.form-shell-embed { padding: clamp(.6rem, 2vw, 1.1rem); }
+.intake-embed { width: 100%; height: clamp(620px, 84vh, 920px); border: 0; border-radius: var(--r-md); background: #fff; display: block; }
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5rem; margin-bottom: 2rem; list-style: none; }
 .steps li { font-size: .78rem; font-weight: 650; color: var(--ink-mute); padding-top: .7rem; border-top: 3px solid rgba(92, 74, 63, .12); transition: color .3s, border-color .3s; }
 .steps li.on { color: var(--coral-ink); border-color: var(--coral-deep); }

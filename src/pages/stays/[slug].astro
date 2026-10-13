@@ -129,8 +129,19 @@ const schema = [{
         <h2 style="margin-top:0">About this stay</h2>
         <p class="lead">{p.summary}</p>
 
-        <h2>Top reasons to stay</h2>
-        <ul class="ticks" style="padding:0">{p.highlights.map((h) => <li>{h}</li>)}</ul>
+        <h2 id="availability">Check availability</h2>
+        <div class="hsp-widget-host" data-pid={String(p.widgetId)} data-uuid="a172bb81-09b1-4a40-86cb-58ab5f6c1bf4"></div>
+        <script is:inline>
+          (function () {
+            var host = document.currentScript.previousElementSibling;
+            var s = document.createElement('script');
+            s.src = 'https://cdn.hsptb.com/direct-booking-widget/widget-loader.prod.js';
+            s.setAttribute('data-site-uuid', host.getAttribute('data-uuid'));
+            s.setAttribute('data-property-id', host.getAttribute('data-pid'));
+            s.setAttribute('data-theme', 'boutique');
+            host.appendChild(s);
+          })();
+        </script>
 
         <h2>Sleeping arrangements</h2>
         <ul class="ticks" style="padding:0">{p.sleeping.map((h) => <li>{h}</li>)}</ul>
@@ -156,19 +167,6 @@ const schema = [{
           <li>Longer stays may include automatic discounts.</li>
         </ul>
 
-        <h2 id="availability">Check availability</h2>
-        <div class="hsp-widget-host" data-pid={String(p.widgetId)} data-uuid="a172bb81-09b1-4a40-86cb-58ab5f6c1bf4"></div>
-        <script is:inline>
-          (function () {
-            var host = document.currentScript.previousElementSibling;
-            var s = document.createElement('script');
-            s.src = 'https://cdn.hsptb.com/direct-booking-widget/widget-loader.prod.js';
-            s.setAttribute('data-site-uuid', host.getAttribute('data-uuid'));
-            s.setAttribute('data-property-id', host.getAttribute('data-pid'));
-            s.setAttribute('data-theme', 'boutique');
-            host.appendChild(s);
-          })();
-        </script>
         <script>
           // Collapse long blocks behind a two-way toggle. The content stays in the
           // markup either way, so it is still crawlable while hidden.

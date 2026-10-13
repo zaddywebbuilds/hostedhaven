@@ -10,7 +10,10 @@ import { propertyImages, brandImage, coverImage } from '../lib/images';
 import { business, pricing, ownerTestimonials, guestReviews, links } from '../data/business';
 import { properties, featuredProperties } from '../data/properties';
 
-const heroImg = coverImage('the-harding-place');
+// The bedroom shot carried over from the current live site. Megan picked it because
+// the olive walls and gold bedding are the brand colours and it reads cosy before
+// anyone has read a word, which is the feeling the homepage opens with.
+const heroImg = brandImage('san-antonio-vacation-rental-bedroom');
 const stack = propertyImages('grass-hollow');
 const megan = brandImage('megan-blount-hosted-havens-founder');
 const map = brandImage('san-antonio-map');
@@ -26,6 +29,9 @@ const neighbourhoods = [
   { slug: 'grass-hollow', area: 'Live Oak' },
   { slug: 'de-soto-lighthouse', area: 'Universal City' },
   { slug: 'discovery-mill-crash-pad', area: 'Converse' },
+  { slug: 'quiet-fox', area: 'Far West Side' },
+  { slug: 'liberty-bell', area: 'Near the Airport' },
+  { slug: 'la-maison-blount', area: 'Near I-10' },
 ].map((n) => ({ ...n, img: coverImage(n.slug) })).filter((n) => n.img);
 
 const bridgeImg = coverImage('de-soto-lighthouse');
@@ -115,8 +121,8 @@ const schema = [
         <div class="scene" data-tilt>
           <div class="product-aura" aria-hidden="true"></div>
           <div class="product" data-tilt-target>
-            <Img src={heroImg} alt="Living space at The Harding Place, a Hosted Havens rental near downtown San Antonio" eager sizes="(max-width: 760px) 64vw, 400px" />
-            <div class="product-tag"><strong>The Harding Place</strong><span>San Antonio, TX</span></div>
+            <Img src={heroImg} alt="Bedroom in a Hosted Havens managed short-term rental in San Antonio, with olive walls and warm wood furniture" eager sizes="(max-width: 760px) 64vw, 400px" />
+            <div class="product-tag"><strong>Professionally Managed</strong><span>San Antonio, TX</span></div>
           </div>
 
           <div class="float-card left" aria-hidden="true">

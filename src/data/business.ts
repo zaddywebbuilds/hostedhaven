@@ -22,6 +22,11 @@ export const business = {
 export const links = {
   // Verified from the live site (2026-09-14)
   intakeForm: 'https://form.typeform.com/to/e4sXEear',
+  // Megan's own "Co-Hosting Intake Form (2mins)" in Mailchimp. This is the real
+  // intake: owners fill it in on /property-analysis/ and the response lands in her
+  // audience, which is her CRM. The campaign link carries a trailing &e=*|UNIQID|*
+  // merge tag that only resolves inside a Mailchimp email, so it is dropped here.
+  intakeSurvey: 'https://us11.list-manage.com/survey?u=6eaf2d165e149563724adbda3&id=76ef1a1d11',
   calendlyAnalysisTour: 'https://calendly.com/hostedhavensco/property-analysis-tour',
   // Deliberately no property-review-meeting link: Megan uses it privately with
   // new leads after their tour and asked that it not be published.
