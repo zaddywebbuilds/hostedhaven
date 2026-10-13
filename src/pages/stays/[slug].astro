@@ -147,12 +147,6 @@ const schema = [{
             </div>
           </>)}
 
-        {p.distances && (<>
-          <h2>Location</h2>
-          <p>{loc}. Exact address and arrival instructions are shared after booking.</p>
-          <ul class="ticks" style="padding:0">{p.distances.map((h) => <li>{h}</li>)}</ul>
-        </>)}
-
         <h2>Good to know</h2>
         <ul>
           <li>Check-in and check-out times are listed on your booking confirmation (check-in is typically from 3:00 PM and checkout by 11:00 AM).</li>
@@ -239,7 +233,8 @@ const schema = [{
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-        <p class="small muted" style="margin-top:.7rem">Map shows the general area. The exact address is shared after your booking is confirmed.</p>
+        {p.distances && <ul class="ticks" style="padding:0;margin-top:1.1rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">{p.distances.map((h) => <li>{h}</li>)}</ul>}
+        <p class="small muted" style="margin-top:.7rem">Map shows the general area. The exact address and arrival instructions are shared after your booking is confirmed.</p>
       </div>
     </div>
   </section>

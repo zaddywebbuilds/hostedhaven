@@ -436,6 +436,12 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
 .ihero .stage { border-radius: clamp(24px, 3.5vw, 40px); }
 .ihero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; padding: clamp(2.2rem, 5vw, 4.5rem) clamp(1.4rem, 5vw, 4.5rem); }
 .ihero-grid.solo { grid-template-columns: 1fr; max-width: 900px; }
+/* Intake layout. This lives in a min-width query rather than an inline style so
+   the 1024px single-column rule can still take over: an inline grid-template
+   outranks the media query and left the form 129px wide on a phone. */
+@media (min-width: 1025px) {
+  .ihero-grid.split-form { grid-template-columns: .85fr 1.15fr; align-items: start; }
+}
 .ihero-copy .lead { margin-bottom: 1.8rem; }
 .ihero-visual { position: relative; min-height: 340px; perspective: 1200px; }
 .ihero-photo { position: absolute; inset: 0 8% 0 4%; border-radius: 30px; overflow: hidden; transform: rotateY(-8deg) rotateX(3deg); box-shadow: 0 0 0 1px rgba(255, 255, 255, .7), 0 0 50px rgba(192, 87, 59, .35), var(--shadow-deep); animation: float 10s ease-in-out infinite; }
