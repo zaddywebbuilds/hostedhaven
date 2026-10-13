@@ -136,7 +136,10 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
 .bg-warm {
   background: rgba(212, 163, 116, .08);
 }
-.bg-cream { background: var(--cream); }
+/* Brand secondary at low opacity. This was var(--cream), which is #FFFFFF, the
+   same as the page background, so these sections painted white on white and read
+   as one unbroken block. That was the "too many white-on-white sections" note. */
+.bg-olive { background: rgba(101, 97, 52, .06); }
 .bg-dark {
   background:
     radial-gradient(ellipse 50% 50% at 80% 0%, rgba(192, 87, 59, .22), transparent 60%),
