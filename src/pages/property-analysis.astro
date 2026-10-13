@@ -2,13 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import { u } from '../lib/url';
-import { business, links, formEndpoint, formAccessKey, mailchimp } from '../data/business';
-
-const mailchimpUrl = mailchimp.audienceId
-  ? `https://${mailchimp.account}.${mailchimp.dc}.list-manage.com/subscribe/post-json`
-  : '';
-const mailchimpU = mailchimp.u;
-const mailchimpId = mailchimp.audienceId;
+import { business, links, formEndpoint, formAccessKey } from '../data/business';
 
 const goals = ['Increase revenue', 'Become hands-off', 'Improve occupancy', 'Launch a new STR', 'Move into mid-term rentals', 'Improve reviews', 'Other'];
 const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Revenue isn’t where it should be', 'I need better reviews', 'I’m launching a new property', 'Cleaning is difficult', 'Maintenance keeps interrupting me', 'I need a mid-term strategy', 'I want to scale'];
@@ -38,7 +32,7 @@ const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Reve
         </div>
 
         <div class="form-shell" id="analysis">
-          <form id="analysis-form" novalidate data-endpoint={formEndpoint} data-key={formAccessKey} data-fallback={links.intakeForm} data-owner-email={business.ownerEmail} data-mc-url={mailchimpUrl} data-mc-u={mailchimpU} data-mc-id={mailchimpId}>
+          <form id="analysis-form" novalidate data-endpoint={formEndpoint} data-key={formAccessKey} data-fallback={links.intakeForm} data-owner-email={business.ownerEmail}>
             <ol class="steps" aria-label="Form progress">
               <li class="on" data-n="1">1 · Property</li>
               <li data-n="2">2 · Current Setup</li>
@@ -206,51 +200,10 @@ const pains = ['I’m doing too much myself', 'Occupancy is inconsistent', 'Reve
             sent = res.ok && (key ? json.success === true : true);
           } catch { sent = false; }
         }
-        // Add the lead to Mailchimp. The classic endpoint sends no CORS headers,
-        // so JSONP is the only way a static site can read back a real result
-        // instead of guessing. A posted FormData was the old silent failure: that
-        // endpoint only parses url-encoded bodies.
-        const mcUrl = form.dataset.mcUrl;
-        let mcOk = false;
-        if (mcUrl && entries.email) {
-          // MERGE7 is an SMS-marketing field: it rejects every number unless the
-          // account runs an SMS program, and that failure rejects the whole
-          // submission, so the phone rides along inside Notes instead.
-          const detail = ['phone', 'address', 'zip', 'property_type', 'bedrooms', 'bathrooms', 'currently_listed', 'listing_url', 'current_strategy', 'monthly_revenue', 'main_goal', 'pain_points', 'timeframe'];
-          const params = new URLSearchParams({
-            u: form.dataset.mcU || '',
-            id: form.dataset.mcId || '',
-            EMAIL: entries.email,
-            FNAME: entries.first_name || '',
-            LNAME: entries.last_name || '',
-            MERGE8: detail.filter((k) => entries[k]).map((k) => `${k.replace(/_/g, ' ')}: ${entries[k]}`).join(' | '),
-          });
-          const mc = await new Promise<{ result?: string; msg?: string }>((resolve) => {
-            const cb = `mcb_${Date.now()}`;
-            const script = document.createElement('script');
-            let settled = false;
-            const finish = (v: { result?: string; msg?: string }) => {
-              if (settled) return;
-              settled = true;
-              clearTimeout(timer);
-              delete (window as any)[cb];
-              script.remove();
-              resolve(v);
-            };
-            const timer = setTimeout(() => finish({ result: 'error', msg: 'timeout' }), 8000);
-            (window as any)[cb] = finish;
-            script.onerror = () => finish({ result: 'error', msg: 'network' });
-            script.src = `${mcUrl}?${params.toString()}&c=${cb}`;
-            document.body.appendChild(script);
-          });
-          // An existing contact comes back as an error but is already in the CRM.
-          mcOk = mc.result === 'success' || /already subscribed/i.test(mc.msg || '');
-        }
-
-        gtag?.('event', 'owner_analysis_submit', { form: 'property_analysis', delivered: sent, crm: mcOk });
+        gtag?.('event', 'owner_analysis_submit', { form: 'property_analysis', delivered: sent });
 
         const note = success.querySelector('[data-success-note]');
-        if (!sent && !mcOk) {
+        if (!sent) {
           const body = Object.entries(entries).map(([k, v]) => `${k.replace(/_/g, ' ')}: ${v}`).join('\n');
           const mailto = `mailto:${form.dataset.ownerEmail}?subject=${encodeURIComponent('Property analysis request: ' + (entries.address || ''))}&body=${encodeURIComponent(body)}`;
           if (note) note.innerHTML = `To make sure your details reach us, <a class="text-link" href="${mailto}">send them by email</a> or complete our <a class="text-link" href="${form.dataset.fallback}" target="_blank" rel="noopener noreferrer">2-minute intake form</a>.`;

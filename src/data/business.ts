@@ -34,36 +34,16 @@ export const links = {
   ownerPortal: 'https://owners.hostedhavens.co',
 };
 
-/**
- * Mailchimp audience subscribe, via the classic hosted-form JSONP endpoint.
- *
- * `audienceId` is the AUDIENCE id, not the `id` in Megan's survey link (that one
- * identifies a survey and 404s on /subscribe). Verified against the live hosted
- * form, which posts to https://hostedhavens.us11.list-manage.com/subscribe/post.
- *
- * Merge fields that actually exist on this audience, read off that form:
- *   EMAIL/MERGE0 email · FNAME/MERGE1 first · LNAME/MERGE2 last
- *   MERGE7 SMS phone · MERGE8 Notes
- * There is no merge field for address, beds, goals and so on, so the rest of the
- * intake is packed into MERGE8 rather than silently dropped. Adding dedicated
- * merge fields in Mailchimp is the only way to split them into their own columns.
- *
- * Verified against the live endpoint on 2026-10-13:
- *  - MERGE7 is unusable. It demands E.164 and then rejects US numbers with "a
- *    country you do not have an SMS program for", which fails the whole submit.
- *  - A fully valid payload returns {"result":"redirect","msg":"captcha"}, so this
- *    audience has CAPTCHA on its signup form and will not accept posts from our
- *    form until that is turned off in Mailchimp (Audience > Signup forms). Until
- *    then leads still reach Megan by email through formAccessKey below.
- *
- * While audienceId is blank the intake form submits normally and skips Mailchimp.
+/*
+ * No Mailchimp integration here on purpose. Audience 7b29e79066 was wired up and
+ * tested on 2026-10-13: a fully valid payload comes back as
+ * {"result":"redirect","msg":"captcha"} from a real browser on our own origin, so
+ * the hosted form will not take posts from this site and no contact is created.
+ * Megan's survey link cannot be posted to either; it 404s on /subscribe. The
+ * intake therefore reaches her by email through formAccessKey below, and contacts
+ * are added to the CRM by hand. Reinstating this needs the Mailchimp API behind a
+ * serverless endpoint, since a static host cannot hold an API key.
  */
-export const mailchimp = {
-  dc: 'us11',
-  account: 'hostedhavens',
-  u: '6eaf2d165e149563724adbda3',
-  audienceId: '7b29e79066',
-};
 
 export const socials = [
   { name: 'Facebook', href: 'https://facebook.com/hostedhavensco', icon: 'facebook' },
