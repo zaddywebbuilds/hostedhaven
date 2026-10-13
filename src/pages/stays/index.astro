@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import InteriorHero from '../../components/InteriorHero.astro';
+import Img from '../../components/Img.astro';
 import PropertyCard from '../../components/PropertyCard.astro';
 import Icon from '../../components/Icon.astro';
 import FAQ from '../../components/FAQ.astro';
@@ -37,13 +37,19 @@ const schema = [{
       <div class="stage-arch" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
       <div class="stage-glow a" aria-hidden="true"></div>
       <div class="stage-glow b" aria-hidden="true"></div>
-      <div class="ihero-grid solo">
+      <div class="ihero-grid">
         <div class="ihero-copy">
           <nav aria-label="Breadcrumb"><ol class="breadcrumbs"><li><a href={u('/')}>Home</a></li><li><span aria-current="page">Stays</span></li></ol></nav>
           <span class="eyebrow">Book direct · Local support</span>
           <h1 class="h1-interior">Vacation Rentals &amp; Furnished Stays in <em>San Antonio Area</em></h1>
           <p class="lead">Browse professionally managed short-term and mid-term rentals for family trips, business travel, military stays, relocations, and extended visits.</p>
         </div>
+        {coverImage('the-harding-place') && (
+          <div class="ihero-visual" aria-hidden="true">
+            <div class="product-aura"></div>
+            <div class="ihero-photo"><Img src={coverImage('the-harding-place')} alt="" eager sizes="(max-width: 1024px) 90vw, 40vw" /></div>
+          </div>
+        )}
       </div>
     </div>
   </section>
