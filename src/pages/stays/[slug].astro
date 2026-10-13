@@ -33,6 +33,14 @@ const metaTitle = `${p.name} · ${p.type === 'House' ? `${p.bedrooms}BR Home` : 
 const pms = (hospitable as Record<string, any>)[p.slug];
 const pmsAmenities: string[] = pms?.amenities ?? [];
 const pmsDescription: string = pms?.description ?? '';
+// The PMS returns amenities alphabetically, so the eight shown before the toggle
+// were things like "Baking sheet" and "Body soap". Float the ones a guest actually
+// books on to the front; everything else keeps the order it arrived in.
+const amenityRank = [/wi-?fi|internet/i, /workspace|desk|office/i, /parking|garage|driveway/i, /^(?!hair).*(washer|dryer|laundry)/i, /kitchen/i, /air condition|^ac$|heat/i, /pet/i, /pool|hot tub/i, /\btv\b|television/i, /crib|high ?chair|family/i, /self check|keypad|lockbox/i, /long.?term|extended|monthly/i];
+const amenities = (pmsAmenities.length ? pmsAmenities : p.amenities)
+  .map((a, i) => ({ a, i, r: ((x) => (x === -1 ? amenityRank.length : x))(amenityRank.findIndex((re) => re.test(a))) }))
+  .sort((x, y) => x.r - y.r || x.i - y.i)
+  .map((o) => o.a);
 // Split the PMS copy into paragraphs here rather than in the template: a regex
 // literal containing a newline escape does not survive the Astro compiler.
 const pmsParagraphs: string[] = pmsDescription
@@ -129,7 +137,7 @@ const schema = [{
 
         <h2>Amenities</h2>
         <div class="amenities-wrap">
-          <ul class="ticks" style="padding:0;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">{(pmsAmenities.length ? pmsAmenities : p.amenities).map((h) => <li>{h}</li>)}</ul>
+          <ul class="ticks" style="padding:0;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">{amenities.map((h) => <li>{h}</li>)}</ul>
         </div>
 
           {pmsParagraphs.length > 0 && (<>
@@ -168,26 +176,33 @@ const schema = [{
           })();
         </script>
         <script>
-          // Amenities: hide after 8, insert "Show all N" button
-          document.querySelectorAll('.amenities-wrap .ticks').forEach((list) => {
-            const items = list.querySelectorAll('li');
-            if (items.length <= 8) return;
-            list.classList.add('collapsed');
+          // Collapse long blocks behind a two-way toggle. The content stays in the
+          // markup either way, so it is still crawlable while hidden.
+          let collapseN = 0;
+          const makeToggle = (region, labels) => {
+            region.classList.add('collapsed');
+            if (!region.id) region.id = `collapsible-${++collapseN}`;
             const btn = document.createElement('button');
+            btn.type = 'button';
             btn.className = 'expand-btn';
-            btn.textContent = `Show all ${items.length} amenities`;
-            btn.addEventListener('click', () => { list.classList.remove('collapsed'); btn.remove(); });
-            list.after(btn);
+            btn.setAttribute('aria-controls', region.id);
+            btn.setAttribute('aria-expanded', 'false');
+            btn.textContent = labels.more;
+            btn.addEventListener('click', () => {
+              const open = !region.classList.toggle('collapsed');
+              btn.setAttribute('aria-expanded', String(open));
+              btn.textContent = open ? labels.less : labels.more;
+            });
+            region.after(btn);
+          };
+          document.querySelectorAll('.amenities-wrap .ticks').forEach((list) => {
+            const n = list.querySelectorAll('li').length;
+            if (n <= 8) return;
+            makeToggle(list, { more: `Show all ${n} amenities`, less: 'Show fewer amenities' });
           });
-          // Description: collapse when content exceeds visible height
           document.querySelectorAll('.desc-wrap').forEach((wrap) => {
             if (wrap.scrollHeight <= 130) return;
-            wrap.classList.add('collapsed');
-            const btn = document.createElement('button');
-            btn.className = 'expand-btn';
-            btn.textContent = 'Read more';
-            btn.addEventListener('click', () => { wrap.classList.remove('collapsed'); btn.remove(); });
-            wrap.after(btn);
+            makeToggle(wrap, { more: 'Read more', less: 'Show less' });
           });
         </script>
         <p class="small muted">Booking powered by Hospitable. Having trouble? <a href={p.bookingUrl} target="_blank" rel="noopener noreferrer" data-track="book_now_click">Open booking in a new tab</a> or email <a href={`mailto:${business.guestEmail}`} data-track="guest_email_click">{business.guestEmail}</a>.</p>
