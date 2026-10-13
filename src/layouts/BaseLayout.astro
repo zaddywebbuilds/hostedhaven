@@ -146,6 +146,12 @@ const allSchema = [org, ...crumbSchema, ...schema];
     });
 
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // The hero video autoplays by attribute so it starts without waiting on JS.
+    // Anyone asking for reduced motion gets the poster frame instead.
+    if (reduce) {
+      const hv = document.getElementById('hero-video') as HTMLVideoElement | null;
+      if (hv) { hv.autoplay = false; hv.pause(); hv.removeAttribute('loop'); }
+    }
     const reveals = document.querySelectorAll('.reveal');
     if (!reduce && 'IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries) => {

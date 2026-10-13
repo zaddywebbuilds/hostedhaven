@@ -10,10 +10,6 @@ import { propertyImages, brandImage, coverImage } from '../lib/images';
 import { business, pricing, ownerTestimonials, guestReviews, links } from '../data/business';
 import { properties, featuredProperties } from '../data/properties';
 
-// The bedroom shot carried over from the current live site. Megan picked it because
-// the olive walls and gold bedding are the brand colours and it reads cosy before
-// anyone has read a word, which is the feeling the homepage opens with.
-const heroImg = brandImage('san-antonio-vacation-rental-bedroom');
 const stack = propertyImages('grass-hollow');
 const megan = brandImage('megan-blount-hosted-havens-founder');
 const map = brandImage('san-antonio-map');
@@ -121,7 +117,18 @@ const schema = [
         <div class="scene" data-tilt>
           <div class="product-aura" aria-hidden="true"></div>
           <div class="product" data-tilt-target>
-            <Img src={heroImg} alt="Bedroom in a Hosted Havens managed short-term rental in San Antonio, with olive walls and warm wood furniture" eager sizes="(max-width: 760px) 64vw, 400px" />
+            <video
+              id="hero-video"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster={u('/images/brand/hosted-havens-hero-poster.jpg')}
+              aria-label="Short tour of a Hosted Havens managed rental in San Antonio"
+            >
+              <source src={u('/video/house-tour.mp4')} type="video/mp4" />
+            </video>
             <div class="product-tag"><strong>Professionally Managed</strong><span>San Antonio, TX</span></div>
           </div>
 
