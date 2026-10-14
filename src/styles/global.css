@@ -129,8 +129,11 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
 /* ---------- Layout ---------- */
 .container { width: min(100% - 2.5rem, var(--container)); margin-inline: auto; }
 .narrow { width: min(100% - 2.5rem, 820px); margin-inline: auto; }
-.section { padding: clamp(3rem, 6vw, 5.5rem) 0; position: relative; }
-.section-tight { padding: clamp(2rem, 4vw, 3.5rem) 0; }
+/* Two neighbouring sections each contribute padding, so the gap a visitor sees is
+   the sum of both. At 6vw that was 123px at 1024 and 176px on a wide screen, which
+   is the empty banding between segments. Halved so the seam lands near 70-96px. */
+.section { padding: clamp(1.8rem, 3.4vw, 3rem) 0; position: relative; }
+.section-tight { padding: clamp(1.2rem, 2.2vw, 2rem) 0; }
 .section-head { max-width: 760px; margin-bottom: clamp(1.8rem, 3vw, 2.6rem); }
 .section-head.center { margin-inline: auto; }
 /* A left-aligned head that also carries a lead stacked two tall blocks in the left
@@ -818,7 +821,7 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .post-card p { font-size: .95rem; color: var(--ink-soft); margin: 0; }
 
 /* ---------- Footer ---------- */
-.hh-footer { background: var(--night); color: rgba(253, 244, 232, .72); padding: clamp(4rem, 8vw, 6rem) 0 calc(2rem + env(safe-area-inset-bottom)); margin-top: 0; }
+.hh-footer { background: var(--night); color: rgba(253, 244, 232, .72); padding: clamp(2.6rem, 4.5vw, 3.6rem) 0 calc(2rem + env(safe-area-inset-bottom)); margin-top: 0; }
 .foot-top { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 2rem; }
 .foot-brand img { height: 60px; width: auto; margin-bottom: 1.1rem; }
 .foot-brand p { font-size: .95rem; max-width: 34ch; }
