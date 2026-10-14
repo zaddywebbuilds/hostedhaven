@@ -9,8 +9,6 @@ import { u, SITE } from '../lib/url';
 import { propertyImages, brandImage, coverImage } from '../lib/images';
 import { business, pricing, ownerTestimonials, guestReviews, links } from '../data/business';
 import { properties, featuredProperties } from '../data/properties';
-
-const heroImg = coverImage('the-harding-place');
 const stack = propertyImages('grass-hollow');
 const megan = brandImage('megan-blount-hosted-havens-founder');
 const map = brandImage('san-antonio-map');
@@ -56,7 +54,7 @@ const faqs = [
   { q: 'How much does Hosted Havens charge?', a: `Typically ${pricing.managementFee} ${pricing.managementFeeUnit}, with a one-time ${pricing.setupFee} listing setup fee. ${pricing.note}` },
   { q: 'Can I still use my property personally?', a: 'Yes. You can block dates on the calendar and use your home whenever you like.' },
   { q: 'What is the minimum contract length?', a: 'Contracts run a minimum of 4–12 months depending on property type and service scope, giving both sides time to build a strong operation.' },
-  { q: 'How much can my property earn?', a: 'It depends on the home, location, amenities, and season, so we do not quote a number without looking. Start with the <a href="/property-analysis/">property intake</a>, then the onsite tour reviews your home, local demand, and comparable rentals, giving you a detailed analysis report and revenue projections.' },
+  { q: 'How much can my property earn?', a: 'It depends on the home, location, amenities, and season, so we do not quote a number without looking. Start with the <a href="/property-intake/">property intake</a>, then the onsite tour reviews your home, local demand, and comparable rentals, giving you a detailed analysis report and revenue projections.' },
 ];
 
 const schema = [
@@ -92,7 +90,7 @@ const schema = [
           <h1 id="hero-title">Your Rental Should Earn More <em>Without Owning Your Time.</em></h1>
           <p class="lead">Hosted Havens provides full-service Airbnb and short-term rental co-hosting in San Antonio, combining dynamic pricing, guest care, listing optimization, cleaning coordination, and maintenance managed end to end.</p>
           <div class="btn-row">
-            <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">See If You Qualify <Icon name="arrow" /></a>
+            <a class="btn btn-primary" href={u('/property-intake/')} data-track="owner_analysis_start">See If You Qualify <Icon name="arrow" /></a>
             <a class="btn btn-glass" href={u('/stays/')} data-track="stays_view">Explore Our Stays</a>
           </div>
           <p class="btn-note"><span>2-minute property form</span><span>Min contract: 4–12 months</span></p>
@@ -101,8 +99,7 @@ const schema = [
         <div class="scene" data-tilt>
           <div class="product-aura" aria-hidden="true"></div>
           <div class="product" data-tilt-target>
-            <Img src={heroImg} alt="Living space at The Harding Place, a Hosted Havens rental near downtown San Antonio" eager sizes="(max-width: 760px) 64vw, 400px" />
-            <div class="product-tag"><strong>The Harding Place</strong><span>San Antonio, TX</span></div>
+            <img src={u('/images/site/hero-green-bedroom.jpg')} alt="Green bedroom at a Hosted Havens managed rental in San Antonio" loading="eager" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;display:block" />
           </div>
 
           <div class="float-card left" aria-hidden="true">
@@ -189,7 +186,7 @@ const schema = [
           <li>A tailored proposal if it’s a good match</li>
         </ul>
         <div class="btn-row">
-          <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">See If We’re a Good Fit <Icon name="arrow" /></a>
+          <a class="btn btn-primary" href={u('/property-intake/')} data-track="owner_analysis_start">See If We’re a Good Fit <Icon name="arrow" /></a>
           <a class="btn btn-glass" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Schedule a Property Tour</a>
         </div>
       </div>
@@ -414,7 +411,7 @@ const schema = [
           <h2>Your Property Can Work Hard <em>Without You Working Around the Clock.</em></h2>
           <p class="lead">Tell us about your San Antonio rental and we’ll help you identify where stronger pricing, presentation and operations could improve its performance.</p>
           <div class="btn-row">
-            <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">See If You Qualify <Icon name="arrow" /></a>
+            <a class="btn btn-primary" href={u('/property-intake/')} data-track="owner_analysis_start">See If You Qualify <Icon name="arrow" /></a>
             <a class="btn btn-glass" href={`tel:${business.phone}`} data-track="phone_click"><Icon name="phone" /> Call {business.displayPhone}</a>
           </div>
         </div>
