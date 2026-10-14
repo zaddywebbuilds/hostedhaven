@@ -8,8 +8,10 @@
      canvas belongs to the palette instead of being neutral white. The brand sheet
      allows white and black "in text where applicable as long as they don't
      substitute brand colors", so --cream stays pure white for type on dark panels
-     and nothing else. */
-  --cream-page: #FAF4EE;
+     and nothing else. The canvas is #FDF4E8, the cream Megan's own brand assets
+     use: it is 79% of the app icon and the favicon's background, so it comes from
+     her material rather than being a tint we invented. */
+  --cream-page: #FDF4E8;
   --cream: #FFFFFF;
   --cream-deep: #F6EDE3;
   --coral: #C0573B;
