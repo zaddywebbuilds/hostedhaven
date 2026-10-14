@@ -131,8 +131,23 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
 .narrow { width: min(100% - 2.5rem, 820px); margin-inline: auto; }
 .section { padding: clamp(3rem, 6vw, 5.5rem) 0; position: relative; }
 .section-tight { padding: clamp(2rem, 4vw, 3.5rem) 0; }
-.section-head { max-width: 760px; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.section-head { max-width: 760px; margin-bottom: clamp(1.8rem, 3vw, 2.6rem); }
 .section-head.center { margin-inline: auto; }
+/* A left-aligned head that also carries a lead stacked two tall blocks in the left
+   760px and left the rest of the row empty, which is the worst of the whitespace.
+   On a wide screen the lead sits beside the heading instead, so the row is used
+   and the block is shorter. Heads without a lead keep the plain stacked form. */
+@media (min-width: 1000px) {
+  .section-head:not(.center):has(.lead) {
+    max-width: none; display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    column-gap: clamp(2rem, 5vw, 4rem);
+    align-items: end;
+  }
+  .section-head:not(.center):has(.lead) > .eyebrow { grid-column: 1; grid-row: 1; }
+  .section-head:not(.center):has(.lead) > h2 { grid-column: 1; grid-row: 2; margin-bottom: 0; }
+  .section-head:not(.center):has(.lead) > .lead { grid-column: 2; grid-row: 2; margin: 0; }
+}
 .grid { display: grid; gap: clamp(1rem, 2vw, 1.6rem); }
 .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
