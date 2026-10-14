@@ -233,9 +233,9 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
   font-size: .8rem; font-weight: 600; color: var(--ink-soft);
   box-shadow: 0 4px 14px rgba(160, 100, 70, .10);
 }
-.chip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sage); box-shadow: 0 0 0 4px rgba(138, 154, 123, .2); }
+.chip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sage); box-shadow: 0 0 0 4px rgba(101, 97, 52, .2); }
 .pill { display: inline-block; padding: .28rem .7rem; border-radius: 999px; font-size: .74rem; font-weight: 600; background: rgba(192, 87, 59, .13); color: var(--coral-ink); }
-.pill.sage { background: rgba(138, 154, 123, .18); color: #56654A; }
+.pill.sage { background: rgba(101, 97, 52, .16); color: var(--olive-deep); }
 .pill.gold { background: rgba(201, 169, 97, .2); color: #7C6325; }
 
 .icon-box {
@@ -246,7 +246,7 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
   box-shadow: inset 0 1px 0 #fff, 0 8px 20px rgba(192, 87, 59, .18);
 }
 .icon-box svg { width: 24px; height: 24px; }
-.icon-box.sage { background: linear-gradient(145deg, #fff, #E7E8E0); color: #5E6E50; box-shadow: inset 0 1px 0 #fff, 0 8px 20px rgba(138, 154, 123, .22); }
+.icon-box.sage { background: linear-gradient(145deg, #FDFBF9, #E8E6DA); color: var(--olive); box-shadow: inset 0 1px 0 #fff, 0 8px 20px rgba(101, 97, 52, .22); }
 .icon-box.gold { background: linear-gradient(145deg, #fff, #EFEBE2); color: #8A6C22; box-shadow: inset 0 1px 0 #fff, 0 8px 20px rgba(201, 169, 97, .25); }
 
 /* ---------- Header ---------- */
@@ -463,10 +463,11 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
 .fc-label { font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mute); }
 .fc-row { display: flex; justify-content: space-between; align-items: center; padding: .42rem 0; border-top: 1px solid rgba(92, 74, 63, .1); color: var(--ink-soft); gap: .5rem; }
 .fc-row b { font-weight: 650; color: var(--ink); }
-.fc-up { color: #4E7A45; font-weight: 700; }
+/* Brand secondary, not a true green: the palette has no green but the olive. */
+.fc-up { color: var(--olive); font-weight: 700; }
 .fc-down { color: var(--coral-deep); font-weight: 700; }
 .fc-time { font-variant-numeric: tabular-nums; font-size: .74rem; color: var(--ink-mute); min-width: 58px; }
-.fc-ok { color: #4E7A45; font-weight: 700; }
+.fc-ok { color: var(--olive); font-weight: 700; }
 .fc-note { margin-top: .5rem; font-size: .68rem; color: var(--ink-mute); }
 .fc-bars { display: flex; align-items: flex-end; gap: 5px; height: 46px; margin: .2rem 0 .6rem; }
 .fc-bars i { flex: 1; border-radius: 5px 5px 2px 2px; background: linear-gradient(180deg, var(--coral), var(--peach)); opacity: .85; }
