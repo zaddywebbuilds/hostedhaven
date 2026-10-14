@@ -427,6 +427,16 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
 }
 .float-card.left { left: -2%; top: 12%; animation: float 10s ease-in-out -2s infinite; }
 .float-card.right { right: -3%; bottom: 10%; animation: float 11s ease-in-out -5s infinite; }
+/* The two proof cards used to float over the hero video, covering the shot that
+   carries the opening. They sit below it in flow now, so nothing obscures it. */
+.hero-proof {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.6rem);
+  margin: 0 clamp(1rem, 4vw, 4rem) clamp(1.6rem, 3vw, 2.6rem);
+}
+.hero-proof .float-card { position: static; width: auto; animation: none; transform: none; }
+@media (max-width: 760px) { .hero-proof { grid-template-columns: 1fr; } }
 .fc-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: .7rem; }
 .fc-title { font-family: var(--display); font-size: 1.2rem; font-weight: 600; color: var(--ink); line-height: 1.1; }
 .fc-label { font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mute); }
