@@ -751,7 +751,13 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
    a light-filled shot the worst pixels fell to 2.55:1. This ramps earlier and
    harder: worst case is now 6.6:1 at the eyebrow while the top of the image
    stays at .16 so the photo still reads. */
-.bridge::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14, 11, 8, .05) 0%, rgba(14, 11, 8, .42) 35%, rgba(14, 11, 8, .85) 72%, rgba(14, 11, 8, .92) 100%); }
+/* The scrim only reached 85% at the very bottom, but the copy block starts about
+   a fifth of the way down, where it was 27%, so white type sat on a bright
+   living room. Megan asked for a background behind the text. The horizontal pass
+   darkens the side the copy is on and the photo stays open on the right. */
+.bridge::before { content: ''; position: absolute; inset: 0; background:
+  linear-gradient(100deg, rgba(14, 11, 8, .88) 0%, rgba(14, 11, 8, .76) 34%, rgba(14, 11, 8, .34) 64%, rgba(14, 11, 8, .14) 100%),
+  linear-gradient(180deg, rgba(14, 11, 8, .10) 0%, rgba(14, 11, 8, .26) 45%, rgba(14, 11, 8, .55) 100%); }
 .bridge-inner { position: relative; z-index: 2; padding: clamp(1.8rem, 5vw, 4rem); width: 100%; display: grid; grid-template-columns: 1.2fr .8fr; gap: 2rem; align-items: end; }
 .bridge h2 { color: #fff; }
 .bridge p { color: rgba(255, 255, 255, .86); }
