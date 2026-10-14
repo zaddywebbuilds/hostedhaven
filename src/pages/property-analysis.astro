@@ -36,9 +36,11 @@ import { links } from '../data/business';
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
-          {/* No next-step link here on purpose. The form's own confirmation sends
-              owners to Megan's co-hosting video and on to scheduling, so a second
-              call to action would route them past that. */}
+          {/* Megan's approved wording, moved here from the old success screen. Her
+              form shows its own confirmation on submit and sends owners to the
+              co-hosting video, so this sets the expectation beforehand rather than
+              competing with that as a second call to action. */}
+          <p class="small muted" style="margin:.9rem 0 0">Once you send this through, the Hosted Havens team will review your intake form and contact you shortly.</p>
         </div>
       </div>
     </div>
