@@ -9,7 +9,7 @@
  * Usage: node scripts/generate-post.mjs
  */
 
-import Anthropic from '@anthropic-ai/sdk';
+// Uses DeepSeek API (OpenAI-compatible) -- no extra dependency needed.
 import { readFileSync, writeFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
@@ -104,8 +104,8 @@ Important: the body must be genuine, substantive, and earn the reader's trust. A
 }
 
 async function main() {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) throw new Error('ANTHROPIC_API_KEY env var is required');
+  const apiKey = process.env.DEEPSEEK_API_KEY;
+  if (!apiKey) throw new Error('DEEPSEEK_API_KEY env var is required');
 
   const queue = JSON.parse(readFileSync(QUEUE_PATH, 'utf8'));
   const next = queue.find((e) => !e.done);
@@ -116,18 +116,22 @@ async function main() {
 
   console.log(`Generating: "${next.keyword}" (${next.slug})`);
 
-  const client = new Anthropic({ apiKey });
-
-  const response = await client.messages.create({
-    model: 'claude-opus-4-5',
-    max_tokens: 4096,
-    messages: [
-      { role: 'user', content: buildUserPrompt(next) },
-    ],
-    system: SYSTEM_PROMPT,
+  const res = await fetch('https://api.deepseek.com/chat/completions', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+    body: JSON.stringify({
+      model: 'deepseek-chat',
+      max_tokens: 4096,
+      messages: [
+        { role: 'system', content: SYSTEM_PROMPT },
+        { role: 'user', content: buildUserPrompt(next) },
+      ],
+    }),
   });
+  if (!res.ok) throw new Error(`DeepSeek API error ${res.status}: ${await res.text()}`);
+  const data = await res.json();
 
-  const raw = response.content[0].text.trim();
+  const raw = data.choices[0].message.content.trim();
 
   let article;
   try {

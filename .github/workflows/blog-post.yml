@@ -22,9 +22,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Generate blog post via Claude API
+      - name: Generate blog post via DeepSeek API
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: node scripts/generate-post.mjs
 
       - name: Commit generated article to main
@@ -40,12 +40,13 @@ jobs:
         run: npm run build
         # No BASE_PATH -- building for hostedhavens.co, not GitHub Pages
 
-      - name: Deploy to Hostinger via rsync
-        env:
-          HOSTINGER_PASSWORD: ${{ secrets.HOSTINGER_PASSWORD }}
-        run: |
-          sudo apt-get install -y sshpass rsync
-          sshpass -p "$HOSTINGER_PASSWORD" rsync -az --no-delete \
-            -e "ssh -p 65002 -o StrictHostKeyChecking=no" \
-            dist/ \
-            u513808149@ftp.hostedhavens.co:/home/u513808149/domains/hostedhavens.co/public_html/
+      - name: Deploy to Hostinger via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          server: ${{ secrets.SFTP_HOST }}
+          port: ${{ secrets.SFTP_PORT }}
+          username: ${{ secrets.SFTP_USER }}
+          password: ${{ secrets.SFTP_PASS }}
+          local_path: ./dist/*
+          remote_path: /home/u513808149/domains/hostedhavens.co/public_html
+          sftp_only: true
