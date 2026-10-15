@@ -37,7 +37,7 @@ const faqs = [
     crumbs={[{ name: 'Home', path: '/' }, { name: 'Owners', path: '/airbnb-management-san-antonio/' }, { name: 'Pricing', path: '/pricing/' }]}
     image={coverImage('discovery-mill-crash-pad')}
     imageAlt="Game room at Discovery Mill, a Hosted Havens home in Converse, TX"
-    primary={{ label: 'See If You Qualify', href: '/property-analysis/', track: 'owner_analysis_start' }}
+    primary={{ label: 'See If You Qualify', href: '/property-intake/', track: 'owner_analysis_start' }}
     secondary={{ label: 'Schedule a Property Tour', href: '/contact/#owners', track: 'property_tour_click' }}
   >
     <Fragment slot="widget">
@@ -87,7 +87,7 @@ const faqs = [
         <span class="eyebrow">Pricing FAQ</span>
         <h2>Questions about <em>cost</em></h2>
         <p class="lead">Want exact numbers for your home? A detailed analysis report follows your onsite property analysis tour.</p>
-        <div class="btn-row"><a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">See If You Qualify <Icon name="arrow" /></a>
+        <div class="btn-row"><a class="btn btn-primary" href={u('/property-intake/')} data-track="owner_analysis_start">See If You Qualify <Icon name="arrow" /></a>
         <a class="btn btn-glass" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Book a Property Analysis Tour</a></div>
       </div>
       <div class="reveal reveal-d2"><FAQ items={faqs} /></div>

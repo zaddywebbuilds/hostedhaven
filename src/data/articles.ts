@@ -225,7 +225,7 @@ export const articles: Article[] = [
     cluster: 'San Antonio',
     published: '2025-06-26',
     heroProperty: 'the-harding-place',
-    cta: { label: 'Submit Your Property Details', href: '/property-analysis/' },
+    cta: { label: 'Get a Free Property Analysis', href: '/property-intake/' },
     body: `
 <p>Did you know that in 2024, <strong>Airbnb guest spending injected a massive $90 billion</strong> into the US economy? This isn&#8217;t just a national statistic; it&#8217;s a powerful signal of the immense opportunity for homeowners right here in San Antonio to unlock significant income from their properties!</p>
 <p>This groundbreaking data reveals that the typical US Airbnb guest spends over <strong>$775 per trip on local businesses</strong> – like our incredible San Antonio restaurants, unique shops, and vibrant entertainment venues. What&#8217;s even more exciting for you, the homeowner, is that nearly <strong>50% of that spending happens directly within the neighborhood</strong> of their Airbnb. This means your property isn&#8217;t just a source of passive income; it&#8217;s a direct catalyst for growth, supporting local jobs and enriching the very community your home is in, often in areas beyond the traditional tourist hot spots!<br></p>

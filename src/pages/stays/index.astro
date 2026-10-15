@@ -44,12 +44,11 @@ const schema = [{
           <h1 class="h1-interior">Vacation Rentals &amp; Furnished Stays in <em>San Antonio Area</em></h1>
           <p class="lead">Browse professionally managed short-term and mid-term rentals for family trips, business travel, military stays, relocations, and extended visits.</p>
         </div>
-        {coverImage('the-harding-place') && (
-          <div class="ihero-visual" aria-hidden="true">
-            <div class="product-aura"></div>
-            <div class="ihero-photo"><Img src={coverImage('the-harding-place')} alt="" eager sizes="(max-width: 1024px) 90vw, 40vw" /></div>
+        <div class="ihero-visual">
+          <div class="ihero-photo">
+            <img src={u('/images/site/hero-san-antonio-skyline.jpg')} alt="San Antonio skyline at dusk" loading="eager" fetchpriority="high" style="width:100%;height:100%;object-fit:cover" />
           </div>
-        )}
+        </div>
       </div>
     </div>
   </section>

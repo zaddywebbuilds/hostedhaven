@@ -53,7 +53,7 @@ const isOn = (p: string) => (path.endsWith(p) ? 'page' : undefined);
       <a href={u('/contact/')} aria-current={isOn('/contact/')} class="hide-lg">Contact</a>
     </nav>
     <div class="hh-actions">
-      <a class="hh-guest-link" href={u('/property-analysis/')} data-track="owner_analysis_start">Property Intake</a>
+      <a class="hh-guest-link" href={u('/property-intake/')} data-track="owner_analysis_start">Property Intake</a>
       <a class="btn btn-primary btn-sm" href={u('/stays/')} data-track="stays_view">Book a Stay</a>
       <button class="hh-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-drawer" data-drawer-open>
         <Icon name="menu" />
@@ -90,7 +90,7 @@ const isOn = (p: string) => (path.endsWith(p) ? 'page' : undefined);
       <a href={u('/contact/')}>Contact <Icon name="arrow" /></a>
     </div>
     <div class="drawer-cta">
-      <a class="btn btn-primary" href={u('/property-analysis/')} data-track="owner_analysis_start">See If You Qualify</a>
+      <a class="btn btn-primary" href={u('/property-intake/')} data-track="owner_analysis_start">See If You Qualify</a>
       <a class="btn btn-glass" href={u('/contact/')} data-track="contact_click">Contact Us</a>
     </div>
   </div>

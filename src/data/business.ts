@@ -65,7 +65,7 @@ export const analytics = {
   bingSiteVerification: '',
 };
 
-// Where the /property-analysis/ form posts. Leave empty to fall back to the verified Typeform intake.
+// Where the /property-intake/ form posts. Leave empty to fall back to the verified Typeform intake.
 export const formEndpoint = '';
 
 // Web3Forms access key (free). Get one at https://web3forms.com by entering owners@hostedhavens.co;

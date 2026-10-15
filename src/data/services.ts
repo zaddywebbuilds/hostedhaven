@@ -125,7 +125,7 @@ export const services: Service[] = [
       { q: 'What does an Airbnb co-host do?', a: 'A co-host helps an owner manage a short or mid-term rental. At Hosted Havens, co-hosting is full-service: we perform the day-to-day operations so the owner can be hands-off.' },
       { q: 'Do I need to already have an Airbnb listing?', a: 'No. We can help launch a new short-term rental, including the property assessment, photography, and listing creation. See <a href="/airbnb-setup-san-antonio/">new host setup</a>.' },
       { q: 'Can I see what is happening with my property?', a: 'Yes. Owners have transparent access to our professional hosting tools, including real-time calendar visibility.' },
-      { q: 'How do I get started?', a: 'Complete the <a href="/property-analysis/">property intake form</a>, watch our <a href="/service-video/">short service video</a>, and when you are ready, book your <a href="https://calendly.com/hostedhavensco/property-analysis-tour" target="_blank" rel="noopener noreferrer">property analysis tour</a>, which includes an onsite visit, extensive prep list, and a detailed analysis report with revenue projections.' },
+      { q: 'How do I get started?', a: 'Complete the <a href="/property-intake/">property intake form</a>, watch our <a href="/service-video/">short service video</a>, and when you are ready, book your property analysis tour, which includes an onsite visit, extensive prep list, and a detailed analysis report with revenue projections.' },
     ],
     related: ['airbnb-management-san-antonio', 'airbnb-listing-optimization-san-antonio', 'pricing'],
   },
@@ -169,7 +169,7 @@ export const services: Service[] = [
     faqs: [
       { q: 'Do you manage mid-term rentals?', a: 'Yes. Hosted Havens supports short-term, mid-term (30+ day), and blended rental strategies depending on the property and the owner’s goals.' },
       { q: 'Who books mid-term rentals in San Antonio?', a: 'Common guests include military personnel on PCS moves, traveling professionals, families relocating to the area, and people who need temporary housing during a transition.' },
-      { q: 'Is my home a good fit for 30+ day stays?', a: 'Location, layout, workspace, and storage all matter. A <a href="/property-analysis/">property analysis</a> is the best way to see whether short, mid-term, or a blend fits your home.' },
+      { q: 'Is my home a good fit for 30+ day stays?', a: 'Location, layout, workspace, and storage all matter. A <a href="/property-intake/">property analysis</a> is the best way to see whether short, mid-term or a blend fits your home.' },
     ],
     related: ['airbnb-management-san-antonio', 'airbnb-revenue-management-san-antonio', 'furnished-rentals-near-randolph-afb'],
   },
@@ -258,7 +258,7 @@ export const services: Service[] = [
     },
     faqs: [
       { q: 'Is professional photography included?', a: 'Complimentary professional photography is part of onboarding, along with complete listing creation and optimization.' },
-      { q: 'My home is already furnished. Is that enough?', a: 'Often not. Furnished homes can feel comfortable in person but look flat online or generate avoidable guest questions. A <a href="/property-analysis/">property analysis</a> shows where small changes could help.' },
+      { q: 'My home is already furnished. Is that enough?', a: 'Often not. Furnished homes can feel comfortable in person but look flat online or generate avoidable guest questions. A <a href="/property-intake/">property analysis</a> shows where small changes could help.' },
     ],
     related: ['airbnb-setup-san-antonio', 'airbnb-revenue-management-san-antonio', 'airbnb-management-san-antonio'],
   },
