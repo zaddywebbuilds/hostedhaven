@@ -16,6 +16,7 @@
 import { articlesSep2026 } from './articles-sep-2026';
 import { articlesSep2026b } from './articles-sep-2026b';
 import { articlesCarriedOver } from './articles-carried-over';
+import autoJson from './articles-auto.json';
 import { properties } from './properties';
 
 export type Article = {
@@ -25,7 +26,8 @@ export type Article = {
   description: string;
   cluster: 'Management' | 'Revenue' | 'San Antonio' | 'Property Setup' | 'Our Story';
   published: string;
-  heroProperty: string;
+  heroProperty?: string;
+  heroImage?: string;
   cta: { label: string; href: string };
   body: string;
 };
@@ -290,6 +292,7 @@ export const articles: Article[] = [
   ...articlesCarriedOver,
   ...articlesSep2026,
   ...articlesSep2026b,
+  ...(autoJson as Article[]),
 ];
 
 export const getArticle = (slug: string) => articles.find((a) => a.slug === slug);

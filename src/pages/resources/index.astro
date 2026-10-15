@@ -41,17 +41,25 @@ const sorted = [...articles].sort((a, b) => b.published.localeCompare(a.publishe
   <section class="section">
     <div class="container">
       <div class="grid grid-3">
-        {sorted.map((a, i) => (
-          <a class={`post-card reveal reveal-d${(i % 3) + 1}`} href={u(`/resources/${a.slug}/`)}>
-            <div class="post-media"><Img src={coverImage(a.heroProperty)} alt={a.title} sizes="(max-width: 760px) 100vw, 33vw" /></div>
-            <div class="post-body">
-              <span class="pill">{a.cluster}</span>
-              <h3>{a.title}</h3>
-              <p>{a.description}</p>
-              <span class="small muted" style="margin-top:auto">{fmt(a.published)}</span>
-            </div>
-          </a>
-        ))}
+        {sorted.map((a, i) => {
+          const ac = a.heroProperty ? coverImage(a.heroProperty) : undefined;
+          return (
+            <a class={`post-card reveal reveal-d${(i % 3) + 1}`} href={u(`/resources/${a.slug}/`)}>
+              <div class="post-media">
+                {a.heroImage
+                  ? <img src={a.heroImage} alt={a.title} loading="lazy" style="width:100%;height:100%;object-fit:cover" />
+                  : <Img src={ac} alt={a.title} sizes="(max-width: 760px) 100vw, 33vw" />
+                }
+              </div>
+              <div class="post-body">
+                <span class="pill">{a.cluster}</span>
+                <h3>{a.title}</h3>
+                <p>{a.description}</p>
+                <span class="small muted" style="margin-top:auto">{fmt(a.published)}</span>
+              </div>
+            </a>
+          );
+        })}
       </div>
     </div>
   </section>
