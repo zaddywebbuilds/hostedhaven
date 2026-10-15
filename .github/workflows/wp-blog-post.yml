@@ -5,6 +5,9 @@ on:
     - cron: '0 14 * * 1-5'     # Mon-Fri 14:00 UTC (9 am ET / 8 am CT)
   workflow_dispatch:             # run manually from the Actions tab
 
+permissions:
+  contents: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
