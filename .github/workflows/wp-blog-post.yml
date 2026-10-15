@@ -36,3 +36,4 @@ jobs:
           git add scripts/wp-queue.json
           git diff --cached --quiet || git commit -m "content: mark wp blog post published [skip ci]"
           git push
+
