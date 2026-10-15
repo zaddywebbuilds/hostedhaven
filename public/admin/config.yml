@@ -1,0 +1,66 @@
+backend:
+  name: github
+  repo: zaddywebbuilds/hostedhaven
+  branch: main
+  base_url: https://hostedhavens.co
+  auth_endpoint: /oauth.php
+
+media_folder: public/images/blog/uploads
+public_folder: /images/blog/uploads
+
+collections:
+  - name: blog
+    label: Blog Posts
+    label_singular: Blog Post
+    folder: src/content/blog
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    preview_path: "resources/{{slug}}/"
+    fields:
+      - label: Title
+        name: title
+        widget: string
+        hint: "Clear, benefit-driven, max 65 characters"
+      - label: Meta Title
+        name: metaTitle
+        widget: string
+        hint: "SEO title ending with | Hosted Havens, max 65 characters"
+      - label: Description
+        name: description
+        widget: string
+        hint: "Compelling summary, 145-160 characters, include the main keyword"
+      - label: Cluster
+        name: cluster
+        widget: select
+        options:
+          - Management
+          - Revenue
+          - San Antonio
+          - Property Setup
+          - Our Story
+      - label: Publish Date
+        name: published
+        widget: datetime
+        format: "YYYY-MM-DD"
+        date_format: "MMMM D, YYYY"
+        time_format: false
+        default: ""
+      - label: Hero Image
+        name: heroImage
+        widget: image
+        required: false
+        hint: "Optional. 1200x630px or wider works best."
+      - label: CTA Button Label
+        name: ctaLabel
+        widget: string
+        default: "Get a Free Property Analysis"
+      - label: CTA Button Link
+        name: ctaHref
+        widget: string
+        default: "/property-intake/"
+        hint: "Use a relative path like /property-management-san-antonio/"
+      - label: Body
+        name: body
+        widget: markdown
+        hint: "Write your article here. Use headings, bullets, and bold text as needed."

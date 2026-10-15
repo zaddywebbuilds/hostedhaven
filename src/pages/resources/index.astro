@@ -4,12 +4,27 @@ import InteriorHero from '../../components/InteriorHero.astro';
 import Img from '../../components/Img.astro';
 import Icon from '../../components/Icon.astro';
 import OwnerCTA from '../../components/OwnerCTA.astro';
-import { articles } from '../../data/articles';
+import { getCollection } from 'astro:content';
+import { articles, type Article } from '../../data/articles';
 import { coverImage } from '../../lib/images';
 import { u } from '../../lib/url';
 
+const cmsEntries = await getCollection('blog');
+const cmsPosts: Article[] = cmsEntries.map((e) => ({
+  slug: e.id,
+  title: e.data.title,
+  metaTitle: e.data.metaTitle,
+  description: e.data.description,
+  cluster: e.data.cluster,
+  published: e.data.published,
+  heroImage: e.data.heroImage,
+  cta: { label: e.data.ctaLabel, href: e.data.ctaHref },
+  body: '',
+}));
+const allArticles = [...articles, ...cmsPosts];
+
 const fmt = (d: string) => new Date(`${d}T12:00:00`).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-const sorted = [...articles].sort((a, b) => b.published.localeCompare(a.published));
+const sorted = [...allArticles].sort((a, b) => b.published.localeCompare(a.published));
 ---
 <BaseLayout
   title="Owner Resources for San Antonio STR Owners | Hosted Havens"

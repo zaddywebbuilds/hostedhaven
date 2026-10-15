@@ -3,16 +3,53 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Img from '../../components/Img.astro';
 import Icon from '../../components/Icon.astro';
 import OwnerCTA from '../../components/OwnerCTA.astro';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import { articles, type Article } from '../../data/articles';
 import { coverImage } from '../../lib/images';
 import { u, fixLinks, SITE } from '../../lib/url';
 import { business } from '../../data/business';
 
-export function getStaticPaths() {
-  return articles.map((a) => ({ params: { slug: a.slug }, props: { a } }));
+export async function getStaticPaths() {
+  const cmsEntries = await getCollection('blog');
+  const staticPaths = articles.map((a) => ({
+    params: { slug: a.slug },
+    props: { source: 'static' as const, a, entry: undefined },
+  }));
+  const cmsPaths = cmsEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { source: 'cms' as const, a: undefined, entry },
+  }));
+  return [...staticPaths, ...cmsPaths];
 }
-interface Props { a: Article }
-const { a } = Astro.props;
+
+interface Props {
+  source: 'static' | 'cms';
+  a: Article | undefined;
+  entry: CollectionEntry<'blog'> | undefined;
+}
+const { source, entry } = Astro.props;
+
+let a: Article;
+let CmsContent: any = null;
+
+if (source === 'cms' && entry) {
+  const { Content } = await render(entry);
+  CmsContent = Content;
+  a = {
+    slug: entry.id,
+    title: entry.data.title,
+    metaTitle: entry.data.metaTitle,
+    description: entry.data.description,
+    cluster: entry.data.cluster,
+    published: entry.data.published,
+    heroImage: entry.data.heroImage,
+    cta: { label: entry.data.ctaLabel, href: entry.data.ctaHref },
+    body: '',
+  };
+} else {
+  a = Astro.props.a!;
+}
+
 const path = `/resources/${a.slug}/`;
 const cover = a.heroProperty ? coverImage(a.heroProperty) : undefined;
 const heroImgSrc = a.heroImage ?? (cover ? `/images/${cover.base}-1280.webp` : undefined);
@@ -51,7 +88,9 @@ const schema = [{
       </div>
     </section>
     <section class="section-tight">
-      <div class="narrow prose" set:html={fixLinks(a.body)} />
+      <div class="narrow prose">
+        {CmsContent ? <CmsContent /> : <Fragment set:html={fixLinks(a.body)} />}
+      </div>
       <div class="narrow" style="margin-top:2rem">
         <div class="card3d" style="display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap">
           <div><span class="eyebrow" style="margin:0">Next step</span><h2 style="font-size:1.7rem;margin:.3rem 0 0">Put this into practice</h2></div>
