@@ -1,0 +1,91 @@
+# Hosted Havens – Astro static site on LiteSpeed/Apache
+
+Options -Indexes
+DirectoryIndex index.html index.php
+
+# ─── HTTPS redirect ───────────────────────────────────────────
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ─── 301 Redirects (WordPress -> Astro) ──────────────────────
+
+# Pages
+RewriteRule ^bespoke-san-antonio-str-management-agency/?$ /airbnb-management-san-antonio/ [R=301,L]
+RewriteRule ^full-service-str-co-hosting/?$ /airbnb-co-host-san-antonio/ [R=301,L]
+RewriteRule ^contact-hosted-havens/?$ /contact/ [R=301,L]
+RewriteRule ^insights-and-updates/?$ /resources/ [R=301,L]
+RewriteRule ^property-intake-form/?$ /property-intake/ [R=301,L]
+RewriteRule ^property-analysis/?$ /property-intake/ [R=301,L]
+RewriteRule ^properties-search-results/?$ /stays/ [R=301,L]
+RewriteRule ^privacy-policy/?$ /privacy/ [R=301,L]
+RewriteRule ^terms-conditions/?$ /terms/ [R=301,L]
+RewriteRule ^frequently-asked-questions/?$ /airbnb-management-san-antonio/ [R=301,L]
+
+# Articles that moved from /article/ to /resources/
+RewriteRule ^article/the-diy-trap/?$ /resources/the-diy-trap/ [R=301,L]
+RewriteRule ^article/the-difference-between-a-furnished-home-and-an-optimized-short-term-rental/?$ /resources/the-difference-between-a-furnished-home-and-an-optimized-short-term-rental/ [R=301,L]
+RewriteRule ^article/why-choose-hosted-havens/?$ /resources/why-choose-hosted-havens/ [R=301,L]
+RewriteRule ^article/from-one-house-to-hosted-havens-how-a-missed-move-abroad-sparked-my-dream-business/?$ /resources/from-one-house-to-hosted-havens-how-a-missed-move-abroad-sparked-my-dream-business/ [R=301,L]
+RewriteRule ^article/san-antonio-homeowners-dont-miss-out-on-the-90-billion-airbnb-boom/?$ /resources/san-antonio-homeowners-dont-miss-out-on-the-90-billion-airbnb-boom/ [R=301,L]
+RewriteRule ^article/the-future-of-getaways-top-vacation-rental-trends-for-2025-and-what-they-mean-for-san-antonio/?$ /resources/the-future-of-getaways-top-vacation-rental-trends-for-2025-and-what-they-mean-for-san-antonio/ [R=301,L]
+RewriteRule ^article/why-book-direct/?$ /why-book-direct/ [R=301,L]
+RewriteRule ^article/get-airbnb-management-in-san-antonio/?$ /airbnb-management-san-antonio/ [R=301,L]
+RewriteRule ^article/san-antonio-realtors-earn-referral-income-without-managing-rentals/?$ /resources/ [R=301,L]
+
+# Properties moved from /property/ to /stays/
+RewriteRule ^property/halliday-fig-trees/?$ /stays/halliday-fig-trees/ [R=301,L]
+RewriteRule ^property/s-park-1a/?$ /stays/s-park-1a/ [R=301,L]
+RewriteRule ^property/s-park-1b/?$ /stays/s-park-1b/ [R=301,L]
+RewriteRule ^property/s-park-1c/?$ /stays/s-park-1c/ [R=301,L]
+RewriteRule ^property/s-park-1d/?$ /stays/s-park-1d/ [R=301,L]
+RewriteRule ^property/s-park-2a/?$ /stays/s-park-2a/ [R=301,L]
+RewriteRule ^property/s-park-2b/?$ /stays/s-park-2b/ [R=301,L]
+RewriteRule ^property/s-park-2c/?$ /stays/s-park-2c/ [R=301,L]
+RewriteRule ^property/s-park-2d/?$ /stays/s-park-2d/ [R=301,L]
+RewriteRule ^property/la-maison-blount/?$ /stays/la-maison-blount/ [R=301,L]
+RewriteRule ^property/grass-hollow/?$ /stays/grass-hollow/ [R=301,L]
+RewriteRule ^property/liberty-bell/?$ /stays/liberty-bell/ [R=301,L]
+RewriteRule ^property/legislation-4br/?$ /stays/legislation-4br/ [R=301,L]
+RewriteRule ^property/the-harding-place/?$ /stays/the-harding-place/ [R=301,L]
+RewriteRule ^property/ccp-1/?$ /stays/ccp-1/ [R=301,L]
+RewriteRule ^property/ccp-2/?$ /stays/ccp-2/ [R=301,L]
+RewriteRule ^property/ccp-3/?$ /stays/ccp-3/ [R=301,L]
+RewriteRule ^property/ccp-4/?$ /stays/ccp-4/ [R=301,L]
+RewriteRule ^property/ccp-5/?$ /stays/ccp-5/ [R=301,L]
+RewriteRule ^property/discovery-mill-crash-pad/?$ /stays/discovery-mill-crash-pad/ [R=301,L]
+RewriteRule ^property/de-soto-lighthouse/?$ /stays/de-soto-lighthouse/ [R=301,L]
+RewriteRule ^property/coastal-run/?$ /stays/coastal-run/ [R=301,L]
+
+# ─── Static file serving (Astro) ─────────────────────────────
+
+# Add trailing slash to directory-like paths (Astro generates /path/index.html)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
+RewriteRule ^(.+[^/])$ /$1/ [R=301,L]
+
+# Serve index.html for clean directory URLs
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.*)$ $1/index.html [L]
+
+# ─── Custom error pages ───────────────────────────────────────
+ErrorDocument 404 /404/index.html
+
+# ─── Performance headers ─────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>

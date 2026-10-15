@@ -90,7 +90,7 @@ const schema = [{
   brand: { '@id': `${SITE}/#organization` },
 }];
 ---
-<BaseLayout title={metaTitle} description={desc} path={path} breadcrumbs={crumbs} schema={schema} ogImage={cover ? `/images/${cover.base}-1280.webp` : undefined}>
+<BaseLayout title={metaTitle} description={desc} path={path} breadcrumbs={crumbs} schema={schema} ogImage={`/images/og/stays/${p.slug}.jpg`}>
   <section class="section-tight" style="padding-top:2rem">
     <div class="container">
       <nav aria-label="Breadcrumb"><ol class="breadcrumbs">{crumbs.map((c, i) => <li>{i < crumbs.length - 1 ? <a href={u(c.path)}>{c.name}</a> : <span aria-current="page">{c.name}</span>}</li>)}</ol></nav>
