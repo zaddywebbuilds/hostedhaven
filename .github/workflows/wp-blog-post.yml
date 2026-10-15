@@ -2,7 +2,7 @@ name: Auto-publish WordPress blog post
 
 on:
   schedule:
-    - cron: '0 14 * * 1,3,5'   # Mon/Wed/Fri 14:00 UTC (9 am ET / 8 am CT)
+    - cron: '0 14 * * 1-5'     # Mon-Fri 14:00 UTC (9 am ET / 8 am CT)
   workflow_dispatch:             # run manually from the Actions tab
 
 jobs:
