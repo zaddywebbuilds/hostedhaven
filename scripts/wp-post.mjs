@@ -10,14 +10,14 @@
  *   - Yoast SEO meta title, meta description, focus keyphrase
  *
  * Required env vars:
- *   ANTHROPIC_API_KEY   Your Anthropic API key
+ *   DEEPSEEK_API_KEY    Your DeepSeek API key (platform.deepseek.com)
  *   WP_USER             WordPress username (e.g. Gmboptimizepro)
  *   WP_PASS             WordPress password for that user
  *
  * Usage: node scripts/wp-post.mjs
  */
 
-import Anthropic from '@anthropic-ai/sdk';
+// DeepSeek uses the OpenAI-compatible chat completions API -- no extra dependency needed.
 import xmlrpc from 'xmlrpc';
 import { readFileSync, writeFileSync } from 'fs';
 import { readFile } from 'fs/promises';
@@ -184,11 +184,11 @@ async function publishPost(client, wpUser, wpPass, { slug, title, body, metaTitl
 // --- Main ---
 
 async function main() {
-  const apiKey  = process.env.ANTHROPIC_API_KEY;
+  const apiKey  = process.env.DEEPSEEK_API_KEY;
   const wpUser  = process.env.WP_USER;
   const wpPass  = process.env.WP_PASS;
 
-  if (!apiKey)  throw new Error('ANTHROPIC_API_KEY env var is required');
+  if (!apiKey)  throw new Error('DEEPSEEK_API_KEY env var is required');
   if (!wpUser)  throw new Error('WP_USER env var is required');
   if (!wpPass)  throw new Error('WP_PASS env var is required');
 
@@ -201,16 +201,30 @@ async function main() {
 
   console.log(`Generating: "${next.keyword}" (${next.slug})`);
 
-  // 1. Generate content via Claude API
-  const client = new Anthropic({ apiKey });
-  const response = await client.messages.create({
-    model: 'claude-opus-4-5',
-    max_tokens: 4096,
-    system: SYSTEM_PROMPT,
-    messages: [{ role: 'user', content: buildUserPrompt(next) }],
+  // 1. Generate content via DeepSeek API (OpenAI-compatible)
+  const dsRes = await fetch('https://api.deepseek.com/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: 'deepseek-chat',
+      max_tokens: 4096,
+      messages: [
+        { role: 'system', content: SYSTEM_PROMPT },
+        { role: 'user',   content: buildUserPrompt(next) },
+      ],
+    }),
   });
 
-  const raw = response.content[0].text.trim();
+  if (!dsRes.ok) {
+    const err = await dsRes.text();
+    throw new Error(`DeepSeek API error ${dsRes.status}: ${err}`);
+  }
+
+  const dsJson = await dsRes.json();
+  const raw = dsJson.choices[0].message.content.trim();
   let article;
   try {
     article = JSON.parse(raw);
