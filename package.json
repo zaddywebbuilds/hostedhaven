@@ -11,6 +11,7 @@
     "sync": "node --env-file=.env scripts/sync-hospitable.mjs"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "astro": "^7.3.2",
     "sharp": "^0.35.4",
     "ssh2-sftp-client": "^12.1.1",

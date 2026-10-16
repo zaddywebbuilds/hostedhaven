@@ -54,21 +54,31 @@ const path = `/resources/${a.slug}/`;
 const cover = a.heroProperty ? coverImage(a.heroProperty) : undefined;
 const heroImgSrc = a.heroImage ?? (cover ? `/images/${cover.base}-1280.webp` : undefined);
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'Resources', path: '/resources/' }, { name: a.cluster, path: '/resources/' }, { name: a.title, path }];
-const more = articles.filter((x) => x.slug !== a.slug).slice(0, 3);
-const date = new Date(`${a.published}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+const cmsEntries = await getCollection('blog');
+const cmsPosts = cmsEntries.map((e) => ({
+  slug: e.id, title: e.data.title, cluster: e.data.cluster, heroImage: e.data.heroImage,
+  description: e.data.description, published: e.data.published,
+  metaTitle: e.data.metaTitle, cta: { label: e.data.ctaLabel, href: e.data.ctaHref }, body: '',
+}));
+const allPosts = [...articles, ...cmsPosts];
+const more = allPosts.filter((x) => x.slug !== a.slug).slice(0, 3);
+const date = new Date(`${a.published}T12:00:00`).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+const wordCount = a.body ? a.body.replace(/<[^>]+>/g, '').split(/\s+/).filter(Boolean).length : undefined;
 const schema = [{
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: a.title,
   description: a.description,
   datePublished: a.published,
+  dateModified: a.published,
+  wordCount: wordCount || undefined,
   mainEntityOfPage: `${SITE}${path}`,
   image: heroImgSrc ? `${SITE}${heroImgSrc}` : undefined,
   author: { '@type': 'Person', name: business.founder },
   publisher: { '@id': `${SITE}/#organization` },
 }];
 ---
-<BaseLayout title={a.metaTitle} description={a.description} path={path} breadcrumbs={crumbs} schema={schema} ogImage={heroImgSrc}>
+<BaseLayout title={a.metaTitle} description={a.description} path={path} breadcrumbs={crumbs} schema={schema} ogImage={heroImgSrc} ogType="article">
   <article>
     <section class="section-tight" style="padding-top:2.5rem">
       <div class="narrow">
@@ -108,7 +118,7 @@ const schema = [{
       <div class="section-head reveal"><span class="eyebrow">Keep reading</span><h2>More owner <em>resources</em></h2></div>
       <div class="grid grid-3">
         {more.map((m, i) => {
-          const mc = m.heroProperty ? coverImage(m.heroProperty) : undefined;
+          const mc = (m as any).heroProperty ? coverImage((m as any).heroProperty) : undefined;
           return (
             <a class={`post-card reveal reveal-d${i + 1}`} href={u(`/resources/${m.slug}/`)}>
               <div class="post-media">
