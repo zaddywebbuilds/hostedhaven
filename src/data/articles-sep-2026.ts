@@ -1,4 +1,4 @@
-// September 2026 blog content — 30 posts, Sept 1-30.
+// September 2026 blog content, 30 posts, Sept 1-30.
 // All interlink with property pages (/stays/<slug>/), service pages, and each other.
 // WordPress-portable: body is plain HTML with no Astro-specific markup.
 

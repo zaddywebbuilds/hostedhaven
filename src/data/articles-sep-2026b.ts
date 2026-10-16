@@ -1,4 +1,4 @@
-// September 2026 blog content part 2 — posts 16-30.
+// September 2026 blog content part 2, posts 16-30.
 // All interlink with property pages, service pages, and posts in articles-sep-2026.ts.
 
 import type { Article } from './articles';
