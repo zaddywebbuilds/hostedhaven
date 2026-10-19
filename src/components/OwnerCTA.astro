@@ -2,11 +2,8 @@
 import Icon from './Icon.astro';
 import { u } from '../lib/url';
 import { links } from '../data/business';
-interface Props { title?: string; text?: string; }
-const {
-  title = 'Own the Property. <em>Let Us Handle the Hosting.</em>',
-  text = 'Start with the property intake. Then schedule your property analysis tour when you are ready.',
-} = Astro.props;
+interface Props { title?: string; }
+const { title = 'Own the Property. <em>Let Us Handle the Hosting.</em>' } = Astro.props;
 ---
 <section class="section-tight">
   <div class="container">
@@ -15,9 +12,8 @@ const {
       <div style="position:relative">
         <span class="eyebrow">Property analysis tour</span>
         <h2 set:html={title} />
-        <p class="lead">{text}</p>
         <div class="btn-row">
-          <a class="btn btn-primary" href={u('/property-intake/')} data-track="owner_analysis_start">See If You Qualify <Icon name="arrow" /></a>
+          <a class="btn btn-primary" href={u('/property-intake/')} data-track="owner_analysis_start">Submit Your Property Details <Icon name="arrow" /></a>
           <a class="btn btn-glass" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Book a Property Analysis Tour</a>
         </div>
       </div>

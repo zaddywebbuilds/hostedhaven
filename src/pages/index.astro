@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Img from '../components/Img.astro';
 import Icon from '../components/Icon.astro';
+import OwnerCTA from '../components/OwnerCTA.astro';
 import FAQ from '../components/FAQ.astro';
 import PropertyCard from '../components/PropertyCard.astro';
 import ServiceScene from '../components/ServiceScene.astro';
@@ -110,7 +111,7 @@ const schema = [
             <a class="btn btn-primary" href={u('/property-intake/')} data-track="owner_analysis_start">See If You Qualify <Icon name="arrow" /></a>
             <a class="btn btn-glass" href={u('/stays/')} data-track="stays_view">Explore Our Stays</a>
           </div>
-          <p class="btn-note"><span>2-minute property form</span><span>Min contract: 4–12 months</span></p>
+          <p class="btn-note"><span>2-minute property intake</span><span>In-person property analysis</span></p>
         </div>
 
         <div class="scene" data-tilt>
@@ -496,20 +497,6 @@ const schema = [
   </script>
 
   <!-- DARK CONVERSION -->
-  <section class="section-tight">
-    <div class="container">
-      <div class="cta-band bg-dark reveal">
-        <div class="ghost-panels" aria-hidden="true"><span></span><span></span><span></span></div>
-        <div style="position:relative">
-          <span class="eyebrow">Property analysis tour</span>
-          <h2>Your Property Can Work Hard <em>Without You Working Around the Clock.</em></h2>
-          <p class="lead">Start with the property intake. Then schedule your property analysis tour when you are ready.</p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href={u('/property-intake/')} data-track="owner_analysis_start">See If You Qualify <Icon name="arrow" /></a>
-            <a class="btn btn-glass" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Book a Property Analysis Tour</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <OwnerCTA title="Your Property Can Work Hard <em>Without You Working Around the Clock.</em>" />
+
 </BaseLayout>

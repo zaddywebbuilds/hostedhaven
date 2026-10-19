@@ -126,7 +126,7 @@ export const articlesSep2026b: Article[] = [
     cluster: 'Revenue',
     published: '2026-09-20',
     heroProperty: 'la-maison-blount',
-    cta: { label: 'See If You Qualify', href: '/property-analysis/' },
+    cta: { label: 'See If You Qualify', href: '/property-intake/' },
     body: `
 <p>The San Antonio short-term rental market is mature but still expanding. Inventory has grown, pricing tools have become more sophisticated, and guest expectations have risen. For owners who entered the market three or four years ago, the landscape is meaningfully different from what it was at launch.</p>
 <p>Here is what the current market looks like, and what it means for owners evaluating performance or considering entering.</p>
@@ -419,7 +419,7 @@ export const articlesSep2026b: Article[] = [
     cluster: 'Our Story',
     published: '2026-09-30',
     heroProperty: 'discovery-mill-crash-pad',
-    cta: { label: 'See If You Qualify', href: '/property-analysis/' },
+    cta: { label: 'See If You Qualify', href: '/property-intake/' },
     body: `
 <p>Most short-term rental management companies describe what they do in the same way: guest communication, cleaning, pricing. The description is accurate as far as it goes, but it does not explain the difference between a co-host who responds to problems and one who prevents them, or between a pricing strategy that reacts to the market and one that anticipates it. Those differences show up in occupancy rates, review scores, and owner income over time, not in a service description.</p>
 <p>Here is how the Hosted Havens approach to full-service management actually works in San Antonio.</p>
