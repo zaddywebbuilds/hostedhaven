@@ -91,7 +91,8 @@ const showcases = [
         <blockquote>{ownerTestimonials[0].quote}</blockquote>
         <div class="quote-by"><span class="avatar-initial">{ownerTestimonials[0].name[0]}</span><div><strong>{ownerTestimonials[0].name}</strong><small>{ownerTestimonials[0].role}</small></div></div>
       </div>
-      <!-- Every page renders ownerTestimonials[0], so the rest only surface here. -->
+      <!-- This is the one page that shows every owner review together; the
+           service pages each rotate to a different one. -->
       <div class="grid" style="gap:1.2rem;grid-column:1/-1;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))">
         {ownerTestimonials.slice(1).map((t, i) => (
           <div class={`quote-card reveal reveal-d${(i % 3) + 1}`}>

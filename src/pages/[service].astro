@@ -10,7 +10,7 @@ import { services, serviceLabel, type Service } from '../data/services';
 import { properties } from '../data/properties';
 import { propertyImages } from '../lib/images';
 import { u, fixLinks, SITE } from '../lib/url';
-import { business, ownerTestimonials, pricing } from '../data/business';
+import { business, ownerTestimonialAt, pricing } from '../data/business';
 
 export function getStaticPaths() {
   return services.map((s) => ({ params: { service: s.slug }, props: { s } }));
@@ -19,6 +19,7 @@ interface Props { s: Service }
 const { s } = Astro.props;
 const path = `/${s.slug}/`;
 const imgs = propertyImages(s.heroProperty);
+const testimonial = ownerTestimonialAt(services.findIndex((x) => x.slug === s.slug));
 const crumbs = [{ name: 'Home', path: '/' }, { name: 'Owners', path: '/airbnb-management-san-antonio/' }, { name: s.navLabel, path }];
 if (s.slug === 'airbnb-management-san-antonio') crumbs.splice(1, 1);
 const showcase = s.slug === 'mid-term-rental-management-san-antonio'
@@ -185,8 +186,8 @@ const schema = [
     <div class="container">
       <div class="quote-card reveal" style="max-width:900px;margin:0 auto">
         <span class="eyebrow">What property owners say</span>
-        <blockquote>{ownerTestimonials[0].quote}</blockquote>
-        <div class="quote-by"><span class="avatar-initial">{ownerTestimonials[0].name[0]}</span><div><strong>{ownerTestimonials[0].name}</strong><small>{ownerTestimonials[0].role}</small></div></div>
+        <blockquote>{testimonial.quote}</blockquote>
+        <div class="quote-by"><span class="avatar-initial">{testimonial.name[0]}</span><div><strong>{testimonial.name}</strong><small>{testimonial.role}</small></div></div>
       </div>
     </div>
   </section>

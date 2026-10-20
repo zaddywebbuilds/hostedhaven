@@ -131,6 +131,15 @@ export const ownerTestimonials = [
   },
 ];
 
+// Megan asked (2026-10-19) that the owner review change from page to page
+// instead of Lea's showing on all of them: "if you read it here you don't need
+// to read it on six other pages". Lea's stays on the home page and leads the
+// results page; the service pages rotate through the others by their position
+// in the services list, so a page always renders the same review build to build.
+export const rotatingOwnerTestimonials = ownerTestimonials.slice(1);
+export const ownerTestimonialAt = (i: number) =>
+  rotatingOwnerTestimonials[((i % rotatingOwnerTestimonials.length) + rotatingOwnerTestimonials.length) % rotatingOwnerTestimonials.length];
+
 export const guestReviews = [
   // Google review, posted by Michael Place.
   { quote: 'Fabulous accommodations in a perfect location in San Antonio! Hosts were always so hospitable! The units are spotless!', name: 'Michael', from: 'Google review' },
