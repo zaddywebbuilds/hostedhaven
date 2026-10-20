@@ -108,8 +108,11 @@ button { font: inherit; color: inherit; cursor: pointer; }
 h1, h2, h3, h4 { font-family: var(--display); font-weight: 600; line-height: 1.05; letter-spacing: -.012em; margin: 0 0 .5em; color: var(--ink); text-wrap: balance; }
 /* The homepage h1 used to run to 6rem while every interior page capped at 4.8rem,
    which is why the homepage read as bigger than the rest of the site. Same scale now. */
-h1 { font-size: clamp(2.5rem, 5vw, 4.8rem); font-weight: 600; }
-.h1-interior { font-size: clamp(2.5rem, 5vw, 4.8rem); }
+/* Megan: "the font and space seems a lot bigger now, like the header can't even
+   be seen above the fold". 4.8rem put the home headline on five lines and pushed
+   the hero past the viewport; this keeps it large without running over. */
+h1 { font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 600; }
+.h1-interior { font-size: clamp(2.2rem, 4vw, 3.5rem); }
 h2 { font-size: clamp(2.1rem, 4vw, 3.8rem); font-weight: 600; }
 h3 { font-size: clamp(1.45rem, 2vw, 1.85rem); }
 h4 { font-size: 1.25rem; }
@@ -369,11 +372,16 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
 }
 .hero .stage-arch { display: none; }
 .hero .hero-grid {
-  align-items: stretch; gap: 0; padding: 0;
-  min-height: 100svh;
+  /* The photo is 16:9 and Megan asked for the whole room to show, so the copy
+     column gives up width and the hero is no longer forced to full height:
+     a 16:9 frame tall enough to fill 100svh would need to be wider than the
+     viewport, which is what was cropping the nightstand and lamp off the left. */
+  grid-template-columns: .92fr 1.08fr;
+  align-items: center; gap: 0; padding: 0;
+  min-height: clamp(560px, 78svh, 800px);
 }
 .hero .hero-copy {
-  padding: clamp(5rem, 8vh, 7rem) clamp(2rem, 5vw, 4.5rem) clamp(3rem, 5vh, 4.5rem);
+  padding: clamp(3rem, 6vh, 5rem) clamp(1.6rem, 3.6vw, 3.4rem) clamp(3rem, 5vh, 4.5rem);
   display: flex; flex-direction: column; justify-content: center;
 }
 .hero .hero-copy h1 { color: var(--cream); }
@@ -387,15 +395,19 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
 .hero .persona-switch a { color: rgba(253, 244, 232, .65); }
 .hero .persona-switch a.on { background: rgba(253, 244, 232, .92); color: var(--ink); }
 .hero .scene {
-  position: relative; min-height: 100svh;
-  align-self: stretch; perspective: none;
+  position: relative; min-height: auto;
+  align-self: center; perspective: none;
+  padding: clamp(1rem, 2.5vw, 2.2rem) clamp(1.2rem, 3vw, 2.6rem) clamp(1rem, 2.5vw, 2.2rem) 0;
 }
 .hero .product-aura { display: none; }
 .hero .product {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
+  /* 16/9 matches the source photo exactly, so `cover` crops nothing. */
+  position: relative; inset: auto;
+  width: 100%; height: auto;
+  aspect-ratio: 16 / 9;
   transform: none !important;
-  border-radius: 0; box-shadow: none; animation: none; aspect-ratio: auto;
+  border-radius: var(--r-lg); animation: none;
+  box-shadow: 0 0 0 1px rgba(253, 244, 232, .14), var(--shadow-floating);
 }
 .hero .product::after {
   background: linear-gradient(to right, rgba(45, 42, 15, .45) 0%, transparent 22%);
@@ -613,6 +625,11 @@ ul.ticks li::before { content: ''; flex: none; width: 18px; height: 18px; margin
 .quote-by { display: flex; align-items: center; gap: .8rem; margin-top: 1.4rem; }
 .avatar-initial { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(145deg, var(--coral), var(--coral-deep)); color: #fff; font-family: var(--display); font-size: 1.4rem; font-weight: 600; flex: none; }
 .quote-by strong { display: block; } .quote-by small { color: var(--ink-mute); }
+.faq-aside { margin-top: 1.8rem; padding: clamp(1.4rem, 2.6vw, 2rem); }
+.faq-aside h3 { margin: 0 0 .5rem; font-size: 1.3rem; }
+.faq-aside p { margin: 0 0 1.2rem; color: var(--ink-soft); font-size: .97rem; }
+.faq-aside .btn-row { flex-wrap: wrap; gap: .6rem; }
+.faq-aside .btn { font-size: .88rem; }
 .review-card { padding: 1.5rem; border-radius: var(--r-lg); background: rgba(253, 251, 249, .7); border: 1px solid #FDFBF9; box-shadow: var(--shadow-soft); display: flex; flex-direction: column; gap: .8rem; }
 .stars { color: var(--gold-ink); letter-spacing: .1em; font-size: .95rem; }
 .review-card p { font-size: .95rem; color: var(--ink-soft); margin: 0; flex: 1; }
@@ -897,6 +914,10 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
   .hh-burger { display: grid; }
   .hh-actions { margin-left: auto; }
   .hero-grid, .ihero-grid, .split, .prop-layout, .bridge-inner { grid-template-columns: 1fr; }
+  /* `.hero .hero-grid` outranks the line above, so the home hero needs its own
+     reset or it keeps the two-column desktop split on phones. */
+  .hero .hero-grid { grid-template-columns: 1fr; min-height: auto; }
+  .hero .scene { padding: 0; }
   .split.reverse > :first-child { order: 0; }
   .scene { min-height: 460px; }
   .grid-4, .orbs { grid-template-columns: repeat(2, minmax(0, 1fr)); }

@@ -3,11 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Img from '../components/Img.astro';
 import Icon from '../components/Icon.astro';
 import OwnerCTA from '../components/OwnerCTA.astro';
+import ReviewMarquee from '../components/ReviewMarquee.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceScene from '../components/ServiceScene.astro';
 import { u, SITE } from '../lib/url';
 import { propertyImages, brandImage, coverImage } from '../lib/images';
-import { business, pricing, ownerTestimonials, links } from '../data/business';
+import { business, pricing, links } from '../data/business';
 const stack = propertyImages('grass-hollow');
 const megan = brandImage('megan-blount-hosted-havens-founder');
 const map = brandImage('san-antonio-map');
@@ -185,12 +186,6 @@ const schema = [
             </div>
           </a>
         ))}
-        {/* Eighth tile squares the grid off at two rows and gives the section a
-            way through to every property rather than only the named areas. */}
-        <a class="hood" href={u('/stays/')} data-track="stays_view">
-          <img src={u('/images/site/hero-san-antonio-skyline.jpg')} alt="San Antonio skyline" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover" />
-          <span>All Locations</span>
-        </a>
       </div>
     </div>
   </section>
@@ -308,6 +303,12 @@ const schema = [
             <span>{n.area}</span>
           </a>
         ))}
+        {/* Megan asked for an All Locations square linking to every stay, which
+            also squares this grid off at exactly two rows. */}
+        <a class="hood" href={u('/stays/')} data-track="stays_view">
+          <img src={u('/images/site/hero-san-antonio-skyline.jpg')} alt="San Antonio skyline" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover" />
+          <span>All Locations</span>
+        </a>
       </div>
       {/* Megan: "I like that the current site has a section to talk about the
           area on the Home page... I think it should be included somewhere in the
@@ -353,15 +354,7 @@ const schema = [
   </section>
 
   <!-- OWNER TESTIMONIAL -->
-  <section class="section">
-    <div class="container">
-      <div class="quote-card reveal" style="max-width:920px;margin:0 auto">
-        <span class="eyebrow">What property owners say</span>
-        <blockquote>{ownerTestimonials[0].quote}</blockquote>
-        <div class="quote-by"><span class="avatar-initial">{ownerTestimonials[0].name[0]}</span><div><strong>{ownerTestimonials[0].name}</strong><small>{ownerTestimonials[0].role}</small></div></div>
-      </div>
-    </div>
-  </section>
+  <ReviewMarquee />
 
   <!-- GUEST BRIDGE -->
   <section class="section-tight">
@@ -396,7 +389,18 @@ const schema = [
         <span class="eyebrow">Owner FAQ</span>
         <h2>Straight answers <em>before you call.</em></h2>
         <p class="lead">Questions we hear from San Antonio owners every week.</p>
-        <a class="text-link" href={u('/pricing/')}>See transparent pricing <Icon name="arrow" /></a>
+        {/* The FAQ column runs much taller than this one, so the space under the
+            heading carries the next useful step rather than sitting empty. It is
+            also where Megan asked for the service video to be linked. */}
+        <div class="card3d faq-aside">
+          <h3>Still deciding?</h3>
+          <p>Watch the short service video, or see exactly what we charge before you speak to anyone.</p>
+          <div class="btn-row">
+            <a class="btn btn-glass" href={u('/service-video/')} data-track="service_video_click">Watch the Service Video</a>
+            <a class="btn btn-glass" href={u('/pricing/')}>See Transparent Pricing</a>
+            <a class="btn btn-glass" href={u('/results/')}>Owner Results</a>
+          </div>
+        </div>
       </div>
       <div class="reveal reveal-d2"><FAQ items={faqs} /></div>
     </div>
