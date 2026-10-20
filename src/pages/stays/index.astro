@@ -12,7 +12,6 @@ import { guestReviews } from '../../data/business';
 const guestFaqs = [
   { q: 'Why book direct?', a: 'Major travel platforms add service fees on top of your stay. Booking directly on our site means much lower fees, payment processing only. You get the same local support for less. <a href="/why-book-direct/">Learn more</a>.' },
   { q: 'What is the cancellation policy?', a: 'Most listings use a Moderate policy, allowing cancellation up to 5 days before check-in for a full refund. Check each property for exceptions.' },
-  { q: 'How does check-in work?', a: 'Most stays use a self-check-in process. After you complete the online check-in, covering the rental agreement, ID verification, and security hold. Once complete, you receive your arrival instructions within 2 days of check-in.' },
   { q: 'Are monthly stays available?', a: 'Yes. Many homes are set up for extended stays, and some discounts are built in automatically for longer bookings.' },
   { q: 'Are pets allowed?', a: 'Several homes and studios are pet friendly. Use the Pet Friendly filter above, and check each listing’s pet rules.' },
   { q: 'Do you offer booking discounts?', a: 'Longer stays often include automatic discounts. Promo codes are shared in the <a href="https://www.facebook.com/groups/hostedhavensguestlounge" target="_blank" rel="noopener noreferrer">Hosted Havens Guest Lounge</a>.' },
@@ -41,8 +40,7 @@ const schema = [{
         <div class="ihero-copy">
           <nav aria-label="Breadcrumb"><ol class="breadcrumbs"><li><a href={u('/')}>Home</a></li><li><span aria-current="page">Stays</span></li></ol></nav>
           <span class="eyebrow">Book direct · Local support</span>
-          <h1 class="h1-interior">Vacation Rentals &amp; Furnished Stays in <em>San Antonio Area</em></h1>
-          <p class="lead">Browse professionally managed short-term and mid-term rentals for family trips, business travel, military stays, relocations, and extended visits.</p>
+          <h1 class="h1-interior">Vacation Rentals in <em>San Antonio</em></h1>
         </div>
         <div class="ihero-visual">
           <div class="ihero-photo">
@@ -110,7 +108,7 @@ const schema = [{
     <div class="container">
       <div class="section-head center reveal"><span class="eyebrow">What guests say</span><h2>Stays guests <em>come back to</em></h2></div>
       <div class="grid grid-4">
-        {guestReviews.map((r, i) => (
+        {guestReviews.slice(0, 4).map((r, i) => (
           <figure class={`review-card reveal reveal-d${i + 1}`} style="margin:0">
             <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
             <blockquote style="margin:0"><p>“{r.quote}”</p></blockquote>
