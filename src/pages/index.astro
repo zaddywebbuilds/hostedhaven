@@ -8,7 +8,6 @@ import ServiceScene from '../components/ServiceScene.astro';
 import { u, SITE } from '../lib/url';
 import { propertyImages, brandImage, coverImage } from '../lib/images';
 import { business, pricing, ownerTestimonials, links } from '../data/business';
-import { properties } from '../data/properties';
 const stack = propertyImages('grass-hollow');
 const megan = brandImage('megan-blount-hosted-havens-founder');
 const map = brandImage('san-antonio-map');
@@ -140,6 +139,14 @@ const schema = [
               <div class="fc-row"><span class="fc-time">Cleaning</span>Confirmed <b class="fc-ok">✓</b></div>
               <div class="fc-row"><span class="fc-time">Next guest</span>Ready <b class="fc-ok">✓</b></div>
             </div>
+        <div class="float-card" aria-hidden="true">
+          <div class="fc-head"><span class="fc-title">Today at Hosted Havens</span></div>
+          <div class="fc-row"><span class="fc-time">10:00 AM</span>Turnover confirmed <b class="fc-ok">✓</b></div>
+          <div class="fc-row"><span class="fc-time">12:15 PM</span>Inspection complete <b class="fc-ok">✓</b></div>
+          <div class="fc-row"><span class="fc-time">3:00 PM</span>Guest arrival <b class="fc-ok">✓</b></div>
+          <div class="fc-row"><span class="fc-time">7:42 PM</span>Guest question resolved <b class="fc-ok">✓</b></div>
+          <p class="fc-note">A look at the work owners don’t have to do.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -214,30 +221,6 @@ const schema = [
   </section>
 
   <!-- DARK PERFORMANCE -->
-  <section class="section bg-dark">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Built for better performance</span>
-        <h2>Hospitality, pricing, and property care <em>working together.</em></h2>
-        <p class="lead">Strong rentals aren’t built on one tactic. They come from consistent operations, honest listings and decisions made with the market in view.</p>
-      </div>
-      <div class="grid grid-4">
-        <div class="dark-card reveal reveal-d1"><div class="dark-num">{pricing.managementFee}</div><h3>Published fee</h3><p>{pricing.managementFeeUnit}. 4–12 month contracts.</p></div>
-        <div class="dark-card reveal reveal-d2"><div class="dark-num">7 days</div><h3>Owner support</h3><p>A support team you can reach every day of the week.</p></div>
-        <div class="dark-card reveal reveal-d3"><div class="dark-num">{properties.length}</div><h3>Stays listed</h3><p>Homes, studios, and rooms currently bookable direct on our site.</p></div>
-        <div class="dark-card reveal reveal-d4"><div class="dark-num">Local</div><h3>San Antonio team</h3><p>Guest services, maintenance coordination, and photography close to home.</p></div>
-      </div>
-      <div class="float-card" style="position:relative;width:auto;max-width:520px;margin:3rem 0 0;background:rgba(255,244,232,.06);border-color:rgba(255,244,232,.14);color:var(--cream)">
-        <div class="fc-head"><span class="fc-title" style="color:var(--cream)">Today at Hosted Havens</span></div>
-        <div class="fc-row" style="color:rgba(253,244,232,.8);border-color:rgba(255,244,232,.1)"><span class="fc-time">10:00 AM</span>Turnover confirmed <b class="fc-ok" style="color:var(--gold-soft)">✓</b></div>
-        <div class="fc-row" style="color:rgba(253,244,232,.8);border-color:rgba(255,244,232,.1)"><span class="fc-time">12:15 PM</span>Inspection complete <b class="fc-ok" style="color:var(--gold-soft)">✓</b></div>
-        <div class="fc-row" style="color:rgba(253,244,232,.8);border-color:rgba(255,244,232,.1)"><span class="fc-time">3:00 PM</span>Guest arrival <b class="fc-ok" style="color:var(--gold-soft)">✓</b></div>
-        <div class="fc-row" style="color:rgba(253,244,232,.8);border-color:rgba(255,244,232,.1)"><span class="fc-time">7:42 PM</span>Guest question resolved <b class="fc-ok" style="color:var(--gold-soft)">✓</b></div>
-        <p class="fc-note" style="color:rgba(253,244,232,.55)">A look at the work owners don’t have to do.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- HOW IT WORKS -->
   <section class="section">
     <div class="container">

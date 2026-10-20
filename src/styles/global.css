@@ -457,11 +457,12 @@ h1 em, h2 em { font-style: italic; color: var(--coral-deep); font-weight: 600; }
    carries the opening. They sit below it in flow now, so nothing obscures it. */
 .hero-proof {
   position: relative; z-index: 2;
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1rem, 2vw, 1.6rem);
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(.9rem, 1.6vw, 1.4rem);
   margin: 0 clamp(1rem, 4vw, 4rem) clamp(1.6rem, 3vw, 2.6rem);
 }
 .hero-proof .float-card { position: static; width: auto; animation: none; transform: none; }
+@media (max-width: 1024px) { .hero-proof { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .hero-proof { grid-template-columns: 1fr; } }
 .fc-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: .7rem; }
 .fc-title { font-family: var(--display); font-size: 1.2rem; font-weight: 600; color: var(--ink); line-height: 1.1; }
