@@ -4,12 +4,11 @@ import Img from '../components/Img.astro';
 import Icon from '../components/Icon.astro';
 import OwnerCTA from '../components/OwnerCTA.astro';
 import FAQ from '../components/FAQ.astro';
-import PropertyCard from '../components/PropertyCard.astro';
 import ServiceScene from '../components/ServiceScene.astro';
 import { u, SITE } from '../lib/url';
 import { propertyImages, brandImage, coverImage } from '../lib/images';
-import { business, pricing, ownerTestimonials, guestReviews, links } from '../data/business';
-import { properties, featuredProperties } from '../data/properties';
+import { business, pricing, ownerTestimonials, links } from '../data/business';
+import { properties } from '../data/properties';
 const stack = propertyImages('grass-hollow');
 const megan = brandImage('megan-blount-hosted-havens-founder');
 const map = brandImage('san-antonio-map');
@@ -19,19 +18,14 @@ const map = brandImage('san-antonio-map');
 const neighbourhoods = [
   { slug: 'the-harding-place', area: 'Near Downtown & the River Walk' },
   { slug: 'evergreen-1', area: 'Tobin Hill' },
-  { slug: 'santa-anna-combo', area: 'Los Angeles Heights' },
-  { slug: 'halliday-fig-trees', area: 'Riverside' },
   { slug: 'coastal-run', area: 'Leon Valley' },
   { slug: 'grass-hollow', area: 'Live Oak' },
-  { slug: 'de-soto-lighthouse', area: 'Universal City' },
   { slug: 'discovery-mill-crash-pad', area: 'Converse' },
   { slug: 'quiet-fox', area: 'Far West Side' },
   { slug: 'liberty-bell', area: 'Near the Airport' },
-  { slug: 'la-maison-blount', area: 'Near I-10' },
 ].map((n) => ({ ...n, img: coverImage(n.slug) })).filter((n) => n.img);
 
 const bridgeImg = coverImage('de-soto-lighthouse');
-const featured = featuredProperties.slice(0, 3);
 
 const pains = ['11 PM guest messages', 'Pricing every weekend', 'Cleaner coordination', 'Maintenance emergencies', 'Restocking supplies', 'Review management', 'Calendar gaps', 'Listing updates', 'Check-in issues', 'Tax & compliance admin'];
 
@@ -106,10 +100,10 @@ const schema = [
           </div>
           <span class="eyebrow">San Antonio · Short &amp; Mid-Term Rental Co-Hosting</span>
           <h1 id="hero-title">Your Rental Should Earn More <em>Without Owning Your Time.</em></h1>
-          <p class="lead">Hosted Havens provides full-service Airbnb and short-term rental co-hosting in San Antonio, combining dynamic pricing, guest care, listing optimization, cleaning coordination, and maintenance managed end to end.</p>
+          <p class="lead">Hosted Havens provides full-service short &amp; mid-term rental co-hosting in San Antonio, combining dynamic pricing, guest care, listing optimization, cleaning coordination, and maintenance managed end to end.</p>
           <div class="btn-row">
             <a class="btn btn-primary" href={u('/property-intake/')} data-track="owner_analysis_start">See If You Qualify <Icon name="arrow" /></a>
-            <a class="btn btn-glass" href={u('/stays/')} data-track="stays_view">Explore Our Stays</a>
+            <a class="btn btn-glass" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Schedule a Property Tour</a>
           </div>
           <p class="btn-note"><span>2-minute property intake</span><span>In-person property analysis</span></p>
         </div>
@@ -185,6 +179,12 @@ const schema = [
             </div>
           </a>
         ))}
+        {/* Eighth tile squares the grid off at two rows and gives the section a
+            way through to every property rather than only the named areas. */}
+        <a class="hood" href={u('/stays/')} data-track="stays_view">
+          <img src={u('/images/site/hero-san-antonio-skyline.jpg')} alt="San Antonio skyline" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover" />
+          <span>All Locations</span>
+        </a>
       </div>
     </div>
   </section>
@@ -199,7 +199,7 @@ const schema = [
       <div class="reveal reveal-d2">
         <span class="eyebrow">No obligation</span>
         <h2>What Could Your <em>Property</em> Earn?</h2>
-        <p class="lead">Tell us about your home. We’ll review the property, local demand and comparable San Antonio rentals to identify its revenue potential, and what is holding it back.</p>
+        <p class="lead">Tell us about your home. We’ll review the property, local demand, and comparable San Antonio rentals to identify its revenue potential, and what is holding it back.</p>
         <ul class="ticks" style="margin:1.4rem 0 2rem">
           <li>A human review of your home, not a generic calculator</li>
           <li>Positioning, pricing, and presentation opportunities</li>
@@ -283,32 +283,17 @@ const schema = [
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head reveal" style="display:flex;justify-content:space-between;align-items:end;gap:1.5rem;flex-wrap:wrap;max-width:none">
-        <div style="max-width:680px">
-          <span class="eyebrow">The portfolio</span>
-          <h2>Homes Guests <em>Choose</em></h2>
-          <p class="lead" style="margin:0">Real Hosted Havens properties across San Antonio, Live Oak, Universal City, and Converse.</p>
-        </div>
-        <a class="btn btn-glass" href={u('/stays/')} data-track="stays_view">View all {properties.length} stays <Icon name="arrow" /></a>
-      </div>
-      <div class="prop-grid">{featuredProperties.map((p) => <PropertyCard p={p} />)}</div>
-    </div>
-  </section>
-
   <!-- LOCAL EXPERTISE -->
   <section class="section bg-warm">
     <div class="container split">
       <div class="reveal">
         <span class="eyebrow">Local knowledge</span>
         <h2>Managed Locally. <em>Optimized for San Antonio.</em></h2>
-        <p class="lead">Rental performance here is shaped by things a spreadsheet in another state won’t see.</p>
+        <p class="lead">Rental performance here is shaped by unique factors exclusive to San Antonio.</p>
         <ul class="ticks" style="margin-top:1.2rem">
           <li>Military travel and PCS moves around Joint Base San Antonio</li>
           <li>Medical stays near the South Texas Medical Center</li>
-          <li>Conventions, events, and weekly Air Force graduations</li>
+          <li>Conventions, events, and weekly Basic Military Training graduations</li>
           <li>Family travel to Six Flags Fiesta Texas and SeaWorld</li>
           <li>Seasonality, from spring festivals to summer family trips</li>
           <li>Neighborhood fit, parking, and proximity to downtown</li>
@@ -332,7 +317,7 @@ const schema = [
       <div class="section-head reveal">
         <span class="eyebrow">Across the San Antonio area</span>
         <h2>Homes in the <em>Neighbourhoods</em> Guests Ask For</h2>
-        <p class="lead">Hosted Havens manages across Bexar County and the surrounding communities, from the River Walk and Tobin Hill to Live Oak, Converse, and Universal City.</p>
+        <p class="lead">Hosted Havens manages across San Antonio and the surrounding communities, from the River Walk and Tobin Hill to Live Oak, Converse, and Universal City.</p>
       </div>
       <div class="hood-grid reveal">
         {neighbourhoods.map((n) => (
@@ -358,9 +343,9 @@ const schema = [
             <h2 style="margin-top:1.2rem">Staying Bookable Matters as Much as <em>Getting Booked.</em></h2>
           </div>
           <div>
-            <p class="lead">San Antonio short-term rentals operate within local rules that include permits and Hotel Occupancy Tax reporting. Hosted Havens supports tax collection and remittance and keeps operations aware of the requirements that affect your listing.</p>
+            <p class="lead">San Antonio short-term rentals operate within local rules that include permits and Hotel Occupancy Tax reporting. Hosted Havens supports tax collection and remittance and keeps owners aware of the requirements that affect your listing.</p>
             <a class="text-link" href={u('/resources/san-antonio-str-rules/')}>Read the San Antonio STR rules guide <Icon name="arrow" /></a>
-            <p class="footnote">Regulations can change. Information is provided for general educational purposes; property owners should confirm current requirements with the City of San Antonio and appropriate tax or legal professionals.</p>
+            <p class="footnote">Regulations can change. Information is provided for general educational purposes; property owners should confirm current requirements with their city and appropriate tax or legal professionals.</p>
           </div>
         </div>
       </div>
@@ -377,7 +362,7 @@ const schema = [
         <span class="eyebrow">Meet the founder</span>
         <h2>A hospitality operator who <em>started as a host.</em></h2>
         <p class="lead">Megan began hosting in 2021 with her own San Antonio home, then an arbitrage rental, and discovered a genuine love for creating welcoming spaces and exceptional guest experiences.</p>
-        <p>With more than two decades of customer service and operational training experience, she expanded into co-hosting in 2024, and built Hosted Havens around one standard: manage every home as if it were her own.</p>
+        <p>With more than two decades of customer service and operational training experience, she expanded into co-hosting in 2023, and built Hosted Havens around one standard: manage every home as if it were her own.</p>
         <div class="btn-row" style="margin-top:1.6rem">
           <a class="btn btn-dark" href={u('/about/')}>Meet the Team <Icon name="arrow" /></a>
         </div>
@@ -419,26 +404,6 @@ const schema = [
           </ul>
         </div>
       </div>
-      <div class=”review-slider” style=”margin-top:2rem” id=”review-slider”>
-        <div class=”review-track” id=”review-track”>
-          {guestReviews.map((r) => (
-            <figure class=”review-card” style=”margin:0”>
-              <div class=”stars” aria-label=”5 out of 5 stars”>★★★★★</div>
-              <blockquote style=”margin:0”><p>”{r.quote}”</p></blockquote>
-              <figcaption class=”review-by”><span class=”avatar-initial”>{r.name[0]}</span><span><strong>{r.name}</strong><small>{r.from} · Guest review</small></span></figcaption>
-            </figure>
-          ))}
-        </div>
-        <div class=”slider-nav”>
-          <button class=”slider-arrow prev” id=”review-prev” aria-label=”Previous reviews”><Icon name=”arrow” /></button>
-          <div class=”slider-dots” id=”review-dots”>
-            {guestReviews.map((_, i) => (
-              <button class={`slider-dot${i === 0 ? ' on' : ''}`} data-i={String(i)} aria-label={`Review ${i + 1}`}></button>
-            ))}
-          </div>
-          <button class=”slider-arrow next” id=”review-next” aria-label=”Next reviews”><Icon name=”arrow” /></button>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -455,46 +420,6 @@ const schema = [
     </div>
   </section>
 
-  <!-- REVIEW SLIDER SCRIPT -->
-  <script>
-    (function () {
-      const track = document.getElementById('review-track') as HTMLElement | null;
-      const dots = [...document.querySelectorAll<HTMLElement>('#review-dots .slider-dot')];
-      if (!track) return;
-
-      function cardW(): number {
-        const card = track!.querySelector<HTMLElement>('.review-card');
-        if (!card) return 0;
-        const gap = parseFloat(getComputedStyle(track!).gap) || 0;
-        return card.offsetWidth + gap;
-      }
-      function curIdx(): number { return Math.round(track!.scrollLeft / (cardW() || 1)); }
-      function goTo(idx: number): void {
-        const total = track!.querySelectorAll('.review-card').length;
-        idx = Math.max(0, Math.min(idx, total - 1));
-        track!.scrollTo({ left: idx * cardW(), behavior: 'smooth' });
-        dots.forEach((d, i) => d.classList.toggle('on', i === idx));
-      }
-
-      document.getElementById('review-prev')?.addEventListener('click', () => goTo(curIdx() - 1));
-      document.getElementById('review-next')?.addEventListener('click', () => goTo(curIdx() + 1));
-      dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
-
-      let ticking = false;
-      track.addEventListener('scroll', () => {
-        if (!ticking) {
-          requestAnimationFrame(() => { const i = curIdx(); dots.forEach((d, j) => d.classList.toggle('on', j === i)); ticking = false; });
-          ticking = true;
-        }
-      }, { passive: true });
-
-      const total = () => track!.querySelectorAll('.review-card').length;
-      let timer = setInterval(() => goTo((curIdx() + 1) % total()), 4800);
-      const slider = document.getElementById('review-slider');
-      slider?.addEventListener('mouseenter', () => clearInterval(timer));
-      slider?.addEventListener('mouseleave', () => { timer = setInterval(() => goTo((curIdx() + 1) % total()), 4800); });
-    })();
-  </script>
 
   <!-- DARK CONVERSION -->
   <OwnerCTA title="Your Property Can Work Hard <em>Without You Working Around the Clock.</em>" />
