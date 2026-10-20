@@ -1,0 +1,130 @@
+---
+// A slow right-to-left strip of owner reviews. Megan asked (2026-10-19) that the
+// same long review stop appearing on every page: this shows several, and in far
+// less vertical space than the single quote card it replaces.
+//
+// The track holds the reviews twice and animates to -50%, so the second set is
+// exactly under the first when it loops and the seam never shows. The duplicate
+// is aria-hidden, leaving one copy for screen readers.
+import { ownerTestimonials } from '../data/business';
+
+interface Review { quote: string; name: string; role: string; short?: string }
+interface Props {
+  items?: Review[];
+  eyebrow?: string;
+  heading?: string;
+  /** Seconds for one full pass. Longer = slower. */
+  duration?: number;
+}
+const {
+  items = ownerTestimonials,
+  eyebrow = 'What property owners say',
+  heading,
+  duration = 70,
+} = Astro.props as Props;
+
+const track = [...items, ...items];
+---
+
+<section class="section rmq-section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">{eyebrow}</span>
+      {heading && <h2 set:html={heading} />}
+    </div>
+  </div>
+
+  <div class="rmq" style={`--rmq-dur:${duration}s`}>
+    <ul class="rmq-track" role="list">
+      {track.map((r, i) => (
+        <li class="rmq-item" aria-hidden={i >= items.length ? 'true' : undefined}>
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>{r.short ?? r.quote}</blockquote>
+          <div class="rmq-by">
+            <span class="avatar-initial">{r.name[0]}</span>
+            <span><strong>{r.name}</strong><small>{r.role}</small></span>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .rmq-section { overflow: hidden; }
+  .rmq-section .section-head { margin-bottom: 1.6rem; }
+
+  .rmq {
+    position: relative;
+    /* Full-bleed so cards run off both edges rather than stopping at the
+       container, which is what makes it read as a continuous strip. */
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    /* Fade the ends so cards arrive and leave instead of popping. */
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  }
+
+  .rmq-track {
+    display: flex;
+    /* Spacing lives on the items, not as `gap`: with a gap, half the track is
+       four cards plus three and a half gaps, so -50% lands half a gap short and
+       the loop visibly jumps. A right margin makes each card exactly one
+       repeating unit, so -50% is precisely one full set. */
+    width: max-content;
+    margin: 0;
+    padding: .5rem 0;
+    list-style: none;
+    animation: rmq-scroll var(--rmq-dur, 70s) linear infinite;
+  }
+
+  /* Let a reader stop the strip to finish a review. */
+  .rmq:hover .rmq-track,
+  .rmq:focus-within .rmq-track { animation-play-state: paused; }
+
+  @keyframes rmq-scroll {
+    from { transform: translate3d(0, 0, 0); }
+    to   { transform: translate3d(-50%, 0, 0); }
+  }
+
+  .rmq-item {
+    flex: 0 0 auto;
+    width: clamp(260px, 25vw, 340px);
+    margin-right: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+    padding: 1.4rem 1.5rem;
+    border-radius: var(--r-lg);
+    background: rgba(253, 251, 249, .78);
+    border: 1px solid rgba(101, 97, 52, .14);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .rmq-item blockquote {
+    margin: 0;
+    flex: 1;
+    font-size: .95rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .rmq-item blockquote::before { content: '“'; }
+  .rmq-item blockquote::after  { content: '”'; }
+
+  .rmq-by { display: flex; align-items: center; gap: .7rem; }
+  .rmq-by .avatar-initial { width: 40px; height: 40px; font-size: 1.1rem; }
+  .rmq-by strong { display: block; font-size: .95rem; }
+  .rmq-by small { display: block; color: var(--ink-mute); font-size: .8rem; }
+
+  /* No crawling text for anyone who asked for less motion: the strip becomes a
+     normal swipeable row instead. */
+  @media (prefers-reduced-motion: reduce) {
+    .rmq {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .rmq-track { animation: none; padding-inline: 1.25rem; }
+    .rmq-item { scroll-snap-align: start; }
+  }
+</style>

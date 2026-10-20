@@ -108,6 +108,9 @@ export const ownerTestimonials = [
     quote: 'I am so grateful to have found Hosted Havens as a property owner. I had been considering selling my property because I just couldn’t afford it with no rentals. Hosted Havens have turned around my rental from a complete non-earner to having the best 3 months we have had in 2 years of it being a short term rental. Megan really talks to you and listens and works with you to support your needs. I wanted a property manager that takes care of everything and Hosted Havens is that and I couldn’t be happier.',
     name: 'Lea',
     role: 'Property owner',
+    // Verbatim sentence from the same review, for the scrolling strip where the
+    // full 500-character version would not fit. Never paraphrase these.
+    short: 'Hosted Havens have turned around my rental from a complete non-earner to having the best 3 months we have had in 2 years of it being a short term rental.',
   },
   // Google review, posted by Kyle McAlpin. Replaces his earlier one-line quote,
   // which was the same person, so he is not listed twice.
@@ -130,15 +133,6 @@ export const ownerTestimonials = [
     role: 'Property owner',
   },
 ];
-
-// Megan asked (2026-10-19) that the owner review change from page to page
-// instead of Lea's showing on all of them: "if you read it here you don't need
-// to read it on six other pages". Lea's stays on the home page and leads the
-// results page; the service pages rotate through the others by their position
-// in the services list, so a page always renders the same review build to build.
-export const rotatingOwnerTestimonials = ownerTestimonials.slice(1);
-export const ownerTestimonialAt = (i: number) =>
-  rotatingOwnerTestimonials[((i % rotatingOwnerTestimonials.length) + rotatingOwnerTestimonials.length) % rotatingOwnerTestimonials.length];
 
 export const guestReviews = [
   // Google review, posted by Michael Place.
