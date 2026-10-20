@@ -542,12 +542,23 @@ ul.ticks li::before { content: ''; flex: none; width: 18px; height: 18px; margin
 .pain-cloud .chip svg { width: 15px; height: 15px; color: var(--coral-deep); }
 
 /* Timeline */
-.timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; position: relative; counter-reset: step; }
-.timeline::before { content: ''; position: absolute; top: 34px; left: 8%; right: 8%; height: 2px; background: linear-gradient(90deg, var(--coral), var(--gold), var(--sage)); opacity: .5; }
+/* One row, however many steps there are: the page passes --steps so a six-step
+   process stays on a single row instead of orphaning step six onto its own. */
+.timeline { --steps: 5; --t-dot: 68px; display: grid; grid-template-columns: repeat(var(--steps), minmax(0, 1fr)); gap: 1rem; position: relative; counter-reset: step; }
+.timeline::before { content: ''; position: absolute; top: calc(var(--t-dot) / 2 - 1px); left: 8%; right: 8%; height: 2px; background: linear-gradient(90deg, var(--coral), var(--gold), var(--sage)); opacity: .5; }
 .t-step { position: relative; text-align: center; padding: 0 .4rem; }
-.t-dot { width: 68px; height: 68px; margin: 0 auto 1.1rem; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-size: 1.6rem; font-weight: 600; color: var(--coral-deep); background: linear-gradient(145deg, #fff, var(--pink-soft)); border: 1px solid #FDFBF9; box-shadow: 0 12px 30px rgba(192, 87, 59, .22), inset 0 1px 0 #fff; position: relative; z-index: 1; }
+.t-dot { width: var(--t-dot); height: var(--t-dot); margin: 0 auto 1.1rem; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-size: 1.6rem; font-weight: 600; color: var(--coral-deep); background: linear-gradient(145deg, #fff, var(--pink-soft)); border: 1px solid #FDFBF9; box-shadow: 0 12px 30px rgba(192, 87, 59, .22), inset 0 1px 0 #fff; position: relative; z-index: 1; }
 .t-step h3 { font-size: 1.35rem; margin-bottom: .35rem; }
 .t-step p { font-size: .95rem; color: var(--ink-soft); }
+/* Six across needs a smaller dot and tighter type to stay readable. Scoped to
+   the one-row widths; below 1024px the timeline is vertical and sizes normally. */
+@media (min-width: 1025px) {
+  .timeline:has(> .t-step:nth-child(6)) { --t-dot: 56px; gap: .75rem; }
+  .timeline:has(> .t-step:nth-child(6)) .t-dot { font-size: 1.25rem; }
+  .timeline:has(> .t-step:nth-child(6)) .t-step { padding: 0 .2rem; }
+  .timeline:has(> .t-step:nth-child(6)) .t-step h3 { font-size: 1.1rem; line-height: 1.25; }
+  .timeline:has(> .t-step:nth-child(6)) .t-step p { font-size: .85rem; line-height: 1.45; }
+}
 
 /* Comparison */
 .compare-wrap { overflow-x: auto; border-radius: var(--r-lg); background: rgba(253, 251, 249, .6); border: 1px solid #FDFBF9; box-shadow: var(--shadow-glass); }
@@ -891,8 +902,8 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
   .grid-4, .orbs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid-3, .prop-grid, .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .timeline { grid-template-columns: 1fr; gap: 1.2rem; }
-  .timeline::before { top: 0; bottom: 0; left: 33px; right: auto; width: 2px; height: auto; background: linear-gradient(180deg, var(--coral), var(--gold), var(--sage)); }
-  .t-step { display: grid; grid-template-columns: 68px 1fr; gap: 1.1rem; text-align: left; align-items: start; }
+  .timeline::before { top: 0; bottom: 0; left: calc(.4rem + var(--t-dot) / 2 - 1px); right: auto; width: 2px; height: auto; background: linear-gradient(180deg, var(--coral), var(--gold), var(--sage)); }
+  .t-step { display: grid; grid-template-columns: var(--t-dot) 1fr; gap: 1.1rem; text-align: left; align-items: start; }
   .t-dot { margin: 0; }
   .book-card { position: static; }
   .ihero-visual { min-height: 300px; }

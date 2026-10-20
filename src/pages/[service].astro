@@ -157,7 +157,7 @@ const schema = [
           <span class="eyebrow">How it works</span>
           <h2>From property to <em>high-performing haven</em></h2>
         </div>
-        <ol class="timeline" style="list-style:none">
+        <ol class="timeline" style={`list-style:none;--steps:${s.steps.length}`}>
           {s.steps.map((st, i) => (
             <li class={`t-step reveal reveal-d${(i % 4) + 1}`}>
               <span class="t-dot">{String(i + 1).padStart(2, '0')}</span>
