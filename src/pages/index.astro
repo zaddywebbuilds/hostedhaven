@@ -24,6 +24,7 @@ const neighbourhoods = [
   { slug: 'quiet-fox', area: 'Far West Side' },
   { slug: 'liberty-bell', area: 'Near the Airport' },
 ].map((n) => ({ ...n, img: coverImage(n.slug) })).filter((n) => n.img);
+const allLocationsImg = coverImage('la-maison-blount');
 
 const bridgeImg = coverImage('de-soto-lighthouse');
 
@@ -65,7 +66,8 @@ const faqs = [
   { q: 'Is Hosted Havens a co-host or a property manager?', a: 'Hosted Havens is a full-service short-term rental co-host. We are not a traditional long-term property manager, but we perform the operational work that makes a short-term rental succeed. We also manage mid-term rentals, meaning furnished stays under one year.' },
   { q: 'How much does Hosted Havens charge?', a: `Typically ${pricing.managementFee} ${pricing.managementFeeUnit}, with a one-time ${pricing.setupFee} listing setup fee. ${pricing.note}` },
   { q: 'Can I still use my property personally?', a: 'Yes. You can block dates on the calendar and use your home whenever you like.' },
-  { q: 'How much can my property earn?', a: 'It depends on the home, location, amenities, and season. We do not quote a number without first looking. Start by providing details on the <a href="/property-intake/">property intake</a>. When ready, schedule your property tour. Afterwards we’ll review your home, local demand, and comparable rentals, giving you a detailed analysis report with revenue projections.' },
+  { q: 'What is the minimum contract length?', a: 'Contracts run a minimum of 4–12 months depending on property type and service scope, giving both sides time to build a strong operation.' },
+  { q: 'How much can my property earn?', a: 'It depends on the home, location, amenities, and season. We do not quote a number without first looking. Start by providing details on the <a href="/property-intake/">property intake</a>. When ready, schedule your property tour. Afterwards we\'ll review your home, local demand, and comparable rentals, giving you a detailed analysis report with revenue projections.' },
 ];
 
 const schema = [
@@ -321,9 +323,9 @@ const schema = [
     <div class="container">
       <div class="card3d reveal" style="padding:clamp(2rem,5vw,3.5rem)">
         <div class="split" style="align-items:start">
-          <div>
+          <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
             <span class="icon-box gold"><Icon name="shield" /></span>
-            <h2 style="margin-top:1.2rem">Staying Bookable Matters as Much as <em>Getting Booked.</em></h2>
+            <h2 style="margin:0">Staying Bookable Matters as Much as <em>Getting Booked.</em></h2>
           </div>
           <div>
             <p class="lead">San Antonio short-term rentals operate within local rules that include permits and Hotel Occupancy Tax reporting. Hosted Havens supports tax collection and remittance and keeps owners aware of the requirements that affect your listing.</p>
@@ -344,8 +346,8 @@ const schema = [
       <div class="reveal reveal-d2">
         <span class="eyebrow">Meet the founder</span>
         <h2>A hospitality operator who <em>started as a host.</em></h2>
-        <p class="lead">Megan began hosting in 2021 with her own San Antonio home, then an arbitrage rental, and discovered a genuine love for creating welcoming spaces and exceptional guest experiences.</p>
-        <p>With more than two decades of customer service and operational training experience, she expanded into co-hosting in 2023, and built Hosted Havens around one standard: manage every home as if it were her own.</p>
+        <p>Megan began hosting in 2021 with her own San Antonio home, then an arbitrage rental, and discovered a genuine love for creating welcoming spaces and exceptional guest experiences.</p>
+        <p>With more than two decades of customer service and operational training experience, she expanded into co-hosting in 2024, and built Hosted Havens around one standard: manage every home as if it were her own.</p>
         <div class="btn-row" style="margin-top:1.6rem">
           <a class="btn btn-dark" href={u('/about/')}>Meet the Team <Icon name="arrow" /></a>
         </div>

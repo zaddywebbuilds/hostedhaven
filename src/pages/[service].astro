@@ -25,6 +25,7 @@ if (s.slug === 'airbnb-management-san-antonio') crumbs.splice(1, 1);
 const showcase = s.slug === 'mid-term-rental-management-san-antonio'
   ? properties.filter((p) => p.extendedStay).slice(0, 3)
   : null;
+const whyCtaLabel = s.slug === 'airbnb-setup-san-antonio' ? "See if we're a good fit" : "See what we'd change about your property";
 
 const schema = [
   {
@@ -102,8 +103,7 @@ const schema = [
         <span class="eyebrow">Why it matters</span>
         <h2 set:html={s.intro.h2} />
         {s.intro.paragraphs.map((p) => <p class="lead" set:html={fixLinks(p)} />)}
-        <a class="text-link" href={u('/property-intake/')} data-track="owner_analysis_start">See if we’re a good fit <Icon name="arrow" /></a>
-      </div>
+        <a class="text-link" href={u('/property-intake/')} data-track="owner_analysis_start">{whyCtaLabel} <Icon name="arrow" /></a>      </div>
       <div class="img-stack reveal reveal-d2">
         <div class="big"><Img src={imgs[1]} alt={`A Hosted Havens managed rental in ${business.city}`} sizes="(max-width: 1024px) 90vw, 45vw" /></div>
         <div class="small"><Img src={imgs[2]} alt={`Interior of a Hosted Havens rental in ${business.city}`} sizes="(max-width: 1024px) 45vw, 22vw" /></div>
@@ -114,7 +114,7 @@ const schema = [
   <section class="section bg-warm">
     <div class="container">
       <div class="section-head center reveal">
-        <span class="eyebrow">What’s handled</span>
+        <span class="eyebrow">What's handled</span>
         <h2>Built around <em>your</em> property</h2>
       </div>
       <div class={`grid ${s.pillars.length === 4 ? 'grid-4' : s.pillars.length === 3 ? 'grid-3' : 'grid-3'}`}>
