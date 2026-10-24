@@ -4,10 +4,10 @@ import InteriorHero from '../components/InteriorHero.astro';
 import Img from '../components/Img.astro';
 import Icon from '../components/Icon.astro';
 import OwnerCTA from '../components/OwnerCTA.astro';
+import ReviewMarquee from '../components/ReviewMarquee.astro';
 import { propertyImages, coverImage } from '../lib/images';
 import { u } from '../lib/url';
-import { ownerTestimonials, guestReviews, businessStats, resultsDisclaimer } from '../data/business';
-import { properties } from '../data/properties';
+import { guestReviews, businessStats, resultsDisclaimer } from '../data/business';
 
 const verifiedStats = Object.values(businessStats).filter((s) => s.verified && s.value);
 
@@ -84,81 +84,11 @@ const showcases = [
     );
   })}
 
-  <section class="section">
-    <div class="container">
-      <div class="section-head center reveal"><span class="eyebrow">What property owners say</span><h2>From <em>real owners</em></h2></div>
-      <div class="review-slider" id="owner-slider">
-        <div class="review-track" id="owner-track">
-          {ownerTestimonials.map((t) => (
-            <figure class="review-card" style="margin:0">
-              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-              <blockquote style="margin:0"><p>"{t.quote}"</p></blockquote>
-              <figcaption class="review-by"><span class="avatar-initial">{t.name[0]}</span><span><strong>{t.name}</strong><small>{t.role}</small></span></figcaption>
-            </figure>
-          ))}
-        </div>
-        <div class="slider-nav">
-          <button class="slider-arrow prev" id="owner-prev" aria-label="Previous reviews"><Icon name="arrow" /></button>
-          <div class="slider-dots" id="owner-dots">
-            {ownerTestimonials.map((_, i) => (
-              <button class={`slider-dot${i === 0 ? ' on' : ''}`} data-i={String(i)} aria-label={`Review ${i + 1}`}></button>
-            ))}          </div>
-          <button class="slider-arrow next" id="owner-next" aria-label="Next reviews"><Icon name="arrow" /></button>
-        </div>
-      </div>
-<<<<<<< HEAD
-=======
-      <div style="margin-top:2.5rem">
-        <div class="bg-dark reveal" style="border-radius:var(--r-xl);padding:clamp(1.8rem,4vw,3rem);border:1px solid var(--glass-dark-border);max-width:520px">
-          <span class="eyebrow">The portfolio today</span>
-          <div class="dark-num" style="font-size:4.5rem;color:var(--cream)">{properties.length}</div>
-          <h3 style="color:var(--cream)">Stays listed for direct booking</h3>
-          <p style="color:var(--cream)">Homes, studios, and private rooms across San Antonio, Live Oak, Universal City, and Converse.</p>
-          <a class="btn btn-gold" href={u('/stays/')} data-track="stays_view">Browse the portfolio <Icon name="arrow" /></a>
-        </div>
-      </div>
->>>>>>> 4d631ed (feat: apply Megan feedback -- neighborhoods, nav, results slider, FAQ rewrites)
-    </div>
-  </section>
-  <script>
-    (function () {
-      const track = document.getElementById('owner-track') as HTMLElement | null;
-      const dots = [...document.querySelectorAll<HTMLElement>('#owner-dots .slider-dot')];
-      if (!track) return;
-      function cardW(): number {
-        const card = track!.querySelector<HTMLElement>('.review-card');
-        if (!card) return 0;
-        const gap = parseFloat(getComputedStyle(track!).gap) || 0;
-        return card.offsetWidth + gap;
-      }
-      function curIdx(): number { return Math.round(track!.scrollLeft / (cardW() || 1)); }
-      function goTo(idx: number): void {
-        const total = track!.querySelectorAll('.review-card').length;
-        idx = Math.max(0, Math.min(idx, total - 1));
-        track!.scrollTo({ left: idx * cardW(), behavior: 'smooth' });
-        dots.forEach((d, i) => d.classList.toggle('on', i === idx));
-      }
-      document.getElementById('owner-prev')?.addEventListener('click', () => goTo(curIdx() - 1));
-      document.getElementById('owner-next')?.addEventListener('click', () => goTo(curIdx() + 1));
-      dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
-      let ticking = false;
-      track.addEventListener('scroll', () => {
-        if (!ticking) {
-          requestAnimationFrame(() => { const i = curIdx(); dots.forEach((d, j) => d.classList.toggle('on', j === i)); ticking = false; });
-          ticking = true;
-        }
-      }, { passive: true });
-      const total = () => track!.querySelectorAll('.review-card').length;
-      let timer = setInterval(() => goTo((curIdx() + 1) % total()), 4800);
-      const slider = document.getElementById('owner-slider');
-      slider?.addEventListener('mouseenter', () => clearInterval(timer));
-      slider?.addEventListener('mouseleave', () => { timer = setInterval(() => goTo((curIdx() + 1) % total()), 4800); });
-    })();
-  </script>
+  <ReviewMarquee />
 
-  <section class="section bg-olive">
-    <div class="container">
-      <div class="section-head center reveal"><span class="eyebrow">What guests say</span><h2>Reviews from <em>real stays</em></h2></div>
+  <section class=”section bg-olive”>
+    <div class=”container”>
+      <div class=”section-head center reveal”><span class=”eyebrow”>What guests say</span><h2>Reviews from <em>real stays</em></h2></div>
       <div class=”grid grid-4”>
         {guestReviews.slice(0, 4).map((r, i) => (
           <figure class={`review-card reveal reveal-d${i + 1}`} style=”margin:0”>
