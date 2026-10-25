@@ -74,11 +74,11 @@ export const services: Service[] = [
       { title: 'Improve', text: 'Pricing, presentation, and reviews keep getting refined.' },
     ],
     faqs: [
-      { q: 'Is Hosted Havens a property manager or a co-host?', a: 'Hosted Havens is a full-service short-term rental co-host. We are not a traditional long-term property manager, but we perform the operational work that makes a short-term rental succeed. We also manage mid-term rentals, meaning furnished stays under one year.' },
-      { q: 'How much does management cost with Hosted Havens?', a: 'Typically 19%–24% per booking, with a one-time $150–$500 listing setup fee. Final pricing depends on property type, condition, service requirements, and agreed scope. Minimum contract length 4–12 months.' },
-      { q: 'Can I still use my property for personal stays?', a: 'Yes. You can block dates on the calendar and use your home whenever you like.' },
-      { q: 'What is the minimum contract length?', a: 'Contracts run a minimum of 4–12 months depending on property type and service scope.' },
-      { q: 'How much can my property earn?', a: 'It depends on the home, location, amenities, and season. We do not quote a number without first looking. Start by providing details on the <a href="/property-intake/">property intake</a>. When ready, schedule your property tour. Afterwards we’ll review your home, local demand, and comparable rentals, giving you a detailed analysis report with revenue projections.' },
+      { q: 'Is Hosted Havens a property manager or a co-host?', a: 'Hosted Havens is a full-service short-term rental co-host. A co-host manages the day-to-day operation of a short or mid-term rental. A traditional property manager usually handles long-term tenancies and rent collection. We are not a traditional property manager, but we perform the operational work that makes a short-term rental succeed.' },
+      { q: 'How much does Airbnb management cost with Hosted Havens?', a: 'The typical ongoing fee is 19%–24% per booking, with a one-time listing setup fee of $150–$500. Final pricing depends on your property type, condition, service requirements, and agreed scope. See the <a href="/pricing/">pricing page</a> for details.' },
+      { q: 'Can I still use my property for personal stays?', a: 'Yes. It is your property. With access to the hosting tools, you can block dates on the calendar and use your home whenever you choose.' },
+      { q: 'What is the minimum contract length?', a: 'Contracts run a minimum of 4–12 months depending on property type and service scope. This gives both sides the time needed to build a strong, consistent operation.' },
+      { q: 'How much can my property earn?', a: 'It depends on the home, location, amenities, and season. We do not quote a number without first looking. Start by providing details on the <a href="/property-intake/">property intake</a>. When ready, schedule your <a href="https://calendly.com/hostedhavensco/property-analysis-tour" target="_blank" rel="noopener noreferrer">property tour</a>. Afterwards we\'ll review your home, local demand, and comparable rentals, giving you a detailed analysis report with revenue projections.' },
     ],
     related: ['airbnb-co-host-san-antonio', 'airbnb-revenue-management-san-antonio', 'str-property-care-san-antonio'],
   },
@@ -100,7 +100,7 @@ export const services: Service[] = [
       ],
     },
     pillars: [
-      { icon: 'key', title: 'You Stay the Owner', hook: 'Your listing, your home, your call.', text: 'You keep ownership of the property and visibility into the calendar and hosting tools.' },
+      { icon: 'key', title: 'You Stay the Owner', hook: 'Your listing, your home, your call.', text: 'You keep ownership of the property and visibility into the calendar and property performance.' },
       { icon: 'users', title: 'A Local Team', hook: 'People who can actually get to the house.', text: 'Guest services, maintenance coordination, photography, and routine inspection.' },
       { icon: 'layers', title: 'Everything Connected', hook: 'One partner instead of five vendors.', text: 'Messaging, pricing, cleaning, and maintenance work from the same plan.' },
     ],
@@ -227,7 +227,7 @@ export const services: Service[] = [
     eyebrow: 'Owners · Listing Optimization',
     h1: 'Airbnb <em>Listing Optimization</em> in San Antonio',
     lead: 'Guests decide in seconds while they scroll. Professional photos, clear positioning, and a listing that sets accurate expectations make those seconds count.',
-    heroProperty: 'the-harding-place',
+    heroProperty: 'grass-hollow',
     widget: 'listing',
     intro: {
       h2: '“Furnished” is not the same as <em>optimized</em>',
@@ -275,8 +275,8 @@ export const services: Service[] = [
     intro: {
       h2: 'The first 90 days <em>shape the listing</em>',
       paragraphs: [
-        'Early reviews, early photos, and early pricing, decisions follow a listing for a long time. Launching carefully is far easier than repairing a bad start.',
-        'Hosted Havens begins with a customized property assessment and a tailored action plan, then builds the listing, pricing and guest experience around what your home does best.',
+        'Early reviews, early photos, and early pricing decisions follow a listing for a long time. Launching carefully is far easier than repairing a bad start.',
+        'Hosted Havens begins with a customized property assessment and a tailored action plan, then builds the listing, pricing, and guest experience around what your home does best.',
       ],
     },
     pillars: [

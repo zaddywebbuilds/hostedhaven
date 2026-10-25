@@ -4,10 +4,10 @@ import InteriorHero from '../components/InteriorHero.astro';
 import Img from '../components/Img.astro';
 import Icon from '../components/Icon.astro';
 import OwnerCTA from '../components/OwnerCTA.astro';
+import ReviewMarquee from '../components/ReviewMarquee.astro';
 import { propertyImages, coverImage } from '../lib/images';
 import { u } from '../lib/url';
-import { ownerTestimonials, guestReviews, businessStats, resultsDisclaimer } from '../data/business';
-import { properties } from '../data/properties';
+import { guestReviews, businessStats, resultsDisclaimer } from '../data/business';
 
 const verifiedStats = Object.values(businessStats).filter((s) => s.verified && s.value);
 
@@ -84,35 +84,17 @@ const showcases = [
     );
   })}
 
-  <section class="section">
-    <div class="container grid grid-2" style="align-items:stretch">
-      <div class="quote-card reveal">
-        <span class="eyebrow">What property owners say</span>
-        <blockquote>{ownerTestimonials[0].quote}</blockquote>
-        <div class="quote-by"><span class="avatar-initial">{ownerTestimonials[0].name[0]}</span><div><strong>{ownerTestimonials[0].name}</strong><small>{ownerTestimonials[0].role}</small></div></div>
-      </div>
-      <!-- This is the one page that shows every owner review together; the
-           service pages each rotate to a different one. -->
-      <div class="grid" style="gap:1.2rem;grid-column:1/-1;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))">
-        {ownerTestimonials.slice(1).map((t, i) => (
-          <div class={`quote-card reveal reveal-d${(i % 3) + 1}`}>
-            <blockquote>{t.quote}</blockquote>
-            <div class="quote-by"><span class="avatar-initial">{t.name[0]}</span><div><strong>{t.name}</strong><small>{t.role}</small></div></div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <ReviewMarquee />
 
-  <section class="section bg-olive">
-    <div class="container">
-      <div class="section-head center reveal"><span class="eyebrow">What guests say</span><h2>Reviews from <em>real stays</em></h2></div>
-      <div class="grid grid-4">
-        {guestReviews.map((r, i) => (
-          <figure class={`review-card reveal reveal-d${i + 1}`} style="margin:0">
-            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-            <blockquote style="margin:0"><p>“{r.quote}”</p></blockquote>
-            <figcaption class="review-by"><span class="avatar-initial">{r.name[0]}</span><span><strong>{r.name}</strong><small>{r.from}</small></span></figcaption>
+  <section class=”section bg-olive”>
+    <div class=”container”>
+      <div class=”section-head center reveal”><span class=”eyebrow”>What guests say</span><h2>Reviews from <em>real stays</em></h2></div>
+      <div class=”grid grid-4”>
+        {guestReviews.slice(0, 4).map((r, i) => (
+          <figure class={`review-card reveal reveal-d${i + 1}`} style=”margin:0”>
+            <div class=”stars” aria-label=”5 out of 5 stars”>★★★★★</div>
+            <blockquote style=”margin:0”><p>”{r.quote}”</p></blockquote>
+            <figcaption class=”review-by”><span class=”avatar-initial”>{r.name[0]}</span><span><strong>{r.name}</strong><small>{r.from}</small></span></figcaption>
           </figure>
         ))}
       </div>
