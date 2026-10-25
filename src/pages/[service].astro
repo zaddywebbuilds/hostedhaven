@@ -25,7 +25,9 @@ if (s.slug === 'airbnb-management-san-antonio') crumbs.splice(1, 1);
 const showcase = s.slug === 'mid-term-rental-management-san-antonio'
   ? properties.filter((p) => p.extendedStay).slice(0, 3)
   : null;
-const whyCtaLabel = s.slug === 'airbnb-setup-san-antonio' ? "See if we're a good fit" : "See what we'd change about your property";
+// Megan's doc asks for this same CTA under Why It Matters on every service
+// page, so it is not branched per slug.
+const whyCtaLabel = "See if we’re a good fit";
 
 const schema = [
   {
