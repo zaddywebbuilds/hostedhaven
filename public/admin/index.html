@@ -692,7 +692,7 @@
   async function loadStats() {
     try {
       const [cmsRes, autoRes] = await Promise.all([
-        fetch('https://api.github.com/repos/zaddywebbuilds/hostedhaven/contents/src/content/blog'),
+        fetch('https://api.github.com/repos/zaddywebbuilds/hostedhaven/contents/src/content/blog?ref=main'),
         fetch('https://raw.githubusercontent.com/zaddywebbuilds/hostedhaven/main/src/data/articles-auto.json'),
       ]);
       const cmsFiles = cmsRes.ok ? await cmsRes.json() : [];
@@ -712,7 +712,7 @@
   async function loadPropertyCount() {
     const el = document.getElementById('property-count');
     try {
-      const res = await fetch('https://api.github.com/repos/zaddywebbuilds/hostedhaven/contents/src/data/properties');
+      const res = await fetch('https://api.github.com/repos/zaddywebbuilds/hostedhaven/contents/src/data/properties?ref=main');
       const files = res.ok ? await res.json() : [];
       el.textContent = Array.isArray(files) ? files.filter(f => f.name.endsWith('.json')).length : '—';
     } catch {
@@ -726,7 +726,7 @@
     try {
       const [autoRes, cmsRes] = await Promise.all([
         fetch('https://raw.githubusercontent.com/zaddywebbuilds/hostedhaven/main/src/data/articles-auto.json'),
-        fetch('https://api.github.com/repos/zaddywebbuilds/hostedhaven/contents/src/content/blog'),
+        fetch('https://api.github.com/repos/zaddywebbuilds/hostedhaven/contents/src/content/blog?ref=main'),
       ]);
 
       const autoArr = autoRes.ok ? await autoRes.json() : [];
