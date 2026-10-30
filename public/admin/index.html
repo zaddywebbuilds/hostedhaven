@@ -656,6 +656,13 @@
           </div>
         </div>
         <div class="tip">
+          <div class="tip-n">!</div>
+          <div>
+            <strong>If a deleted property is used in an article</strong>
+            <span>Some articles feature a specific stay. Deleting one of those stops the site updating until the article is changed, on purpose, so guests never hit a dead link. If your change has not appeared after 15 minutes, that is usually why. Send John the property name and he will sort it.</span>
+          </div>
+        </div>
+        <div class="tip">
           <div class="tip-n">4</div>
           <div>
             <strong>Photos for a new property</strong>
@@ -688,91 +695,55 @@
   const greet = h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening';
   document.getElementById('greeting-text').textContent = greet + ', Megan';
 
-  // Fetch post count from GitHub API (public repo)
-  async function loadStats() {
+  // One call to /admin-stats.json, built with the site so the numbers always
+  // match what is actually published.
+  const esc = s => String(s).replace(/[&<>"']/g, c => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+  ));
+
+  async function loadDashboard() {
+    const postEl = document.getElementById('post-count');
+    const propEl = document.getElementById('property-count');
+    const list = document.getElementById('posts-list');
+
     try {
-      const [cmsRes, autoRes] = await Promise.all([
-        fetch('https://api.github.com/repos/zaddywebbuilds/hostedhaven/contents/src/content/blog?ref=main'),
-        fetch('https://raw.githubusercontent.com/zaddywebbuilds/hostedhaven/main/src/data/articles-auto.json'),
-      ]);
-      const cmsFiles = cmsRes.ok ? await cmsRes.json() : [];
-      const autoArr = autoRes.ok ? await autoRes.json() : [];
-      const mdCount = Array.isArray(cmsFiles) ? cmsFiles.filter(f => f.name.endsWith('.md')).length : 0;
-      const autoCount = Array.isArray(autoArr) ? autoArr.length : 0;
+      const res = await fetch('/admin-stats.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error('stats unavailable');
+      const data = await res.json();
 
-      // Fetch all articles count (carried-over + sep + auto + cms)
-      const totalPosts = autoCount + mdCount;
-      document.getElementById('post-count').textContent = totalPosts;
-    } catch {
-      document.getElementById('post-count').textContent = '—';
-    }
-  }
+      postEl.textContent = data.posts;
+      propEl.textContent = data.properties;
 
-  // Fetch the live property count from the repo
-  async function loadPropertyCount() {
-    const el = document.getElementById('property-count');
-    try {
-      const res = await fetch('https://api.github.com/repos/zaddywebbuilds/hostedhaven/contents/src/data/properties?ref=main');
-      const files = res.ok ? await res.json() : [];
-      el.textContent = Array.isArray(files) ? files.filter(f => f.name.endsWith('.json')).length : '—';
-    } catch {
-      el.textContent = '—';
-    }
-  }
-
-  // Fetch recent CMS posts for the list
-  async function loadRecentPosts() {
-    const container = document.getElementById('posts-list');
-    try {
-      const [autoRes, cmsRes] = await Promise.all([
-        fetch('https://raw.githubusercontent.com/zaddywebbuilds/hostedhaven/main/src/data/articles-auto.json'),
-        fetch('https://api.github.com/repos/zaddywebbuilds/hostedhaven/contents/src/content/blog?ref=main'),
-      ]);
-
-      const autoArr = autoRes.ok ? await autoRes.json() : [];
-      const cmsFiles = cmsRes.ok ? await cmsRes.json() : [];
-
-      const posts = [];
-
-      // Add auto posts
-      if (Array.isArray(autoArr)) {
-        autoArr.forEach(p => posts.push({ slug: p.slug, title: p.title, cluster: p.cluster, published: p.published }));
-      }
-
-      // Add CMS markdown posts (just file names for now -- full data needs another fetch per file)
-      if (Array.isArray(cmsFiles)) {
-        cmsFiles.filter(f => f.name.endsWith('.md')).forEach(f => {
-          const slug = f.name.replace('.md', '');
-          posts.push({ slug, title: slug.replace(/-/g, ' '), cluster: 'Blog', published: '' });
-        });
-      }
-
-      // Sort by date desc, take top 6
-      posts.sort((a, b) => b.published.localeCompare(a.published));
-      const recent = posts.slice(0, 6);
-
-      if (recent.length === 0) {
-        container.innerHTML = '<div class="empty-state">No posts yet. Click "Write New Post" to get started.</div>';
+      const recent = Array.isArray(data.recent) ? data.recent : [];
+      if (!recent.length) {
+        list.innerHTML = '<div class="empty-state">No posts yet. Click "Write New Post" to get started.</div>';
         return;
       }
 
-      const fmt = d => d ? new Date(d + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '';
+      const fmt = d => d
+        ? new Date(d + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+        : '';
 
-      container.innerHTML = recent.map(p => `
-        <a class="post-row" href="/admin/cms.html#/collections/blog/entries/${p.slug}" target="_blank">
-          <span class="post-cluster">${p.cluster}</span>
-          <span class="post-title">${p.title}</span>
+      list.innerHTML = recent.map(p => {
+        // Only CMS posts open in the editor; the rest link to the live article.
+        const href = p.cms
+          ? `/admin/cms.html#/collections/blog/entries/${encodeURIComponent(p.slug)}`
+          : `/resources/${encodeURIComponent(p.slug)}/`;
+        return `
+        <a class="post-row" href="${href}" target="_blank">
+          <span class="post-cluster">${esc(p.cluster)}</span>
+          <span class="post-title">${esc(p.title)}</span>
           <span class="post-date">${fmt(p.published)}</span>
-        </a>
-      `).join('');
+        </a>`;
+      }).join('');
     } catch {
-      container.innerHTML = '<div class="empty-state">Could not load posts. <a href="/admin/cms.html#/collections/blog" style="color:var(--tan)">Open the editor</a> to see them.</div>';
+      postEl.textContent = '—';
+      propEl.textContent = '—';
+      list.innerHTML = '<div class="empty-state">Could not load the latest numbers. <a href="/admin/cms.html#/collections/blog" style="color:var(--tan)">Open the editor</a> to see your posts.</div>';
     }
   }
 
-  loadStats();
-  loadPropertyCount();
-  loadRecentPosts();
+  loadDashboard();
 </script>
 
 </body>
