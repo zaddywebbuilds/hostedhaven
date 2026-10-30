@@ -1,0 +1,40 @@
+{
+  "order": 20,
+  "slug": "grass-hollow",
+  "name": "Grass Hollow",
+  "title": "Live Oak Family Escape · Pets OK · Near Live Oak Park",
+  "featured": true,
+  "city": "Live Oak",
+  "type": "House",
+  "guests": 8,
+  "bedrooms": 4,
+  "beds": 5,
+  "baths": "2",
+  "petFriendly": true,
+  "extendedStay": true,
+  "workspace": true,
+  "familyFriendly": true,
+  "summary": "A warm, family-first home where kids can play, pets are welcome and everyone has space to spread out, a short walk from Live Oak Park.",
+  "highlights": [
+    "King primary suite with spa-style en suite",
+    "Kids’ bunk room with climbing wall",
+    "Sunny courtyard + large covered patio",
+    "Dedicated work desk",
+    "Walkable to Live Oak Park"
+  ],
+  "sleeping": [
+    "Bedroom 1: King bed",
+    "Bedroom 2: Twin-over-twin bunk",
+    "Bedroom 3: Queen bed",
+    "Bedroom 4: Full bed"
+  ],
+  "amenities": [
+    "Crib and high chair",
+    "Coffee & tea bar",
+    "Induction stove, air fryer, crockpot & griddle",
+    "Full-size washer & dryer",
+    "Gym equipment",
+    "Garage storage + 2-car driveway"
+  ],
+  "widgetId": 1931230
+}

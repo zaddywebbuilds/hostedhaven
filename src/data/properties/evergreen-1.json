@@ -1,0 +1,42 @@
+{
+  "order": 240,
+  "slug": "evergreen-1",
+  "name": "Evergreen Loft",
+  "title": "Chic 1BR Loft with Backyard Near the Pearl & Downtown",
+  "city": "San Antonio",
+  "area": "Tobin Hill",
+  "mapQuery": "Tobin Hill, San Antonio, TX",
+  "group": "Evergreen",
+  "type": "Casita",
+  "guests": 2,
+  "bedrooms": 1,
+  "beds": 1,
+  "baths": "1",
+  "petFriendly": false,
+  "extendedStay": true,
+  "workspace": true,
+  "familyFriendly": false,
+  "summary": "A loft casita in vibrant Tobin Hill, within walking distance of the Pearl, the River Walk, and the Saint Mary’s strip. City living with a quiet home to retreat to.",
+  "highlights": [
+    "Walk to the Pearl",
+    "Walk to the Saint Mary’s strip",
+    "Quiet retreat in a central neighbourhood",
+    "Dedicated workspace",
+    "Free on-site parking"
+  ],
+  "sleeping": [
+    "Queen bed"
+  ],
+  "amenities": [
+    "Full kitchen",
+    "Smart TV",
+    "Free Wi-Fi",
+    "Dedicated workspace",
+    "Central air conditioning",
+    "Free on-site parking"
+  ],
+  "distances": [
+    "Walking distance to the Pearl, the River Walk, and the Saint Mary’s strip"
+  ],
+  "widgetId": 2339351
+}

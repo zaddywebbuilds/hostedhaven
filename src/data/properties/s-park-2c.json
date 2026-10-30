@@ -1,0 +1,47 @@
+{
+  "order": 200,
+  "slug": "s-park-2c",
+  "name": "Collins Garden Studio 2C",
+  "title": "Updated Studio with Free Parking · Pet-Free",
+  "city": "San Antonio",
+  "area": "Collins Garden Park",
+  "group": "Collins Garden Studios",
+  "type": "Studio",
+  "guests": 2,
+  "bedrooms": 1,
+  "beds": 1,
+  "baths": "1",
+  "monthlyMinNights": 30,
+  "petFriendly": false,
+  "extendedStay": true,
+  "workspace": true,
+  "familyFriendly": false,
+  "nearBase": "Lackland AFB",
+  "summary": "An updated studio with a sleek design, fully equipped kitchen, and smart home tech, work remotely by day, walk to the park’s tennis, and basketball courts by evening.",
+  "highlights": [
+    "Recently updated",
+    "Smart home tech",
+    "Remote-work ready Wi-Fi",
+    "Pet-free unit",
+    "Free parking"
+  ],
+  "sleeping": [
+    "Queen bed with premium linens",
+    "Pack-n-play available on request"
+  ],
+  "amenities": [
+    "Fully equipped kitchenette with induction stove & oven",
+    "Smart TV and loveseat",
+    "Keyless entry",
+    "Personal mini-split heating & air conditioning",
+    "Free Wi-Fi",
+    "Complimentary toiletries, linens & towels",
+    "Free parking"
+  ],
+  "distances": [
+    "2 miles to Downtown San Antonio",
+    "9 miles to Lackland AFB",
+    "18 miles to Six Flags Fiesta Texas"
+  ],
+  "widgetId": 2119144
+}

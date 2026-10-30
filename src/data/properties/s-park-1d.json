@@ -1,0 +1,47 @@
+{
+  "order": 170,
+  "slug": "s-park-1d",
+  "name": "Collins Garden Studio 1D",
+  "title": "Collins Garden Studio Near Downtown",
+  "city": "San Antonio",
+  "area": "Collins Garden Park",
+  "group": "Collins Garden Studios",
+  "type": "Studio",
+  "guests": 2,
+  "bedrooms": 1,
+  "beds": 1,
+  "baths": "1",
+  "monthlyMinNights": 30,
+  "petFriendly": false,
+  "extendedStay": true,
+  "workspace": true,
+  "familyFriendly": false,
+  "nearBase": "Lackland AFB",
+  "summary": "A recently refurbished studio minutes from H-E-B, downtown attractions, military bases, and the Medical Center, with the park just across the street.",
+  "highlights": [
+    "Near downtown & the Medical Center",
+    "Smart home tech",
+    "Remote-work ready Wi-Fi",
+    "Pet-free unit",
+    "Park across the street"
+  ],
+  "sleeping": [
+    "Queen bed with premium linens",
+    "Pack-n-play available on request"
+  ],
+  "amenities": [
+    "Fully equipped kitchenette with induction stove & oven",
+    "Smart TV and loveseat",
+    "Keyless entry",
+    "Personal mini-split heating & air conditioning",
+    "Free Wi-Fi",
+    "Complimentary toiletries, linens & towels",
+    "Free parking"
+  ],
+  "distances": [
+    "2 miles to Downtown San Antonio",
+    "9 miles to Lackland AFB",
+    "18 miles to Six Flags Fiesta Texas"
+  ],
+  "widgetId": 1713308
+}

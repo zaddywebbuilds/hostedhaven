@@ -1,0 +1,43 @@
+{
+  "order": 10,
+  "slug": "the-harding-place",
+  "name": "The Harding Place",
+  "title": "Spacious Family Home · Game Room · Fenced Yard",
+  "featured": true,
+  "city": "San Antonio",
+  "area": "Near Downtown & the River Walk",
+  "mapQuery": "River Walk, San Antonio, TX",
+  "type": "House",
+  "guests": 7,
+  "bedrooms": 3,
+  "beds": 3,
+  "baths": "1.5",
+  "petFriendly": true,
+  "extendedStay": true,
+  "workspace": false,
+  "familyFriendly": true,
+  "summary": "A timeless Craftsman-style home near Downtown and the River Walk, nearly 2,000 sq. ft. of natural light, vintage character, and room for the whole family.",
+  "highlights": [
+    "Two king beds",
+    "Vintage clawfoot tub",
+    "Kids’ playroom",
+    "Pet friendly, park across the street",
+    "Stocked for extended stays"
+  ],
+  "sleeping": [
+    "Bedroom 1: King bed + pack-n-play",
+    "Bedroom 2: King bed",
+    "Bedroom 3: Queen bed",
+    "Kids’ nook: Fold-out twin chair"
+  ],
+  "amenities": [
+    "5-burner gas stove & oven",
+    "Dishwasher, crockpot & blender",
+    "Smart TVs",
+    "Blackout curtains",
+    "Ceiling fans in every bedroom",
+    "High-speed Wi-Fi",
+    "Half bath with laundry combo"
+  ],
+  "widgetId": 1979634
+}

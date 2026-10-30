@@ -9,6 +9,167 @@ media_folder: public/images/blog/uploads
 public_folder: /images/blog/uploads
 
 collections:
+  - name: properties
+    label: Properties
+    label_singular: Property
+    folder: src/data/properties
+    create: true
+    delete: true
+    extension: json
+    format: json
+    identifier_field: name
+    slug: "{{fields.slug}}"
+    summary: "{{name}} · {{city}} · sleeps {{guests}}"
+    sortable_fields: [order, name, city, guests]
+    view_groups:
+      - label: City
+        field: city
+    fields:
+      - label: Property name
+        name: name
+        widget: string
+        hint: "Shown on the Stays page, e.g. Coastal Run"
+
+      - label: Listing headline
+        name: title
+        widget: string
+        hint: "The longer line under the name, e.g. Cozy 3BR near Six Flags with BBQ"
+
+      - label: Web address
+        name: slug
+        widget: string
+        pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', 'Lowercase letters, numbers and hyphens only']
+        hint: "Becomes hostedhavens.co/stays/THIS/. Do not change it once the page is live or existing links will break."
+
+      - label: Order on the Stays page
+        name: order
+        widget: number
+        value_type: int
+        default: 999
+        hint: "Lower numbers appear first."
+
+      - label: Feature on the homepage
+        name: featured
+        widget: boolean
+        required: false
+        default: false
+
+      - label: City
+        name: city
+        widget: string
+
+      - label: Area or neighbourhood
+        name: area
+        widget: string
+        required: false
+
+      - label: Map location
+        name: mapQuery
+        widget: string
+        required: false
+        hint: "Neighbourhood only, never the street address. These are occupied rentals."
+
+      - label: Group
+        name: group
+        widget: string
+        required: false
+        hint: "Keeps related units together, e.g. Collins Garden Studios. Leave blank for a standalone home."
+
+      - label: Property type
+        name: type
+        widget: select
+        options: [House, Studio, Private room, Casita, Apartment]
+
+      - label: Sleeps
+        name: guests
+        widget: number
+        value_type: int
+
+      - label: Bedrooms
+        name: bedrooms
+        widget: number
+        value_type: int
+
+      - label: Beds
+        name: beds
+        widget: number
+        value_type: int
+
+      - label: Bathrooms
+        name: baths
+        widget: string
+        hint: "Text so half baths work, e.g. 1, 1.5, 2.5"
+
+      - label: Monthly minimum nights
+        name: monthlyMinNights
+        widget: number
+        value_type: int
+        required: false
+        hint: "Only for stays with a confirmed monthly minimum. Leave blank otherwise."
+
+      - label: Pet friendly
+        name: petFriendly
+        widget: boolean
+        default: false
+
+      - label: Suits extended stays
+        name: extendedStay
+        widget: boolean
+        default: true
+
+      - label: Has a workspace
+        name: workspace
+        widget: boolean
+        default: false
+
+      - label: Family friendly
+        name: familyFriendly
+        widget: boolean
+        default: true
+
+      - label: Near a military base
+        name: nearBase
+        widget: select
+        required: false
+        options: ["Randolph AFB", "Lackland AFB"]
+        hint: "Leave blank unless the stay is genuinely close to one."
+
+      - label: Summary
+        name: summary
+        widget: text
+        hint: "Two or three sentences shown at the top of the property page."
+
+      - label: Highlights
+        name: highlights
+        widget: list
+        hint: "Short bullets, around five works best."
+
+      - label: Sleeping arrangements
+        name: sleeping
+        widget: list
+        hint: "One line per bedroom, e.g. Bedroom 1: King bed"
+
+      - label: Amenities
+        name: amenities
+        widget: list
+
+      - label: Distances
+        name: distances
+        widget: list
+        required: false
+        hint: "Optional, e.g. 5 miles to Downtown"
+
+      - label: Notes
+        name: notes
+        widget: list
+        required: false
+
+      - label: Hospitable listing ID
+        name: widgetId
+        widget: number
+        value_type: int
+        hint: "The listing ID from Hospitable. The booking calendar on the page uses this, so it must be right."
+
   - name: blog
     label: Blog Posts
     label_singular: Blog Post

@@ -1,0 +1,43 @@
+{
+  "order": 250,
+  "slug": "evergreen-2",
+  "name": "Evergreen Apartment",
+  "title": "Tobin Hill 1BR Apartment · Walk to the Pearl",
+  "city": "San Antonio",
+  "area": "Tobin Hill",
+  "mapQuery": "Tobin Hill, San Antonio, TX",
+  "group": "Evergreen",
+  "type": "Apartment",
+  "guests": 3,
+  "bedrooms": 1,
+  "beds": 2,
+  "baths": "1",
+  "petFriendly": false,
+  "extendedStay": true,
+  "workspace": true,
+  "familyFriendly": false,
+  "summary": "A one-bedroom apartment in vibrant Tobin Hill, within walking distance of the Pearl, the River Walk, and the Saint Mary’s strip, with room for a third guest.",
+  "highlights": [
+    "Walk to the Pearl",
+    "Sleeps up to 3",
+    "Central Tobin Hill location",
+    "Dedicated workspace",
+    "Free on-site parking"
+  ],
+  "sleeping": [
+    "Bedroom: Queen bed",
+    "Living area: Twin bed"
+  ],
+  "amenities": [
+    "Full kitchen",
+    "Smart TV",
+    "Free Wi-Fi",
+    "Dedicated workspace",
+    "Central air conditioning",
+    "Free on-site parking"
+  ],
+  "distances": [
+    "Walking distance to the Pearl, the River Walk, and the Saint Mary’s strip"
+  ],
+  "widgetId": 2339352
+}

@@ -1,0 +1,39 @@
+{
+  "order": 60,
+  "slug": "halliday-fig-trees",
+  "name": "Halliday",
+  "title": "Urban 2BR Escape Near Downtown SA with Fire Pit & Yard",
+  "city": "San Antonio",
+  "area": "Riverside",
+  "type": "House",
+  "guests": 8,
+  "bedrooms": 2,
+  "beds": 4,
+  "baths": "2",
+  "petFriendly": true,
+  "extendedStay": true,
+  "workspace": false,
+  "familyFriendly": true,
+  "summary": "Renovated farmhouse charm minutes from downtown, a gathering-sized dining room, a fenced yard, and a fire pit under string lights.",
+  "highlights": [
+    "Fenced yard with gate code",
+    "Recently renovated in soothing earth tones",
+    "Dining room for the whole group",
+    "Fire pit & backyard string lights",
+    "Pet friendly"
+  ],
+  "sleeping": [
+    "Bedroom 1: Two queen beds",
+    "Bedroom 2: Full-over-full bunk beds",
+    "Pack-n-play available"
+  ],
+  "amenities": [
+    "4-burner gas stove",
+    "In-unit washer & dryer",
+    "Covered front porch",
+    "Grilling area with seating",
+    "Free high-speed Wi-Fi",
+    "Central air conditioning"
+  ],
+  "widgetId": 2247418
+}

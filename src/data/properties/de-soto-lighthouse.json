@@ -1,0 +1,36 @@
+{
+  "order": 30,
+  "slug": "de-soto-lighthouse",
+  "name": "De Soto",
+  "title": "Spacious Smart Home with Office & Covered Patio",
+  "featured": true,
+  "city": "Universal City",
+  "type": "House",
+  "guests": 7,
+  "bedrooms": 4,
+  "beds": 4,
+  "baths": "2",
+  "petFriendly": false,
+  "extendedStay": true,
+  "workspace": true,
+  "familyFriendly": true,
+  "summary": "A freshly renovated, light-filled minimalist home designed for peace and connection, with a dedicated office, Google smart home controls, and a covered patio.",
+  "highlights": [
+    "Dedicated large office",
+    "Google smart home lighting",
+    "Two living rooms",
+    "Vaulted ceiling with fireplace",
+    "Smart TVs in every bedroom"
+  ],
+  "sleeping": [
+    "Four bedrooms in a separate sleeping wing",
+    "Sleeps up to 7 guests"
+  ],
+  "amenities": [
+    "Chef’s kitchen",
+    "High-speed internet",
+    "Covered back patio",
+    "Garage storage"
+  ],
+  "widgetId": 2031800
+}

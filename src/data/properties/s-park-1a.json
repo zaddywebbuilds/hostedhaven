@@ -1,0 +1,47 @@
+{
+  "order": 140,
+  "slug": "s-park-1a",
+  "name": "Collins Garden Studio 1A",
+  "title": "Facing Collins Garden Park · 1st Floor Access",
+  "city": "San Antonio",
+  "area": "Collins Garden Park",
+  "group": "Collins Garden Studios",
+  "type": "Studio",
+  "guests": 2,
+  "bedrooms": 1,
+  "beds": 1,
+  "baths": "1",
+  "monthlyMinNights": 30,
+  "petFriendly": true,
+  "extendedStay": true,
+  "workspace": true,
+  "familyFriendly": false,
+  "nearBase": "Lackland AFB",
+  "summary": "A renovated first-floor studio facing Collins Garden Park, smart home tech, and fast Wi-Fi by day, tennis, basketball, and grilling across the street by evening.",
+  "highlights": [
+    "First-floor access",
+    "Faces Collins Garden Park",
+    "Pets welcome",
+    "Remote-work ready Wi-Fi",
+    "Keyless entry"
+  ],
+  "sleeping": [
+    "Queen bed with premium linens",
+    "Pack-n-play available on request"
+  ],
+  "amenities": [
+    "Fully equipped kitchenette with induction stove & oven",
+    "Smart TV and loveseat",
+    "Keyless entry",
+    "Personal mini-split heating & air conditioning",
+    "Free Wi-Fi",
+    "Complimentary toiletries, linens & towels",
+    "Free parking"
+  ],
+  "distances": [
+    "2 miles to Downtown San Antonio",
+    "9 miles to Lackland AFB",
+    "18 miles to Six Flags Fiesta Texas"
+  ],
+  "widgetId": 1713534
+}

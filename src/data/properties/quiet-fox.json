@@ -1,0 +1,42 @@
+{
+  "order": 220,
+  "slug": "quiet-fox",
+  "name": "Quiet Fox",
+  "title": "Single-Level 4BR with Gamer Room · Pets OK · Fire Pit",
+  "city": "San Antonio",
+  "area": "Far West Side",
+  "mapQuery": "Far West Side, San Antonio, TX",
+  "type": "House",
+  "guests": 8,
+  "bedrooms": 4,
+  "beds": 4,
+  "baths": "2",
+  "petFriendly": true,
+  "extendedStay": true,
+  "workspace": true,
+  "familyFriendly": true,
+  "summary": "An open-concept, single-level home built around an 81-inch smart TV and a kitchen island, with four bedrooms including a dedicated gamer room, and a fire pit out back. Families and their pets are both welcome.",
+  "highlights": [
+    "81-inch smart TV",
+    "Dedicated gamer room",
+    "Large primary suite",
+    "Patio with fire pit",
+    "Pets welcome"
+  ],
+  "sleeping": [
+    "Bedroom 1: King bed",
+    "Bedroom 2: Queen bed",
+    "Bedroom 3: Queen bed",
+    "Bedroom 4: Full bed"
+  ],
+  "amenities": [
+    "Kitchen island with full appliances",
+    "Dishwasher",
+    "In-unit washer & dryer",
+    "EV charger",
+    "Dedicated workspace",
+    "Central air conditioning",
+    "Free on-site parking"
+  ],
+  "widgetId": 2355845
+}

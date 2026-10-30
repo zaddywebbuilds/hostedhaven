@@ -1,0 +1,47 @@
+{
+  "order": 160,
+  "slug": "s-park-1c",
+  "name": "Collins Garden Studio 1C",
+  "title": "First-Floor Private Studio Minutes from Lackland",
+  "city": "San Antonio",
+  "area": "Collins Garden Park",
+  "group": "Collins Garden Studios",
+  "type": "Studio",
+  "guests": 2,
+  "bedrooms": 1,
+  "beds": 1,
+  "baths": "1",
+  "monthlyMinNights": 30,
+  "petFriendly": false,
+  "extendedStay": true,
+  "workspace": true,
+  "familyFriendly": false,
+  "nearBase": "Lackland AFB",
+  "summary": "A cozy first-floor studio for solo travelers or couples, with a sleek kitchen, a comfortable sleeping area, and fast Wi-Fi for remote work.",
+  "highlights": [
+    "First-floor private studio",
+    "Minutes from Lackland AFB",
+    "Remote-work ready Wi-Fi",
+    "Pet-free unit",
+    "Keyless entry"
+  ],
+  "sleeping": [
+    "Queen bed with premium linens",
+    "Pack-n-play available on request"
+  ],
+  "amenities": [
+    "Fully equipped kitchenette with induction stove & oven",
+    "Smart TV and loveseat",
+    "Keyless entry",
+    "Personal mini-split heating & air conditioning",
+    "Free Wi-Fi",
+    "Complimentary toiletries, linens & towels",
+    "Free parking"
+  ],
+  "distances": [
+    "2 miles to Downtown San Antonio",
+    "9 miles to Lackland AFB",
+    "18 miles to Six Flags Fiesta Texas"
+  ],
+  "widgetId": 1713310
+}

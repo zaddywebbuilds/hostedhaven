@@ -1,0 +1,45 @@
+{
+  "order": 280,
+  "slug": "santa-anna-casita",
+  "name": "Santa Anna Casita",
+  "title": "Private Casita with Patio · Near Downtown & Bus Line",
+  "city": "San Antonio",
+  "area": "Los Angeles Heights",
+  "mapQuery": "Los Angeles Heights, San Antonio, TX",
+  "group": "Santa Anna",
+  "type": "Casita",
+  "guests": 4,
+  "bedrooms": 1,
+  "beds": 2,
+  "baths": "1",
+  "monthlyMinNights": 30,
+  "petFriendly": false,
+  "extendedStay": true,
+  "workspace": true,
+  "familyFriendly": false,
+  "summary": "A private renovated casita with its own patio, close to downtown and on the bus line, with room for up to four guests.",
+  "highlights": [
+    "Private entrance and patio",
+    "Sleeps up to 4",
+    "On the bus line",
+    "Dedicated workspace",
+    "Free on-site parking"
+  ],
+  "sleeping": [
+    "Bedroom: Queen bed",
+    "Living area: additional bed"
+  ],
+  "amenities": [
+    "Full kitchen",
+    "Smart TV",
+    "Free Wi-Fi",
+    "Dedicated workspace",
+    "Private patio",
+    "Free on-site parking"
+  ],
+  "distances": [
+    "7 minutes to Downtown San Antonio",
+    "On the bus line"
+  ],
+  "widgetId": 2360275
+}

@@ -1,0 +1,44 @@
+{
+  "order": 130,
+  "slug": "ccp-5",
+  "name": "Crashpad · Room 5",
+  "title": "Natural Light Room Rental near Randolph AFB",
+  "city": "Converse",
+  "group": "The Crashpad",
+  "type": "Private room",
+  "guests": 2,
+  "bedrooms": 1,
+  "beds": 1,
+  "baths": "1.5",
+  "petFriendly": false,
+  "extendedStay": true,
+  "workspace": true,
+  "familyFriendly": false,
+  "nearBase": "Randolph AFB",
+  "summary": "A bright private room with natural light, a workspace, and a private vanity, four miles from Randolph AFB.",
+  "highlights": [
+    "Queen bed & TV in room",
+    "Natural light",
+    "Private workspace",
+    "Private vanity & closet",
+    "Shower area shared with one other room"
+  ],
+  "sleeping": [
+    "Queen bed"
+  ],
+  "amenities": [
+    "Mid-stay housekeeping",
+    "Two shared living rooms",
+    "Ping pong, shuffleboard, pool & poker tables",
+    "Coffee bar",
+    "1,000 Mbps internet",
+    "In-unit washer & dryer",
+    "Fully equipped shared kitchen",
+    "Smart locks on exterior and bedroom doors",
+    "Free parking"
+  ],
+  "distances": [
+    "About 4 minutes from Randolph AFB"
+  ],
+  "widgetId": 1525720
+}

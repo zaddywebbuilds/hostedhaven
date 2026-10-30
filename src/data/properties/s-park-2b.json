@@ -1,0 +1,47 @@
+{
+  "order": 190,
+  "slug": "s-park-2b",
+  "name": "Collins Garden Studio 2B",
+  "title": "Facing Collins Garden Park · 2nd Floor Access",
+  "city": "San Antonio",
+  "area": "Collins Garden Park",
+  "group": "Collins Garden Studios",
+  "type": "Studio",
+  "guests": 2,
+  "bedrooms": 1,
+  "beds": 1,
+  "baths": "1",
+  "monthlyMinNights": 30,
+  "petFriendly": true,
+  "extendedStay": true,
+  "workspace": false,
+  "familyFriendly": false,
+  "nearBase": "Lackland AFB",
+  "summary": "A second-floor studio with modern amenities and stylish décor, steps from a large two-story H-E-B, restaurants, and downtown.",
+  "highlights": [
+    "Second-floor access",
+    "Faces Collins Garden Park",
+    "Pets welcome",
+    "Walk to H-E-B",
+    "Keyless entry"
+  ],
+  "sleeping": [
+    "Queen bed with premium linens",
+    "Pack-n-play available on request"
+  ],
+  "amenities": [
+    "Fully equipped kitchenette with induction stove & oven",
+    "Smart TV and loveseat",
+    "Keyless entry",
+    "Personal mini-split heating & air conditioning",
+    "Free Wi-Fi",
+    "Complimentary toiletries, linens & towels",
+    "Free parking"
+  ],
+  "distances": [
+    "2 miles to Downtown San Antonio",
+    "9 miles to Lackland AFB",
+    "18 miles to Six Flags Fiesta Texas"
+  ],
+  "widgetId": 1713306
+}

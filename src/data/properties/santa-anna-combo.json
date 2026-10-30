@@ -1,0 +1,47 @@
+{
+  "order": 260,
+  "slug": "santa-anna-combo",
+  "name": "Santa Anna",
+  "title": "Main House & Casita Together · 4BR · 7 Minutes to Downtown",
+  "featured": true,
+  "city": "San Antonio",
+  "area": "Los Angeles Heights",
+  "mapQuery": "Los Angeles Heights, San Antonio, TX",
+  "group": "Santa Anna",
+  "type": "House",
+  "guests": 11,
+  "bedrooms": 4,
+  "beds": 5,
+  "baths": "3",
+  "monthlyMinNights": 30,
+  "petFriendly": false,
+  "extendedStay": true,
+  "workspace": true,
+  "familyFriendly": true,
+  "summary": "The main house and the private casita booked together, giving a four-bedroom with room for eleven, seven minutes from downtown San Antonio.",
+  "highlights": [
+    "Main house and casita together",
+    "Four bedrooms, three baths",
+    "Sleeps up to 11",
+    "Separate casita for privacy",
+    "7 minutes to downtown"
+  ],
+  "sleeping": [
+    "Main house: three queen bedrooms",
+    "Casita: queen bedroom",
+    "Sleeps up to 11 guests"
+  ],
+  "amenities": [
+    "Two full kitchens",
+    "In-unit washer & dryer",
+    "Dedicated workspace",
+    "Private patio",
+    "Central air conditioning",
+    "Free on-site parking"
+  ],
+  "distances": [
+    "7 minutes to Downtown San Antonio",
+    "Minutes from the Pearl and the Medical Center"
+  ],
+  "widgetId": 2360273
+}

@@ -1,0 +1,46 @@
+{
+  "order": 270,
+  "slug": "santa-anna-main",
+  "name": "Santa Anna Main House",
+  "title": "Beautifully Renovated 3BR · 7 Minutes to Downtown",
+  "city": "San Antonio",
+  "area": "Los Angeles Heights",
+  "mapQuery": "Los Angeles Heights, San Antonio, TX",
+  "group": "Santa Anna",
+  "type": "House",
+  "guests": 7,
+  "bedrooms": 3,
+  "beds": 3,
+  "baths": "2",
+  "monthlyMinNights": 30,
+  "petFriendly": false,
+  "extendedStay": true,
+  "workspace": true,
+  "familyFriendly": true,
+  "summary": "A beautifully renovated three-bedroom home on a large corner lot in Los Angeles Heights, an established family neighbourhood seven minutes from downtown.",
+  "highlights": [
+    "Three queen bedrooms",
+    "Large corner lot",
+    "Dedicated workspace",
+    "7 minutes to downtown",
+    "Free on-site parking"
+  ],
+  "sleeping": [
+    "Bedroom 1: Queen bed",
+    "Bedroom 2: Queen bed",
+    "Bedroom 3: Queen bed"
+  ],
+  "amenities": [
+    "Full kitchen with dishwasher",
+    "In-unit washer & dryer",
+    "Smart TV",
+    "Dedicated workspace",
+    "Central air conditioning",
+    "Free on-site parking"
+  ],
+  "distances": [
+    "7 minutes to Downtown San Antonio",
+    "Minutes from the Pearl, the Medical Center, and North Star Mall"
+  ],
+  "widgetId": 2360274
+}

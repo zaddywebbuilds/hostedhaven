@@ -1,0 +1,34 @@
+{
+  "order": 80,
+  "slug": "discovery-mill-crash-pad",
+  "name": "Discovery Mill",
+  "title": "Modern Family Retreat · Pets OK · Near Randolph AFB",
+  "city": "Converse",
+  "type": "House",
+  "guests": 10,
+  "bedrooms": 5,
+  "beds": 5,
+  "baths": "3.5",
+  "petFriendly": true,
+  "extendedStay": true,
+  "workspace": false,
+  "familyFriendly": true,
+  "nearBase": "Randolph AFB",
+  "summary": "A five-bedroom retreat near Randolph AFB with room for large families and groups, and your pets.",
+  "highlights": [
+    "Five bedrooms, three and a half baths",
+    "Sleeps up to 10",
+    "Pet friendly",
+    "Game room with shuffleboard",
+    "Near Randolph AFB"
+  ],
+  "sleeping": [
+    "Five bedrooms",
+    "Sleeps up to 10 guests"
+  ],
+  "amenities": [
+    "Full kitchen",
+    "Free parking"
+  ],
+  "widgetId": 1485370
+}

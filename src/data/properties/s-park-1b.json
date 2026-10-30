@@ -1,0 +1,47 @@
+{
+  "order": 150,
+  "slug": "s-park-1b",
+  "name": "Collins Garden Studio 1B",
+  "title": "Collins Garden First-Floor Room · Pet Friendly",
+  "city": "San Antonio",
+  "area": "Collins Garden Park",
+  "group": "Collins Garden Studios",
+  "type": "Studio",
+  "guests": 2,
+  "bedrooms": 1,
+  "beds": 1,
+  "baths": "1",
+  "monthlyMinNights": 30,
+  "petFriendly": true,
+  "extendedStay": true,
+  "workspace": false,
+  "familyFriendly": false,
+  "nearBase": "Lackland AFB",
+  "summary": "A newly remodeled first-floor studio near downtown, minutes from H-E-B, the freeways, the River Walk, the Pearl, and Fort Sam Houston.",
+  "highlights": [
+    "First-floor room",
+    "Pets welcome",
+    "Close to highways & downtown",
+    "Equipped kitchenette",
+    "Keyless entry"
+  ],
+  "sleeping": [
+    "Queen bed with premium linens",
+    "Pack-n-play available on request"
+  ],
+  "amenities": [
+    "Fully equipped kitchenette with induction stove & oven",
+    "Smart TV and loveseat",
+    "Keyless entry",
+    "Personal mini-split heating & air conditioning",
+    "Free Wi-Fi",
+    "Complimentary toiletries, linens & towels",
+    "Free parking"
+  ],
+  "distances": [
+    "2 miles to Downtown San Antonio",
+    "9 miles to Lackland AFB",
+    "18 miles to Six Flags Fiesta Texas"
+  ],
+  "widgetId": 1713504
+}

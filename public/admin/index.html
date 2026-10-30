@@ -458,7 +458,34 @@
     </a>
 
     <div class="s-divider"></div>
+    <div class="s-section">Properties</div>
+
+    <a class="s-item" href="/admin/cms.html#/collections/properties">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/>
+        <path d="M10 21v-5h4v5"/>
+      </svg>
+      All Properties
+    </a>
+
+    <a class="s-item" href="/admin/cms.html#/collections/properties/new">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v6"/>
+        <line x1="16" y1="18" x2="22" y2="18"/><line x1="19" y1="15" x2="19" y2="21"/>
+      </svg>
+      Add a Property
+    </a>
+
+    <div class="s-divider"></div>
     <div class="s-section">Site</div>
+
+    <a class="s-item" href="/stays/" target="_blank">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/>
+        <path d="M10 21v-5h4v5"/>
+      </svg>
+      View Stays
+    </a>
 
     <a class="s-item" href="/resources/" target="_blank">
       <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -524,9 +551,11 @@
       <div class="stat-sub">hostedhavens.co</div>
     </div>
     <div class="stat">
-      <div class="stat-label">Scheduled Posts</div>
-      <div class="stat-val">3x</div>
-      <div class="stat-sub">per week (Mon, Wed, Fri)</div>
+      <div class="stat-label">Properties</div>
+      <div class="stat-val" id="property-count" style="font-size:1.4rem;padding-top:.15rem">
+        <span style="display:inline-block;width:32px;height:4px;background:#e8e0cc;border-radius:2px;vertical-align:middle"></span>
+      </div>
+      <div class="stat-sub">listed under Stays</div>
     </div>
     <div class="stat">
       <div class="stat-label">Avg. Guest Rating</div>
@@ -547,8 +576,26 @@
           <h2>Quick Actions</h2>
         </div>
         <div class="action-tiles">
-          <a class="tile" href="/admin/cms.html#/collections/blog/new" target="_blank">
+          <a class="tile" href="/admin/cms.html#/collections/properties" target="_blank">
             <div class="tile-icon tan">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M10 21v-5h4v5"/></svg>
+            </div>
+            <div>
+              <h3>Edit or Remove a Property</h3>
+              <p>Update the details on a stay, or take one off the site.</p>
+            </div>
+          </a>
+          <a class="tile" href="/admin/cms.html#/collections/properties/new" target="_blank">
+            <div class="tile-icon olive">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v6"/><line x1="16" y1="18" x2="22" y2="18"/><line x1="19" y1="15" x2="19" y2="21"/></svg>
+            </div>
+            <div>
+              <h3>Add a Property</h3>
+              <p>List a new stay. Photos are added separately, see step 4.</p>
+            </div>
+          </a>
+          <a class="tile" href="/admin/cms.html#/collections/blog/new" target="_blank">
+            <div class="tile-icon blue">
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
             </div>
             <div>
@@ -557,30 +604,12 @@
             </div>
           </a>
           <a class="tile" href="/admin/cms.html#/collections/blog" target="_blank">
-            <div class="tile-icon olive">
+            <div class="tile-icon rust">
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
             </div>
             <div>
               <h3>Edit Existing Posts</h3>
               <p>Browse and update your published blog articles.</p>
-            </div>
-          </a>
-          <a class="tile" href="/resources/" target="_blank">
-            <div class="tile-icon blue">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
-            </div>
-            <div>
-              <h3>View Live Blog</h3>
-              <p>See your blog page as visitors see it right now.</p>
-            </div>
-          </a>
-          <a class="tile" href="/" target="_blank">
-            <div class="tile-icon rust">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </div>
-            <div>
-              <h3>View Live Site</h3>
-              <p>Open hostedhavens.co and check the full site.</p>
             </div>
           </a>
         </div>
@@ -608,36 +637,43 @@
         <div class="tip">
           <div class="tip-n">1</div>
           <div>
-            <strong>Click "New Post" to write</strong>
-            <span>The editor opens. Fill in the title, body, publish date, and SEO fields. Hit Save when done.</span>
+            <strong>Everything saves the same way</strong>
+            <span>Open a property or a post, make your changes, and press Save. Nothing goes live until you save.</span>
           </div>
         </div>
         <div class="tip">
           <div class="tip-n">2</div>
           <div>
-            <strong>Site rebuilds automatically</strong>
-            <span>When you save, a deploy kicks off. Your post is live on the site in about 7 minutes.</span>
+            <strong>The site rebuilds itself</strong>
+            <span>Each save starts a deploy. Your change is live on hostedhavens.co in about 7 minutes. There is nothing else to press.</span>
           </div>
         </div>
         <div class="tip">
           <div class="tip-n">3</div>
           <div>
-            <strong>Posts auto-publish 3x a week</strong>
-            <span>Every Monday, Wednesday, and Friday at 9am, a new SEO article goes live on the blog. You can edit or delete any of them from "Edit Posts."</span>
+            <strong>Removing a property</strong>
+            <span>Open it under Properties and choose Delete. It disappears from the Stays page and its own page stops existing. Deleting it here does not cancel the listing in Hospitable, so turn it off there too.</span>
           </div>
         </div>
         <div class="tip">
           <div class="tip-n">4</div>
           <div>
-            <strong>Adding a hero image</strong>
-            <span>In the editor, use the "Hero Image" field to upload a photo. Best size is 1200x630px or wider for best appearance.</span>
+            <strong>Photos for a new property</strong>
+            <span>Property photos are prepared in bulk and are not uploaded here yet. Add the property, then send John the photos and he will load them in. Everything else on the page works straight away.</span>
           </div>
         </div>
         <div class="tip">
           <div class="tip-n">5</div>
           <div>
-            <strong>The Cluster field</strong>
-            <span>Pick the topic that fits your article: Management, Revenue, San Antonio, Property Setup, or Our Story. It appears as a tag on the blog listing.</span>
+            <strong>The Hospitable listing ID</strong>
+            <span>This is what connects the booking calendar to the right listing. Copy it from the listing in Hospitable. If it is wrong, guests will book the wrong stay.</span>
+          </div>
+        </div>
+        <div class="tip">
+          <div class="tip-n">6</div>
+          <div>
+            <strong>Posts publish on their own</strong>
+            <span>Every Monday, Wednesday, and Friday at 9am a new article goes live. Edit or delete any of them under Edit Existing Posts.</span>
           </div>
         </div>
       </div>
@@ -669,6 +705,18 @@
       document.getElementById('post-count').textContent = totalPosts;
     } catch {
       document.getElementById('post-count').textContent = '—';
+    }
+  }
+
+  // Fetch the live property count from the repo
+  async function loadPropertyCount() {
+    const el = document.getElementById('property-count');
+    try {
+      const res = await fetch('https://api.github.com/repos/zaddywebbuilds/hostedhaven/contents/src/data/properties');
+      const files = res.ok ? await res.json() : [];
+      el.textContent = Array.isArray(files) ? files.filter(f => f.name.endsWith('.json')).length : '—';
+    } catch {
+      el.textContent = '—';
     }
   }
 
@@ -723,6 +771,7 @@
   }
 
   loadStats();
+  loadPropertyCount();
   loadRecentPosts();
 </script>
 

@@ -1,0 +1,44 @@
+{
+  "order": 120,
+  "slug": "ccp-4",
+  "name": "Crashpad · Room 4",
+  "title": "The Crashpad Room #4 · 2nd Floor",
+  "city": "Converse",
+  "group": "The Crashpad",
+  "type": "Private room",
+  "guests": 2,
+  "bedrooms": 1,
+  "beds": 1,
+  "baths": "1.5",
+  "petFriendly": false,
+  "extendedStay": true,
+  "workspace": true,
+  "familyFriendly": false,
+  "nearBase": "Randolph AFB",
+  "summary": "A second-floor private room with a walk-in closet and workspace, plus shared access to two living rooms, a coffee bar, and a game room.",
+  "highlights": [
+    "Queen bed & TV in room",
+    "Walk-in closet",
+    "Private workspace",
+    "Pin-code door lock",
+    "Hall bath shared with one other room"
+  ],
+  "sleeping": [
+    "Queen bed"
+  ],
+  "amenities": [
+    "Mid-stay housekeeping",
+    "Two shared living rooms",
+    "Ping pong, shuffleboard, pool & poker tables",
+    "Coffee bar",
+    "1,000 Mbps internet",
+    "In-unit washer & dryer",
+    "Fully equipped shared kitchen",
+    "Smart locks on exterior and bedroom doors",
+    "Free parking"
+  ],
+  "distances": [
+    "About 4 minutes from Randolph AFB"
+  ],
+  "widgetId": 1525812
+}

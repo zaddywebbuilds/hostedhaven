@@ -1,0 +1,45 @@
+{
+  "order": 40,
+  "slug": "la-maison-blount",
+  "name": "La Maison Blount",
+  "title": "Beautifully Renovated Home Near I-10",
+  "featured": true,
+  "city": "San Antonio",
+  "type": "House",
+  "guests": 7,
+  "bedrooms": 2,
+  "beds": 5,
+  "baths": "1.5",
+  "petFriendly": true,
+  "extendedStay": true,
+  "workspace": false,
+  "familyFriendly": true,
+  "summary": "A beautifully remodeled family home five miles from the heart of the city, with original hardwood floors, a coffee bar and a large private yard for pets and play.",
+  "highlights": [
+    "Large private fenced yard",
+    "Coffee bar & granite countertops",
+    "Original hardwood floors",
+    "Charcoal grill, dart board & chimenea",
+    "Pets welcome (up to 3)"
+  ],
+  "sleeping": [
+    "Bedroom 1: Queen bed",
+    "Bedroom 2: Twin/queen bunk bed",
+    "Lounge: Twin daybed with trundle",
+    "Pack-n-play available"
+  ],
+  "amenities": [
+    "5-burner gas stove & oven",
+    "Ice maker & water filter",
+    "Reclining sectional & Smart TVs",
+    "In-unit washer & dryer",
+    "Board & card games",
+    "Two free driveways"
+  ],
+  "distances": [
+    "5 miles to Downtown",
+    "6 miles to the Medical Center",
+    "12 miles to Six Flags Fiesta Texas"
+  ],
+  "widgetId": 1708018
+}

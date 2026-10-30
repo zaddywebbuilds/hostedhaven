@@ -1,0 +1,44 @@
+{
+  "order": 90,
+  "slug": "ccp-1",
+  "name": "Crashpad · Room 1",
+  "title": "Master Suite Room Rental with En Suite & Fridge",
+  "city": "Converse",
+  "group": "The Crashpad",
+  "type": "Private room",
+  "guests": 2,
+  "bedrooms": 1,
+  "beds": 1,
+  "baths": "1.5",
+  "petFriendly": false,
+  "extendedStay": true,
+  "workspace": true,
+  "familyFriendly": false,
+  "nearBase": "Randolph AFB",
+  "summary": "The Crashpad’s primary suite, a private room with its own en suite and fridge, minutes from Randolph AFB. Built for PCS moves, traveling professionals, and remote workers.",
+  "highlights": [
+    "Private en suite bathroom",
+    "In-room fridge",
+    "Private workspace",
+    "Pin-code door lock",
+    "Mid-stay housekeeping"
+  ],
+  "sleeping": [
+    "Queen bed"
+  ],
+  "amenities": [
+    "Mid-stay housekeeping",
+    "Two shared living rooms",
+    "Ping pong, shuffleboard, pool & poker tables",
+    "Coffee bar",
+    "1,000 Mbps internet",
+    "In-unit washer & dryer",
+    "Fully equipped shared kitchen",
+    "Smart locks on exterior and bedroom doors",
+    "Free parking"
+  ],
+  "distances": [
+    "About 4 minutes from Randolph AFB"
+  ],
+  "widgetId": 1522582
+}
