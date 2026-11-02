@@ -34,6 +34,7 @@ export type Property = {
   bookingUrl: string;
   widgetId: number;
   featured?: boolean;
+  photos?: string[];
 };
 
 // Every Hospitable booking widget sits under this one base, so the booking URL is
@@ -53,7 +54,7 @@ function normalise(p: PropertyFile): PropertyFile {
   for (const k of ['area', 'mapQuery', 'group', 'nearBase']) {
     if (out[k] === '' || out[k] === null) delete out[k];
   }
-  for (const k of ['distances', 'notes']) {
+  for (const k of ['distances', 'notes', 'photos']) {
     if (!(out[k] as unknown[] | undefined)?.length) delete out[k];
   }
   if (!out.monthlyMinNights) delete out.monthlyMinNights;

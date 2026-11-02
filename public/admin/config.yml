@@ -164,6 +164,18 @@ collections:
         widget: list
         required: false
 
+      - label: Property photos
+        name: photos
+        widget: list
+        required: false
+        hint: "Upload photos here to replace the default photo set. Leave empty to use the existing processed photos."
+        field:
+          label: Photo
+          name: photo
+          widget: image
+          media_folder: /public/images/properties/uploads
+          public_folder: /images/properties/uploads
+
       - label: Hospitable listing ID
         name: widgetId
         widget: number

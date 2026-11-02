@@ -4,7 +4,7 @@ import Img from '../../components/Img.astro';
 import Icon from '../../components/Icon.astro';
 import PropertyCard from '../../components/PropertyCard.astro';
 import { properties, type Property } from '../../data/properties';
-import { propertyImages } from '../../lib/images';
+import { resolveImages, imgUrl, imgThumbUrl } from '../../lib/images';
 import { u, SITE } from '../../lib/url';
 import hospitable from '../../data/hospitable.json';
 import { business } from '../../data/business';
@@ -14,7 +14,7 @@ export function getStaticPaths() {
 }
 interface Props { p: Property }
 const { p } = Astro.props;
-const imgs = propertyImages(p.slug);
+const imgs = resolveImages(p.slug, p.photos);
 const path = `/stays/${p.slug}/`;
 const loc = p.area ? `${p.area}, ${p.city}, TX` : `${p.city}, TX`;
 const similar = properties
@@ -76,7 +76,7 @@ const schema = [{
   name: p.name,
   description: p.summary,
   url: `${SITE}${path}`,
-  image: imgs.slice(0, 6).map((i) => `${SITE}/images/${i.base}-1280.webp`),
+  image: imgs.slice(0, 6).map((i) => { const iu = imgUrl(i); return iu.startsWith('http') ? iu : `${SITE}${iu}`; }),
   containsPlace: {
     '@type': 'Accommodation',
     additionalType: p.type === 'House' ? 'EntireHouse' : p.type === 'Studio' ? 'EntireApartment' : 'PrivateRoom',
@@ -100,7 +100,7 @@ const schema = [{
 
       <div class="gallery" data-gallery>
         {imgs.slice(0, 5).map((im, i) => (
-          <a href={u(`/images/${im.base}-1280.webp`)} data-index={i} aria-label={`Open photo ${i + 1} of ${imgs.length}`}>
+          <a href={u(imgUrl(im))} data-index={i} aria-label={`Open photo ${i + 1} of ${imgs.length}`}>
             <Img src={im} alt={i === 0 ? `${p.name} in ${p.city}, TX` : `${p.name} in ${p.city}, photo ${i + 1}`} eager={i === 0} sizes={i === 0 ? '(max-width: 760px) 100vw, 50vw' : '(max-width: 760px) 50vw, 25vw'} />
             {i === 4 && imgs.length > 5 && <span class="btn btn-glass btn-sm more">+{imgs.length - 5} photos</span>}
           </a>
@@ -254,12 +254,12 @@ const schema = [{
     <div class="lb-grid" data-lb-grid hidden>
       {imgs.map((im, i) => (
         <button type="button" data-grid-index={i} aria-label={`Open photo ${i + 1}`}>
-          <img src={u(`/images/${im.base}-640.webp`)} alt={`${p.name} in ${p.city}, photo ${i + 1}`} loading="lazy" width="320" height="214" />
+          <img src={u(imgThumbUrl(im))} alt={`${p.name} in ${p.city}, photo ${i + 1}`} loading="lazy" width="320" height="214" />
         </button>
       ))}
     </div>
   </div>
-  <script define:vars={{ photos: imgs.map((i) => u(`/images/${i.base}-1280.webp`)) }} is:inline>
+  <script define:vars={{ photos: imgs.map((i) => u(imgUrl(i))) }} is:inline>
     (function () {
       var lb = document.querySelector('[data-lightbox]');
       var img = lb.querySelector('[data-lb-img]');

@@ -1,27 +1,42 @@
 ---
 import { u } from '../lib/url';
-import type { ImgEntry } from '../lib/images';
+import type { AnyImage } from '../lib/images';
+import { isCmsPhoto } from '../lib/images';
 
 interface Props {
-  src?: ImgEntry;
+  src?: AnyImage;
   alt: string;
   sizes?: string;
   eager?: boolean;
   class?: string;
 }
 const { src, alt, sizes = '(max-width: 760px) 100vw, 50vw', eager = false, class: cls } = Astro.props;
-const widths = src?.widths ?? [];
+
+const cms = src && isCmsPhoto(src) ? src : null;
+const entry = src && !isCmsPhoto(src) ? src : null;
+const widths = entry?.widths ?? [];
 const largest = widths[widths.length - 1];
-const srcset = src ? widths.map((w) => `${u(`/images/${src.base}-${w}.webp`)} ${w}w`).join(', ') : '';
+const srcset = entry ? widths.map((w) => `${u(`/images/${entry.base}-${w}.webp`)} ${w}w`).join(', ') : '';
 ---
-{src && (
+{cms && (
   <img
-    src={u(`/images/${src.base}-${largest}.webp`)}
+    src={cms.url}
+    alt={alt}
+    loading={eager ? 'eager' : 'lazy'}
+    decoding={eager ? 'sync' : 'async'}
+    fetchpriority={eager ? 'high' : undefined}
+    class={cls}
+    style="width:100%;height:100%;object-fit:cover"
+  />
+)}
+{entry && (
+  <img
+    src={u(`/images/${entry.base}-${largest}.webp`)}
     srcset={srcset}
     sizes={sizes}
     alt={alt}
     width={largest}
-    height={Math.round(largest * src.ratio)}
+    height={Math.round(largest * entry.ratio)}
     loading={eager ? 'eager' : 'lazy'}
     decoding={eager ? 'sync' : 'async'}
     fetchpriority={eager ? 'high' : undefined}
