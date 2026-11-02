@@ -1,750 +1,379 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex, nofollow" />
+  <meta name="robots" content="noindex" />
   <title>Hosted Havens Admin</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --tan: #D4A374;
-      --tan-light: #e8c9a8;
-      --olive: #656134;
-      --rust: #C0573B;
-      --cream: #FAF3E0;
-      --night: #2d2b1a;
-      --sidebar: #1e1d11;
-      --sidebar-border: rgba(255,255,255,0.07);
-      --text: #2a2820;
-      --muted: #7a7660;
-      --bg: #f4efe2;
-      --card: #ffffff;
-      --border: #e8e0cc;
-      --sidebar-w: 232px;
-      --r: 10px;
+      --bg:        #1A1809;
+      --surface:   #242210;
+      --surface-2: #33311A;
+      --rim:       rgba(212,163,116,.12);
+      --rim-2:     rgba(212,163,116,.25);
+      --tan:       #D4A374;
+      --tan-dim:   rgba(212,163,116,.7);
+      --olive:     #7A7840;
+      --rust:      #C0573B;
+      --cream:     #FAF3E0;
+      --cream-60:  rgba(250,243,224,.6);
+      --cream-30:  rgba(250,243,224,.3);
+      color-scheme: dark;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; }
-
+    *, *::before, *::after { box-sizing: border-box; margin: 0; }
+    html, body { height: 100%; }
     body {
-      font-family: 'Source Sans 3', sans-serif;
       background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
+      color: var(--cream);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
     }
 
-    /* ── SIDEBAR ─────────────────────────────────────────── */
-    .sidebar {
-      width: var(--sidebar-w);
-      background: var(--sidebar);
-      display: flex;
-      flex-direction: column;
-      position: fixed;
-      inset: 0 auto 0 0;
-      z-index: 200;
-    }
-
-    .s-logo {
-      padding: 1.5rem 1.25rem 1.25rem;
-      border-bottom: 1px solid var(--sidebar-border);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .s-logo-icon {
-      width: 32px; height: 32px;
-      border-radius: 7px;
-      background: var(--tan);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .s-logo-icon svg { width: 16px; height: 16px; color: #fff; }
-
-    .s-logo-text .name {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      display: block;
-      line-height: 1;
-    }
-
-    .s-logo-text .role {
-      font-size: 0.68rem;
-      color: rgba(255,255,255,0.35);
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      display: block;
-      margin-top: 0.25rem;
-    }
-
-    .s-nav { flex: 1; padding: 0.875rem 0; overflow-y: auto; }
-
-    .s-section {
-      padding: 0.5rem 1.125rem 0.2rem;
-      font-size: 0.625rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.28);
-      font-weight: 600;
-    }
-
-    .s-item {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      padding: 0.55rem 1.125rem;
-      font-size: 0.825rem;
-      color: rgba(255,255,255,0.6);
-      text-decoration: none;
-      border-left: 2px solid transparent;
-      transition: background 0.12s, color 0.12s, border-color 0.12s;
-      cursor: pointer;
-    }
-
-    .s-item:hover { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.9); }
-
-    .s-item.active {
-      background: rgba(212,163,116,0.1);
-      border-left-color: var(--tan);
-      color: var(--tan);
-    }
-
-    .s-item svg { width: 15px; height: 15px; flex-shrink: 0; }
-
-    .s-divider {
-      height: 1px;
-      background: var(--sidebar-border);
-      margin: 0.75rem 0;
-    }
-
-    .s-footer {
-      padding: 1rem 1.125rem;
-      border-top: 1px solid var(--sidebar-border);
-    }
-
-    .s-status {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.725rem;
-      color: rgba(255,255,255,0.35);
-    }
-
-    .s-dot { width: 6px; height: 6px; border-radius: 50%; background: #4caf83; }
-
-    /* ── MAIN ────────────────────────────────────────────── */
-    .main {
-      margin-left: var(--sidebar-w);
-      flex: 1;
-      padding: 2.25rem 2.5rem 3rem;
-      min-width: 0;
-    }
-
-    /* Top bar */
     .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 2rem;
+      gap: 1rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--rim-2);
+      padding: .85rem 24px;
     }
+    .brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
+    .brand-mark {
+      width: 32px; height: 32px;
+      background: var(--tan);
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .brand-mark svg { width: 18px; height: 18px; fill: var(--bg); }
+    .brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: .95rem;
+      letter-spacing: .04em;
+      color: var(--cream);
+      line-height: 1.1;
+    }
+    .brand-name small {
+      display: block;
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 400;
+      font-size: .72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--tan-dim);
+    }
+    .topbar-right { display: flex; align-items: center; gap: .75rem; }
+    .pill {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .25rem .65rem;
+      border-radius: 99px;
+      border: 1px solid var(--rim-2);
+      color: var(--tan-dim);
+      background: var(--surface-2);
+      white-space: nowrap;
+    }
+    .pill.live {
+      border-color: rgba(101,97,52,.6);
+      color: #9B9550;
+      background: rgba(101,97,52,.12);
+    }
+    .pill.live::before {
+      content: "";
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #9B9550;
+      margin-right: .4rem;
+      vertical-align: middle;
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
 
-    .greeting { display: flex; flex-direction: column; gap: 0.15rem; }
-
+    .shell {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 24px 5rem;
+    }
+    .greeting { margin-bottom: 2.8rem; }
     .greeting h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.5rem;
       font-weight: 700;
-      color: var(--night);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      color: var(--cream);
+      text-wrap: balance;
       line-height: 1.2;
+      margin-bottom: .4rem;
     }
+    .greeting h1 em { font-style: normal; color: var(--tan); }
+    .greeting p { color: var(--cream-60); font-size: .95rem; }
 
-    .greeting p { font-size: 0.875rem; color: var(--muted); }
-
-    .topbar-actions { display: flex; gap: 0.75rem; }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.5rem 1rem;
-      border-radius: 7px;
-      font-size: 0.825rem;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      transition: opacity 0.15s, transform 0.1s;
-      border: none;
+    .stats {
+      display: flex;
+      gap: 1px;
+      background: var(--rim);
+      border: 1px solid var(--rim);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
     }
-
-    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
-    .btn svg { width: 14px; height: 14px; }
-
-    .btn-primary { background: var(--tan); color: #fff; }
-    .btn-ghost { background: var(--card); color: var(--text); border: 1px solid var(--border); }
-
-    /* Stats row */
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin-bottom: 1.75rem;
-    }
-
-    .stat {
-      background: var(--card);
-      border-radius: var(--r);
-      padding: 1.125rem 1.25rem;
-      border: 1px solid var(--border);
-    }
-
-    .stat-label {
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
+    .stat { flex: 1; background: var(--surface); padding: 1.1rem 1.4rem; min-width: 0; }
     .stat-val {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.9rem;
       font-weight: 700;
-      color: var(--night);
+      font-size: 1.6rem;
+      color: var(--tan);
       line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .stat-lbl {
+      font-size: .78rem;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--cream-30);
+      margin-top: .3rem;
     }
 
-    .stat-sub { font-size: 0.75rem; color: var(--muted); margin-top: 0.3rem; }
+    .section-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 1rem;
+    }
 
-    .badge-live {
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--rim);
+      border-radius: 10px;
+      padding: 1.6rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      transition: border-color .18s, background .18s, transform .18s;
+    }
+    .card:hover {
+      border-color: var(--rim-2);
+      background: var(--surface-2);
+      transform: translateY(-2px);
+    }
+    .card-icon {
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      margin-bottom: .4rem;
+    }
+    .card-icon.tan  { background: rgba(212,163,116,.12); }
+    .card-icon.rust { background: rgba(192,87,59,.12); }
+    .card-icon.sage { background: rgba(101,97,52,.15); }
+    .card-icon svg  { width: 20px; height: 20px; }
+    .card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+    .card-desc { font-size: .85rem; color: var(--cream-60); line-height: 1.5; flex: 1; }
+    .card-cta {
+      margin-top: .6rem;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+    }
+    .card-cta.tan  { color: var(--tan); }
+    .card-cta.rust { color: var(--rust); }
+    .card-cta.sage { color: #9B9550; }
+    .card-cta svg  { width: 14px; height: 14px; flex-shrink: 0; transition: transform .18s; }
+    .card:hover .card-cta svg { transform: translateX(3px); }
+
+    .quick { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .qlink {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      background: #d4edda;
-      color: #165027;
-      padding: 0.2rem 0.6rem;
-      border-radius: 100px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      gap: .4rem;
+      font-size: .82rem;
+      color: var(--cream-60);
+      text-decoration: none;
+      border: 1px solid var(--rim);
+      border-radius: 6px;
+      padding: .4rem .8rem;
+      background: var(--surface);
+      transition: border-color .15s, color .15s;
     }
+    .qlink:hover { border-color: var(--rim-2); color: var(--cream); }
+    .qlink svg { width: 13px; height: 13px; opacity: .6; }
 
-    .badge-live-dot { width: 6px; height: 6px; border-radius: 50%; background: #4caf83; }
-
-    /* Two-col layout */
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 1.5rem;
-      align-items: start;
-    }
-
-    /* Card */
-    .card {
-      background: var(--card);
-      border-radius: var(--r);
-      border: 1px solid var(--border);
-      overflow: hidden;
-    }
-
-    .card-head {
+    .foot {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--rim);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 1.25rem;
-      border-bottom: 1px solid var(--border);
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: .78rem;
+      color: var(--cream-30);
     }
+    .foot a { color: var(--cream-30); text-decoration: none; }
+    .foot a:hover { color: var(--tan-dim); }
 
-    .card-head h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.825rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--muted);
-    }
-
-    .card-link {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--tan);
-      text-decoration: none;
-    }
-
-    .card-link:hover { text-decoration: underline; }
-
-    /* Action tiles */
-    .action-tiles {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-    }
-
-    .tile {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.875rem;
-      padding: 1.125rem 1.25rem;
-      text-decoration: none;
-      color: var(--text);
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      transition: background 0.15s;
-    }
-
-    .tile:nth-child(even) { border-right: none; }
-    .tile:nth-last-child(-n+2) { border-bottom: none; }
-    .tile:hover { background: #faf6ec; }
-
-    .tile-icon {
-      width: 34px; height: 34px;
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .tile-icon svg { width: 16px; height: 16px; }
-
-    .tile-icon.tan { background: #fdf0e3; color: #b87a4c; }
-    .tile-icon.olive { background: #eef0e3; color: #4a4a25; }
-    .tile-icon.rust { background: #fceae5; color: #a04228; }
-    .tile-icon.blue { background: #e3eeff; color: #2d5ca6; }
-
-    .tile h3 { font-size: 0.85rem; font-weight: 600; color: var(--night); margin-bottom: 0.15rem; }
-    .tile p { font-size: 0.75rem; color: var(--muted); line-height: 1.35; }
-
-    /* Posts list */
-    .post-row {
-      display: flex;
-      align-items: center;
-      gap: 0.875rem;
-      padding: 0.875rem 1.25rem;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      color: var(--text);
-      transition: background 0.12s;
-    }
-
-    .post-row:last-child { border-bottom: none; }
-    .post-row:hover { background: #faf6ec; }
-
-    .post-cluster {
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.9);
-      background: var(--olive);
-      padding: 0.15rem 0.45rem;
-      border-radius: 3px;
-      flex-shrink: 0;
-      font-weight: 600;
-    }
-
-    .post-title {
-      flex: 1;
-      font-size: 0.825rem;
-      font-weight: 600;
-      color: var(--night);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .post-date { font-size: 0.725rem; color: var(--muted); flex-shrink: 0; }
-
-    .empty-state {
-      padding: 2rem 1.25rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.825rem;
-    }
-
-    /* Tips sidebar */
-    .tips-list { padding: 0; }
-
-    .tip {
-      display: flex;
-      gap: 0.75rem;
-      padding: 0.875rem 1.25rem;
-      border-bottom: 1px solid var(--border);
-      align-items: flex-start;
-    }
-
-    .tip:last-child { border-bottom: none; }
-
-    .tip-n {
-      width: 20px; height: 20px;
-      border-radius: 50%;
-      background: var(--tan);
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 700;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-    }
-
-    .tip strong { font-size: 0.8rem; color: var(--night); display: block; margin-bottom: 0.2rem; }
-    .tip span { font-size: 0.75rem; color: var(--muted); line-height: 1.45; }
-
-    /* Responsive */
-    @media (max-width: 1100px) {
-      .stats-row { grid-template-columns: repeat(2, 1fr); }
-      .two-col { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 740px) {
-      body { flex-direction: column; }
-      .sidebar { position: relative; width: 100%; flex-direction: row; }
-      .main { margin-left: 0; padding: 1.25rem 1rem; }
-      .stats-row { grid-template-columns: 1fr 1fr; }
-      .action-tiles { grid-template-columns: 1fr; }
-      .tile { border-right: none; }
+    @media (max-width: 520px) {
+      .stats { flex-direction: column; gap: 0; }
+      .stat  { border-bottom: 1px solid var(--rim); }
+      .stat:last-child { border-bottom: none; }
+      .topbar-right .pill:not(.live) { display: none; }
+      .topbar { padding: .85rem 16px; }
+      .shell { padding: 2rem 16px 4rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── SIDEBAR ──────────────────────────────────────────── -->
-<aside class="sidebar">
-  <div class="s-logo">
-    <div class="s-logo-icon">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-        <polyline points="9 22 9 12 15 12 15 22"/>
-      </svg>
+<header class="topbar">
+  <a href="/admin/" class="brand" aria-label="Hosted Havens Admin">
+    <div class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2L2 9h2v9h5v-5h2v5h5V9h2L10 2z"/></svg>
     </div>
-    <div class="s-logo-text">
-      <span class="name">Hosted Havens</span>
-      <span class="role">Admin Portal</span>
+    <span class="brand-name">Hosted Havens <small>Property Admin</small></span>
+  </a>
+  <div class="topbar-right">
+    <span class="pill live">hostedhavens.co</span>
+    <span class="pill">San Antonio TX</span>
+  </div>
+</header>
+
+<main class="shell">
+
+  <div class="greeting">
+    <h1>Welcome back, <em>Megan.</em></h1>
+    <p>Manage your properties, blog, and listing content from here.</p>
+  </div>
+
+  <div class="stats" role="list">
+    <div class="stat" role="listitem">
+      <div class="stat-val">28</div>
+      <div class="stat-lbl">Properties</div>
+    </div>
+    <div class="stat" role="listitem">
+      <div class="stat-val">4.92<span style="font-size:1rem;color:var(--cream-30)">&#9733;</span></div>
+      <div class="stat-lbl">Avg. Rating</div>
+    </div>
+    <div class="stat" role="listitem">
+      <div class="stat-val">STR</div>
+      <div class="stat-lbl">Management</div>
+    </div>
+    <div class="stat" role="listitem">
+      <div class="stat-val">Live</div>
+      <div class="stat-lbl">Site Status</div>
     </div>
   </div>
 
-  <nav class="s-nav">
-    <div class="s-section">Content</div>
+  <p class="section-label">What would you like to do?</p>
+  <div class="cards">
 
-    <a class="s-item active" href="/admin/">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
-        <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
-      </svg>
-      Dashboard
+    <a href="/admin/cms.html#/collections/properties" class="card">
+      <div class="card-icon tan">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#D4A374" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1v-9.5z"/><path d="M9 21V12h6v9"/>
+        </svg>
+      </div>
+      <div class="card-title">Edit Properties</div>
+      <div class="card-desc">Update details, amenities, descriptions, and booking info for all 28 listings.</div>
+      <div class="card-cta tan">
+        Open Properties
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </div>
     </a>
 
-    <a class="s-item" href="/admin/cms.html#/collections/blog">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-        <polyline points="14 2 14 8 20 8"/>
-        <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
-      </svg>
-      All Posts
+    <a href="/admin/cms.html#/collections/blog/new" class="card">
+      <div class="card-icon rust">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#C0573B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
+        </svg>
+      </div>
+      <div class="card-title">Write a Blog Post</div>
+      <div class="card-desc">Publish a new article to the resources section. Helps owners find Hosted Havens through search.</div>
+      <div class="card-cta rust">
+        New Post
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </div>
     </a>
 
-    <a class="s-item" href="/admin/cms.html#/collections/blog/new">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/>
-        <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/>
-      </svg>
-      Write New Post
+    <a href="/admin/cms.html#/collections/blog" class="card">
+      <div class="card-icon sage">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#9B9550" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+        </svg>
+      </div>
+      <div class="card-title">Manage Blog Posts</div>
+      <div class="card-desc">View, edit, and delete all published and draft articles in the resources section.</div>
+      <div class="card-cta sage">
+        All Posts
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+      </div>
     </a>
 
-    <div class="s-divider"></div>
-    <div class="s-section">Properties</div>
+  </div>
 
-    <a class="s-item" href="/admin/cms.html#/collections/properties">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/>
-        <path d="M10 21v-5h4v5"/>
-      </svg>
-      All Properties
+  <p class="section-label">Quick links</p>
+  <nav class="quick" aria-label="Quick links">
+    <a href="https://hostedhavens.co" target="_blank" rel="noopener" class="qlink">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6"/><path d="M8 2c-2 2-2 10 0 12M2 8h12"/><path d="M3 5h10M3 11h10"/></svg>
+      Live Site
     </a>
-
-    <a class="s-item" href="/admin/cms.html#/collections/properties/new">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v6"/>
-        <line x1="16" y1="18" x2="22" y2="18"/><line x1="19" y1="15" x2="19" y2="21"/>
-      </svg>
-      Add a Property
+    <a href="https://hostedhavens.co/stays/" target="_blank" rel="noopener" class="qlink">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="12" height="8" rx="1"/><path d="M5 6V4a3 3 0 016 0v2"/></svg>
+      All Stays
     </a>
-
-    <div class="s-divider"></div>
-    <div class="s-section">Site</div>
-
-    <a class="s-item" href="/stays/" target="_blank">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/>
-        <path d="M10 21v-5h4v5"/>
-      </svg>
-      View Stays
+    <a href="https://hostedhavens.co/property-management-san-antonio/" target="_blank" rel="noopener" class="qlink">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2L2 7v7h4v-4h4v4h4V7L8 2z"/></svg>
+      Owner Page
     </a>
-
-    <a class="s-item" href="/resources/" target="_blank">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="2" y1="12" x2="22" y2="12"/>
-        <path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/>
-      </svg>
-      View Blog
+    <a href="https://calendly.com/hostedhavensco/property-analysis-tour" target="_blank" rel="noopener" class="qlink">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="11" rx="1"/><path d="M5 2v2M11 2v2M2 7h12"/></svg>
+      Calendly
     </a>
-
-    <a class="s-item" href="/" target="_blank">
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-        <polyline points="9 22 9 12 15 12 15 22"/>
-      </svg>
-      View Site
+    <a href="https://hostedhavens.co/contact/" target="_blank" rel="noopener" class="qlink">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4a1 1 0 011-1h10a1 1 0 011 1v7a1 1 0 01-1 1H3a1 1 0 01-1-1V4z"/><path d="M2 4l6 5 6-5"/></svg>
+      Contact
+    </a>
+    <a href="/admin/cms.html" class="qlink">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="12" height="12" rx="1"/><path d="M5 6h6M5 9h4"/></svg>
+      CMS Home
     </a>
   </nav>
 
-  <div class="s-footer">
-    <div class="s-status">
-      <div class="s-dot"></div>
-      hostedhavens.co is live
-    </div>
-  </div>
-</aside>
+  <footer class="foot">
+    <span>Hosted Havens LLC &middot; San Antonio, TX</span>
+    <a href="mailto:owners@hostedhavens.co">owners@hostedhavens.co</a>
+  </footer>
 
-<!-- ── MAIN ─────────────────────────────────────────────── -->
-<main class="main">
-
-  <!-- Top bar -->
-  <div class="topbar">
-    <div class="greeting">
-      <h1 id="greeting-text">Good morning, Megan</h1>
-      <p>Here's what's happening with your site today.</p>
-    </div>
-    <div class="topbar-actions">
-      <a class="btn btn-ghost" href="/admin/cms.html#/collections/blog" target="_blank">
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        All Posts
-      </a>
-      <a class="btn btn-primary" href="/admin/cms.html#/collections/blog/new" target="_blank">
-        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        New Post
-      </a>
-    </div>
-  </div>
-
-  <!-- Stats -->
-  <div class="stats-row">
-    <div class="stat">
-      <div class="stat-label">Blog Posts</div>
-      <div class="stat-val" id="post-count" style="font-size:1.4rem;padding-top:.15rem">
-        <span style="display:inline-block;width:32px;height:4px;background:#e8e0cc;border-radius:2px;vertical-align:middle"></span>
-      </div>
-      <div class="stat-sub">published on site</div>
-    </div>
-    <div class="stat">
-      <div class="stat-label">Site Status</div>
-      <div class="stat-val" style="font-size:1rem;padding-top:.5rem">
-        <span class="badge-live"><span class="badge-live-dot"></span>Live</span>
-      </div>
-      <div class="stat-sub">hostedhavens.co</div>
-    </div>
-    <div class="stat">
-      <div class="stat-label">Properties</div>
-      <div class="stat-val" id="property-count" style="font-size:1.4rem;padding-top:.15rem">
-        <span style="display:inline-block;width:32px;height:4px;background:#e8e0cc;border-radius:2px;vertical-align:middle"></span>
-      </div>
-      <div class="stat-sub">listed under Stays</div>
-    </div>
-    <div class="stat">
-      <div class="stat-label">Avg. Guest Rating</div>
-      <div class="stat-val">4.92<span style="font-size:1rem;color:var(--muted)">★</span></div>
-      <div class="stat-sub">across all properties</div>
-    </div>
-  </div>
-
-  <!-- Two-column section -->
-  <div class="two-col">
-
-    <!-- Left col -->
-    <div style="display:flex;flex-direction:column;gap:1.5rem">
-
-      <!-- Quick Actions -->
-      <div class="card">
-        <div class="card-head">
-          <h2>Quick Actions</h2>
-        </div>
-        <div class="action-tiles">
-          <a class="tile" href="/admin/cms.html#/collections/properties" target="_blank">
-            <div class="tile-icon tan">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M10 21v-5h4v5"/></svg>
-            </div>
-            <div>
-              <h3>Edit or Remove a Property</h3>
-              <p>Update the details on a stay, or take one off the site.</p>
-            </div>
-          </a>
-          <a class="tile" href="/admin/cms.html#/collections/properties/new" target="_blank">
-            <div class="tile-icon olive">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v6"/><line x1="16" y1="18" x2="22" y2="18"/><line x1="19" y1="15" x2="19" y2="21"/></svg>
-            </div>
-            <div>
-              <h3>Add a Property</h3>
-              <p>List a new stay. Photos are added separately, see step 4.</p>
-            </div>
-          </a>
-          <a class="tile" href="/admin/cms.html#/collections/blog/new" target="_blank">
-            <div class="tile-icon blue">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-            </div>
-            <div>
-              <h3>Write a Blog Post</h3>
-              <p>Open the editor and publish a new article to the site.</p>
-            </div>
-          </a>
-          <a class="tile" href="/admin/cms.html#/collections/blog" target="_blank">
-            <div class="tile-icon rust">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-            </div>
-            <div>
-              <h3>Edit Existing Posts</h3>
-              <p>Browse and update your published blog articles.</p>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Recent Posts -->
-      <div class="card">
-        <div class="card-head">
-          <h2>Recent Posts</h2>
-          <a class="card-link" href="/admin/cms.html#/collections/blog" target="_blank">View all &rarr;</a>
-        </div>
-        <div id="posts-list">
-          <div class="empty-state">Loading recent posts...</div>
-        </div>
-      </div>
-
-    </div><!-- /left -->
-
-    <!-- Right col: Tips -->
-    <div class="card">
-      <div class="card-head">
-        <h2>How It Works</h2>
-      </div>
-      <div class="tips-list">
-        <div class="tip">
-          <div class="tip-n">1</div>
-          <div>
-            <strong>Everything saves the same way</strong>
-            <span>Open a property or a post, make your changes, and press Save. Nothing goes live until you save.</span>
-          </div>
-        </div>
-        <div class="tip">
-          <div class="tip-n">2</div>
-          <div>
-            <strong>The site rebuilds itself</strong>
-            <span>Each save starts a deploy. Your change is live on hostedhavens.co in about 7 minutes. There is nothing else to press.</span>
-          </div>
-        </div>
-        <div class="tip">
-          <div class="tip-n">3</div>
-          <div>
-            <strong>Removing a property</strong>
-            <span>Open it under Properties and choose Delete. It disappears from the Stays page and its own page stops existing. Deleting it here does not cancel the listing in Hospitable, so turn it off there too.</span>
-          </div>
-        </div>
-        <div class="tip">
-          <div class="tip-n">!</div>
-          <div>
-            <strong>If a deleted property is used in an article</strong>
-            <span>Some articles feature a specific stay. Deleting one of those stops the site updating until the article is changed, on purpose, so guests never hit a dead link. If your change has not appeared after 15 minutes, that is usually why. Send John the property name and he will sort it.</span>
-          </div>
-        </div>
-        <div class="tip">
-          <div class="tip-n">4</div>
-          <div>
-            <strong>Photos for a new property</strong>
-            <span>Property photos are prepared in bulk and are not uploaded here yet. Add the property, then send John the photos and he will load them in. Everything else on the page works straight away.</span>
-          </div>
-        </div>
-        <div class="tip">
-          <div class="tip-n">5</div>
-          <div>
-            <strong>The Hospitable listing ID</strong>
-            <span>This is what connects the booking calendar to the right listing. Copy it from the listing in Hospitable. If it is wrong, guests will book the wrong stay.</span>
-          </div>
-        </div>
-        <div class="tip">
-          <div class="tip-n">6</div>
-          <div>
-            <strong>Blog posts are yours to write</strong>
-            <span>Nothing publishes by itself. Use Write a Blog Post when you want a new article, and it goes live the same way everything else does. Older articles are under Edit Existing Posts.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /two-col -->
 </main>
-
-<script>
-  // Dynamic greeting based on time of day
-  const h = new Date().getHours();
-  const greet = h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening';
-  document.getElementById('greeting-text').textContent = greet + ', Megan';
-
-  // One call to /admin-stats.json, built with the site so the numbers always
-  // match what is actually published.
-  const esc = s => String(s).replace(/[&<>"']/g, c => (
-    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
-  ));
-
-  async function loadDashboard() {
-    const postEl = document.getElementById('post-count');
-    const propEl = document.getElementById('property-count');
-    const list = document.getElementById('posts-list');
-
-    try {
-      const res = await fetch('/admin-stats.json', { cache: 'no-store' });
-      if (!res.ok) throw new Error('stats unavailable');
-      const data = await res.json();
-
-      postEl.textContent = data.posts;
-      propEl.textContent = data.properties;
-
-      const recent = Array.isArray(data.recent) ? data.recent : [];
-      if (!recent.length) {
-        list.innerHTML = '<div class="empty-state">No posts yet. Click "Write New Post" to get started.</div>';
-        return;
-      }
-
-      const fmt = d => d
-        ? new Date(d + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-        : '';
-
-      list.innerHTML = recent.map(p => {
-        // Only CMS posts open in the editor; the rest link to the live article.
-        const href = p.cms
-          ? `/admin/cms.html#/collections/blog/entries/${encodeURIComponent(p.slug)}`
-          : `/resources/${encodeURIComponent(p.slug)}/`;
-        return `
-        <a class="post-row" href="${href}" target="_blank">
-          <span class="post-cluster">${esc(p.cluster)}</span>
-          <span class="post-title">${esc(p.title)}</span>
-          <span class="post-date">${fmt(p.published)}</span>
-        </a>`;
-      }).join('');
-    } catch {
-      postEl.textContent = '—';
-      propEl.textContent = '—';
-      list.innerHTML = '<div class="empty-state">Could not load the latest numbers. <a href="/admin/cms.html#/collections/blog" style="color:var(--tan)">Open the editor</a> to see your posts.</div>';
-    }
-  }
-
-  loadDashboard();
-</script>
-
 </body>
 </html>
