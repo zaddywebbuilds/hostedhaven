@@ -2,8 +2,8 @@ backend:
   name: github
   repo: zaddywebbuilds/hostedhaven
   branch: main
-  base_url: https://hostedhavens.co
-  auth_endpoint: /oauth.php
+  auth_type: pkce
+  app_id: Ov23liQtPrNwUpzVYHgw
 
 media_folder: public/images/blog/uploads
 public_folder: /images/blog/uploads
