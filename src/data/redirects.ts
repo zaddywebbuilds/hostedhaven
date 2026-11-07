@@ -9,7 +9,14 @@
  * public/_redirects carries the same mapping as real 301s for Netlify or
  * Cloudflare Pages. Keep the two in sync if this list changes.
  */
+import { retiredPropertySlugs } from './retired-properties';
+import { missingPropertyRefs } from './articles';
+
 export type Redirect = { from: string; to: string };
+
+/** Removed properties: the ones named explicitly, plus any an article still links to. */
+const retired = [...new Set([...retiredPropertySlugs, ...missingPropertyRefs])];
+const isRetired = (slug: string) => retired.includes(slug);
 
 const propertySlugs = [
   'halliday-fig-trees', 's-park-1a', 's-park-1b', 's-park-1c', 's-park-1d',
@@ -59,6 +66,15 @@ export const redirects: Redirect[] = [
   // Renamed at Megan's request (2026-10-01): "service video" rather than "training video".
   { from: '/training-video/', to: '/service-video/' },
 
-  // Properties moved from /property/ to /stays/
-  ...propertySlugs.map((slug) => ({ from: `/property/${slug}/`, to: `/stays/${slug}/` })),
+  // Properties moved from /property/ to /stays/. A retired one goes straight to
+  // the index rather than hopping through a /stays/ URL that only redirects again.
+  ...propertySlugs.map((slug) => ({
+    from: `/property/${slug}/`,
+    to: isRetired(slug) ? '/stays/' : `/stays/${slug}/`,
+  })),
+
+  // Removed properties. This republishes /stays/<slug>/ as a redirect, which
+  // both overwrites the stale page still sitting on the server and keeps any
+  // article link or inbound link pointing somewhere useful.
+  ...retired.map((slug) => ({ from: `/stays/${slug}/`, to: '/stays/' })),
 ];

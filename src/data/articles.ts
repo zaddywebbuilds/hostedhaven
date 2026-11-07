@@ -302,23 +302,42 @@ export const getArticle = (slug: string) => articles.find((a) => a.slug === slug
  * Properties come and go, so those references rot silently: when Legislation was
  * deleted in Oct 2026 it left eight dead links and five broken hero images.
  *
- * This fails the build instead of shipping them. If a property is removed, the
- * build names every article that still points at it, so the copy gets updated in
- * the same change rather than discovered later by a guest hitting a 404.
+ * This used to throw, which was right while only developers removed properties.
+ * Megan now deletes them from the admin, and a thrown error there fails her
+ * deploy with no feedback: the property stays on the site and she cannot tell
+ * why. So the missing slugs are collected instead, and redirects.ts republishes
+ * each one as a redirect to the stays index, which keeps the links alive. The
+ * warning below is the signal to fix the copy properly.
  */
 const propertySlugs = new Set(properties.map((p) => p.slug));
-const brokenRefs = articles.flatMap((a) => {
+
+const missing = new Set<string>();
+const staleRefs = articles.flatMap((a) => {
   const problems: string[] = [];
-  if (!propertySlugs.has(a.heroProperty)) problems.push(`heroProperty "${a.heroProperty}"`);
+  if (a.heroProperty && !propertySlugs.has(a.heroProperty)) {
+    missing.add(a.heroProperty);
+    problems.push(`heroProperty "${a.heroProperty}"`);
+  }
   for (const [, slug] of a.body.matchAll(/href="\/stays\/([a-z0-9-]+)\/"/g)) {
-    if (!propertySlugs.has(slug)) problems.push(`link to /stays/${slug}/`);
+    if (!propertySlugs.has(slug)) {
+      missing.add(slug);
+      problems.push(`link to /stays/${slug}/`);
+    }
   }
   return problems.map((p) => `  ${a.slug}: ${p}`);
 });
-if (brokenRefs.length) {
-  throw new Error(
-    `${brokenRefs.length} article reference(s) point at properties that no longer exist:\n` +
-    brokenRefs.join('\n') +
-    `\n\nUpdate the article copy, or re-add the property.`
+
+if (staleRefs.length) {
+  console.warn(
+    `\n${staleRefs.length} article reference(s) point at properties that no longer exist:\n` +
+    staleRefs.join('\n') +
+    `\n\nEach one now redirects to /stays/. Update the article copy when convenient.\n`
   );
 }
+
+/** Removed properties an article still points at. redirects.ts turns these into redirects. */
+export const missingPropertyRefs: string[] = [...missing];
+
+/** Hero image falls back to the article's own image when its property is gone. */
+export const hasLiveProperty = (slug: string | undefined): boolean =>
+  slug !== undefined && propertySlugs.has(slug);
