@@ -8,6 +8,10 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# ─── Owner leads subdomain ───────────────────────────────────
+# Megan's standing link for owner leads. Matches /owners and /owners/.
+RewriteRule ^owners/?$ https://owners.hostedhavens.co/ [R=301,L]
+
 # ─── 301 Redirects (WordPress -> Astro) ──────────────────────
 
 # Pages

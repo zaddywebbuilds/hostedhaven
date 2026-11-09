@@ -9,8 +9,10 @@ export function u(path = '/'): string {
   return `${BASE}${p}`;
 }
 
-/** Canonical URL: always the production domain, never the preview host. */
+/** Canonical URL: always the production domain, never the preview host.
+ *  An absolute URL passes through, so a redirect can target another host. */
 export function canonical(path = '/'): string {
+  if (/^https?:/.test(path)) return path;
   const p = path.startsWith('/') ? path : `/${path}`;
   return `${SITE}${p}`;
 }

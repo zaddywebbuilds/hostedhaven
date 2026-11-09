@@ -66,6 +66,10 @@ export const redirects: Redirect[] = [
   // Renamed at Megan's request (2026-10-01): "service video" rather than "training video".
   { from: '/training-video/', to: '/service-video/' },
 
+  // Megan's standing link for owner leads (2026-11-08). It never had a page here,
+  // so it had been 404ing; owner sign-up lives on its own subdomain.
+  { from: '/owners/', to: 'https://owners.hostedhavens.co/' },
+
   // Properties moved from /property/ to /stays/. A retired one goes straight to
   // the index rather than hopping through a /stays/ URL that only redirects again.
   ...propertySlugs.map((slug) => ({
