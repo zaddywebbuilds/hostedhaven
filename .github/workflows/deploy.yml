@@ -32,7 +32,10 @@ jobs:
       #
       # Root level is upload-only on purpose. The previous WordPress install
       # still lives in this same folder, and deleting there would take it out.
-      # Each subdirectory is Astro's own, so those are safe to mirror exactly.
+      # Each subdirectory is Astro's own, so those are mirrored exactly.
+      #
+      # Deletion was first run as a dry run (77791a9). It listed three stale
+      # hashed CSS bundles and nothing else, which is why it is on here.
       - name: Upload (root files, then each directory)
         env:
           SFTP_HOST: ${{ secrets.SFTP_HOST }}
@@ -51,34 +54,12 @@ jobs:
               echo "put -O \"$REMOTE\" \"$f\""
             done
             for d in dist/*/; do
-              echo "mirror -R --no-perms --verbose \"$d\" \"$REMOTE/$(basename "$d")\""
+              echo "mirror -R --delete --no-perms --verbose \"$d\" \"$REMOTE/$(basename "$d")\""
             done
             echo 'bye'
           } > upload.lftp
           echo "Uploading $(grep -c '^put' upload.lftp) root files and $(grep -c '^mirror' upload.lftp) directories"
-          lftp -f upload.lftp
-
-      # Reports what a mirror with deletion would remove, without removing it.
-      # Read this before turning deletion on for real.
-      - name: Report stale remote files (dry run, deletes nothing)
-        env:
-          SFTP_HOST: ${{ secrets.SFTP_HOST }}
-          SFTP_PORT: ${{ secrets.SFTP_PORT }}
-          SFTP_USER: ${{ secrets.SFTP_USER }}
-          LFTP_PASSWORD: ${{ secrets.SFTP_PASS }}
-        run: |
-          set -euo pipefail
-          {
-            echo 'set sftp:auto-confirm yes'
-            echo "open -u \"$SFTP_USER\" --env-password sftp://$SFTP_HOST:$SFTP_PORT"
-            for d in dist/*/; do
-              echo "mirror -R --delete --dry-run --verbose \"$d\" \"$REMOTE/$(basename "$d")\""
-            done
-            echo 'bye'
-          } > dryrun.lftp
-          lftp -f dryrun.lftp | grep -E '^(rm|rmdir) ' | sort > would-delete.txt || true
-          COUNT=$(wc -l < would-delete.txt)
+          lftp -f upload.lftp | tee deploy.log
           echo "=============================================="
-          echo "Files a real --delete run would remove: $COUNT"
-          echo "=============================================="
-          cat would-delete.txt
+          echo "Removed from the server this run:"
+          grep -E '^(rm|rmdir) ' deploy.log | sed 's#sftp://[^/]*##' || echo "  nothing"
