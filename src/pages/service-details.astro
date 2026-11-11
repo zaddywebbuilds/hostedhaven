@@ -1,0 +1,275 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import InteriorHero from '../components/InteriorHero.astro';
+import Icon from '../components/Icon.astro';
+import OwnerCTA from '../components/OwnerCTA.astro';
+import { u } from '../lib/url';
+import { links, business } from '../data/business';
+
+const videoId = 'ualldyV06lc';
+const path = '/service-details/';
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Owners', path: '/airbnb-management-san-antonio/' },
+  { name: 'Service Details', path },
+];
+
+const values = [
+  { icon: 'shield',  title: 'Trust',       text: 'Confidence in the professionals caring for your property.' },
+  { icon: 'clock',   title: 'Freedom',     text: 'More time for your life, less time managing a rental.' },
+  { icon: 'layers',  title: 'Consistency', text: 'Established systems that keep operations running smoothly.' },
+  { icon: 'message', title: 'Clarity',     text: 'Meaningful updates without unnecessary back-and-forth.' },
+];
+
+const scenarios = [
+  {
+    q: 'When it comes to managing your property, which approach appeals to you most?',
+    a: 'I prefer to establish my goals and trust an experienced team to manage the daily decisions.',
+    b: 'I enjoy staying involved in important decisions and collaborating with my management team.',
+    c: 'I prefer to maintain decision-making authority and have a management team carry out my vision.',
+  },
+  {
+    q: 'Your property has several unbooked nights approaching. How would you prefer pricing adjustments to be handled?',
+    a: 'I would rely on my management team’s pricing strategy and review performance over time.',
+    b: 'I would appreciate discussing pricing recommendations and the reasoning behind adjustments.',
+    c: 'I would prefer to establish pricing parameters and approve significant changes myself.',
+  },
+  {
+    q: 'Your property experiences a slower-than-expected rental month. Which perspective best reflects yours?',
+    a: 'I understand revenue fluctuates and maintain reserves to support the property while evaluating longer-term results.',
+    b: 'I would want to review performance with my management team and collaborate on ways to improve revenue.',
+    c: 'I would prefer to take a more active role in pricing and expenses to help the property meet my financial targets.',
+  },
+  {
+    q: 'You have a trusted cleaner or maintenance professional you would like to use. How should their work be managed?',
+    a: 'I am comfortable having them follow the management company’s procedures and quality standards, or using another approved provider.',
+    b: 'I would like to work with the management team to accommodate my vendor’s existing practices where possible.',
+    c: 'I would prefer my trusted vendors to continue operating under the arrangements and procedures we have already established.',
+  },
+  {
+    q: 'How would you ideally stay informed about your property’s operations?',
+    a: 'I prefer performance reports, updates on significant matters, and the freedom to focus on other priorities.',
+    b: 'I enjoy regular conversations about operational decisions, strategy, and opportunities for improvement.',
+    c: 'I prefer detailed visibility into daily activities and the ability to provide ongoing direction.',
+  },
+];
+
+const outcomes = [
+  {
+    letter: 'A',
+    title: 'Mostly A: we are likely a great match',
+    text: 'You value professional management, trust established processes, and prefer to evaluate results rather than direct daily operations. Hosted Havens was built for homeowners like you.',
+  },
+  {
+    letter: 'B',
+    title: 'Mostly B: we might be a good match',
+    text: 'You appreciate professional support but also enjoy collaboration. We may be a fit if you are comfortable allowing our team to independently manage operational decisions.',
+  },
+  {
+    letter: 'C',
+    title: 'Mostly C: another approach may suit you better',
+    text: 'You prefer greater involvement and control over your investment. A collaborative or owner-directed management service may better align with your preferred working style.',
+  },
+];
+
+const howWeWork = [
+  {
+    icon: 'home',
+    title: 'Getting started: collaborative onboarding',
+    text: 'During your first 30 days, we work closely together to establish your property’s needs, understand your priorities, and prepare for a successful working relationship.',
+  },
+  {
+    icon: 'wrench',
+    title: 'Ongoing management: we take the lead',
+    text: 'Our team manages the daily operations, coordinates vendors, oversees guest experiences, and handles routine decisions using our established procedures.',
+  },
+  {
+    icon: 'chart',
+    title: 'Owner communication: informed, not overwhelmed',
+    text: 'You have access to your Owner Portal, financial reporting, and dedicated email communication, with major decisions and matters requiring your approval brought directly to your attention.',
+  },
+];
+
+const team = [
+  { icon: 'message',  title: 'Guest Services' },
+  { icon: 'trending', title: 'Revenue Management' },
+  { icon: 'wrench',   title: 'Maintenance Coordination' },
+  { icon: 'broom',    title: 'Housekeeping & Inspections' },
+  { icon: 'camera',   title: 'Marketing & Listings' },
+  { icon: 'file',     title: 'Owner Reporting' },
+];
+---
+<BaseLayout
+  title="Service Details for San Antonio Owners | Hosted Havens"
+  description="How Hosted Havens works with homeowners: our partnership approach, how we work together day to day, the team behind your property, and a walkthrough from our founder."
+  path={path}
+  breadcrumbs={crumbs}
+>
+  <InteriorHero
+    eyebrow="Owners · Service details"
+    title="Your Property. <em>Our Priority.</em>"
+    lead="A truly hands-off approach to short-term rental ownership."
+    crumbs={crumbs}
+    primary={{ label: 'Get a Free Property Analysis', href: '/property-intake/', track: 'owner_analysis_start' }}
+  />
+
+  <section class="section-tight">
+    <div class="narrow">
+      <p class="lead">We believe owning a short-term rental should be rewarding, not another full-time responsibility. That is why we have built our services around homeowners who want a trusted professional team to take the lead.</p>
+      <p>Our approach combines thoughtful property care, strategic management, and clear communication, giving you confidence in your investment without requiring your daily involvement.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">What we are built for</span><h2>Built for owners who <em>value</em></h2></div>
+      <div class="grid grid-4">
+        {values.map((v, i) => (
+          <article class={`card3d reveal reveal-d${(i % 3) + 1}`}>
+            <span class={`icon-box ${i % 3 === 1 ? 'sage' : i % 3 === 2 ? 'gold' : ''}`}><Icon name={v.icon} /></span>
+            <h3>{v.title}</h3>
+            <p>{v.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-warm">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">A quick self-check</span><h2>Partnership <em>compatibility</em></h2></div>
+      <div class="narrow">
+        <p>Every homeowner has a different approach to managing their investment. Consider the following scenarios and choose the response that most closely reflects your preferences. There are no wrong answers, just different management styles.</p>
+        <p class="notice">Nothing here is submitted or recorded. Note the letter you lean towards in each scenario, then read the key underneath.</p>
+      </div>
+
+      <ol class="scenarios">
+        {scenarios.map((s, i) => (
+          <li class="card3d reveal">
+            <span class="scenario-n">{i + 1}</span>
+            <h3>{s.q}</h3>
+            <ul>
+              <li><span class="opt">A</span><span>{s.a}</span></li>
+              <li><span class="opt">B</span><span>{s.b}</span></li>
+              <li><span class="opt">C</span><span>{s.c}</span></li>
+            </ul>
+          </li>
+        ))}
+      </ol>
+
+      <div class="narrow key-block">
+        <h3>Your partnership style</h3>
+        <p class="small muted">Count how many A, B and C answers you leaned towards.</p>
+        {outcomes.map((o) => (
+          <div class="key-row">
+            <span class="opt lg">{o.letter}</span>
+            <div><strong>{o.title}</strong><p>{o.text}</p></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">The working relationship</span><h2>How we <em>work together</em></h2></div>
+      <div class="grid grid-3">
+        {howWeWork.map((s, i) => (
+          <article class={`card3d reveal reveal-d${i + 1}`}>
+            <span class={`icon-box ${i === 1 ? 'sage' : i === 2 ? 'gold' : ''}`}><Icon name={s.icon} /></span>
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-warm">
+    <div class="container">
+      <div class="section-head reveal"><span class="eyebrow">The team behind your property</span><h2>One dedicated team. <em>Coordinated around your property.</em></h2></div>
+      <div class="narrow"><p class="center">Hosted Havens is a boutique management company supported by specialized professionals, established workflows, and integrated technology.</p></div>
+      <div class="grid grid-3 team-grid">
+        {team.map((t) => (
+          <div class="team-cell reveal">
+            <span class="icon-box"><Icon name={t.icon} /></span>
+            <span>{t.title}</span>
+          </div>
+        ))}
+      </div>
+      <div class="narrow"><p class="notice center">Each function operates within a coordinated management system rather than relying on one person to handle every task.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head reveal"><span class="eyebrow">A message from Megan</span><h2>The full-service experience, <em>walked through</em></h2></div>
+      <p>Now that you understand our approach to homeowner partnerships and the team behind Hosted Havens, let us take a closer look at the services we provide. Join our founder, Megan, as she walks you through the Hosted Havens full-service experience.</p>
+
+      <div class="video-frame">
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&playsinline=1`}
+          title="Hosted Havens service video"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <p class="notice" style="margin-top:1.4rem">Revenue estimates, optimization plans, and upgrade ideas cannot be provided before the property analysis tour.</p>
+
+      <div class="btn-row" style="margin-top:1.6rem">
+        <a class="btn btn-primary" href={u('/property-intake/')} data-track="owner_analysis_start">Submit Your Property Details <Icon name="arrow" /></a>
+        <a class="btn btn-glass" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Book a Property Analysis Tour</a>
+      </div>
+
+      <ul class="ticks" style="margin-top:1.6rem">
+        <li><a class="text-link" href={u('/pricing/')}>How pricing works</a></li>
+        <li><a class="text-link" href={u('/results/')}>Real properties we operate</a></li>
+        <li><a class="text-link" href={`mailto:${business.ownerEmail}`} data-track="owner_email_click">Prefer to email? {business.ownerEmail}</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <OwnerCTA />
+
+  <style>
+    .video-frame { position: relative; aspect-ratio: 16 / 9; margin-top: 1.6rem; border-radius: var(--r-lg); overflow: hidden; background: var(--peach); border: 1px solid #fff; box-shadow: var(--shadow-deep); }
+    .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+    .scenarios { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: 1.1rem; }
+    .scenarios > li { position: relative; padding-top: 2.8rem; }
+    .scenarios > li > h3 { font-size: 1.12rem; line-height: 1.4; margin: 0 0 .9rem; }
+    .scenarios > li > ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .55rem; }
+    .scenarios > li > ul > li { display: grid; grid-template-columns: auto 1fr; gap: .7rem; align-items: start; }
+
+    .scenario-n {
+      position: absolute; top: 1.2rem; left: 1.4rem;
+      width: 1.9rem; height: 1.9rem; border-radius: 50%;
+      display: grid; place-items: center;
+      background: var(--olive, #656134); color: #fff;
+      font-size: .8rem; font-weight: 700;
+    }
+
+    .opt {
+      display: grid; place-items: center;
+      width: 1.5rem; height: 1.5rem; border-radius: 6px;
+      background: var(--peach, #f4efe2); color: var(--night, #2d2b1a);
+      font-size: .76rem; font-weight: 700; margin-top: .1rem;
+    }
+    .opt.lg { width: 1.9rem; height: 1.9rem; font-size: .85rem; }
+
+    .key-block { margin-top: 2.2rem; padding: 1.6rem 1.7rem; border-radius: var(--r-lg); background: #fff; box-shadow: var(--shadow-deep); }
+    .key-block > h3 { margin: 0; font-size: 1.25rem; }
+    .key-row { display: grid; grid-template-columns: auto 1fr; gap: .9rem; align-items: start; margin-top: 1.1rem; }
+    .key-row p { margin: .25rem 0 0; }
+
+    .team-grid { margin-top: 1.6rem; }
+    .team-cell { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .6rem; padding: 1.4rem 1rem; }
+    .team-cell > span:last-child { font-weight: 600; }
+
+    @media (max-width: 560px) {
+      .key-block { padding: 1.2rem 1.1rem; }
+    }
+  </style>
+</BaseLayout>

@@ -64,7 +64,11 @@ export const redirects: Redirect[] = [
   { from: '/property/legislation-4br/', to: '/stays/' },
 
   // Renamed at Megan's request (2026-10-01): "service video" rather than "training video".
-  { from: '/training-video/', to: '/service-video/' },
+  { from: '/training-video/', to: '/service-details/' },
+
+  // Renamed at Megan's request (2026-11-10): the page now covers the whole
+  // service, with the video at the end, so "service video" undersold it.
+  { from: '/service-video/', to: '/service-details/' },
 
   // Megan's standing link for owner leads (2026-11-08). It never had a page here,
   // so it had been 404ing; owner sign-up lives on its own subdomain.

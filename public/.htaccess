@@ -12,6 +12,10 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 # Megan's standing link for owner leads. Matches /owners and /owners/.
 RewriteRule ^owners/?$ https://owners.hostedhavens.co/ [R=301,L]
 
+# Renamed 2026-11-10: the page now covers the whole service.
+RewriteRule ^service-video/?$ /service-details/ [R=301,L]
+RewriteRule ^training-video/?$ /service-details/ [R=301,L]
+
 # ─── 301 Redirects (WordPress -> Astro) ──────────────────────
 
 # Pages

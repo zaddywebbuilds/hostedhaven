@@ -32,7 +32,7 @@ export const links = {
   // new leads after their tour and asked that it not be published.
   ownerCheckIn: 'https://calendly.com/hostedhavensco/owner-check-in',
   calendlyIntakeMeeting: 'https://calendly.com/hostedhavens/co-hosting-intake',
-  serviceVideo: '/service-video/',
+  serviceVideo: '/service-details/',
   guestLounge: 'https://www.facebook.com/groups/hostedhavensguestlounge',
   airbnbProfile: 'https://www.airbnb.com/p/hostedhavensco',
   ownerSignIn: 'https://hostedhavens.co/sign-in',
