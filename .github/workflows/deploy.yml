@@ -60,6 +60,9 @@ jobs:
           } > upload.lftp
           echo "Uploading $(grep -c '^put' upload.lftp) root files and $(grep -c '^mirror' upload.lftp) directories"
           lftp -f upload.lftp | tee deploy.log
+          # lftp logs "Removing old file" both for a file it is replacing and for
+          # one it is deleting outright, so this count is not a deletion count.
+          # To see genuine orphans, run the same mirror with --dry-run: that
+          # transfers nothing, so anything it reports really is only on the server.
           echo "=============================================="
-          echo "Removed from the server this run:"
-          grep -E '^(rm|rmdir) ' deploy.log | sed 's#sftp://[^/]*##' || echo "  nothing"
+          echo "Files removed or replaced this run: $(grep -c 'Removing old' deploy.log || true)"
