@@ -5,6 +5,9 @@ on:
   push:
     branches: [main]
 
+env:
+  REMOTE: /home/u513808149/domains/hostedhavens.co/public_html
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -19,13 +22,63 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-        with:
-          server: ${{ secrets.SFTP_HOST }}
-          port: ${{ secrets.SFTP_PORT }}
-          username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASS }}
-          local_path: ./dist/*
-          remote_path: /home/u513808149/domains/hostedhavens.co/public_html
-          sftp_only: true
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      # The old SFTP action uploaded ./dist/* and never removed anything, which
+      # left two problems: a deleted property kept serving its old page forever,
+      # and dotfiles were skipped, so .htaccess on the server was whatever was
+      # put there first and never changed again.
+      #
+      # Root level is upload-only on purpose. The previous WordPress install
+      # still lives in this same folder, and deleting there would take it out.
+      # Each subdirectory is Astro's own, so those are safe to mirror exactly.
+      - name: Upload (root files, then each directory)
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_PORT: ${{ secrets.SFTP_PORT }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          LFTP_PASSWORD: ${{ secrets.SFTP_PASS }}
+        run: |
+          set -euo pipefail
+          {
+            echo 'set sftp:auto-confirm yes'
+            echo 'set net:max-retries 3'
+            echo 'set net:timeout 20'
+            echo "open -u \"$SFTP_USER\" --env-password sftp://$SFTP_HOST:$SFTP_PORT"
+            for f in dist/.* dist/*; do
+              [ -f "$f" ] || continue
+              echo "put -O \"$REMOTE\" \"$f\""
+            done
+            for d in dist/*/; do
+              echo "mirror -R --no-perms --verbose \"$d\" \"$REMOTE/$(basename "$d")\""
+            done
+            echo 'bye'
+          } > upload.lftp
+          echo "Uploading $(grep -c '^put' upload.lftp) root files and $(grep -c '^mirror' upload.lftp) directories"
+          lftp -f upload.lftp
+
+      # Reports what a mirror with deletion would remove, without removing it.
+      # Read this before turning deletion on for real.
+      - name: Report stale remote files (dry run, deletes nothing)
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_PORT: ${{ secrets.SFTP_PORT }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          LFTP_PASSWORD: ${{ secrets.SFTP_PASS }}
+        run: |
+          set -euo pipefail
+          {
+            echo 'set sftp:auto-confirm yes'
+            echo "open -u \"$SFTP_USER\" --env-password sftp://$SFTP_HOST:$SFTP_PORT"
+            for d in dist/*/; do
+              echo "mirror -R --delete --dry-run --verbose \"$d\" \"$REMOTE/$(basename "$d")\""
+            done
+            echo 'bye'
+          } > dryrun.lftp
+          lftp -f dryrun.lftp | grep -E '^(rm|rmdir) ' | sort > would-delete.txt || true
+          COUNT=$(wc -l < would-delete.txt)
+          echo "=============================================="
+          echo "Files a real --delete run would remove: $COUNT"
+          echo "=============================================="
+          cat would-delete.txt
