@@ -4,9 +4,11 @@ import InteriorHero from '../components/InteriorHero.astro';
 import Icon from '../components/Icon.astro';
 import OwnerCTA from '../components/OwnerCTA.astro';
 import { u } from '../lib/url';
-import { links, business } from '../data/business';
+import { links } from '../data/business';
+import { coverImage } from '../lib/images';
 
 const videoId = 'ualldyV06lc';
+const heroImg = coverImage('the-harding-place');
 const path = '/service-details/';
 const crumbs = [
   { name: 'Home', path: '/' },
@@ -110,7 +112,10 @@ const team = [
     title="Your Property. <em>Our Priority.</em>"
     lead="A truly hands-off approach to short-term rental ownership."
     crumbs={crumbs}
-    primary={{ label: 'Get a Free Property Analysis', href: '/property-intake/', track: 'owner_analysis_start' }}
+    image={heroImg}
+    imageAlt="A Hosted Havens managed rental in San Antonio"
+    primary={{ label: 'Book a Property Analysis Tour', href: links.calendlyAnalysisTour, track: 'calendly_click' }}
+    secondary={{ label: 'Submit Your Property Details', href: '/property-intake/', track: 'owner_analysis_start' }}
   />
 
   <section class="section-tight">
@@ -139,13 +144,12 @@ const team = [
     <div class="container">
       <div class="section-head reveal"><span class="eyebrow">A quick self-check</span><h2>Partnership <em>compatibility</em></h2></div>
       <div class="narrow">
-        <p>Every homeowner has a different approach to managing their investment. Consider the following scenarios and choose the response that most closely reflects your preferences. There are no wrong answers, just different management styles.</p>
-        <p class="notice">Nothing here is submitted or recorded. Note the letter you lean towards in each scenario, then read the key underneath.</p>
+        <p class="selfcheck-intro">Every homeowner has a different approach to managing their investment. Consider the following scenarios and choose the response that most closely reflects your preferences. There are no wrong answers, just different management styles.</p>
       </div>
 
-      <ol class="scenarios">
+      <div class="scenarios">
         {scenarios.map((s, i) => (
-          <li class="card3d reveal">
+          <article class="card3d reveal">
             <span class="scenario-n">{i + 1}</span>
             <h3>{s.q}</h3>
             <ul>
@@ -153,19 +157,19 @@ const team = [
               <li><span class="opt">B</span><span>{s.b}</span></li>
               <li><span class="opt">C</span><span>{s.c}</span></li>
             </ul>
-          </li>
+          </article>
         ))}
-      </ol>
 
-      <div class="narrow key-block">
-        <h3>Your partnership style</h3>
-        <p class="small muted">Count how many A, B and C answers you leaned towards.</p>
-        {outcomes.map((o) => (
-          <div class="key-row">
-            <span class="opt lg">{o.letter}</span>
-            <div><strong>{o.title}</strong><p>{o.text}</p></div>
-          </div>
-        ))}
+        <div class="key-block reveal">
+          <h3>Your partnership style</h3>
+          <p class="small muted">Count how many A, B and C answers you leaned towards.</p>
+          {outcomes.map((o) => (
+            <div class="key-row">
+              <span class="opt lg">{o.letter}</span>
+              <div><strong>{o.title}</strong><p>{o.text}</p></div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -189,11 +193,11 @@ const team = [
     <div class="container">
       <div class="section-head reveal"><span class="eyebrow">The team behind your property</span><h2>One dedicated team. <em>Coordinated around your property.</em></h2></div>
       <div class="narrow"><p class="center">Hosted Havens is a boutique management company supported by specialized professionals, established workflows, and integrated technology.</p></div>
-      <div class="grid grid-3 team-grid">
+      <div class="team-chain">
         {team.map((t) => (
-          <div class="team-cell reveal">
-            <span class="icon-box"><Icon name={t.icon} /></span>
-            <span>{t.title}</span>
+          <div class="tc-step reveal">
+            <span class="tc-dot"><Icon name={t.icon} /></span>
+            <span class="tc-title">{t.title}</span>
           </div>
         ))}
       </div>
@@ -202,7 +206,7 @@ const team = [
   </section>
 
   <section class="section">
-    <div class="container narrow">
+    <div class="container">
       <div class="section-head reveal"><span class="eyebrow">A message from Megan</span><h2>The full-service experience, <em>walked through</em></h2></div>
       <p>Now that you understand our approach to homeowner partnerships and the team behind Hosted Havens, let us take a closer look at the services we provide. Join our founder, Megan, as she walks you through the Hosted Havens full-service experience.</p>
 
@@ -216,32 +220,26 @@ const team = [
         ></iframe>
       </div>
 
-      <p class="notice" style="margin-top:1.4rem">Revenue estimates, optimization plans, and upgrade ideas cannot be provided before the property analysis tour.</p>
-
       <div class="btn-row" style="margin-top:1.6rem">
-        <a class="btn btn-primary" href={u('/property-intake/')} data-track="owner_analysis_start">Submit Your Property Details <Icon name="arrow" /></a>
-        <a class="btn btn-glass" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Book a Property Analysis Tour</a>
+        <a class="btn btn-primary" href={links.calendlyAnalysisTour} target="_blank" rel="noopener noreferrer" data-track="calendly_click">Book a Property Analysis Tour <Icon name="arrow" /></a>
+        <a class="btn btn-glass" href={u('/property-intake/')} data-track="owner_analysis_start">Submit Your Property Details</a>
       </div>
-
-      <ul class="ticks" style="margin-top:1.6rem">
-        <li><a class="text-link" href={u('/pricing/')}>How pricing works</a></li>
-        <li><a class="text-link" href={u('/results/')}>Real properties we operate</a></li>
-        <li><a class="text-link" href={`mailto:${business.ownerEmail}`} data-track="owner_email_click">Prefer to email? {business.ownerEmail}</a></li>
-      </ul>
     </div>
   </section>
 
-  <OwnerCTA />
+  <OwnerCTA tourFirst />
 
   <style>
     .video-frame { position: relative; aspect-ratio: 16 / 9; margin-top: 1.6rem; border-radius: var(--r-lg); overflow: hidden; background: var(--peach); border: 1px solid #fff; box-shadow: var(--shadow-deep); }
     .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
-    .scenarios { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: 1.1rem; }
-    .scenarios > li { position: relative; padding-top: 2.8rem; }
-    .scenarios > li > h3 { font-size: 1.12rem; line-height: 1.4; margin: 0 0 .9rem; }
-    .scenarios > li > ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .55rem; }
-    .scenarios > li > ul > li { display: grid; grid-template-columns: auto 1fr; gap: .7rem; align-items: start; }
+    .selfcheck-intro { color: var(--olive, #656134); font-size: clamp(1.05rem, 1.35vw, 1.22rem); line-height: 1.55; }
+
+    .scenarios { margin: 2rem 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; align-items: start; }
+    .scenarios > article { position: relative; padding-top: 2.8rem; }
+    .scenarios > article > h3 { font-size: 1.05rem; line-height: 1.4; margin: 0 0 .9rem; text-wrap: pretty; }
+    .scenarios > article > ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .55rem; }
+    .scenarios > article > ul > li { display: grid; grid-template-columns: auto 1fr; gap: .7rem; align-items: start; font-size: .92rem; line-height: 1.5; }
 
     .scenario-n {
       position: absolute; top: 1.2rem; left: 1.4rem;
@@ -259,17 +257,32 @@ const team = [
     }
     .opt.lg { width: 1.9rem; height: 1.9rem; font-size: .85rem; }
 
-    .key-block { margin-top: 2.2rem; padding: 1.6rem 1.7rem; border-radius: var(--r-lg); background: #fff; box-shadow: var(--shadow-deep); }
-    .key-block > h3 { margin: 0; font-size: 1.25rem; }
+    .key-block { padding: 1.5rem 1.6rem; border-radius: var(--r-lg); background: #fff; box-shadow: var(--shadow-deep); }
+    .key-block > h3 { margin: 0; font-size: 1.15rem; }
     .key-row { display: grid; grid-template-columns: auto 1fr; gap: .9rem; align-items: start; margin-top: 1.1rem; }
-    .key-row p { margin: .25rem 0 0; }
+    .key-row p { margin: .25rem 0 0; font-size: .9rem; line-height: 1.5; }
+    .key-row strong { font-size: .95rem; }
 
-    .team-grid { margin-top: 1.6rem; }
-    .team-cell { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .6rem; padding: 1.4rem 1rem; }
-    .team-cell > span:last-child { font-weight: 600; }
+    .team-chain { --tc: 64px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .8rem; position: relative; margin-top: 1.8rem; }
+    .team-chain::before { content: ''; position: absolute; top: calc(var(--tc) / 2 - 1px); left: 8%; right: 8%; height: 2px; background: linear-gradient(90deg, var(--coral), var(--gold), var(--sage)); opacity: .5; }
+    .tc-step { position: relative; text-align: center; padding: 0 .2rem; }
+    .tc-dot { width: var(--tc); height: var(--tc); margin: 0 auto .75rem; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(145deg, #fff, var(--pink-soft)); border: 1px solid #FDFBF9; box-shadow: 0 12px 30px rgba(192, 87, 59, .22), inset 0 1px 0 #fff; color: var(--coral-deep); position: relative; z-index: 1; }
+    .tc-dot svg { width: 26px; height: 26px; }
+    .tc-title { display: block; font-weight: 600; font-size: .9rem; line-height: 1.3; text-wrap: balance; }
 
+    @media (max-width: 1024px) {
+      .scenarios { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 900px) {
+      .team-chain { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 1.6rem; --tc: 58px; }
+      .team-chain::before { display: none; }
+    }
+    @media (max-width: 680px) {
+      .scenarios { grid-template-columns: 1fr; }
+    }
     @media (max-width: 560px) {
       .key-block { padding: 1.2rem 1.1rem; }
+      .team-chain { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
   </style>
 </BaseLayout>
