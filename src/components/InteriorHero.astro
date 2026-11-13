@@ -38,6 +38,7 @@ const hasWidget = Astro.slots.has('widget');
         <span class="eyebrow">{eyebrow}</span>
         <h1 class="h1-interior" set:html={title} />
         <p class="lead">{lead}</p>
+        <slot name="intro" />
         {(primary || secondary) && (
           <div class="btn-row">
             {primary && <a class="btn btn-primary" href={u(primary.href)} data-track={primary.track}>{primary.label} <Icon name="arrow" /></a>}
