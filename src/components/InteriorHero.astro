@@ -8,7 +8,7 @@ interface Crumb { name: string; path: string }
 interface Props {
   eyebrow: string;
   title: string;
-  lead: string;
+  lead?: string;
   crumbs?: Crumb[];
   image?: ImgEntry;
   imageAlt?: string;
@@ -37,7 +37,7 @@ const hasWidget = Astro.slots.has('widget');
         )}
         <span class="eyebrow">{eyebrow}</span>
         <h1 class="h1-interior" set:html={title} />
-        <p class="lead">{lead}</p>
+        {lead && <p class="lead">{lead}</p>}
         <slot name="intro" />
         {(primary || secondary) && (
           <div class="btn-row">
